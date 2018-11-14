@@ -12,6 +12,7 @@
     "gatsby": "^2.0.33",
     "gatsby-plugin-layout": "^1.0.8",
     "gatsby-plugin-netlify-cms": "^3.0.7",
+    "gatsby-plugin-netlify-identity-widget": "^1.1.1",
     "netlify-cms": "^2.2.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
