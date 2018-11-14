@@ -13,7 +13,7 @@ export default function AppointmentArea() {
                             Exercitation cupim ex, short ribs cow in ullamco corned beef veniam kevin. Eu frankfurter ham hock ball tip reprehenderit adipisicing ipsum
 							</div>
 
-                        <form className="contact-form row columns_margin_bottom_40 topmargin_60" method="post" action="./">
+                        <form className="contact-form row columns_margin_bottom_40 topmargin_60" method="post">
 
 
                             <div className="col-sm-6">
