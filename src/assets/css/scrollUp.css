@@ -1,0 +1,22 @@
+/*  29. Scrollup
+/*----------------------------------------*/
+
+#scrollUp {
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+    bottom: 45px;
+    color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-size: 28px;
+    height: 45px;
+    line-height: 40px;
+    position: fixed;
+    right: 12px;
+    text-align: center;
+    width: 45px;
+    z-index: 9999;
+}
+
+#scrollUp:hover {
+    background-color: #000;
+}
