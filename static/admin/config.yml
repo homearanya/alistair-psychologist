@@ -17,3 +17,34 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+
+  - name: "general"
+    label: "General"
+    files:
+      - file: "src/general/contact.md"
+        label: "Contact Details"
+        name: "contact"
+        fields:
+          - label: "Contact Details"
+            name: contact-details
+            widget: object
+            fields:
+              - { label: Email Address, name: email, widget: string }
+              - label: Phone Number
+                name: phone
+                widget: object
+                fields:
+                  - {
+                      label: Display,
+                      name: phonedisplay,
+                      widget: string,
+                      hint: "Example: 033 330 6121",
+                    }
+                  - {
+                      label: Number,
+                      name: phonenumber,
+                      widget: string,
+                      hint: "Example: +27333306121",
+                    }
+    editor:
+      preview: false
