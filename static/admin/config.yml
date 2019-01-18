@@ -29,7 +29,6 @@ collections:
             name: contact-details
             widget: object
             fields:
-              - { label: Email Address, name: email, widget: string }
               - label: Phone Number
                 name: phone
                 widget: object
@@ -46,5 +45,7 @@ collections:
                       widget: string,
                       hint: "Example: +27333306121",
                     }
+              - { label: Physical Address, name: address, widget: string }
+              - { label: Email Address, name: email, widget: string }
     editor:
       preview: false
