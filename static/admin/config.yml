@@ -4,8 +4,9 @@ backend:
     - admin
     - editor
 
-media_folder: static/assets
-public_folder: assets
+media_folder: static/img
+public_folder: /img
+publish_mode: editorial_workflow
 
 collections:
   - name: blog
@@ -26,7 +27,7 @@ collections:
         name: "contact"
         fields:
           - label: "Contact Details"
-            name: contact-details
+            name: contact_details
             widget: object
             fields:
               - label: Phone Number

@@ -8,56 +8,10 @@ import "../assets/css/main.css";
 import "../assets/css/main.css";
 import "../assets/css/scrollUp.css";
 
+import { HeaderTop } from "./HeaderTop";
 import Header from "./Header";
 import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
-
-const HeaderTop = props => {
-  return (
-    <section className="page_topline cs table_section table_section_md columns_padding_0">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-6 text-center divided_content">
-            <div>
-              <div className="media small-teaser">
-                <div className="media-left">
-                  <i className="fa fa-user highlight fontsize_16" />
-                </div>
-                <div className="media-body">0 (800) 337 25 25</div>
-              </div>
-            </div>
-
-            <div>
-              <div className="media small-teaser">
-                <div className="media-left">
-                  <i className="fa fa-map-marker highlight fontsize_16" />
-                </div>
-                <div className="media-body">
-                  350 Leverton Cove Road Springfield, MA
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="media small-teaser">
-                <div className="media-left">
-                  <i className="fa fa-envelope highlight fontsize_16" />
-                </div>
-                <div className="media-body">support@psychologist.com</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-3 text-center text-md-right bottommargin_0">
-            <a href="#appointment" className="theme_button color1 margin_0">
-              Make an appointment
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 export default function Layout({ children }) {
   return (
@@ -109,20 +63,20 @@ export default function Layout({ children }) {
         id="messages_modal"
       >
         <div className="fw-messages-wrap ls with_padding" />
-      </div>
+      </div> */}
 
       <div id="canvas">
-        <div id="box_wrapper"> */}
-      <HeaderTop />
-      <Header />
-      {children}
-      <Footer />
-      <FooterBottom />
-      <ScrollToTop style={{ position: "static" }} showUnder={160}>
-        <i id="scrollUp" className="fa fa-angle-up" />
-      </ScrollToTop>
-      {/* </div>
-      </div> */}
+        <div id="box_wrapper">
+          <HeaderTop />
+          <Header />
+          {children}
+          <Footer />
+          <FooterBottom />
+          <ScrollToTop style={{ position: "static" }} showUnder={160}>
+            <i id="scrollUp" className="fa fa-angle-up" />
+          </ScrollToTop>
+        </div>
+      </div>
     </div>
   );
 }
