@@ -9005,8 +9005,8 @@ body.active-side-header.slide-right .page_header_side {
     }
 }
 
-@media (max-width: 767px) {
-    .toggler-xs-right .toggle_menu {
+@media (max-width: 991px) {
+    .toggler-sm-right .toggle_menu {
         right: 0;
         left: auto;
     }

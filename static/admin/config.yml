@@ -48,5 +48,10 @@ collections:
                     }
               - { label: Physical Address, name: address, widget: string }
               - { label: Email Address, name: email, widget: string }
+      - file: "src/general/social.md"
+        label: "Social Media"
+        name: "social"
+        fields:
+          - { label: Facebook Page Url, name: facebook, widget: string }
     editor:
       preview: false

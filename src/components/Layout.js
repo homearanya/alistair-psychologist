@@ -8,7 +8,7 @@ import "../assets/css/main.css";
 import "../assets/css/main.css";
 import "../assets/css/scrollUp.css";
 
-import { HeaderTop } from "./HeaderTop";
+import HeaderTop from "./HeaderTop";
 import Header from "./Header";
 import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
