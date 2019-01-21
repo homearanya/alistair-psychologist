@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-export default function MenuDesktop() {
+export default function Menu() {
   return (
     <div className="col-md-6 text-center">
       <nav className="mainmenu_wrapper">
@@ -38,6 +38,9 @@ export default function MenuDesktop() {
           </li>
         </ul>
       </nav>
+      {/* <span className="toggle_menu hidden-xs hidden-sm">
+        <span />
+      </span> */}
     </div>
   );
 }
