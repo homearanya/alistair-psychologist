@@ -9,15 +9,30 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: articles
+    label: Articles
+    label_singular: Article
+    folder: "src/pages/blog/posts"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "article",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "date",
+          dateFormat: "YYYY-MM-DD",
+        }
+      # format: "DD MM YYYY",
+      - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
 
   - name: "pages"
     label: "Pages"
