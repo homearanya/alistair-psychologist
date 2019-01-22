@@ -76,35 +76,35 @@ collections:
                       widget: text,
                       hint: "Please inform. Important for SEO",
                     }
-          # - label: "Services Area"
-          #   name: servicesArea
-          #   widget: object
-          #   fields:
-          #     - { label: Heading, name: heading, widget: string }
-          #     - { label: Blurb, name: blurb, widget: text }
-          #     - label: "Services"
-          #       label_singular: "Service"
-          #       name: services
-          #       widget: list
-          #       fields:
-          #         - label: Service Icon
-          #           name: serviceIcon
-          #           widget: object
-          #           fields:
-          #             - {
-          #                 label: Image,
-          #                 name: image,
-          #                 widget: image,
-          #                 hint: "size 80 x 90",
-          #               }
-          #             - {
-          #                 label: Title,
-          #                 name: alt,
-          #                 widget: text,
-          #                 hint: "Please inform. Important for SEO",
-          #               }
-          #         - { label: Heading, name: heading, widget: string }
-          #         - { label: Blurb, name: blurb, widget: text }
+          - label: "Services Area"
+            name: servicesArea
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Blurb, name: blurb, widget: text }
+              - label: "Services"
+                label_singular: "Service"
+                name: services
+                widget: list
+                fields:
+                  - label: Service Icon
+                    name: serviceIcon
+                    widget: object
+                    fields:
+                      - {
+                          label: Image,
+                          name: image,
+                          widget: image,
+                          hint: "size 80 x 90",
+                        }
+                      - {
+                          label: Title,
+                          name: alt,
+                          widget: text,
+                          hint: "Please inform. Important for SEO",
+                        }
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Blurb, name: blurb, widget: text }
           # - label: "About Me Area"
           #   name: aboutMeArea
           #   widget: object
