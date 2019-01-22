@@ -76,89 +76,89 @@ collections:
                       widget: text,
                       hint: "Please inform. Important for SEO",
                     }
-          - label: "Services Area"
-            name: servicesArea
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Blurb, name: blurb, widget: text }
-              - label: "Services"
-                label_singular: "Service"
-                name: services
-                widget: list
-                fields:
-                  - label: Service Icon
-                    name: serviceIcon
-                    widget: object
-                    fields:
-                      - {
-                          label: Image,
-                          name: image,
-                          widget: image,
-                          hint: "size 80 x 90",
-                        }
-                      - {
-                          label: Title,
-                          name: alt,
-                          widget: text,
-                          hint: "Please inform. Important for SEO",
-                        }
-                  - { label: Heading, name: heading, widget: string }
-                  - { label: Blurb, name: blurb, widget: text }
-          - label: "About Me Area"
-            name: aboutMeArea
-            widget: object
-            fields:
-              - { label: Heading Line 1, name: heading1, widget: string }
-              - {
-                  label: Heading Line 2,
-                  name: heading2,
-                  widget: string,
-                  required: false,
-                }
-              - label: Blurb
-                name: blurb
-                widget: object
-                fields:
-                  - label: Paragraphs
-                    label_singular: "Paragraph"
-                    name: paragraph
-                    widget: list
-                    fields:
-                      - { label: Text, name: text, widget: text }
-              - label: "Person Picture"
-                name: personPicture
-                widget: object
-                fields:
-                  - {
-                      label: Image,
-                      name: image,
-                      widget: image,
-                      hint: "size 492 x 699",
-                    }
-                  - {
-                      label: Title,
-                      name: alt,
-                      widget: text,
-                      hint: "Please inform. Important for SEO",
-                    }
-          - label: "Articles Area"
-            name: articlesArea
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Blurb, name: blurb, widget: text }
-          - label: "Testimonials Area"
-            name: testimonialsArea
-            widget: object
-            fields:
-              - label: "Testimonials"
-                label_singular: "Testimonial"
-                name: testimonials
-                widget: list
-                fields:
-                  - { label: Quote, name: Quote, widget: text }
-                  - { label: Author, name: author, widget: String }
+          # - label: "Services Area"
+          #   name: servicesArea
+          #   widget: object
+          #   fields:
+          #     - { label: Heading, name: heading, widget: string }
+          #     - { label: Blurb, name: blurb, widget: text }
+          #     - label: "Services"
+          #       label_singular: "Service"
+          #       name: services
+          #       widget: list
+          #       fields:
+          #         - label: Service Icon
+          #           name: serviceIcon
+          #           widget: object
+          #           fields:
+          #             - {
+          #                 label: Image,
+          #                 name: image,
+          #                 widget: image,
+          #                 hint: "size 80 x 90",
+          #               }
+          #             - {
+          #                 label: Title,
+          #                 name: alt,
+          #                 widget: text,
+          #                 hint: "Please inform. Important for SEO",
+          #               }
+          #         - { label: Heading, name: heading, widget: string }
+          #         - { label: Blurb, name: blurb, widget: text }
+          # - label: "About Me Area"
+          #   name: aboutMeArea
+          #   widget: object
+          #   fields:
+          #     - { label: Heading Line 1, name: heading1, widget: string }
+          #     - {
+          #         label: Heading Line 2,
+          #         name: heading2,
+          #         widget: string,
+          #         required: false,
+          #       }
+          #     - label: Blurb
+          #       name: blurb
+          #       widget: object
+          #       fields:
+          #         - label: Paragraphs
+          #           label_singular: "Paragraph"
+          #           name: paragraph
+          #           widget: list
+          #           fields:
+          #             - { label: Text, name: text, widget: text }
+          #     - label: "Person Picture"
+          #       name: personPicture
+          #       widget: object
+          #       fields:
+          #         - {
+          #             label: Image,
+          #             name: image,
+          #             widget: image,
+          #             hint: "size 492 x 699",
+          #           }
+          #         - {
+          #             label: Title,
+          #             name: alt,
+          #             widget: text,
+          #             hint: "Please inform. Important for SEO",
+          #           }
+          # - label: "Articles Area"
+          #   name: articlesArea
+          #   widget: object
+          #   fields:
+          #     - { label: Heading, name: heading, widget: string }
+          #     - { label: Blurb, name: blurb, widget: text }
+          # - label: "Testimonials Area"
+          #   name: testimonialsArea
+          #   widget: object
+          #   fields:
+          #     - label: "Testimonials"
+          #       label_singular: "Testimonial"
+          #       name: testimonials
+          #       widget: list
+          #       fields:
+          #         - { label: Quote, name: Quote, widget: text }
+          #         - { label: Author, name: author, widget: String }
     editor:
       preview: false
 
