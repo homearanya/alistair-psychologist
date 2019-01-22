@@ -158,7 +158,7 @@ collections:
                 widget: list
                 fields:
                   - { label: Quote, name: Quote, widget: text }
-                  - { label: Author, name: author, widget: String }
+                  - { label: Author, name: author, widget: string }
     editor:
       preview: false
 

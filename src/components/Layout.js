@@ -70,7 +70,7 @@ export default function Layout({ children }) {
           <HeaderTop />
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
           <FooterBottom />
           <ScrollToTop style={{ position: "static" }} showUnder={160}>
             <i id="scrollUp" className="fa fa-angle-up" />
