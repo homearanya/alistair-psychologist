@@ -142,6 +142,12 @@ collections:
                       widget: text,
                       hint: "Please inform. Important for SEO",
                     }
+          - label: "Articles Area"
+            name: articlesArea
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Blurb, name: blurb, widget: text }
           - label: "Testimonials Area"
             name: testimonialsArea
             widget: object
