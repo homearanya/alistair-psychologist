@@ -19,6 +19,49 @@ collections:
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
 
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/index.md"
+        label: "Home Page"
+        name: "homepage"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "home-page",
+            }
+          - label: Slider
+            label_singular: Slide
+            name: slider
+            widget: list
+            fields:
+              - { label: Heading Line 1, name: heading1, widget: string }
+              - {
+                  label: Heading Line 2,
+                  name: heading2,
+                  widget: string,
+                  required: false,
+                }
+              - { label: Subheading, name: subheading, widget: string }
+              - label: Image
+                name: image
+                widget: object
+                fields:
+                  - {
+                      label: Image,
+                      name: image,
+                      widget: image,
+                      hint: "size 1920 x 850",
+                    }
+                  - {
+                      label: Title,
+                      name: alt,
+                      widget: text,
+                      hint: "Please inform. Important for SEO",
+                    }
+
   - name: "general"
     label: "General"
     files:

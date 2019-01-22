@@ -38,9 +38,6 @@ export default function Menu() {
           </li>
         </ul>
       </nav>
-      {/* <span className="toggle_menu hidden-xs hidden-sm">
-        <span />
-      </span> */}
     </div>
   );
 }

@@ -1,9 +1,17 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
 import Menu from "./Menu";
 import Social from "./Social";
 
 import "../assets/css/header.css";
+
+import logo from "../assets/images/logo.png";
+
+const Logo = styled.div`
+  height: 80px;
+  width: auto;
+`;
 
 export default class Header extends Component {
   constructor(props) {
@@ -32,7 +40,9 @@ export default class Header extends Component {
           <div className="row">
             <div className="col-md-3">
               <a href="./" className="logo">
-                Psychologist
+                <Logo>
+                  <img src={logo} alt={logo} />
+                </Logo>
               </a>
               <span className={menuTogleClassName} onClick={this.togleMenu}>
                 <span />
