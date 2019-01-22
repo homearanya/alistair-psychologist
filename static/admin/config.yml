@@ -65,6 +65,17 @@ collections:
   - name: "general"
     label: "General"
     files:
+      - file: "src/general/logo.md"
+        label: "Logo"
+        name: "logo"
+        fields:
+          - { label: Image, name: image, widget: image }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
       - file: "src/general/contact.md"
         label: "Contact Details"
         name: "contact"
