@@ -37,7 +37,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/index.md"
+      - file: "src/pages/home-page.md"
         label: "Home Page"
         name: "homepage"
         fields:
@@ -126,7 +126,7 @@ collections:
                     widget: list
                     fields:
                       - { label: Text, name: text, widget: text }
-              - label: "Person's Picture"
+              - label: "Person Picture"
                 name: personPicture
                 widget: object
                 fields:
@@ -159,6 +159,8 @@ collections:
                 fields:
                   - { label: Quote, name: Quote, widget: text }
                   - { label: Author, name: author, widget: String }
+    editor:
+      preview: false
 
   - name: "general"
     label: "General"
