@@ -126,39 +126,39 @@ collections:
               #       widget: list
               #       fields:
               #         - { label: Text, name: text, widget: text }
-              # - label: "Person Picture"
-              #   name: personPicture
-              #   widget: object
-              #   fields:
-              #     - {
-              #         label: Image,
-              #         name: image,
-              #         widget: image,
-              #         hint: "size 492 x 699",
-              #       }
-              #     - {
-              #         label: Title,
-              #         name: alt,
-              #         widget: text,
-              #         hint: "Please inform. Important for SEO",
-              #       }
-          # - label: "Articles Area"
-          #   name: articlesArea
-          #   widget: object
-          #   fields:
-          #     - { label: Heading, name: heading, widget: string }
-          #     - { label: Blurb, name: blurb, widget: text }
-          # - label: "Testimonials Area"
-          #   name: testimonialsArea
-          #   widget: object
-          #   fields:
-          #     - label: "Testimonials"
-          #       label_singular: "Testimonial"
-          #       name: testimonials
-          #       widget: list
-          #       fields:
-          #         - { label: Quote, name: Quote, widget: text }
-          #         - { label: Author, name: author, widget: String }
+              - label: "Person Picture"
+                name: personPicture
+                widget: object
+                fields:
+                  - {
+                      label: Image,
+                      name: image,
+                      widget: image,
+                      hint: "size 492 x 699",
+                    }
+                  - {
+                      label: Title,
+                      name: alt,
+                      widget: text,
+                      hint: "Please inform. Important for SEO",
+                    }
+          - label: "Articles Area"
+            name: articlesArea
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Blurb, name: blurb, widget: text }
+          - label: "Testimonials Area"
+            name: testimonialsArea
+            widget: object
+            fields:
+              - label: "Testimonials"
+                label_singular: "Testimonial"
+                name: testimonials
+                widget: list
+                fields:
+                  - { label: Quote, name: Quote, widget: text }
+                  - { label: Author, name: author, widget: String }
     editor:
       preview: false
 
