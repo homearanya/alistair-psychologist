@@ -116,16 +116,16 @@ collections:
                   widget: string,
                   required: false,
                 }
-              # - label: Blurb
-              #   name: blurb
-              #   widget: object
-              #   fields:
-              #     - label: Paragraphs
-              #       label_singular: "Paragraph"
-              #       name: paragraph
-              #       widget: list
-              #       fields:
-              #         - { label: Text, name: text, widget: text }
+              - label: Blurb
+                name: blurb
+                widget: object
+                fields:
+                  - label: Paragraphs
+                    label_singular: "Paragraph"
+                    name: paragraph
+                    widget: list
+                    fields:
+                      - { label: Text, name: text, widget: text }
               - label: "Person Picture"
                 name: personPicture
                 widget: object
