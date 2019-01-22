@@ -62,5 +62,15 @@ testimonialsArea:
         I consider myself privileged to have been able to work with Alistair. He
         has helped me through some incredibly difficult and stressful situations
         – both work- and family-related
+      author: 'Psychotherapy client, 2015'
+    - Quote: >-
+        I have been on medication for many years for anxiety attacks… This is
+        the first life skill I have found to help me cope without medication.
+      author: Course participant with panic disorder
+    - Quote: >-
+        I have benefited so much more than I could ever have imagined or dreamt
+        of. I have better interactions… and also my relationships have improved
+        with all my family members.
+      author: 'Course participant, 2015'
 ---
 
