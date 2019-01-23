@@ -18,7 +18,6 @@
     "gatsby-plugin-netlify-identity-widget": "^1.1.1",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-styled-components": "^3.0.4",
-    "gatsby-plugin-typography": "^2.2.5",
     "gatsby-remark-images": "^3.0.1",
     "gatsby-source-filesystem": "^2.0.16",
     "gatsby-transformer-remark": "^2.2.0",
@@ -28,9 +27,7 @@
     "react-dom": "^16.7.0",
     "react-scroll-up": "^1.3.3",
     "react-slick": "^0.23.2",
-    "react-typography": "^0.16.18",
-    "styled-components": "^4.1.3",
-    "typography": "^0.16.18",
-    "typography-theme-alton": "^0.16.18"
+    "react-sticky-el": "^1.0.20",
+    "styled-components": "^4.1.3"
   }
 }

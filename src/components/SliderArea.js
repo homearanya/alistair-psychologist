@@ -22,7 +22,19 @@ export default function SliderArea(props) {
   return (
     <section className="intro_section page_mainslider ds">
       <Slider {...settings}>
-        <Slide />
+        {props.slider.map((slide, index) => {
+          return (
+            <Slide
+              key={index}
+              imageFluid={slide.image.image.childImageSharp.fluid}
+              imageAlt={slide.image.alt}
+              imageTitle={slide.heading1 + " " + slide.heading2}
+              heading1={slide.heading1}
+              heading2={slide.heading2}
+              subheading={slide.subheading}
+            />
+          );
+        })}
       </Slider>
     </section>
   );

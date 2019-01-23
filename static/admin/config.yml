@@ -176,7 +176,7 @@ collections:
               widget: text,
               hint: "Please inform. Important for SEO",
             }
-      - file: "src/general/contact.md"
+      - file: "src/general/contact-details.md"
         label: "Contact Details"
         name: "contact"
         fields:

@@ -6,7 +6,7 @@ import blog_post1 from "../assets/images/blog_post1.jpg";
 import blog_post2 from "../assets/images/blog_post2.jpg";
 import blog_post3 from "../assets/images/blog_post3.jpg";
 
-export default function BlogArea() {
+export default function ArticlesArea() {
   return (
     <section className="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
       <div className="container">

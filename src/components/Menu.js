@@ -13,7 +13,7 @@ export default function Menu() {
           </li>
           <li>
             <Link to="/about/" activeClassName="active">
-              About
+              About Me
             </Link>
           </li>
           <li>

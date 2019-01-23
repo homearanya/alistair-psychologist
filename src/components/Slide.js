@@ -1,11 +1,14 @@
 import React from "react";
+import Img from "gatsby-image";
 
-import slide01 from "../assets/images/alistair-mork-chadwick-at-work.jpg";
-
-export default function Slide() {
+export default function Slide(props) {
   return (
     <div>
-      <img src={slide01} alt="" />
+      <Img
+        fluid={props.imageFluid}
+        alt={props.imageAlt}
+        title={props.imageTitle}
+      />
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -13,15 +16,17 @@ export default function Slide() {
               <div className="slide_description">
                 <div className="intro-layer" data-animation="fadeInRight">
                   <h3>
-                    Alistair
-                    <br />
-                    Mork-Chadwick
+                    {props.heading1}
+                    {props.heading2 && props.heading2.length > 0 ? (
+                      <React.Fragment>
+                        <br />
+                        {props.heading2}
+                      </React.Fragment>
+                    ) : null}
                   </h3>
                 </div>
                 <div className="intro-layer" data-animation="fadeInLeft">
-                  <p className="small-text grey">
-                    Counselling Psychologist in Howick
-                  </p>
+                  <p className="small-text grey">{props.subheading}</p>
                 </div>
               </div>
             </div>

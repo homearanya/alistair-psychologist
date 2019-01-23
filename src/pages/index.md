@@ -42,7 +42,7 @@ servicesArea:
         image: /img/meditation.png
 aboutMeArea:
   blurb:
-    paragraph:
+    paragraphs:
       - paragraph: >-
           I am an educator at heart and feel as passionate about individual
           therapy as I do about interacting with groups. I get great joy from
@@ -51,8 +51,9 @@ aboutMeArea:
       - paragraph: >-
           I have come to understand that optimal brain functioning is the
           foundation for vibrant emotional health, a sharp mind, and a healthy
-          life free of physical complaints.”
+          life free of physical complaints.
   heading1: WHO AM I?
+  heading2: " "
   personPicture:
     alt: Alistair Mork-Chadwick
     image: /img/alistair-mork-chadwick.png
@@ -64,16 +65,16 @@ articlesArea:
   heading: Recent Articles
 testimonialsArea:
   testimonials:
-    - Quote: >-
+    - quote: >-
         I consider myself privileged to have been able to work with Alistair. He
         has helped me through some incredibly difficult and stressful situations
         – both work- and family-related
       author: "Psychotherapy client, 2015"
-    - Quote: >-
+    - quote: >-
         I have been on medication for many years for anxiety attacks… This is
         the first life skill I have found to help me cope without medication.
       author: Course participant with panic disorder
-    - Quote: >-
+    - quote: >-
         I have benefited so much more than I could ever have imagined or dreamt
         of. I have better interactions… and also my relationships have improved
         with all my family members.
