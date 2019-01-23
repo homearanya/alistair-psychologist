@@ -8,12 +8,7 @@ slider:
       image: /img/alistair-mork-chadwick-at-work.jpg
     subheading: Counselling Psychologist in Howick
 servicesArea:
-  blurb: >-
-    I am an educator at heart and feel as passionate about individual therapy as
-    I do about interacting with groups. I get great joy from sharing my
-    knowledge and experience with community organisations, corporates and
-    schools in a way that is both accessible and inspiring. I offer all of the
-    following services.
+  blurb: I offer all of the following services.
   heading: How Can I help?
   services:
     - blurb: >-
@@ -49,16 +44,14 @@ aboutMeArea:
   blurb:
     paragraph:
       - text: >-
-          As is the case with many health professionals whose work is influenced
-          by life events, I too have embraced my personal experiences alongside
-          new research and trends during my career as a psychologist. 
+          I am an educator at heart and feel as passionate about individual
+          therapy as I do about interacting with groups. I get great joy from
+          sharing my knowledge and experience with community organisations,
+          corporates and schools in a way that is both accessible and inspiring.
       - text: >-
-          My professional life has been spent talking and listening to people
-          from all walks of life, making sense of complex information,
-          incorporating current clinical research findings into my practice, and
-          collaborating with other health professionals, all with the focused
-          intention of helping people implement lasting, positive change in
-          their lives.
+          I have come to understand that optimal brain functioning is the
+          foundation for vibrant emotional health, a sharp mind, and a healthy
+          life free of physical complaints.”
   heading1: WHO AM I?
   personPicture:
     alt: Alistair Mork-Chadwick
