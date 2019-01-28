@@ -2,6 +2,29 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
+export const contactDetailsFragment = graphql`
+  fragment ContactDetailsFragment on File {
+    childMarkdownRemark {
+      frontmatter {
+        contact_details {
+          address
+          email
+          phone {
+            phonedisplay
+            phonenumber
+          }
+        }
+      }
+    }
+  }
+`;
+
+const Wrapper = styled.div`
+  @media screen and (min-width: 992px) {
+    line-height: ${props => !props.appointmentButton && "52px"};
+  }
+`;
+
 const AElement = styled.a`
   && {
     :hover {
@@ -9,6 +32,7 @@ const AElement = styled.a`
     }
   }
 `;
+
 const IElement = styled.i`
   && {
     ${AElement}:hover & {
@@ -18,31 +42,23 @@ const IElement = styled.i`
   }
 `;
 
-export default function ContactDetails() {
+export default function ContactDetails(props) {
   return (
     <StaticQuery
       query={graphql`
-        query ContactDetailsQuery {
+        query {
           file(relativePath: { eq: "contact-details.md" }) {
-            childMarkdownRemark {
-              frontmatter {
-                contact_details {
-                  address
-                  email
-                  phone {
-                    phonedisplay
-                    phonenumber
-                  }
-                }
-              }
-            }
+            ...ContactDetailsFragment
           }
         }
       `}
       render={data => {
         const { contact_details } = data.file.childMarkdownRemark.frontmatter;
         return (
-          <div className="col-md-6 text-center divided_content">
+          <Wrapper
+            className="col-md-9 text-center divided_content"
+            appointmentButton={props.appointmentButton}
+          >
             <AElement href={`tel:${contact_details.phone.phonenumber}`}>
               <div className="media small-teaser">
                 <div className="media-left">
@@ -72,7 +88,7 @@ export default function ContactDetails() {
                 <div className="media-body">{contact_details.email}</div>
               </div>
             </AElement>
-          </div>
+          </Wrapper>
         );
       }}
     />

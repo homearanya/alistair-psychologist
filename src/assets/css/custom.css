@@ -1,6 +1,26 @@
-.slick-dots {
+/* React Slick */
+
+
+/* For home page slider */
+
+.page_mainslider .slick-dots {
     bottom: 40px;
 }
+
+
+/* For home page testimonials carousel */
+
+.page_testimonials .slick-dots {
+    top: 0px;
+    bottom: auto;
+}
+
+.page_testimonials .slick-slider {
+    padding-top: 30px;
+}
+
+
+/* generic */
 
 .slick-dots li {
     height: auto;

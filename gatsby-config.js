@@ -28,6 +28,14 @@ module.exports = {
     siteUrl: "https://alistairmork-chadwick.co.za" // for gatsby plugin sitemap
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-recaptcha`,
+      options: {
+        async: true,
+        defer: true,
+        args: `?onload=onloadCallback&render=explicit`
+      }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: "gatsby-source-filesystem",

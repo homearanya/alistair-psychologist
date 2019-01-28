@@ -34,14 +34,14 @@ const IStyled = styled.i`
   }
 `;
 
-export default function Layout({ children }) {
+export default function Layout(props) {
   return (
     <div>
       <div id="canvas">
         <div id="box_wrapper">
-          <HeaderTop />
+          <HeaderTop appointmentButton={props.appointmentButton} />
           <Header />
-          {children}
+          {props.children}
           {/* <Footer /> */}
           <FooterBottom />
           <ScrollToTop style={{ position: "static" }} showUnder={160}>

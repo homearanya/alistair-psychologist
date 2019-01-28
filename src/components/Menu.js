@@ -1,40 +1,46 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from "styled-components";
 
+const StyledLink = styled(Link)`
+  &&&.active {
+    color: #91d0cc;
+  }
+`;
 export default function Menu() {
   return (
     <div className="col-md-6 text-center">
       <nav className="mainmenu_wrapper">
         <ul className="mainmenu nav sf-menu">
           <li>
-            <Link to="/" activeClassName="active">
+            <StyledLink to="/" activeClassName="active">
               Home
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/about/" activeClassName="active">
+            <StyledLink to="/about/" activeClassName="active">
               About Me
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/services/" activeClassName="active">
+            <StyledLink to="/services/" activeClassName="active">
               Services
-            </Link>
+            </StyledLink>
           </li>
-          <li>
-            <Link to="/rates/" activeClassName="active">
+          {/* <li>
+            <StyledLink to="/rates/" activeClassName="active">
               Rates
-            </Link>
-          </li>
+            </StyledLink>
+          </li> */}
           <li>
-            <Link to="/articles/" activeClassName="active">
+            <StyledLink to="/articles/" activeClassName="active">
               Articles
-            </Link>
+            </StyledLink>
           </li>
           <li>
-            <Link to="/contact/" activeClassName="active">
+            <StyledLink to="/contact/" activeClassName="active">
               Contact
-            </Link>
+            </StyledLink>
           </li>
         </ul>
       </nav>

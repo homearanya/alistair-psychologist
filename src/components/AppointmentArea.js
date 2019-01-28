@@ -1,5 +1,7 @@
 import React from "react";
 
+import { ContactForm } from "./ContactForm";
+
 import "../assets/css/appointmentArea.css";
 
 export default function AppointmentArea() {
@@ -19,8 +21,8 @@ export default function AppointmentArea() {
               veniam kevin. Eu frankfurter ham hock ball tip reprehenderit
               adipisicing ipsum
             </div>
-
-            <form
+            <ContactForm className="contact-form row columns_margin_bottom_40 topmargin_60" />
+            {/* <form
               className="contact-form row columns_margin_bottom_40 topmargin_60"
               method="post"
             >
@@ -183,7 +185,7 @@ export default function AppointmentArea() {
                   </button>
                 </div>
               </div>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>

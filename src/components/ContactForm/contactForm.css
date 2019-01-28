@@ -1,0 +1,19 @@
+/* Contact Form response animation styles */
+
+.slideUp-enter {
+    height: 0;
+}
+
+.slideUp-enter-active {
+    height: 100%;
+    transition: all 300ms ease-in !important;
+}
+
+.slideUp-exit {
+    height: 100%;
+}
+
+.slideUp-exit-active {
+    height: 0;
+    transition: all 300ms ease-in !important;
+}

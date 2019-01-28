@@ -6885,10 +6885,13 @@ body.active-side-header.slide-right .page_header_side {
 
 .ls .theme_buttons a:hover,
 .ls .theme_buttons a:focus,
-.ls .theme_button:hover,
-.ls .theme_button:focus {
+.ls .theme_button:hover {
     background-color: #f5f5f5;
     color: #444444;
+}
+
+.ls .theme_button:focus {
+    background-color: #91d0cc;
 }
 
 .ls .theme_buttons a.color1:hover,

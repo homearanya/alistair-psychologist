@@ -21,7 +21,7 @@ export default function ServicesArea(props) {
         </div>
         <div className="row columns_padding_0 columns_margin_0 fontsize_16">
           {props.servicesArea.services.map((service, index) => (
-            <Service service={service} />
+            <Service key={index} service={service} />
           ))}
         </div>
       </div>

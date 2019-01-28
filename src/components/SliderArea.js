@@ -5,7 +5,6 @@ import Slide from "./Slide";
 
 import "../assets/css/slick-theme.css";
 import "../assets/css/slick.css";
-import "../assets/css/sliderArea.css";
 
 const settings = {
   arrows: false,

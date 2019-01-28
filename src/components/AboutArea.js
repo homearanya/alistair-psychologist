@@ -1,9 +1,9 @@
 import React from "react";
 import Img from "gatsby-image";
 
-import "../assets/css/aboutArea.css";
+import Button from "./Button";
 
-import person from "../assets/images/alistair-mork-chadwick.png";
+import "../assets/css/aboutArea.css";
 
 export default function AboutArea(props) {
   return (
@@ -30,9 +30,18 @@ export default function AboutArea(props) {
                 {paragraph.paragraph}
               </p>
             ))}
+            <br />
+            <Button whereTo="/about/" text="More About Me" />
           </div>
           <div className="col-md-6 col-md-pull-6 text-center bottommargin_0">
-            <img src={person} alt="" className="top-overlap" />
+            <Img
+              fluid={
+                props.aboutMeArea.personPicture.image.childImageSharp.fluid
+              }
+              alt={props.aboutMeArea.personPicture.image.alt}
+              className="top-overlap"
+              imgStyle={{ objectFit: "contain" }}
+            />
           </div>
         </div>
       </div>

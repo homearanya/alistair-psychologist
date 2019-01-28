@@ -11,11 +11,13 @@ import FaqArea from "../components/FaqArea";
 import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
 
+import "../assets/css/custom.css";
+
 export default ({ data }) => {
   const { frontmatter } = data.homePageQuery;
 
   return (
-    <Layout>
+    <Layout appointmentButton>
       <SliderArea slider={frontmatter.slider} />
       <ServicesArea servicesArea={frontmatter.servicesArea} />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
@@ -80,7 +82,7 @@ export const homePageQuery = graphql`
             alt
             image {
               childImageSharp {
-                fluid(maxWidth: 786) {
+                fluid(maxWidth: 600) {
                   ...GatsbyImageSharpFluid
                 }
               }

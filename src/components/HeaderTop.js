@@ -2,25 +2,26 @@ import React from "react";
 
 import Social from "./Social";
 import ContactDetails from "./ContactDetails";
+import Button from "./Button";
 
 import "../assets/css/headerTop.css";
 
-export default function HeaderTop() {
+export default function HeaderTop(props) {
   return (
     <section className="page_topline cs table_section table_section_md columns_padding_0">
       <div className="container-fluid">
         <div className="row">
-          <ContactDetails />
+          <ContactDetails appointmentButton={props.appointmentButton} />
           <Social
             classes="text-center visible-xs visible-sm"
             inputColor="#4bb0a9"
           />
 
-          <div className="col-md-3 text-center text-md-right bottommargin_0">
-            <a href="#appointment" className="theme_button color1 margin_0">
-              Make an appointment
-            </a>
-          </div>
+          {props.appointmentButton ? (
+            <div className="col-md-3 text-center text-md-right bottommargin_0">
+              <Button whereTo="/#appointment" text="Make an appointment" />
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
