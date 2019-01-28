@@ -286,7 +286,7 @@ export class ContactForm extends Component {
                 Send Message
               </StyledButton>
             </ButtonContainer>
-            <SpamFilter />
+            {/* <SpamFilter /> */}
           </div>
         </StyledForm>
         <ResultWrapper>
