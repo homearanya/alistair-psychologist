@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
-import Recaptcha from "react-recaptcha";
 
 import "./contactForm.css";
 
@@ -69,14 +68,6 @@ const ButtonContainer = styled.div`
   text-align: center;
 `;
 
-const RecaptchaContainer = styled.div`
-  text-align: center;
-`;
-const StyledRecaptcha = styled.div`
-  display: inline-block;
-  margin-top: 10px;
-`;
-
 export class ContactForm extends Component {
   constructor(props) {
     super(props);
@@ -91,13 +82,10 @@ export class ContactForm extends Component {
       subject: subject,
       message: "",
       submissionResult: null,
-      verified: false,
       loadSpinner: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.callback = this.callback.bind(this);
-    this.verifyCallback = this.verifyCallback.bind(this);
   }
 
   handleChange(event) {
@@ -123,13 +111,6 @@ export class ContactForm extends Component {
   }
   handleSubmit = event => {
     event.preventDefault();
-    // confirmation not a robot
-    if (!this.state.verified) {
-      this.setState({
-        submissionResult: "Please, confirm you are not a robot"
-      });
-      return;
-    }
 
     this.setState({ loadSpinner: true, submissionResult: null }, () => {
       // Construct an HTTP request
@@ -170,16 +151,6 @@ export class ContactForm extends Component {
         }
       };
     });
-  };
-
-  callback = function() {
-    console.log("Done!!!!");
-  };
-
-  verifyCallback = function(response) {
-    if (response) {
-      this.setState({ verified: true, submissionResult: null });
-    }
   };
 
   render() {
@@ -315,16 +286,6 @@ export class ContactForm extends Component {
                 Send Message
               </StyledButton>
             </ButtonContainer>
-            <RecaptchaContainer>
-              <StyledRecaptcha>
-                <Recaptcha
-                  sitekey="6LdnNI0UAAAAAMLQD49oKbMVsol9W9uWMm4AgA3t"
-                  render="explicit"
-                  verifyCallback={this.verifyCallback}
-                  onloadCallback={this.callback}
-                />
-              </StyledRecaptcha>
-            </RecaptchaContainer>
           </div>
         </StyledForm>
         <ResultWrapper>
