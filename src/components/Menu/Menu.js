@@ -30,7 +30,7 @@ const StyledLinkSub = styled(Link)`
 `;
 
 const StyledSubMenu = styled.ul`
-  && {
+  &&& {
     text-align: center;
     list-style: none;
     margin: 5px 0 0 0;
@@ -39,15 +39,17 @@ const StyledSubMenu = styled.ul`
     opacity: 1;
     display: block;
     top: 100%;
-    z-index: 99;
+    z-index: 1000;
   }
 
   @media (min-width: 992px) {
-    background-color: #ffffff;
-    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-    padding: 10px 0 10px;
-    margin-top: ${props => props.sticky && "-2px"};
-    position: absolute;
+    &&& {
+      background-color: #ffffff;
+      box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+      padding: 10px 0 10px;
+      margin-top: ${props => props.sticky && "-2px"};
+      position: absolute;
+    }
   }
 `;
 const NonClickableItem = styled.button`

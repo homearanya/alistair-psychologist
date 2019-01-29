@@ -31,7 +31,7 @@ export class Header extends Component {
       "page_header header_white table_section columns_padding_0 toggler-sm-right";
     let menuTogleClassName = "toggle_menu visible-xs visible-sm";
     let stickyStyle = {};
-    stickyStyle.zIndex = 99;
+    stickyStyle.zIndex = 999;
     if (this.state.togleMenu) {
       headerClassName += " mobile-active";
       menuTogleClassName += " mobile-active";
