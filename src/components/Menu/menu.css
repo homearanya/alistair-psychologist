@@ -1,0 +1,19 @@
+/* Fade animation styles */
+
+.fade-dropdown-menu-enter {
+    opacity: 0.01 !important;
+}
+
+.fade-dropdown-menu-enter-active {
+    opacity: 1 !important;
+    transition: all 300ms ease-in !important;
+}
+
+.fade-dropdown-menu-exit {
+    opacity: 1 !important;
+}
+
+.fade-dropdown-menu-exit-active {
+    opacity: 0.01 !important;
+    transition: all 300ms ease-in !important;
+}

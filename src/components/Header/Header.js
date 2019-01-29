@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Sticky from "react-sticky-el";
 
 import Logo from "../Logo";
-import Menu from "../Menu";
+import { Menu } from "../Menu";
 import Social from "../Social";
 
 import "./header.css";
@@ -31,6 +31,7 @@ export class Header extends Component {
       "page_header header_white table_section columns_padding_0 toggler-sm-right";
     let menuTogleClassName = "toggle_menu visible-xs visible-sm";
     let stickyStyle = {};
+    stickyStyle.zIndex = 99;
     if (this.state.togleMenu) {
       headerClassName += " mobile-active";
       menuTogleClassName += " mobile-active";
@@ -55,7 +56,7 @@ export class Header extends Component {
                   <span />
                 </span>
               </div>
-              <Menu />
+              <Menu sticky={this.state.sticky} />
               <Social
                 classes="text-right hidden-xs hidden-sm"
                 inputColor="#91d0cc"

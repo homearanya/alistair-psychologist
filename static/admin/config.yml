@@ -33,6 +33,61 @@ collections:
       - { label: "Intro", name: "intro", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
+    editor:
+      preview: false
+
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    folder: "src/pages/services"
+    create: true
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "service-page",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Thumbnail Image"
+        name: thumbnailimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "80 x 90" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Banner Image"
+        name: bannerimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Body Image"
+        name: bodyimage
+        widget: object
+        fields:
+          - { label: Image, name: image, widget: image, hint: "370 x 490" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+    editor:
+      preview: false
 
   - name: "pages"
     label: "Pages"

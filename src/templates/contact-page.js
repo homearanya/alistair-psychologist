@@ -8,9 +8,14 @@ import { ContactForm } from "../components/ContactForm";
 import ContactDetails2 from "../components/ContactDetails2";
 
 export default () => {
+  //   Prepare breadcrumbs
+  const pages = [
+    { title: "Home", href: "/" },
+    { title: "Contact", href: null }
+  ];
   return (
     <Layout>
-      <Breadcrumbs />
+      <Breadcrumbs pageTitle="Contact" pages={pages} />
       <Zoom>
         <section className="ls columns_padding_25 section_padding_top_100 section_padding_bottom_100">
           <div className="container">
