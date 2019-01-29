@@ -45,6 +45,14 @@ const LoaderContainer = styled.div`
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 1;
+
+  svg {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
 `;
 
 const StyledButton = styled.button`
@@ -76,10 +84,15 @@ export class ContactForm extends Component {
       subject = this.props.subject;
     }
     this.state = {
+      nameaksljf: "",
+      reply_toaksljf: "",
+      phone_numberaksljf: "",
+      subjectaksljf: subject,
+      messageaksljf: "",
       name: "",
       reply_to: "",
       phone_number: "",
-      subject: subject,
+      subject: "",
       message: "",
       submissionResult: null,
       loadSpinner: false
@@ -90,6 +103,23 @@ export class ContactForm extends Component {
 
   handleChange(event) {
     switch (event.target.name) {
+      // real fields
+      case "nameaksljf":
+        this.setState({ nameaksljf: event.target.value });
+        break;
+      case "reply_toaksljf":
+        this.setState({ reply_toaksljf: event.target.value });
+        break;
+      case "subjectaksljf":
+        this.setState({ subjectaksljf: event.target.value });
+        break;
+      case "phone_numberaksljf":
+        this.setState({ phone_numberaksljf: event.target.value });
+        break;
+      case "messageaksljf":
+        this.setState({ messageaksljf: event.target.value });
+        break;
+      // Honeypot fields
       case "name":
         this.setState({ name: event.target.value });
         break;
@@ -109,47 +139,77 @@ export class ContactForm extends Component {
         console.log("Wrong Case in Switch HandleChange");
     }
   }
+  sendEmail() {
+    // Check is not spam
+    if (
+      (this.state.name && this.state.name.length > 0) ||
+      (this.state.reply_to && this.state.reply_to.length > 0) ||
+      (this.state.subject && this.state.subject.length > 0) ||
+      (this.state.phone_number && this.state.phone_number.length > 0) ||
+      (this.state.message && this.state.message.length > 0)
+    ) {
+      // it's spam but let's pretend it's a successful submission!!!
+      setTimeout(() => {
+        this.setState({
+          nameaksljf: "",
+          reply_toaksljf: "",
+          phone_numberaksljf: "",
+          subjectaksljf: "",
+          messageaksljf: "",
+          name: "",
+          reply_to: "",
+          phone_number: "",
+          subject: "",
+          message: "",
+          submissionResult: "Thanks for the message. I’ll be in touch shortly.",
+          loadSpinner: false
+        });
+      }, 2000);
+      return;
+    }
+    // It's not spam. Let's construct an HTTP request
+    var xhr = new XMLHttpRequest();
+    xhr.open(
+      "POST",
+      "https://9rrxol8o33.execute-api.us-east-1.amazonaws.com/production/static-site-mailer-alistair",
+      true
+    );
+    xhr.setRequestHeader("Accept", "application/json; charset=utf-8");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+    // Send the collected data as JSON
+    xhr.send(JSON.stringify(this.state));
+
+    // Callback function
+    xhr.onloadend = response => {
+      if (response.target.status === 200) {
+        // The form submission was successful
+        this.setState({
+          nameaksljf: "",
+          reply_toaksljf: "",
+          phone_numberaksljf: "",
+          subjectaksljf: "",
+          messageaksljf: "",
+          submissionResult: "Thanks for the message. I’ll be in touch shortly.",
+          loadSpinner: false
+        });
+      } else {
+        // The form submission failed
+        this.setState({
+          submissionResult: "Something went wrong",
+          loadSpinner: false
+        });
+        console.error(response);
+        // console.error(JSON.parse(response.target.response));
+      }
+    };
+  }
+
   handleSubmit = event => {
     event.preventDefault();
 
     this.setState({ loadSpinner: true, submissionResult: null }, () => {
-      // Construct an HTTP request
-      var xhr = new XMLHttpRequest();
-      xhr.open(
-        "POST",
-        "https://lcs4ob7vu4.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer-alistair",
-        true
-      );
-      xhr.setRequestHeader("Accept", "application/json; charset=utf-8");
-      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-
-      // Send the collected data as JSON
-      xhr.send(JSON.stringify(this.state));
-
-      // Callback function
-      xhr.onloadend = response => {
-        if (response.target.status === 200) {
-          // The form submission was successful
-          this.setState({
-            name: "",
-            reply_to: "",
-            phone_number: "",
-            subject: "",
-            message: "",
-            submissionResult:
-              "Thanks for the message. I’ll be in touch shortly.",
-            loadSpinner: false
-          });
-        } else {
-          // The form submission failed
-          this.setState({
-            submissionResult: "Something went wrong",
-            loadSpinner: false
-          });
-          console.error(response);
-          // console.error(JSON.parse(response.target.response));
-        }
-      };
+      this.sendEmail();
     });
   };
 
@@ -160,9 +220,10 @@ export class ContactForm extends Component {
           className={this.props.className}
           onSubmit={this.handleSubmit}
         >
+          {/* Real Fields */}
           <div className="col-sm-6">
             <div className="contact-form-name">
-              <label htmlFor="name">
+              <label htmlFor="nameaksljf">
                 Your Name
                 <span className="required">*</span>
               </label>
@@ -172,18 +233,18 @@ export class ContactForm extends Component {
                 required
                 type="text"
                 size="30"
-                name="name"
-                id="name"
+                name="nameaksljf"
+                id="nameaksljf"
                 className="form-control"
                 placeholder="Your Name"
-                value={this.state.name}
+                value={this.state.nameaksljf}
                 onChange={this.handleChange}
               />
             </div>
           </div>
           <div className="col-sm-6">
             <div className="contact-form-email">
-              <label htmlFor="reply_to">
+              <label htmlFor="reply_toaksljf">
                 Email address
                 <span className="required">*</span>
               </label>
@@ -193,18 +254,18 @@ export class ContactForm extends Component {
                 required
                 type="email"
                 size="30"
-                name="reply_to"
-                id="reply_to"
+                name="reply_toaksljf"
+                id="reply_toaksljf"
                 className="form-control"
                 placeholder="Email Address"
-                value={this.state.reply_to}
+                value={this.state.reply_toaksljf}
                 onChange={this.handleChange}
               />
             </div>
           </div>
           <div className="col-sm-6">
             <div className="contact-form-subject">
-              <label htmlFor="subject">
+              <label htmlFor="subjectaksljf">
                 Subject
                 <span className="required">*</span>
               </label>
@@ -214,18 +275,18 @@ export class ContactForm extends Component {
                 required
                 type="text"
                 size="30"
-                name="subject"
-                id="subject"
+                name="subjectaksljf"
+                id="subjectaksljf"
                 className="form-control"
                 placeholder="Subject"
-                value={this.state.subject}
+                value={this.state.subjectaksljf}
                 onChange={this.handleChange}
               />
             </div>
           </div>
           <div className="col-sm-6">
             <div className="contact-form-phone">
-              <label htmlFor="phone_number">
+              <label htmlFor="phone_numberaksljf">
                 Phone
                 <span className="required">*</span>
               </label>
@@ -234,34 +295,114 @@ export class ContactForm extends Component {
                 aria-required
                 type="text"
                 size="30"
-                name="phone_number"
-                id="phone_number"
+                name="phone_numberaksljf"
+                id="phone_numberaksljf"
                 className="form-control"
                 placeholder="Phone"
-                value={this.state.phone_number}
+                value={this.state.phone_numberaksljf}
                 onChange={this.handleChange}
               />
             </div>
           </div>
           <div className="col-sm-12">
             <div className="contact-form-message">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="messageaksljf">Message</label>
               <textarea
                 aria-label="Message"
                 aria-required
                 required
                 rows="1"
                 cols="45"
+                name="messageaksljf"
+                id="messageaksljf"
+                className="form-control"
+                placeholder="Message"
+                value={this.state.messageaksljf}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          {/* Honey Pots Fields */}
+          <div className="col-sm-6 ohnohoney">
+            <div className="contact-form-name">
+              <label htmlFor="name">Your Name</label>
+              <input
+                type="text"
+                size="30"
+                name="name"
+                id="name"
+                className="form-control"
+                placeholder="Your Name"
+                autoComplete="off"
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="col-sm-6 ohnohoney">
+            <div className="contact-form-email">
+              <label htmlFor="reply_to">Email address</label>
+              <input
+                type="email"
+                size="30"
+                name="reply_to"
+                id="reply_to"
+                className="form-control"
+                placeholder="Email Address"
+                autoComplete="off"
+                value={this.state.reply_to}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="col-sm-6 ohnohoney">
+            <div className="contact-form-subject">
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                size="30"
+                name="subject"
+                id="subject"
+                className="form-control"
+                placeholder="Subject"
+                autoComplete="off"
+                value={this.state.subject}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="col-sm-6 ohnohoney">
+            <div className="contact-form-phone">
+              <label htmlFor="phone_number">Phone</label>
+              <input
+                size="30"
+                name="phone_number"
+                id="phone_number"
+                className="form-control"
+                placeholder="Phone"
+                autoComplete="off"
+                value={this.state.phone_number}
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="col-sm-12 ohnohoney">
+            <div className="contact-form-message">
+              <label htmlFor="message">Message</label>
+              <textarea
+                rows="1"
+                cols="45"
                 name="message"
                 id="message"
                 className="form-control"
                 placeholder="Message"
+                autoComplete="off"
                 value={this.state.message}
                 onChange={this.handleChange}
               />
             </div>
           </div>
-
+          {/* Button Area */}
           <div className="col-sm-12" stle={{ marginBottom: "-40px" }}>
             <ButtonContainer className="contact-form-submit topmargin_20">
               {this.state.loadSpinner && (

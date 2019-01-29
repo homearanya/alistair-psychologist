@@ -159,6 +159,17 @@ collections:
                 fields:
                   - { label: Quote, name: quote, widget: text }
                   - { label: Author, name: author, widget: string }
+      - file: "src/pages/about.md"
+        label: "about Page"
+        name: "aboutpage"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "home-page",
+            }
+          - { label: "About Me Text", name: name, widget: body }
     editor:
       preview: false
 
