@@ -7,10 +7,10 @@ var netlifyCmsPaths = {
 
 module.exports = {
   siteMetadata: {
-    title: "Alistair Mork-Chadwick - Counselling Psychologist",
-    defaultTitle: "Alistair Mork-Chadwick - Counselling Psychologist",
-    description: `
-        SA Adventure Trails is a marketing association between Paul Colvin of Wild Coast Walks and Julia Colvin of Spekboom Tours. Together we offer the best selection of fully supported hiking and cycling tours in KwaZulu Natal and the Eastern Cape Wild Coast`,
+    title: "Alistair Mork-Chadwick · Counselling Psychologist",
+    defaultTitle: "Alistair Mork-Chadwick · Counselling Psychologist",
+    description:
+      "Hello, I am a Counselling psychologist based in Howick. I offer personal counselling, career guidance, psychological assessments and mindfulness training.",
     canonicalUrl: "https://alistairmork-chadwick.co.za/",
     image: "https://www.trails.co.za/img/meander-hike-gallery_2.jpg",
     author: {
@@ -21,7 +21,7 @@ module.exports = {
           `
     },
     organization: {
-      name: "Alistair Mork-Chadwick - Counselling Psychologist",
+      name: "Alistair Mork-Chadwick · Counselling Psychologist",
       url: "https://alistairmork-chadwick.co.za",
       logo: "https://www.trails.co.za/img/new-trails-logo-new-colors.png"
     },
@@ -87,5 +87,8 @@ module.exports = {
     `gatsby-plugin-netlify-cms`,
     "gatsby-plugin-netlify-identity-widget",
     "gatsby-plugin-netlify" // make sure to keep it last in the array
-  ]
+  ],
+  mapping: {
+    "MarkdownRemark.fields.homeservices": `MarkdownRemark`
+  }
 };
