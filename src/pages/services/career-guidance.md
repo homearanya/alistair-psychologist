@@ -14,16 +14,7 @@ bodyimage:
   alt: Career Guidance
   image: /img/career-guidance.jpg
 testimonialsArea:
-  testimonials:
-    - author: Course participant with panic disorder
-      quote: >-
-        I have been on medication for many years for anxiety attacks… This is
-        the first life skill I have found to help me cope without medication.
-    - author: 'Course participant, 2015'
-      quote: >-
-        I have benefited so much more than I could ever have imagined or dreamt
-        of. I have better interactions… and also my relationships have improved
-        with all my family members.
+  testimonials: []
 ---
 The world of work has changed dramatically in the past decade. Technological advances and a changed work force affect the choices available to South Africans. For those who are wishing to make a career change I will help you understand your personality functioning as well as assess your strengths, values, interests and abilities, and help you research options and work out an appropriate strategy to have the confidence to make the most of opportunities. 
 
