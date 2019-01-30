@@ -19,7 +19,7 @@ export default ({ data }) => {
   return (
     <Layout appointmentButton>
       <SliderArea slider={frontmatter.slider} />
-      <ServicesArea servicesArea={frontmatter.servicesArea} />
+      <ServicesArea id="services" servicesArea={frontmatter.servicesArea} />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
       <ArticlesArea articlesArea={frontmatter.articlesArea} />
       <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
