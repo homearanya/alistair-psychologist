@@ -15,7 +15,7 @@ bodyimage:
   alt: Mindfulness Training
   image: /img/mindfulness-training.jpg
 ---
-**Mindfulness training will not only help you to deal with stress or chronic pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life**
+**Mindfulness training will not only help you to deal with `<a href="#stress">stress</a>` or **<a href="#chronic">chronic</a>** pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life**
 
 `<h2 id="stress">Mindfulness-Based Stress Reduction Course</h2>`
 
@@ -32,6 +32,8 @@ Being able to pay focused attention to one’s inner experience (i.e. practicing
 **For individuals** – If you are interested in participating on this training, please fill in the form and/or contact me via email or on one of the phone numbers indicated.
 
 **For organisations/groups** – If you would like to discuss options to suit the needs and resources of your organisation/group, please fill in the form and/or contact me via email or on one of the phone numbers indicated.
+
+
 
 ```
 <h2 id="chronic">Mindfulness-Based Pain Management Course</h2>
