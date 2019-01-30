@@ -14,11 +14,10 @@ collections:
     label_singular: Article
     folder: "src/pages/blog/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {
           label: "Template Key",
-          name: "templateKey",
+          name: "article-page",
           widget: "hidden",
           default: "article",
         }
@@ -148,29 +147,19 @@ collections:
             fields:
               - { label: Heading, name: heading, widget: string }
               - { label: Blurb, name: blurb, widget: text }
-              - label: "Services"
+              - label: Services
                 label_singular: "Service"
                 name: services
                 widget: list
                 fields:
-                  - label: Service Icon
-                    name: serviceIcon
-                    widget: object
-                    fields:
-                      - {
-                          label: Image,
-                          name: image,
-                          widget: image,
-                          hint: "size 80 x 90",
-                        }
-                      - {
-                          label: Title,
-                          name: alt,
-                          widget: text,
-                          hint: "Please inform. Important for SEO",
-                        }
-                  - { label: Heading, name: heading, widget: string }
-                  - { label: Blurb, name: blurb, widget: text }
+                  - label: "Service"
+                    name: "service"
+                    widget: "relation"
+                    collection: "services"
+                    searchFields: ["title"]
+                    valueField: "title"
+                    displayFields: ["title"]
+                    hint: Very important!!!! It has to be exactly the same name as of the service on the services colection
           - label: "About Me Area"
             name: aboutMeArea
             widget: object
