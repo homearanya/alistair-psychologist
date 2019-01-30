@@ -89,10 +89,14 @@ export default function({ data }) {
         </div>
       </section>
       {frontmatter.testimonialsArea &&
-        frontmatter.testimonialsArea.testimonials.length > 0 && (
+      frontmatter.testimonialsArea.testimonials.length > 0 ? (
+        <React.Fragment>
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
-        )}
-      <AppointmentArea />
+          <AppointmentArea />
+        </React.Fragment>
+      ) : (
+        <AppointmentArea noTopPadding />
+      )}
     </Layout>
   );
 }

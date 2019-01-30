@@ -4,12 +4,15 @@ import { ContactForm } from "./ContactForm";
 
 import "../assets/css/appointmentArea.css";
 
-export default function AppointmentArea() {
+export default function AppointmentArea(props) {
+  console.log("noTopPadding", props.noTopPadding);
+  let sectionClassName;
+  props.noTopPadding
+    ? (sectionClassName = "ls section_padding_bottom_100")
+    : (sectionClassName =
+        "ls section_padding_top_130 section_padding_bottom_100");
   return (
-    <section
-      id="appointment"
-      className="ls section_padding_top_130 section_padding_bottom_100"
-    >
+    <section id="appointment" className={sectionClassName}>
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">

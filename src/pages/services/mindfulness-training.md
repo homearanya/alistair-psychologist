@@ -24,7 +24,7 @@ testimonialsArea:
         I have benefited so much more than I could ever have imagined or dreamt of. I have better interactions… and also my relationships have improved with all my family members.
 ---
 
-**Mindfulness training will not only help you to deal with <scroll-to-anchor to="stress">stress</scroll-to-anchor> or <scroll-to-anchor to="chronic">chronic</scroll-to-anchor> pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life**
+**Mindfulness training will not only help you to deal with <scroll-to-anchor to="stress">stress</scroll-to-anchor> or <scroll-to-anchor to="chronic">chronic</scroll-to-anchor> pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life.**
 
 <dynamic-anchor id="stress"></dynamic-anchor>
 
