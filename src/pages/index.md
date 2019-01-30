@@ -10,7 +10,11 @@ slider:
 servicesArea:
   blurb: I offer all of the following services.
   heading: How Can I help?
-  services: []
+  services:
+    - service: Personal Counselling
+    - service: Career Guidance
+    - service: Psychological Assessments
+    - service: Mindfulness Training
 aboutMeArea:
   blurb:
     paragraphs:
