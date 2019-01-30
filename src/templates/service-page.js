@@ -8,6 +8,7 @@ import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 // import Content, { HTMLContent } from "../components/Content";
 import TestimonialsArea from "../components/TestimonialsArea";
+import AppointmentArea from "../components/AppointmentArea";
 import ScrollToAnchor from "../components/ScrollToAnchor";
 
 const StyledLink = styled(Link)`
@@ -23,12 +24,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const ImgWrapper = styled.div`
-  text-align: center;
-`;
-
 const StyledImg = styled(Img)`
-  display: inline-block;
   margin-bottom: 50px;
   @media (min-width: 992px) {
     margin-top: 100px;
@@ -68,7 +64,7 @@ export default function({ data }) {
   ];
 
   return (
-    <Layout servicePage>
+    <Layout servicePage appointmentButton>
       <Breadcrumbs
         bannerImage={frontmatter.bodyimage}
         pageTitle={frontmatter.title}
@@ -78,12 +74,10 @@ export default function({ data }) {
         <div className="container">
           <div className="row">
             <div className="col-lg-4 col-lg-push-8 col-sm-5 col-sm-push-7">
-              <ImgWrapper>
-                <StyledImg
-                  fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
-                  alt={frontmatter.bodyimage.alt}
-                />
-              </ImgWrapper>
+              <StyledImg
+                fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
+                alt={frontmatter.bodyimage.alt}
+              />
             </div>
             <div className="col-lg-8 col-lg-pull-4 col-sm-7 col-sm-pull-5">
               <h2 className="section_header small">{frontmatter.title}</h2>
@@ -98,6 +92,7 @@ export default function({ data }) {
         frontmatter.testimonialsArea.testimonials.length > 0 && (
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
         )}
+      <AppointmentArea />
     </Layout>
   );
 }
