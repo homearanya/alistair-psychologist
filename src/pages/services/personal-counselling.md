@@ -13,6 +13,13 @@ bannerimage:
 bodyimage:
   alt: Personal Counselling
   image: /img/personal-counselling.jpg
+testimonialsArea:
+  testimonials:
+    - author: 'Psychotherapy client, 2015'
+      quote: >-
+        I consider myself privileged to have been able to work with Alistair. He
+        has helped me through some incredibly difficult and stressful situations
+        – both work- and family-related.
 ---
 **Therapy for Adults, Teenagers, Couples and Families**
 
