@@ -18,8 +18,15 @@ servicesArea:
 aboutMeArea:
   blurb:
     paragraphs:
-      - {}
-      - {}
+      - text: >-
+          I am an educator at heart and feel as passionate about individual
+          therapy as I do about interacting with groups. I get great joy from
+          sharing my knowledge and experience with community organisations,
+          corporates and schools in a way that is both accessible and inspiring.
+      - text: >-
+          I have come to understand that optimal brain functioning is the
+          foundation for vibrant emotional health, a sharp mind, and a healthy
+          life free of physical complaints.
   heading1: WHO AM I?
   heading2: ' '
   personPicture:
