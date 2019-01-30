@@ -180,7 +180,7 @@ collections:
                     name: paragraphs
                     widget: list
                     fields:
-                      - { label: Paragraph, name: text, widget: text }
+                      - { label: Paragraph, name: paragraph, widget: text }
               - label: "Person Picture"
                 name: personPicture
                 widget: object
@@ -242,6 +242,22 @@ collections:
               widget: text,
               hint: "Please inform. Important for SEO",
             }
+      - file: "src/general/services-menu.md"
+        label: "Services Menu"
+        name: "servicesmenu"
+        fields:
+          - label: "Services"
+            label_singular: "Service"
+            name: "services"
+            widget: list
+            fields:
+              - label: "Service"
+                name: "service"
+                widget: "relation"
+                collection: "services"
+                searchFields: ["title"]
+                valueField: "title"
+                displayFields: ["title"]
       - file: "src/general/contact-details.md"
         label: "Contact Details"
         name: "contact"

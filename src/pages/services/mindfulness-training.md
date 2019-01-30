@@ -15,9 +15,12 @@ bodyimage:
   alt: Mindfulness Training
   image: /img/mindfulness-training.jpg
 ---
-**Mindfulness training will not only help you to deal with `<a href="#stress">stress</a>` or **<a href="#chronic">chronic</a>** pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life**
 
-`<h2 id="stress">Mindfulness-Based Stress Reduction Course</h2>`
+**Mindfulness training will not only help you to deal with <scroll-to-anchor to="stress">stress</scroll-to-anchor> or <scroll-to-anchor to="chronic">chronic</scroll-to-anchor> pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life**
+
+<dynamic-anchor id="stress"></dynamic-anchor>
+
+<h3> Mindfulness-Based Stress Reduction Course</h3>
 
 This programme is for all individuals who want to learn how to deal more effectively with stress, the negative reactions it evokes within us, and the unproductive behaviour we often engage in. The training is run over a period of eight weeks and can be engaged with on a one-on-one basis with myself (in my office) or in a small group.
 
@@ -33,26 +36,24 @@ Being able to pay focused attention to one’s inner experience (i.e. practicing
 
 **For organisations/groups** – If you would like to discuss options to suit the needs and resources of your organisation/group, please fill in the form and/or contact me via email or on one of the phone numbers indicated.
 
+<dynamic-anchor id="chronic"></dynamic-anchor>
 
-
-```
-<h2 id="chronic">Mindfulness-Based Pain Management Course</h2>
-```
+<h3>Mindfulness-Based Pain Management Course</h3>
 
 Mindfulness can help people living with chronic pain, injuries and illness to improve and even transform their quality of life. This programme enables us to change how we experience pain or illness, so that we can make choices about how we respond, rather than reacting in an automatic or habitual way.
 
 This eight-week course will introduce some of the ways we can change how we relate to our chronic pain and/or injuries. The training is run over a period of eight weeks and can be engaged with on a one-on-one basis with myself (in my office) or in a small group. It includes amongst other topics:
 
-* The science behind how our bodies and minds process and react to pain.
-* How mindfulness can alter your perception and alleviate your experience of pain.
-* Simple mindfulness practices which can help manage and reduce pain and suffering.
-* Mindful movement: gentle mindful movements to help the body be less tense and move more freely.
+- The science behind how our bodies and minds process and react to pain.
+- How mindfulness can alter your perception and alleviate your experience of pain.
+- Simple mindfulness practices which can help manage and reduce pain and suffering.
+- Mindful movement: gentle mindful movements to help the body be less tense and move more freely.
 
 Clinical research has found that mindfulness may be as effective as prescription painkillers (e.g. morphine) and can enhance the body’s natural healing systems.
 
 Note:
 
-* No prior experience or knowledge of mindfulness is needed.
-* Mindfulness can also reduce the anxiety, depression, irritability, exhaustion and insomnia that can arise from chronic pain and illness.
+- No prior experience or knowledge of mindfulness is needed.
+- Mindfulness can also reduce the anxiety, depression, irritability, exhaustion and insomnia that can arise from chronic pain and illness.
 
-If you would like to receive emails on upcoming Mindfulness-Based Pain Management courses, please <Link to="/contact/"/>`contact me</Link>`.
+If you would like to receive emails on upcoming Mindfulness-Based Pain Management courses, please <gatsby-link to="/contact/#contact-page">contact-me</gatsby-link>

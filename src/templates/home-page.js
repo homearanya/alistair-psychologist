@@ -14,15 +14,32 @@ import AppointmentArea from "../components/AppointmentArea";
 import "../assets/css/custom.css";
 
 export default ({ data }) => {
-  const { frontmatter } = data.homePageQuery;
-
+  const { fields, frontmatter } = data.homePageQuery;
+  const { homeservices } = data.homePageQuery.fields;
+  const servicesObject = homeservices.reduce((obj, service) => {
+    obj[service.frontmatter.title.trim().toLowerCase()] = service;
+    return obj;
+  }, {});
+  const pageMeta = {
+    title: `Alistair Mork-Chadwick · Counselling Psychologist `,
+    description:
+      "Hello, I am a Counselling psychologist based in Howick. I offer personal counselling, career guidance, psychological assessments and mindfulness training",
+    slug: fields.slug
+  };
   return (
     <Layout appointmentButton>
       <SliderArea slider={frontmatter.slider} />
-      <ServicesArea id="services" servicesArea={frontmatter.servicesArea} />
+      <ServicesArea
+        id="services"
+        servicesObject={servicesObject}
+        servicesArea={frontmatter.servicesArea}
+      />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
       <ArticlesArea articlesArea={frontmatter.articlesArea} />
-      <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
+      {frontmatter.testimonialsArea &&
+        frontmatter.testimonialsArea.testimonials.length > 0 && (
+          <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
+        )}
       {/* <FaqArea />
     <PricesArea /> */}
       <AppointmentArea />
@@ -35,6 +52,25 @@ export const homePageQuery = graphql`
     homePageQuery: markdownRemark(id: { eq: $id }) {
       fields {
         slug
+        homeservices {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            intro
+            thumbnailimage {
+              image {
+                childImageSharp {
+                  fixed(width: 80, height: 90) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+              alt
+            }
+          }
+        }
       }
       frontmatter {
         slider {
@@ -56,18 +92,7 @@ export const homePageQuery = graphql`
           heading
           blurb
           services {
-            heading
-            blurb
-            serviceIcon {
-              alt
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 80) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
+            service
           }
         }
         aboutMeArea {

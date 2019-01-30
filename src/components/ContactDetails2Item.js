@@ -27,7 +27,7 @@ export default function ContactDetails2Item(props) {
     <li>
       <AElement
         href={props.href}
-        target={props.href.search(/http/g) > -1 && "_blank"}
+        target={props.href.search(/http/g) > -1 ? "_blank" : undefined}
       >
         <div className="media">
           <div className="media-left">

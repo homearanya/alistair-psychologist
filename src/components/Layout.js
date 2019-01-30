@@ -40,7 +40,7 @@ export default function Layout(props) {
       <div id="canvas">
         <div id="box_wrapper">
           <HeaderTop appointmentButton={props.appointmentButton} />
-          <Header />
+          <Header servicePage={props.servicePage} />
           {props.children}
           {/* <Footer /> */}
           <FooterBottom />

@@ -5,6 +5,8 @@ import Service from "./Service";
 import "../assets/css/servicesArea.css";
 
 export default function ServicesArea(props) {
+  const services = props.servicesArea.services;
+
   return (
     <section
       id="services"
@@ -21,7 +23,12 @@ export default function ServicesArea(props) {
         </div>
         <div className="row columns_padding_0 columns_margin_0 fontsize_16">
           {props.servicesArea.services.map((service, index) => (
-            <Service key={index} service={service} />
+            <Service
+              key={index}
+              service={
+                props.servicesObject[service.service.trim().toLowerCase()]
+              }
+            />
           ))}
         </div>
       </div>

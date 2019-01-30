@@ -16,6 +16,8 @@ export default () => {
   return (
     <Layout>
       <Breadcrumbs pageTitle="Contact" pages={pages} />
+
+      <span id="contact-page" className="anchor-offset-0" />
       <Zoom>
         <section className="ls columns_padding_25 section_padding_top_100 section_padding_bottom_100">
           <div className="container">

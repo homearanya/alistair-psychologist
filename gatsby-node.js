@@ -2,9 +2,16 @@ const _ = require("lodash");
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+// variables to collect information for homepage/services & servicemenu/services relation
+let homeServicesTitles = [];
+let homeServicesIds = [];
+let menuServicesTitles = [];
+let menuServicesIds = [];
+let servicesObject = new Object();
+let homeNodeId, servicesMenuNodeId;
 
+exports.createPages = ({ actions, graphql, getNode }) => {
+  const { createPage, createNodeField } = actions;
   return graphql(`
     {
       allMarkdownRemark(
@@ -45,6 +52,35 @@ exports.createPages = ({ actions, graphql }) => {
         }
       });
     });
+
+    // create node fields for homepage/services & servicemenu/services relations
+    homeServicesTitles.forEach(service => {
+      if (servicesObject[service]) {
+        homeServicesIds.push(servicesObject[service]);
+      }
+    });
+
+    if (homeServicesIds.length > 0) {
+      createNodeField({
+        node: getNode(homeNodeId),
+        name: `homeservices`,
+        value: homeServicesIds
+      });
+    }
+
+    menuServicesTitles.forEach(service => {
+      if (servicesObject[service]) {
+        menuServicesIds.push(servicesObject[service]);
+      }
+    });
+
+    if (menuServicesIds.length > 0) {
+      createNodeField({
+        node: getNode(servicesMenuNodeId),
+        name: `menuservices`,
+        value: menuServicesIds
+      });
+    }
   });
 };
 
@@ -58,5 +94,28 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     });
+    // collect nodes for homepage/services & servicesmenu/services relation
+    if (
+      node.frontmatter.templateKey &&
+      node.frontmatter.templateKey.includes("home-page")
+    ) {
+      homeNodeId = node.id;
+      node.frontmatter.servicesArea.services.forEach(service =>
+        homeServicesTitles.push(service.service.trim().toLowerCase())
+      );
+    } else if (
+      node.fileAbsolutePath &&
+      node.fileAbsolutePath.includes("/src/general/services-menu.md")
+    ) {
+      servicesMenuNodeId = node.id;
+      node.frontmatter.services.forEach(service =>
+        menuServicesTitles.push(service.service.trim().toLowerCase())
+      );
+    } else if (
+      node.frontmatter.templateKey &&
+      node.frontmatter.templateKey.includes("service-page")
+    ) {
+      servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
+    }
   }
 };
