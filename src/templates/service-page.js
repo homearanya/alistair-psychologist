@@ -66,7 +66,7 @@ export default function({ data }) {
   return (
     <Layout servicePage appointmentButton>
       <Breadcrumbs
-        bannerImage={frontmatter.bodyimage}
+        bannerImage={frontmatter.bannerimage}
         pageTitle={frontmatter.title}
         pages={pages}
       />

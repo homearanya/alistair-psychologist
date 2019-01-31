@@ -1,3 +1,3 @@
 ---
-templateKey: blog-page
+templateKey: articles-page
 ---

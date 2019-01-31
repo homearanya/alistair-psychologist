@@ -11,15 +11,15 @@ publish_mode: editorial_workflow
 collections:
   - name: articles
     label: Articles
-    label_singular: Article
-    folder: "src/pages/blog/posts"
+    label_singular: ArticleThumbnail
+    folder: "src/pages/articles"
     create: true
     fields:
       - {
           label: "Template Key",
-          name: "article-page",
+          name: "templateKey",
           widget: "hidden",
-          default: "article",
+          default: "article-page",
         }
       - { label: "Title", name: "title", widget: "string" }
       - {
@@ -37,7 +37,7 @@ collections:
         widget: object
         required: false
         fields:
-          - { label: Image, name: image, widget: image, hint: "80 x 90" }
+          - { label: Image, name: image, widget: image, hint: "1170 x 780" }
           - {
               label: Title,
               name: alt,
@@ -61,7 +61,7 @@ collections:
         widget: object
         required: false
         fields:
-          - { label: Image, name: image, widget: image, hint: "370 x 490" }
+          - { label: Image, name: image, widget: image, hint: "1170 x 780" }
           - {
               label: Title,
               name: alt,

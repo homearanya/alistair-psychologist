@@ -14,9 +14,13 @@ exports.createPages = ({ actions, graphql, getNode }) => {
   const { createPage, createNodeField } = actions;
   return graphql(`
     {
-      allMarkdownRemark(
+      nonArticlesPages: allMarkdownRemark(
         limit: 1000
-        filter: { fileAbsolutePath: { regex: "/src/pages/" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: {
+          fileAbsolutePath: { regex: "/src/pages/" }
+          frontmatter: { templateKey: { ne: "article-page" } }
+        }
       ) {
         edges {
           node {
@@ -30,6 +34,41 @@ exports.createPages = ({ actions, graphql, getNode }) => {
           }
         }
       }
+      articlesPages: allMarkdownRemark(
+        limit: 1000
+        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: {
+          fileAbsolutePath: { regex: "/src/pages/" }
+          frontmatter: { templateKey: { eq: "article-page" } }
+        }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              title
+              thumbnailimage {
+                alt
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 400) {
+                      base64
+                      aspectRatio
+                      src
+                      srcSet
+                      sizes
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -37,18 +76,36 @@ exports.createPages = ({ actions, graphql, getNode }) => {
       return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
+    const nonArticles = result.data.nonArticlesPages.edges;
+    const articles = result.data.articlesPages.edges;
 
-    posts.forEach(edge => {
-      const id = edge.node.id;
+    nonArticles.forEach(({ node }, index) => {
+      const id = node.id;
       createPage({
-        path: edge.node.fields.slug,
+        path: node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
           id
+        }
+      });
+    });
+
+    articles.forEach(({ node }, index) => {
+      const id = node.id;
+      // Prepare related data
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(
+          `src/templates/${String(node.frontmatter.templateKey)}.js`
+        ),
+        // additional data can be passed via context
+        context: {
+          id,
+          prev: index === 0 ? null : articles[index - 1].node,
+          next: index === articles.length - 1 ? null : articles[index + 1].node
         }
       });
     });

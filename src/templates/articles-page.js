@@ -1,15 +1,21 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import Layout from "../components/Layout";
+import Breadcrumbs from "../components/Breadcrumbs";
+import ArticleThumbnail from "../components/ArticleThumbnail";
 
-import ArticleThumbnail2 from "../components/ArticleThumbnail2";
+export default function(props) {
+  //   Prepare breadcrumbs
+  const pages = [
+    { title: "Home", href: "/" },
+    { title: "Articles", href: null }
+  ];
 
-export default function ArticlesArea(props) {
   return (
     <StaticQuery
       query={graphql`
-        query ArticleQuery {
+        query ArticlesQuery {
           allMarkdownRemark(
-            limit: 3
             sort: { order: DESC, fields: [frontmatter___date] }
             filter: { frontmatter: { templateKey: { eq: "article-page" } } }
           ) {
@@ -43,23 +49,26 @@ export default function ArticlesArea(props) {
       render={data => {
         const { edges: articles } = data.allMarkdownRemark;
         return (
-          <section className="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
-            <div className="container">
-              <div className="row">
-                <div className="col-sm-12 text-center">
-                  <h2 className="section_header with_icon">
-                    {props.articlesArea.heading}
-                  </h2>
-                  <p>{props.articlesArea.blurb}</p>
+          <Layout>
+            <Breadcrumbs pageTitle="Articles" pages={pages} />
+            <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-12">
+                    <div className="isotope_container isotope row masonry-layout columns_bottom_margin_30">
+                      {articles.map(({ node: article }) => (
+                        <ArticleThumbnail
+                          siteUrl={props.location.origin}
+                          article={article}
+                          key={article.id}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="row">
-                {articles.map(({ node: article }) => (
-                  <ArticleThumbnail2 article={article} key={article.id} />
-                ))}
-              </div>
-            </div>
-          </section>
+            </section>
+          </Layout>
         );
       }}
     />

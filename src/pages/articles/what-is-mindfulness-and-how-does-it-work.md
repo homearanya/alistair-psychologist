@@ -1,6 +1,6 @@
 ---
-article-page: article
-title: 'WHAT IS MINDFULNESS, AND HOW DOES IT WORK?'
+templateKey: article-page
+title: "WHAT IS MINDFULNESS, AND HOW DOES IT WORK?"
 date: 2019-01-30T08:57:52.182Z
 intro: >-
   Many of us have heard about it. Richard Branson swears by it. And it has
@@ -8,31 +8,32 @@ intro: >-
   Sony, Ford and Apple. “It” is mindfulness. Often described as the mental
   equivalent of going to the gym, mindfulness provides relief for busy people,
   requiring them to slow down, stop, breathe, and find a moment to be in the
-  present. 
+  present.
 thumbnailimage: {}
 bannerimage: {}
 bodyimage: {}
+tags: []
 ---
-**Mindfulness: what is it and how does one do it?
-**
+
+**Mindfulness: what is it and how does one do it?**
 
 _The following article is adapted from “Doing nothing can produce real results” originally penned by Barry du Plessis in Issue 4 (2018) of Capital._
 
-Many of us have heard about it. Richard Branson swears by it. And it has become part of company culture in corporate entities such as Google, Nike, Sony, Ford and Apple. “It” is mindfulness. Often described as the mental equivalent of going to the gym, mindfulness provides relief for busy people, requiring them to slow down, stop, breathe, and find a moment to be in the present. 
+Many of us have heard about it. Richard Branson swears by it. And it has become part of company culture in corporate entities such as Google, Nike, Sony, Ford and Apple. “It” is mindfulness. Often described as the mental equivalent of going to the gym, mindfulness provides relief for busy people, requiring them to slow down, stop, breathe, and find a moment to be in the present.
 
 <h4>What exactly is mindfulness?</h4>
 
-Mindfulness is often referred to as meditation, but it is perhaps more useful to view it as: a “state of mind” that allows one to focus on whatever needs to be the focus of attention in the present moment. So for example, mindfulness allows one to focus fully upon an activity or task even though one may be experiencing significant levels of stress relating to difficulties in the workplace, the home environment, or in one’s life in general.  In such a situation, if an anxiety-provoking thought arises in one’s mind, mindfulness allows one to notice the thought as it arises and ==decide== whether it needs one’s attention ==before== one gets caught up in the difficult feelings and thoughts. 
+Mindfulness is often referred to as meditation, but it is perhaps more useful to view it as: a “state of mind” that allows one to focus on whatever needs to be the focus of attention in the present moment. So for example, mindfulness allows one to focus fully upon an activity or task even though one may be experiencing significant levels of stress relating to difficulties in the workplace, the home environment, or in one’s life in general. In such a situation, if an anxiety-provoking thought arises in one’s mind, mindfulness allows one to notice the thought as it arises and ==decide== whether it needs one’s attention ==before== one gets caught up in the difficult feelings and thoughts.
 
-So, rather than trying to stop one’s mind from wandering, which neuroscience suggests it does a lot of the time, a mindful state of mind allows one to notice a thought, and any accompanying emotion, as it arises and decide there and then whether it requires one’s attention or not. If not, we are able to quickly refocus and place our full attention back onto the task at hand and, in this way, raise our level of effectiveness while reducing our stress levels considerably. 
+So, rather than trying to stop one’s mind from wandering, which neuroscience suggests it does a lot of the time, a mindful state of mind allows one to notice a thought, and any accompanying emotion, as it arises and decide there and then whether it requires one’s attention or not. If not, we are able to quickly refocus and place our full attention back onto the task at hand and, in this way, raise our level of effectiveness while reducing our stress levels considerably.
 
-To put it another way, mindfulness requires us to intentionally focus on the present moment, and to accept and pay non-judgemental attention to the sensations, thoughts, and emotions that arise. When (and not if) your mind begins to wander, you recognise that you have been distracted, and bring your attention back to your breathing, or to the objective noticing of that thought or sensation. 
+To put it another way, mindfulness requires us to intentionally focus on the present moment, and to accept and pay non-judgemental attention to the sensations, thoughts, and emotions that arise. When (and not if) your mind begins to wander, you recognise that you have been distracted, and bring your attention back to your breathing, or to the objective noticing of that thought or sensation.
 
 This deep engagement with the here-and-now is combined with an attitude of acceptance and openness, allowing thoughts and emotions to come and go without judgement or evaluation. The idea is to not intentionally add anything to the present moment experience, but to be aware of what is going on, without losing yourself in anything that arises. (Consider the value of that sort of utterly calm mental and emotional discipline for stressful interactions with others, such as one’s children, work colleagues, family members, etc...)
 
 <h4>How does one cultivate a mindful state of mind?</h4>
 
-In order to cultivate mindfulness, i.e. a mindful state of mind, one can simply engage in regular moments of mindfulness throughout one’s day, such as through paying close attention to what is happening in the present moment either in the external environment and/or within one’s inner world of thoughts, feelings and physical/bodily sensations.  It can be as fundamental as sitting quietly for a few minutes and paying attention to the physical sensations accompanying the most basic life affirming act – breathing – and actively experiencing the sensations of air entering and leaving your nose and/or causing the chest and belly to expand and subside. Mindfulness can also be practised more formally – the mental equivalent of regular, scheduled exercise – during a sustained period of focused attention as part of a predetermined routine. And to achieve the sort of clear and focused thinking that is possible, along with enhanced mental flexibility, requires that one engages with mindfulness practices or exercises on a regular basis throughout one’s day.
+In order to cultivate mindfulness, i.e. a mindful state of mind, one can simply engage in regular moments of mindfulness throughout one’s day, such as through paying close attention to what is happening in the present moment either in the external environment and/or within one’s inner world of thoughts, feelings and physical/bodily sensations. It can be as fundamental as sitting quietly for a few minutes and paying attention to the physical sensations accompanying the most basic life affirming act – breathing – and actively experiencing the sensations of air entering and leaving your nose and/or causing the chest and belly to expand and subside. Mindfulness can also be practised more formally – the mental equivalent of regular, scheduled exercise – during a sustained period of focused attention as part of a predetermined routine. And to achieve the sort of clear and focused thinking that is possible, along with enhanced mental flexibility, requires that one engages with mindfulness practices or exercises on a regular basis throughout one’s day.
 
 <h4>The benefits of mindfulness</h4>
 

@@ -1,0 +1,3 @@
+---
+templateKey: faq-page
+---
