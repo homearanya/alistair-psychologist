@@ -7,8 +7,8 @@ import ServicesArea from "../components/ServicesArea";
 import AboutArea from "../components/AboutArea";
 import ArticlesArea from "../components/ArticlesArea";
 import TestimonialsArea from "../components/TestimonialsArea";
-import FaqArea from "../components/FaqArea";
-import PricesArea from "../components/PricesArea";
+// import FaqArea from "../components/FaqArea";
+// import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
 
 import "../assets/css/custom.css";

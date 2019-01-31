@@ -74,10 +74,12 @@ export default function({ data }) {
         <div className="container">
           <div className="row">
             <div className="col-lg-4 col-lg-push-8 col-sm-5 col-sm-push-7">
-              <StyledImg
-                fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
-                alt={frontmatter.bodyimage.alt}
-              />
+              {frontmatter.bodyimage && frontmatter.bodyimage.image && (
+                <StyledImg
+                  fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
+                  alt={frontmatter.bodyimage.alt}
+                />
+              )}
             </div>
             <div className="col-lg-8 col-lg-pull-4 col-sm-7 col-sm-pull-5">
               <h2 className="section_header small">{frontmatter.title}</h2>

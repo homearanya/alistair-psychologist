@@ -1,7 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
 import Zoom from "react-reveal/Zoom";
-
 import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { ContactForm } from "../components/ContactForm";

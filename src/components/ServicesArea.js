@@ -5,8 +5,6 @@ import Service from "./Service";
 import "../assets/css/servicesArea.css";
 
 export default function ServicesArea(props) {
-  const services = props.servicesArea.services;
-
   return (
     <section
       id="services"
