@@ -59,6 +59,7 @@ collections:
       - label: "Body Image"
         name: bodyimage
         widget: object
+        required: false
         fields:
           - { label: Image, name: image, widget: image, hint: "370 x 490" }
           - {
@@ -66,7 +67,7 @@ collections:
               name: alt,
               widget: text,
               hint: "Please inform. Important for SEO",
-            }      
+            }
     editor:
       preview: false
 
@@ -112,6 +113,7 @@ collections:
       - label: "Body Image"
         name: bodyimage
         widget: object
+        required: false
         fields:
           - { label: Image, name: image, widget: image, hint: "370 x 490" }
           - {
