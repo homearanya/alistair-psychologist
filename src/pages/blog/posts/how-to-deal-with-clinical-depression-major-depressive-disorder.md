@@ -22,14 +22,14 @@ For major depression to be diagnosed the majority of the following symptoms must
 * Depressed mood (e.g., feeling sad or empty) or appearing tearful to others. (In children and adolescents, an irritable mood is more common.), and/or
 * Loss of interest or pleasure in most activities, including hobbies 
 
-\####Physical symptoms
+<h4>Physical symptoms</h4>
 
 * Change in appetite or a significant weight loss or gain 	
 * Fatigue or loss of energy 
 * Change in sleep patterns, e.g insomnia 			
 * Psycho-motor agitation/retardation 
 
-\####Thinking-related symptoms
+<h4/>Thinking-related symptoms</h4>
 
 * Diminished ability to think or concentrate, 			
 * Indecisiveness
@@ -37,7 +37,7 @@ For major depression to be diagnosed the majority of the following symptoms must
 * Negative thinking
 * Recurrent thoughts of death or of committing suicide
 
-\####Emotional symptoms
+<h4>Emotional symptoms</h4>
 
 * Feelings of worthlessness 					
 * Hopelessness
@@ -63,31 +63,38 @@ Not all people who eat a diet that is high in refined and/or processed food, as 
 
 **Health conditions**. Chronic conditions such as cancer, heart disease, pain, etc. increase the risk of depression.
 
-Trauma and grief. Trauma, such as physical or emotional abuse can trigger depression. Grief after the death of a friend is “normal” but can sometimes lead to depression.
+**Trauma and grief.** Trauma, such as physical or emotional abuse can trigger depression. Grief after the death of a friend is “normal” but can sometimes lead to depression.
 
-Change. People often become depressed during times of change, such as during a divorce. Yet even positive changes, like getting married, can trigger depression.
+**Change**. People often become depressed during times of change, such as during a divorce. Yet even positive changes, like getting married, can trigger depression.
 
-Medications and substances. Many prescription drugs can cause symptoms of depression. Alcohol or substance (ab)use makes the condition worse.
+**Medications and substances**. Many prescription drugs can cause symptoms of depression. Alcohol or substance (ab)use makes the condition worse.
 
 The key thing to remember is that depression is not the afflicted individual’s fault. It's a disease that can affect anyone, and regardless of the cause, there are many ways to treat it.
 
-3. Treating and Preventing Depression
-   In treating depression, a combination of medicine and psychotherapy is often most beneficial to begin with. For optimal mental health that is sustainable, however, it is critical to improve one’s lifestyle. In this regard, many studies show that gradual changes in diet, movement and exercise, sleep habits, social connections and one’s approach to dealing with stress are more important.
+<h3>3.   Treating and Preventing Depression</h3>
 
-Psychotherapy or Talk Therapy for Depression
+In treating depression, a combination of medicine and psychotherapy is often most beneficial to begin with. For optimal mental health that is sustainable, however, it is critical to improve one’s lifestyle. In this regard, many studies show that gradual changes in diet, movement and exercise, sleep habits, social connections and one’s approach to dealing with stress are **more important**.
+
+<h4>Psychotherapy or Talk Therapy for Depression</h4>
+
 Scientific research indicates that talking with a psychologist is one of the best treatments for depression. Some people choose to be in therapy for a few weeks / months to work on a few key issues. Others stay in therapy for years, gradually working through larger problems. 
 
-Medicines for Depression
+<h4>Medicines for Depression</h4>
+
 Medicines are another important treatment for depression. If one antidepressant doesn't work well, one’s doctor might try a different class of depression medicines or change the dose. There are dozens of anti-depressants available, including the selective serotonin reuptake inhibitors (SSRIs) amongst many others. In general, these drugs improve symptoms of depression by increasing the availability of the neurotransmitters in one’s brain.
 
-Stress reduction training
+<h4>Stress reduction training</h4>
+
 As it is ongoing stress that tips many individuals into a major depressive episode, learning how to cope effectively with stress, and the often-underlying negative habits of thinking (e.g. ruminating), is critical to ensuring that relapse into depression does not occur. Mindfulness-Based Stress Reduction (MBSR) training is one of the most beneficial training options currently available.
 
-Diet and Exercise
+<h4>Diet and Exercise</h4>
+
 Diet and exercise are proving to be crucial for recovery and, especially, for prevention. Cutting out refined carbohydrates, processed foods, sugar and seed oils (e.g. sunflower oil) is critical. And as little as 15 minutes of cardio-vascular exercise causes the release of endorphins which has a positive effect on brain functioning. 40 minutes of such exercise three times a week is optimal and has been shown to have a neuroprotective effect.
 
-Sleep hygiene
-Between 7 and 9 hours of unbroken sleep is optimal. At the very least, keep your bedroom as dark as possible and ensure that the temperature in your bedroom is cool, around 18°C. Also, Turn off or stop using all electronic devices that have an LED screen two to three hours before you put your head on your pillow. LED light prevents the production and release of melatonin, the sleep hormone, which causes us to feel drowsy and fall asleep quickly.
+<h4>Sleep hygiene</h4>
 
- A strong network of social support 
+Between 7 and 9 hours of unbroken sleep is optimal. At the very least, keep your bedroom as dark as possible and ensure that the temperature in your bedroom is cool, around 18°C. Also, turn off or stop using all electronic devices that have an LED screen two to three hours before you put your head on your pillow. LED light prevents the production and release of melatonin, the sleep hormone, which causes us to feel drowsy and fall asleep quickly.
+
+<h4>A strong network of social support </h4>
+
 Regularly interacting with emotionally supportive friends and family is critical in preventing mental health problems.
