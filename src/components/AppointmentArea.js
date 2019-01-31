@@ -5,7 +5,6 @@ import { ContactForm } from "./ContactForm";
 import "../assets/css/appointmentArea.css";
 
 export default function AppointmentArea(props) {
-  console.log("noTopPadding", props.noTopPadding);
   let sectionClassName;
   props.noTopPadding
     ? (sectionClassName = "ls section_padding_bottom_100")

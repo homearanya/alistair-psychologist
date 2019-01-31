@@ -15,7 +15,7 @@ const StyledLink = styled(Link)`
 
   @media (min-width: 992px) {
     &&& {
-      padding: ${props => (props.isSticky ? "25px 0" : "36px 0")};
+      padding: ${props => (props.$isSticky ? "25px 0" : "36px 0")};
       margin: 0 15px;
     }
   }
@@ -50,7 +50,7 @@ const StyledSubMenu = styled.ul`
       background-color: #ffffff;
       box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
       padding: 10px 0 10px;
-      margin-top: ${props => (props.isSticky ? "-2px" : undefined)};
+      margin-top: ${props => (props.$isSticky ? "-2px" : undefined)};
       position: absolute;
     }
   }
@@ -92,7 +92,7 @@ const NonClickableItem = styled.button`
   @media (min-width: 992px) {
     color: ${props => (props.servicePage ? "#91d0cc" : "#444444")};
     margin: 0 15px;
-    padding: ${props => (props.isSticky ? "25px 0" : "36px 0")};
+    padding: ${props => (props.$isSticky ? "25px 0" : "36px 0")};
 
     &.withArrow::after {
       content: none;
@@ -171,7 +171,7 @@ export class Menu extends Component {
                     <StyledLink
                       to="/"
                       activeClassName="active"
-                      isSticky={this.props.isSticky}
+                      $isSticky={this.props.isSticky}
                     >
                       Home
                     </StyledLink>
@@ -180,7 +180,7 @@ export class Menu extends Component {
                     <StyledLink
                       to="/about/"
                       activeClassName="active"
-                      isSticky={this.props.isSticky}
+                      $isSticky={this.props.isSticky}
                     >
                       About Me
                     </StyledLink>
@@ -192,7 +192,7 @@ export class Menu extends Component {
                     <NonClickableItem
                       servicePage={this.props.servicePage}
                       className="withArrow"
-                      isSticky={this.props.isSticky}
+                      $isSticky={this.props.isSticky}
                     >
                       Services
                     </NonClickableItem>
@@ -203,7 +203,7 @@ export class Menu extends Component {
                         timeout={300}
                         unmountOnExit
                       >
-                        <StyledSubMenu isSticky={this.props.isSticky}>
+                        <StyledSubMenu $isSticky={this.props.isSticky}>
                           {services.map((service, index) => (
                             <li key={index}>
                               <StyledLinkSub
@@ -227,7 +227,7 @@ export class Menu extends Component {
                     <StyledLink
                       to="/articles/"
                       activeClassName="active"
-                      isSticky={this.props.isSticky}
+                      $isSticky={this.props.isSticky}
                     >
                       Articles
                     </StyledLink>
@@ -236,7 +236,7 @@ export class Menu extends Component {
                     <StyledLink
                       to="/contact/"
                       activeClassName="active"
-                      isSticky={this.props.isSticky}
+                      $isSticky={this.props.isSticky}
                     >
                       Contact
                     </StyledLink>
