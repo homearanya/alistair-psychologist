@@ -43,22 +43,26 @@ export default function ArticleThumbnail(props) {
               articleUrl
             )}&text=${encodeURI(props.article.frontmatter.title)}`}
             className="social-icon color-icon soc-twitter"
+            target="_blank"
           />
           <a
             href={`https://www.facebook.com/sharer.php?u=${encodeURI(
               articleUrl
             )}`}
             className="social-icon color-icon soc-facebook"
+            target="_blank"
           />
           <a
             href={`https://getpocket.com/edit?url=${encodeURI(articleUrl)}`}
             className="social-icon color-icon soc-pocket"
+            target="_blank"
           />
           <a
             href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(
               articleUrl
             )}&title=${encodeURI(props.article.frontmatter.title)}`}
             className="social-icon color-icon soc-linkedin"
+            target="_blank"
           />
         </div>
       </article>

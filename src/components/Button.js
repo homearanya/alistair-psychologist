@@ -30,8 +30,16 @@ const StyledButton = styled.button`
 
 export default function Button(props) {
   return (
-    <Link to={props.whereTo}>
-      <StyledButton>{props.text}</StyledButton>
-    </Link>
+    <React.Fragment>
+      {props.whereTo[0] === "#" ? (
+        <a href={props.whereTo}>
+          <StyledButton>{props.text}</StyledButton>
+        </a>
+      ) : (
+        <Link to={props.whereTo}>
+          <StyledButton>{props.text}</StyledButton>
+        </Link>
+      )}
+    </React.Fragment>
   );
 }

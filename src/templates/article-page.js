@@ -14,7 +14,6 @@ const renderAst = new rehypeReact({
 }).Compiler;
 
 export default function({ data, pageContext }) {
-  console.log("pageContext", pageContext);
   const { markdownRemark: article } = data;
   //   Prepare breadcrumbs
   const pages = [
