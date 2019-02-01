@@ -16,7 +16,7 @@ const StyledScrollToTop = styled(ScrollToTop)`
     right: 12px;
     text-align: center;
     width: 45px;
-    z-index: 999;
+    z-index: 9999;
 
     :hover {
       background-color: #000;
