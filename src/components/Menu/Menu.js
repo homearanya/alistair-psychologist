@@ -42,7 +42,7 @@ const StyledSubMenu = styled.ul`
     opacity: 1;
     display: block;
     top: 100%;
-    z-index: 99;
+    z-index: 99999;
   }
 
   @media (min-width: 992px) {
