@@ -1,6 +1,6 @@
 ---
 templateKey: article-page
-title: WHAT CAN I EXPECT WHEN I SEE A PSYCHOLOGIST?
+title: What Can I Expect When I See A Psychologist?
 date: 2019-01-08T08:21:55.686Z
 intro: >-
   You may have never stepped inside a psychologist’s office let alone engaged in
@@ -8,10 +8,10 @@ intro: >-
   adolescents, find that talking to a trained neutral, objective, confidential,
   non-judgemental psychologist (psychotherapist) is of enormous benefit to
   themselves and to their relationships.
+tags: []
 thumbnailimage: {}
 bannerimage: {}
 bodyimage: {}
-tags: []
 ---
 
 You may have never stepped inside a psychologist’s office let alone engaged in psychotherapy. However, many men and women, as well as children and adolescents, find that talking to a trained neutral, objective, confidential, non-judgemental psychologist (psychotherapist) is of enormous benefit to themselves and to their relationships.
