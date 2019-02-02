@@ -326,7 +326,7 @@ collections:
         name: "social"
         fields:
           - { label: Facebook Page Url, name: facebook, widget: string }
-      - file: "src/general/mainMenu.md"
+      - file: "src/general/main-menu.md"
         label: "Main Menu"
         name: "mainMenu"
         fields:
@@ -337,7 +337,13 @@ collections:
             required: false
             fields:
               - { label: Name, name: name, widget: string }
-              - { label: Link, name: link, widget: string, required: false }
+              - {
+                  label: Link,
+                  name: link,
+                  widget: string,
+                  required: false,
+                  hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
+                }
               - label: Sub Menu
                 name: subMenu
                 widget: object
@@ -354,6 +360,7 @@ collections:
                           name: link,
                           widget: string,
                           required: false,
+                          hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
                         }
                       - label: Sub Menu
                         name: subMenu
@@ -366,6 +373,11 @@ collections:
                             widget: list
                             fields:
                               - { label: Name, name: name, widget: string }
-                              - { label: Link, name: link, widget: string }
+                              - {
+                                  label: Link,
+                                  name: link,
+                                  widget: string,
+                                  hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
+                                }
     editor:
       preview: false

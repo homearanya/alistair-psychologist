@@ -143,6 +143,9 @@ export class Menu extends Component {
                 }
               }
             }
+            mainMenuQuery: markdownRemark(
+              fields: { slug: { eq: "/mainmenu/" } }
+            ) {
           }
         `}
         render={data => {
