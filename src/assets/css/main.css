@@ -6093,7 +6093,7 @@ a.logo.vertical_logo img {
     left: 0;
     right: 0;
     position: relative;
-    z-index: 1000;
+    /* z-index: 1000; */
     margin: 0;
     padding: 0;
     height: auto;
@@ -6104,9 +6104,10 @@ a.logo.vertical_logo img {
     z-index: 1001;
 }
 
-.page_header.mobile-active {
+
+/* .page_header.mobile-active {
     z-index: 1002;
-}
+} */
 
 .page_header.affix-bottom {
     top: 0 !important;
@@ -8097,7 +8098,7 @@ body.active-side-header.slide-right .page_header_side {
 .page_topline {
     font-size: 14px;
     position: relative;
-    z-index: 1001;
+    /* z-index: 1001; */
 }
 
 .page_topline .media {
@@ -8908,7 +8909,7 @@ body.active-side-header.slide-right .page_header_side {
         width: 60px;
         height: 60px;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 11;
         visibility: visible;
     }
     .toggle_menu.vertical-center {
@@ -8990,7 +8991,7 @@ body.active-side-header.slide-right .page_header_side {
         right: 0;
         position: fixed;
         margin: 0;
-        z-index: 3000;
+        /* z-index: 3000; */
     }
     .toggle_menu.mobile-active:before {
         background-color: #ffffff;

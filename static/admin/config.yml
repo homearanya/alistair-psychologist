@@ -326,5 +326,46 @@ collections:
         name: "social"
         fields:
           - { label: Facebook Page Url, name: facebook, widget: string }
+      - file: "src/general/mainMenu.md"
+        label: "Main Menu"
+        name: "mainMenu"
+        fields:
+          - label: Menu Items
+            label_singular: "Menu Item"
+            name: menuItems
+            widget: list
+            required: false
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Link, name: link, widget: string, required: false }
+              - label: Sub Menu
+                name: subMenu
+                widget: object
+                required: false
+                fields:
+                  - label: Sub Menu menuItems
+                    label_singular: Sub Menu Item
+                    name: subMenuItems
+                    widget: list
+                    fields:
+                      - { label: Name, name: name, widget: string }
+                      - {
+                          label: Link,
+                          name: link,
+                          widget: string,
+                          required: false,
+                        }
+                      - label: Sub Menu
+                        name: subMenu
+                        widget: object
+                        required: false
+                        fields:
+                          - label: Sub Menu menuItems
+                            label_singular: Sub Menu Item
+                            name: subMenuItems
+                            widget: list
+                            fields:
+                              - { label: Name, name: name, widget: string }
+                              - { label: Link, name: link, widget: string }
     editor:
       preview: false

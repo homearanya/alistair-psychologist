@@ -2,22 +2,11 @@ import React from "react";
 import ScrollToTop from "react-scroll-up";
 import styled from "styled-components";
 
-const StyledScrollToTop = styled(ScrollToTop)`
+const ScrollToTopWrapper = styled.div`
   &&& {
     background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
-    bottom: 45px;
-    color: #ffffff;
-    cursor: pointer;
-    display: block;
-    font-size: 28px;
-    height: 45px;
-    line-height: 40px;
-    position: fixed;
-    right: 12px;
-    text-align: center;
-    width: 45px;
-    z-index: 9999;
-
+    position: relative;
+    z-index: 98;
     :hover {
       background-color: #000;
     }
@@ -47,8 +36,10 @@ const IStyled = styled.i`
 
 export default function ScrollUp() {
   return (
-    <StyledScrollToTop style={{ position: "static" }} showUnder={160}>
-      <IStyled className="fa fa-angle-up" />
-    </StyledScrollToTop>
+    <ScrollToTopWrapper>
+      <ScrollToTop showUnder={160}>
+        <IStyled className="fa fa-angle-up" />
+      </ScrollToTop>
+    </ScrollToTopWrapper>
   );
 }
