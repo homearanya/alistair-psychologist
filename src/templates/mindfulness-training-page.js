@@ -38,7 +38,7 @@ export default function({ data }) {
 
   return (
     <Layout>
-      {/* <MTBreadcrumbs
+      <MTBreadcrumbs
         root={fields.slug === "/services/mindfulness-training/"}
         pageTitle={frontmatter.title}
       />
@@ -57,7 +57,7 @@ export default function({ data }) {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
       <MTTestimonials />
       <AppointmentArea />
     </Layout>

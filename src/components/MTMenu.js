@@ -24,13 +24,14 @@ export default function MTMenu() {
         return (
           <div className="col-sm-5">
             <ul className="nav" role="menu">
-              {menuItems.map((menuItem, index) => (
-                <li key={index}>
-                  <Link to={menuItem.link} activeClassName="active">
-                    {menuItem.name}
-                  </Link>
-                </li>
-              ))}
+              {menuItems &&
+                menuItems.map((menuItem, index) => (
+                  <li key={index}>
+                    <Link to={menuItem.link} activeClassName="active">
+                      {menuItem.name}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
         );

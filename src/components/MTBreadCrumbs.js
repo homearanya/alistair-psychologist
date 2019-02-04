@@ -11,6 +11,9 @@ export default function MTTestimonials(props) {
           markdownRemark(
             fields: { slug: { eq: "/services/mindfulness-training/" } }
           ) {
+            fields {
+              slug
+            }
             frontmatter {
               title
               bannerimage {
