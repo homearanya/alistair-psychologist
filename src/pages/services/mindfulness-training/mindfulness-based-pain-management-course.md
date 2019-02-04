@@ -1,6 +1,6 @@
 ---
 templateKey: mindfulness-training-page
-title: "2.\tMindfulness-Based Pain Management Course"
+title: Mindfulness-Based Pain Management Course
 ---
 Mindfulness can help people living with chronic pain, injuries and illness to improve and even transform their quality of life. This programme enables us to change how we experience pain or illness, so that we can make choices about how we respond, rather than reacting in an automatic or habitual way.
 
