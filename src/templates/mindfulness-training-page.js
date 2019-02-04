@@ -4,7 +4,7 @@ import rehypeReact from "rehype-react";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
-// import MTBreadcrumbs from "../components/MTBreadcrumbs";
+import MTBreadcrumbs from "../components/MTBreadcrumbs";
 import MTMenu from "../components/MTMenu";
 import MTTestimonials from "../components/MTTestimonials";
 import AppointmentArea from "../components/AppointmentArea";
@@ -38,10 +38,10 @@ export default function({ data }) {
 
   return (
     <Layout>
-      {/* <MTBreadcrumbs
+      <MTBreadcrumbs
         root={fields.slug === "/services/mindfulness-training/"}
         pageTitle={frontmatter.title}
-      /> */}
+      />
       <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
           <div className="row vertical-tabs">

@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 
 import Breadcrumbs from "./Breadcrumbs";
 
-export default function MTTestimonials(props) {
+export default function MTBreadcrumbs(props) {
   return (
     <StaticQuery
       query={graphql`
