@@ -17,7 +17,13 @@ const StyledLink = styled(Link)`
 
 export default function ScrollToAnchor(props) {
   return (
-    <StyledLink to={props.to} smooth={true} duration={300}>
+    <StyledLink
+      to={props.to}
+      smooth={true}
+      duration={300}
+      className={props.className}
+      onClick={props.onClick}
+    >
       {props.children}
     </StyledLink>
   );

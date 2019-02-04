@@ -124,125 +124,82 @@ export class Menu extends Component {
       <StaticQuery
         query={graphql`
           query MenuQuery {
-            servicesMenu: markdownRemark(
-              fields: { slug: { eq: "/services-menu/" } }
-            ) {
-              fields {
-                menuservices {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                  }
-                }
-              }
+            markdownRemark(fields: { slug: { eq: "/main-menu/" } }) {
               frontmatter {
-                services {
-                  service
+                menuItems {
+                  link
+                  name
+                  subMenu {
+                    subMenuItems {
+                      link
+                      name
+                      subMenu {
+                        subMenuItems {
+                          link
+                          name
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
-            mainMenuQuery: markdownRemark(
-              fields: { slug: { eq: "/mainmenu/" } }
-            ) {
           }
         `}
         render={data => {
-          const { services } = data.servicesMenu.frontmatter;
-          const { menuservices } = data.servicesMenu.fields;
-          const servicesObject = menuservices.reduce((obj, service) => {
-            obj[service.frontmatter.title.trim().toLowerCase()] = service;
-            return obj;
-          }, {});
-          services.forEach((service, index) => {
-            if (servicesObject[service.service.trim().toLowerCase()]) {
-              services[index]["slug"] =
-                servicesObject[
-                  service.service.trim().toLowerCase()
-                ].fields.slug;
-            } else {
-              console.log("issue with service:", service.trim().toLowerCase());
-            }
-          });
+          const { menuItems } = data.markdownRemark.frontmatter;
           return (
             <div className="col-md-6 text-center">
               <nav className="mainmenu_wrapper">
                 <ul className="mainmenu nav sf-menu">
-                  <li>
-                    <StyledLink
-                      to="/"
-                      activeClassName="active"
-                      $isSticky={this.props.isSticky}
+                  {menuItems.map((menuItem, index) => (
+                    <li
+                      key={index}
+                      onMouseLeave={menuItem.subMenu && this.handleLeave}
+                      onMouseEnter={menuItem.subMenu && this.handleHover}
                     >
-                      Home
-                    </StyledLink>
-                  </li>
-                  <li>
-                    <StyledLink
-                      to="/about/"
-                      activeClassName="active"
-                      $isSticky={this.props.isSticky}
-                    >
-                      About Me
-                    </StyledLink>
-                  </li>
-                  <li
-                    onMouseLeave={this.handleLeave}
-                    onMouseEnter={this.handleHover}
-                  >
-                    <NonClickableItem
-                      servicePage={this.props.servicePage}
-                      className="withArrow"
-                      $isSticky={this.props.isSticky}
-                    >
-                      Services
-                    </NonClickableItem>
-                    {services && services.length > 0 && (
-                      <CSSTransition
-                        in={this.state.showSubMenu}
-                        classNames="fade-dropdown-menu"
-                        timeout={300}
-                        unmountOnExit
-                      >
-                        <StyledSubMenu $isSticky={this.props.isSticky}>
-                          {services.map((service, index) => (
-                            <li key={index}>
-                              <StyledLinkSub
-                                to={service.slug}
-                                activeClassName="active"
-                              >
-                                {service.service}
-                              </StyledLinkSub>
-                            </li>
-                          ))}
-                        </StyledSubMenu>
-                      </CSSTransition>
-                    )}
-                  </li>
-                  {/* <li>
-                    <StyledLink to="/rates/" activeClassName="active">
-                      Rates
-                    </StyledLink>
-                  </li> */}
-                  <li>
-                    <StyledLink
-                      to="/articles/"
-                      activeClassName="active"
-                      $isSticky={this.props.isSticky}
-                    >
-                      Articles
-                    </StyledLink>
-                  </li>
-                  <li>
-                    <StyledLink
-                      to="/contact/"
-                      activeClassName="active"
-                      $isSticky={this.props.isSticky}
-                    >
-                      Contact
-                    </StyledLink>
-                  </li>
+                      {menuItem.link ? (
+                        <StyledLink
+                          to={menuItem.link}
+                          activeClassName="active"
+                          $isSticky={this.props.isSticky}
+                        >
+                          {menuItem.name}
+                        </StyledLink>
+                      ) : (
+                        <NonClickableItem
+                          servicePage={this.props.servicePage}
+                          className="withArrow"
+                          $isSticky={this.props.isSticky}
+                        >
+                          {menuItem.name}
+                        </NonClickableItem>
+                      )}
+                      {menuItem.subMenu && (
+                        <CSSTransition
+                          in={this.state.showSubMenu}
+                          classNames="fade-dropdown-menu"
+                          timeout={300}
+                          unmountOnExit
+                        >
+                          <StyledSubMenu $isSticky={this.props.isSticky}>
+                            {menuItem.subMenu.subMenuItems.map(
+                              (subMenuItem, index) => (
+                                <li key={index}>
+                                  <StyledLinkSub
+                                    to={subMenuItem.link}
+                                    activeClassName="active"
+                                  >
+                                    {subMenuItem.name}
+                                  </StyledLinkSub>
+                                </li>
+                              )
+                            )}
+                          </StyledSubMenu>
+                        </CSSTransition>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </nav>
             </div>

@@ -136,6 +136,54 @@ collections:
     editor:
       preview: false
 
+  - name: "Mindfulness Training"
+    label: "mindfulnessTraining"
+    files:
+      - file: "src/pages/services/mindfulness-training/mindfulness-based-stress-reduction-course.md"
+        label: "Mindfulness-Based Stress Reduction Course"
+        name: "mbsrc"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/services/mindfulness-training/mindfulness-based-paing-management-course.md"
+        label: "Mindfulness-Based Pain Management Course"
+        name: "mbpmc"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
+        label: "Frequently Asked Questions"
+        name: "faq"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "List of Questions-Answers"
+            label_singular: "Question-Answer"
+            name: qa
+            widget: list
+            fields:
+              - { label: Question, name: question, widget: text }
+              - { label: Answer, name: answer, widget: answer }          
+    editor:
+      preview: false
+
   - name: "pages"
     label: "Pages"
     files:

@@ -80,7 +80,8 @@ module.exports = {
               maxWidth: 930,
               backgroundColor: "transparent" // required to display blurred image first
             }
-          }
+          },
+          "gatsby-remark-component"
         ]
       }
     },
@@ -89,7 +90,6 @@ module.exports = {
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ],
   mapping: {
-    "MarkdownRemark.fields.homeservices": `MarkdownRemark`,
-    "MarkdownRemark.fields.menuservices": `MarkdownRemark`
+    "MarkdownRemark.fields.homeservices": `MarkdownRemark`
   }
 };

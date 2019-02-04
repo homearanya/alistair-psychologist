@@ -10,6 +10,11 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import TestimonialsArea from "../components/TestimonialsArea";
 import AppointmentArea from "../components/AppointmentArea";
 import ScrollToAnchor from "../components/ScrollToAnchor";
+import DynamicAnchor from "../components/DynamicAnchor";
+import Accordion from "../components/Accordion";
+import Tab from "../components/Tab";
+import TabHeading from "../components/TabHeading";
+import TabContent from "../components/TabContent";
 
 const StyledLink = styled(Link)`
   && {
@@ -32,24 +37,17 @@ const StyledImg = styled(Img)`
   }
 `;
 
-// Create Dynamic Anchor
-const DynamicAnchor = styled.span`
-  display: block;
-  position: relative;
-  visibility: hidden;
-  top: -70px;
-  @media (min-width: 992px) {
-    top: -90px;
-  }
-`;
-
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     "scroll-to-anchor": ScrollToAnchor,
     "dynamic-anchor": DynamicAnchor,
-    "gatsby-link": StyledLink
+    "gatsby-link": StyledLink,
+    "accordion-container": Accordion,
+    "tab-container": Tab,
+    "tab-heading": TabHeading,
+    "tab-content": TabContent
   }
 }).Compiler;
 
@@ -62,7 +60,8 @@ export default function({ data }) {
     { title: "Services", href: "/#services" },
     { title: frontmatter.title, href: null }
   ];
-
+  console.log("htmlAst", data.markdownRemark.htmlAst);
+  console.log("renderAst(htmlAst)", renderAst(data.markdownRemark.htmlAst));
   return (
     <Layout servicePage appointmentButton>
       <Breadcrumbs
@@ -84,7 +83,6 @@ export default function({ data }) {
             <div className="col-lg-8 col-lg-pull-4 col-sm-7 col-sm-pull-5">
               <h2 className="section_header small">{frontmatter.title}</h2>
               <hr className="divider_30_1" />
-              {/* <ServiceContent content={data.markdownRemark.html} /> */}
               {renderAst(data.markdownRemark.htmlAst)}
             </div>
           </div>
