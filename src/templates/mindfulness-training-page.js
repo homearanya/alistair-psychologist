@@ -38,10 +38,10 @@ export default function({ data }) {
 
   return (
     <Layout>
-      {/* <MTBreadcrumbs
+      <MTBreadcrumbs
         root={fields.slug === "/services/mindfulness-training/"}
         pageTitle={frontmatter.title}
-      /> */}
+      />
       <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
           <div className="row vertical-tabs">
