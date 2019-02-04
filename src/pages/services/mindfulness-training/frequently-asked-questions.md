@@ -89,5 +89,4 @@ qa:
       reduce stress.
     question: What will I learn on a mindfulness course?
 ---
-
-FAQ content goes here
+<faq-container></faq-container>
