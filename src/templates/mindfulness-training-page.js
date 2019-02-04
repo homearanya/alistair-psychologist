@@ -1,12 +1,28 @@
 import React from "react";
+import { graphql, Link } from "gatsby";
 import rehypeReact from "rehype-react";
+import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import MTBreadcrumbs from "../components/MTBreadcrumbs";
 import MTMenu from "../components/MTMenu";
 import MTTestimonials from "../components/MTTestimonials";
 import AppointmentArea from "../components/AppointmentArea";
+import ScrollToAnchor from "../components/ScrollToAnchor";
+import DynamicAnchor from "../components/DynamicAnchor";
 
+const StyledLink = styled(Link)`
+  && {
+    :focus {
+      color: #91d0cc;
+    }
+
+    :hover {
+      cursor: pointer;
+      color: #d9be93;
+    }
+  }
+`;
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -17,12 +33,12 @@ const renderAst = new rehypeReact({
   }
 }).Compiler;
 
-export default function() {
+export default function({ data }) {
   const { fields, htmlAst, frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
-      <MTBreadcrumbs
+      {/* <MTBreadcrumbs
         root={fields.slug === "/services/mindfulness-training/"}
         pageTitle={frontmatter.title}
       />
@@ -35,13 +51,13 @@ export default function() {
               <div className="tab-content no-border">
                 <div className="tab-pane fade in active" id="vertical-tab1">
                   <h2>{frontmatter.title}</h2>
-                  {renderAst(data.markdownRemark.htmlAst)}
+                  {renderAst(htmlAst)}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <MTTestimonials />
       <AppointmentArea />
     </Layout>
@@ -49,7 +65,7 @@ export default function() {
 }
 
 export const servicePageQuery = graphql`
-  query ServicePage($id: String!) {
+  query MindfulnessTrainingPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
         slug

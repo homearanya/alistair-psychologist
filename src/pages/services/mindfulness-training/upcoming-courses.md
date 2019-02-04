@@ -1,0 +1,3 @@
+---
+templateKey: mindfulness-training-page
+---
