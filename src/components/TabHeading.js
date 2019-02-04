@@ -1,10 +1,21 @@
 import React from "react";
-
-import ScrollToAnchor from "../components/ScrollToAnchor";
 import DynamicAnchor from "../components/DynamicAnchor";
+import styled from "styled-components";
+
+const StyledAnchor = styled.a`
+  && {
+    :focus {
+      color: #91d0cc;
+    }
+
+    :hover {
+      cursor: pointer;
+      color: #d9be93;
+    }
+  }
+`;
 
 export default function TabHeading(props) {
-  console.log("Tab Heading", props.index, props.activeIndex, props.heading);
   let idSelector = `collapse${props.index}`;
   let className = "";
   if (props.index !== props.activeIndex) {
@@ -13,18 +24,14 @@ export default function TabHeading(props) {
   return (
     <React.Fragment>
       <DynamicAnchor id={idSelector} />
-      <div
-        className="panel-heading"
-        onClick={() => props.toggleTab(props.index)}
-      >
+      <div className="panel-heading">
         <h4 className="panel-title">
-          <ScrollToAnchor
-            to={idSelector}
+          <StyledAnchor
             className={className}
-            onClick={() => props.toggleTab(props.index)}
+            onClick={() => props.toggleTab(props.index, idSelector)}
           >
             {props.heading}
-          </ScrollToAnchor>
+          </StyledAnchor>
         </h4>
       </div>
     </React.Fragment>

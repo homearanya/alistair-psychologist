@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { scroller } from "react-scroll";
 
 export default class Accordion extends Component {
   constructor(props) {
@@ -7,16 +8,21 @@ export default class Accordion extends Component {
     this.toggleTab = this.toggleTab.bind(this);
   }
 
-  toggleTab(index) {
+  toggleTab(index, idSelector) {
+    console.log("toggleTab", index);
     if (index !== this.state.activeIndex) {
-      this.setState({ activeIndex: index });
+      this.setState({ activeIndex: index }, () =>
+        scroller.scrollTo(idSelector, {
+          smooth: true,
+          duration: 300
+        })
+      );
     } else {
       this.setState({ activeIndex: -1 });
     }
   }
 
   render() {
-    console.log("accordion", this.props.children);
     const children = React.Children.map(this.props.children, (child, index) => {
       return React.cloneElement(child, {
         index: index,
@@ -24,7 +30,6 @@ export default class Accordion extends Component {
         toggleTab: this.toggleTab
       });
     });
-    console.log("children", children);
     return (
       <div className="panel-group" id="accordion1">
         {children}

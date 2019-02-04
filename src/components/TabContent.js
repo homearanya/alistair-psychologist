@@ -7,15 +7,11 @@ export default function TabContent(props) {
     className += " in";
   }
   return (
-    // <CSSTransition
-    //   in={props.index === props.activeIndex}
-    //   classNames="slidedown-dropdown-menu"
-    //   timeout={300}
-    //   unmountOnExit
-    // >
     <div className={className}>
-      <div className="panel-body">{props.children}</div>
+      <div
+        className="panel-body"
+        dangerouslySetInnerHTML={{ __html: props.children }}
+      />
     </div>
-    // </CSSTransition>
   );
 }

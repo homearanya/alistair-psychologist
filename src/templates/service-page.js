@@ -9,7 +9,6 @@ import Breadcrumbs from "../components/Breadcrumbs";
 // import Content, { HTMLContent } from "../components/Content";
 import TestimonialsArea from "../components/TestimonialsArea";
 import AppointmentArea from "../components/AppointmentArea";
-import ScrollToAnchor from "../components/ScrollToAnchor";
 import DynamicAnchor from "../components/DynamicAnchor";
 import Accordion from "../components/Accordion";
 import Tab from "../components/Tab";
@@ -41,7 +40,6 @@ const StyledImg = styled(Img)`
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    "scroll-to-anchor": ScrollToAnchor,
     "dynamic-anchor": DynamicAnchor,
     "gatsby-link": StyledLink,
     "accordion-container": Accordion,
