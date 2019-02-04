@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function MTTestimonials(props) {
   return (
