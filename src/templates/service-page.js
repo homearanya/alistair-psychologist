@@ -60,8 +60,6 @@ export default function({ data }) {
     { title: "Services", href: "/#services" },
     { title: frontmatter.title, href: null }
   ];
-  console.log("htmlAst", data.markdownRemark.htmlAst);
-  console.log("renderAst(htmlAst)", renderAst(data.markdownRemark.htmlAst));
   return (
     <Layout servicePage appointmentButton>
       <Breadcrumbs
