@@ -1,5 +1,7 @@
 ---
 menuItems:
+  - link: /services/mindfulness-training/
+    name: Mindfulness Training
   - link: /services/mindfulness-training/mindfulness-based-stress-reduction-course/
     name: Mindfulness-Based Stress Reduction Course
   - link: /services/mindfulness-training/mindfulness-based-management-pain-course/
