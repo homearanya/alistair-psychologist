@@ -181,7 +181,7 @@ collections:
             widget: list
             fields:
               - { label: Question, name: question, widget: text }
-              - { label: Answer, name: answer, widget: answer }
+              - { label: Answer, name: answer, widget: text }
       - file: "src/pages/services/mindfulness-training/upcoming-courses.md"
         label: "Upcoming Courses"
         name: "upcomingCourses"
