@@ -1255,19 +1255,19 @@ input[type="radio"]:disabled+label:before {
     letter-spacing: 0;
 }
 
-.vertical-tabs .nav>li.active a,
+.vertical-tabs .nav>li a.active,
 .vertical-tabs .nav>li>a:hover {
     background-color: #91d0cc;
     color: #ffffff;
 }
 
-.vertical-tabs .nav>li.active a:after,
+.vertical-tabs .nav>li a.active:after,
 .vertical-tabs .nav>li>a:hover:after {
     color: #ffffff;
 }
 
 @media (min-width: 768px) {
-    .vertical-tabs .nav>li.active {
+    .vertical-tabs .nav>li a.active {
         position: relative;
         z-index: 2;
     }

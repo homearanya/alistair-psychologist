@@ -22,12 +22,19 @@ export default function MTMenu() {
         const { menuItems } = data.markdownRemark.frontmatter;
 
         return (
-          <div className="col-sm-5">
+          <div className="col-sm-4">
             <ul className="nav" role="menu">
               {menuItems &&
                 menuItems.map((menuItem, index) => (
                   <li key={index}>
-                    <Link to={menuItem.link} activeClassName="active">
+                    <Link
+                      to={menuItem.link}
+                      getProps={({ href, location }) => {
+                        return location.pathname === href.split("#")[0]
+                          ? { className: "active" }
+                          : null;
+                      }}
+                    >
                       {menuItem.name}
                     </Link>
                   </li>

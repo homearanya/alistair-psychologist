@@ -21,7 +21,7 @@ qa:
       Mindfulness can be thought of as a particular form of meditation. Broadly
       speaking, it is a meditative way of being in which one focuses one’s
       attention on what one is sensing and feeling in the moment, without
-      interpretation or judgment. 
+      interpretation or judgment.
     question: Is mindfulness only about meditating?
   - answer: >-
       Practising mindfulness means to give one’s focused attention to whatever
@@ -66,7 +66,7 @@ qa:
       body's response to stress. Mindfulness also allows one to obtain maximum
       pleasure from every pleasurable moment that arises, such as enjoying that
       mouthful of delicious coffee... or enjoying the thought of being with
-      one’s best friend, etc. 
+      one’s best friend, etc.
     question: What is the purpose of mindfulness practices?
   - answer: >-
       In 2011, a study conducted at Harvard University found that
@@ -89,4 +89,5 @@ qa:
       reduce stress.
     question: What will I learn on a mindfulness course?
 ---
+
 FAQ content goes here

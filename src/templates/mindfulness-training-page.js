@@ -8,8 +8,8 @@ import MindfulnessTrainingBreadcrumbs from "../components/MindfulnessTrainingBre
 import MTMenu from "../components/MTMenu";
 import MTTestimonials from "../components/MTTestimonials";
 import AppointmentArea from "../components/AppointmentArea";
-import ScrollToAnchor from "../components/ScrollToAnchor";
 import DynamicAnchor from "../components/DynamicAnchor";
+import FAQ from "../components/FAQ";
 
 const StyledLink = styled(Link)`
   && {
@@ -23,11 +23,16 @@ const StyledLink = styled(Link)`
     }
   }
 `;
+
+const StyledH1 = styled.h1`
+  margin-top: 0px;
+  font-size: 28px;
+`;
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    "scroll-to-anchor": ScrollToAnchor,
+    "faq-container": FAQ,
     "dynamic-anchor": DynamicAnchor,
     "gatsby-link": StyledLink
   }
@@ -47,10 +52,11 @@ export default function({ data }) {
           <div className="row vertical-tabs">
             <MTMenu />
 
-            <div className="col-sm-7">
+            <div className="col-sm-8">
               <div className="tab-content no-border">
                 <div className="tab-pane fade in active" id="vertical-tab1">
-                  <h2>{frontmatter.title}</h2>
+                  <DynamicAnchor id="start-content" />
+                  <StyledH1>{frontmatter.title}</StyledH1>
                   {renderAst(htmlAst)}
                 </div>
               </div>
