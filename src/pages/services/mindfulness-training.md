@@ -1,5 +1,5 @@
 ---
-templateKey: service-page
+templateKey: mindfulness-training-page
 title: Mindfulness Training
 intro: >-
   Mindfulness training will not only help you to deal with stress or chronic

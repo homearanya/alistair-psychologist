@@ -136,8 +136,8 @@ collections:
     editor:
       preview: false
 
-  - name: "Mindfulness Training"
-    label: "mindfulnessTraining"
+  - name: "mindfulnessTraining"
+    label: "Mindfulness Training"
     files:
       - file: "src/pages/services/mindfulness-training/mindfulness-based-stress-reduction-course.md"
         label: "Mindfulness-Based Stress Reduction Course"
@@ -151,7 +151,7 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/services/mindfulness-training/mindfulness-based-paing-management-course.md"
+      - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
         label: "Mindfulness-Based Pain Management Course"
         name: "mbpmc"
         fields:
@@ -180,7 +180,19 @@ collections:
             widget: list
             fields:
               - { label: Question, name: question, widget: text }
-              - { label: Answer, name: answer, widget: answer }          
+              - { label: Answer, name: answer, widget: answer }
+      - file: "src/pages/services/mindfulness-training/upcoming-courses.md"
+        label: "Upcoming Courses"
+        name: "upcomingCourses"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
     editor:
       preview: false
 
@@ -327,22 +339,6 @@ collections:
               widget: text,
               hint: "Please inform. Important for SEO",
             }
-      - file: "src/general/services-menu.md"
-        label: "Services Menu"
-        name: "servicesmenu"
-        fields:
-          - label: "Services"
-            label_singular: "Service"
-            name: "services"
-            widget: list
-            fields:
-              - label: "Service"
-                name: "service"
-                widget: "relation"
-                collection: "services"
-                searchFields: ["title"]
-                valueField: "title"
-                displayFields: ["title"]
       - file: "src/general/contact-details.md"
         label: "Contact Details"
         name: "contact"
@@ -427,5 +423,23 @@ collections:
                                   widget: string,
                                   hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
                                 }
+      - file: "src/general/mindfulness-training-menu.md"
+        label: "Mindfulness Traing Menu"
+        name: "mtMenu"
+        fields:
+          - label: Menu Items
+            label_singular: "Menu Item"
+            name: menuItems
+            widget: list
+            required: false
+            fields:
+              - { label: Name, name: name, widget: string }
+              - {
+                  label: Link,
+                  name: link,
+                  widget: string,
+                  required: false,
+                  hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
+                }
     editor:
       preview: false
