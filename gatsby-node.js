@@ -146,7 +146,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       );
     } else if (
       node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("service-page")
+      (node.frontmatter.templateKey.includes("service-page") ||
+        node.frontmatter.templateKey.includes("mindfulness-training-page"))
     ) {
       servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
     }
