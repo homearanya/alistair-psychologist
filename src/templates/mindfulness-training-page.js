@@ -10,6 +10,7 @@ import MTTestimonials from "../components/MTTestimonials";
 import AppointmentArea from "../components/AppointmentArea";
 import DynamicAnchor from "../components/DynamicAnchor";
 import FAQ from "../components/FAQ";
+import UpcomingCourses from "../components/UpcomingCourses";
 
 const StyledLink = styled(Link)`
   && {
@@ -33,6 +34,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     "faq-container": FAQ,
+    "upcoming-courses": UpcomingCourses,
     "dynamic-anchor": DynamicAnchor,
     "gatsby-link": StyledLink
   }

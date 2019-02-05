@@ -9,194 +9,6 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: articles
-    label: Articles
-    label_singular: ArticleThumbnail
-    folder: "src/pages/articles"
-    create: true
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "article-page",
-        }
-      - { label: "Title", name: "title", widget: "string" }
-      - {
-          label: "Publish Date",
-          name: "date",
-          widget: "date",
-          dateFormat: "YYYY-MM-DD",
-        }
-      # format: "DD MM YYYY",
-      - { label: "Intro", name: "intro", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Tags", name: "tags", widget: "list", required: false }
-      - label: "Thumbnail Image"
-        name: thumbnailimage
-        widget: object
-        required: false
-        fields:
-          - { label: Image, name: image, widget: image, hint: "1170 x 780" }
-          - {
-              label: Title,
-              name: alt,
-              widget: text,
-              hint: "Please inform. Important for SEO",
-            }
-      - label: "Banner Image"
-        name: bannerimage
-        widget: object
-        required: false
-        fields:
-          - { label: Image, name: image, widget: image, hint: "1920 x 195" }
-          - {
-              label: Title,
-              name: alt,
-              widget: text,
-              hint: "Please inform. Important for SEO",
-            }
-      - label: "Body Image"
-        name: bodyimage
-        widget: object
-        required: false
-        fields:
-          - { label: Image, name: image, widget: image, hint: "1170 x 780" }
-          - {
-              label: Title,
-              name: alt,
-              widget: text,
-              hint: "Please inform. Important for SEO",
-            }
-    editor:
-      preview: false
-
-  - name: "services"
-    label: "Services"
-    label_singular: "Service"
-    folder: "src/pages/services"
-    create: true
-    fields:
-      - {
-          label: "Template Key",
-          name: "templateKey",
-          widget: "hidden",
-          default: "service-page",
-        }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Intro", name: "intro", widget: "text" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - label: "Thumbnail Image"
-        name: thumbnailimage
-        widget: object
-        required: false
-        fields:
-          - { label: Image, name: image, widget: image, hint: "80 x 90" }
-          - {
-              label: Title,
-              name: alt,
-              widget: text,
-              hint: "Please inform. Important for SEO",
-            }
-      - label: "Banner Image"
-        name: bannerimage
-        widget: object
-        required: false
-        fields:
-          - { label: Image, name: image, widget: image, hint: "1920 x 195" }
-          - {
-              label: Title,
-              name: alt,
-              widget: text,
-              hint: "Please inform. Important for SEO",
-            }
-      - label: "Body Image"
-        name: bodyimage
-        widget: object
-        required: false
-        fields:
-          - { label: Image, name: image, widget: image, hint: "370 x 490" }
-          - {
-              label: Title,
-              name: alt,
-              widget: text,
-              hint: "Please inform. Important for SEO",
-            }
-      - label: "Testimonials Area"
-        name: testimonialsArea
-        widget: object
-        fields:
-          - label: "Testimonials"
-            label_singular: "Testimonial"
-            name: testimonials
-            widget: list
-            fields:
-              - { label: Quote, name: quote, widget: text }
-              - { label: Author, name: author, widget: string }
-    editor:
-      preview: false
-
-  - name: "mindfulnessTraining"
-    label: "Mindfulness Training"
-    files:
-      - file: "src/pages/services/mindfulness-training/mindfulness-based-stress-reduction-course.md"
-        label: "Mindfulness-Based Stress Reduction Course"
-        name: "mbsrc"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
-        label: "Mindfulness-Based Pain Management Course"
-        name: "mbpmc"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
-        label: "Frequently Asked Questions"
-        name: "faq"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "List of Questions-Answers"
-            label_singular: "Question-Answer"
-            name: qa
-            widget: list
-            fields:
-              - { label: Question, name: question, widget: text }
-              - { label: Answer, name: answer, widget: text }
-      - file: "src/pages/services/mindfulness-training/upcoming-courses.md"
-        label: "Upcoming Courses"
-        name: "upcomingCourses"
-        fields:
-          - {
-              label: "Template Key",
-              name: templateKey,
-              widget: hidden,
-              default: "mindfulness-training-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-    editor:
-      preview: false
-
   - name: "pages"
     label: "Pages"
     files:
@@ -326,6 +138,281 @@ collections:
     editor:
       preview: false
 
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    folder: "src/pages/services"
+    create: true
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "service-page",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Thumbnail Image"
+        name: thumbnailimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "80 x 90" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Banner Image"
+        name: bannerimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Body Image"
+        name: bodyimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "370 x 490" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Testimonials Area"
+        name: testimonialsArea
+        widget: object
+        fields:
+          - label: "Testimonials"
+            label_singular: "Testimonial"
+            name: testimonials
+            widget: list
+            fields:
+              - { label: Quote, name: quote, widget: text }
+              - { label: Author, name: author, widget: string }
+    editor:
+      preview: false
+
+  - name: "mindfulnessTraining"
+    label: "Mindfulness Training"
+    files:
+      - file: "src/pages/services/mindfulness-training/mindfulness-based-stress-reduction-course.md"
+        label: "Mindfulness-Based Stress Reduction Course"
+        name: "mbsrc"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
+        label: "Mindfulness-Based Pain Management Course"
+        name: "mbpmc"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
+        label: "Frequently Asked Questions"
+        name: "faq"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "List of Questions-Answers"
+            label_singular: "Question-Answer"
+            name: qa
+            widget: list
+            fields:
+              - { label: Question, name: question, widget: text }
+              - { label: Answer, name: answer, widget: text }
+
+      - file: "src/pages/services/mindfulness-training/upcoming-courses.md"
+        label: "Upcoming Courses Page"
+        name: "upcomingCourses"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "mindfulness-training-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - file: "src/general/mindfulness-training-menu.md"
+        label: "Mindfulness Traing Menu"
+        name: "mtMenu"
+        fields:
+          - label: Menu Items
+            label_singular: "Menu Item"
+            name: menuItems
+            widget: list
+            required: false
+            fields:
+              - { label: Name, name: name, widget: string }
+              - {
+                  label: Link,
+                  name: link,
+                  widget: string,
+                  required: false,
+                  hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
+                }
+    editor:
+      preview: false
+
+  - name: upcomingCourses
+    label: "Upcoming Courses"
+    label_singular: "course"
+    folder: "src/general/upcoming-courses"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "upcoming-courses",
+        }
+      - {
+        label: "Title",
+        name: "title",
+        widget: "string",
+        hint: "tip: use a combination of course name and initial date of course"
+      }
+      - {
+        label: "Heading",
+        name: "heading",
+        widget: "string",
+        hint: "Name of Course"
+      }
+      - {
+          label: "Start Date of Event",
+          name: "date",
+          widget: "date",
+          default: "",
+          dateFormat: "YYYY-MM-DD",
+          hint: "YYYY-MM-DD",
+        }
+      - {
+          label: "End Date of Event",
+          name: "date",
+          widget: "date",
+          default: "",
+          dateFormat: "YYYY-MM-DD",
+          required: false,
+          hint: "YYYY-MM-DD - Optional for 1-day courses.",
+        }
+      - {
+        label: "Venu",
+        name: "venue",
+        widget: "string",
+        required: false,
+        hint: "Optional"
+      }        
+      - label: "Thumbnail Image"
+        name: thumbnailimage
+        widget: object
+        required: false
+        hint: Optional
+        fields:
+          - { label: Image, name: image, widget: image, hint: "500x500" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+    editor:
+      preview: false
+
+  - name: articles
+    label: Articles
+    label_singular: ArticleThumbnail
+    folder: "src/pages/articles"
+    create: true
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "article-page",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "date",
+          dateFormat: "YYYY-MM-DD",
+        }
+      # format: "DD MM YYYY",
+      - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - label: "Thumbnail Image"
+        name: thumbnailimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "1170 x 780" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Banner Image"
+        name: bannerimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+      - label: "Body Image"
+        name: bodyimage
+        widget: object
+        required: false
+        fields:
+          - { label: Image, name: image, widget: image, hint: "1170 x 780" }
+          - {
+              label: Title,
+              name: alt,
+              widget: text,
+              hint: "Please inform. Important for SEO",
+            }
+    editor:
+      preview: false
+
   - name: "general"
     label: "General"
     files:
@@ -424,23 +511,5 @@ collections:
                                   widget: string,
                                   hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
                                 }
-      - file: "src/general/mindfulness-training-menu.md"
-        label: "Mindfulness Traing Menu"
-        name: "mtMenu"
-        fields:
-          - label: Menu Items
-            label_singular: "Menu Item"
-            name: menuItems
-            widget: list
-            required: false
-            fields:
-              - { label: Name, name: name, widget: string }
-              - {
-                  label: Link,
-                  name: link,
-                  widget: string,
-                  required: false,
-                  hint: "Relative Path. Example: /about/, /contact/, /services/mindfulness-training/, ect..",
-                }
     editor:
       preview: false

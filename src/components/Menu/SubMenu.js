@@ -92,7 +92,7 @@ export default class SubMenu extends Component {
         this.state.currentWidth > 0 &&
         this.props.parentWidth &&
         this.props.parentWidth > 0 &&
-        (this.props != prevProps || this.state != prevState)
+        (this.props !== prevProps || this.state !== prevState)
       ) {
         const viewportWidth =
           window.innerWidth || document.documentElement.clientWidth;
