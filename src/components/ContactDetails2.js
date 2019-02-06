@@ -26,8 +26,14 @@ export default function ContactDetails2() {
                 href={`https://maps.google.com/?q=${contact_details.address}`}
               />
               <ContactDetails2Item
+                iconClass="rt-icon2-phone6"
+                heading="Landline:"
+                content={contact_details.landline.phonedisplay}
+                href={`tel:${contact_details.landline.phonenumber}`}
+              />
+              <ContactDetails2Item
                 iconClass="rt-icon2-phone5"
-                heading="Phone:"
+                heading="Cellphone:"
                 content={contact_details.phone.phonedisplay}
                 href={`tel:${contact_details.phone.phonenumber}`}
               />

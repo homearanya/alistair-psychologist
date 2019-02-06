@@ -13,6 +13,10 @@ export const contactDetailsFragment = graphql`
             phonedisplay
             phonenumber
           }
+          landline {
+            phonedisplay
+            phonenumber
+          }
         }
       }
     }
@@ -59,10 +63,20 @@ export default function ContactDetails(props) {
             className="col-md-9 text-center divided_content"
             appointmentButton={props.appointmentButton}
           >
+            <AElement href={`tel:${contact_details.landline.phonenumber}`}>
+              <div className="media small-teaser">
+                <div className="media-left">
+                  <IElement className="fa fa-phone highlight fontsize_16" />
+                </div>
+                <div className="media-body">
+                  {contact_details.landline.phonedisplay}
+                </div>
+              </div>
+            </AElement>
             <AElement href={`tel:${contact_details.phone.phonenumber}`}>
               <div className="media small-teaser">
                 <div className="media-left">
-                  <IElement className="fa fa-user highlight fontsize_16" />
+                  <IElement className="fa fa-mobile highlight fontsize_16" />
                 </div>
                 <div className="media-body">
                   {contact_details.phone.phonedisplay}
