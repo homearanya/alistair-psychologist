@@ -44,10 +44,12 @@ export default function UpcomingCourses() {
             <div className="container">
               <div className="row">
                 {/* <div className="col-sm-10 col-sm-push-1"> */}
-                <div className="col-sm-8 col-sm-push-2">
+                <div>
                   {upcomingCourses.map((upcomingCourse, index) => {
                     const { html, frontmatter } = upcomingCourse.node;
-                    return <UpcomingCourse frontmatter html />;
+                    return (
+                      <UpcomingCourse frontmatter={frontmatter} html={html} />
+                    );
                   })}
                 </div>
               </div>

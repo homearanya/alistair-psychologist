@@ -8,18 +8,16 @@ venue: ""
 thumbnailimage: {}
 ---
 
-### (8 weeks)
+#### (8 weeks)
 
-**Free Public Presentation**
+---
 
-A 1- hour introductory talk for anyone who would like to know more
-about the course before signing up.
+### Free Public Presentation
 
-Date: **10th April 2019**
+A 1- hour introductory talk for anyone who would like to know more about the course before signing up.
 
-Time: **18:00-19:00**
-
+Date: **10th April 2019**  
+Time: **18:00-19:00**  
 Venue: **To be decided**
 
-RSVP and Enquiries via sms to: **066 – 269 8229** or an email to: [matc@telkomsa.net
-](mailto:matc@telkomsa.net)
+RSVP and Enquiries via sms to: **[066 269 8229](tel:+27662698229)** or an email to: **[matc@telkomsa.net](mailto:matc@telkomsa.net)**

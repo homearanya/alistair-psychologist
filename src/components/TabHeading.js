@@ -3,7 +3,8 @@ import DynamicAnchor from "../components/DynamicAnchor";
 import styled from "styled-components";
 
 const StyledAnchor = styled.a`
-  && {
+  &&& {
+    font-size: 20px;
     :focus {
       color: #91d0cc;
     }
@@ -25,14 +26,14 @@ export default function TabHeading(props) {
     <React.Fragment>
       <DynamicAnchor id={idSelector} />
       <div className="panel-heading">
-        <h4 className="panel-title">
+        <h2 className="panel-title">
           <StyledAnchor
             className={className}
             onClick={() => props.toggleTab(props.index, idSelector)}
           >
             {props.heading}
           </StyledAnchor>
-        </h4>
+        </h2>
       </div>
     </React.Fragment>
   );

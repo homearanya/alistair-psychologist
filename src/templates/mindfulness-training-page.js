@@ -26,8 +26,11 @@ const StyledLink = styled(Link)`
 `;
 
 const StyledH1 = styled.h1`
-  margin-top: 0px;
-  font-size: 28px;
+  font-size: 30px;
+  @media (min-width: 768px) {
+    font-size: 35px;
+    margin-top: 0px;
+  }
 `;
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({

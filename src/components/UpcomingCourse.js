@@ -3,20 +3,54 @@ import Img from "gatsby-image";
 import dateformat from "dateformat";
 import styled from "styled-components";
 
-const StyledContent = styled.div`
-  text-align: center;
+const StyledContet = styled.div`
+  &&& {
+    text-align: center;
+  }
+`;
+
+const StyledHeading = styled.h2`
+  font-size: 24px;
+`;
+
+const StyledBody = styled.div`
+  margin-top: 20px;
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+`;
+
+const StyledDateVenu = styled.p`
+  display: ${props => (props.venue ? "flexbox" : "block")};
+`;
+
+const StyledDate = styled.span`
+  font-size: 20px;
 `;
 
 export default function UpcomingCourse({ frontmatter: courseInfo, html }) {
-  let contentClassName = "col-md-7";
+  let contentClassName;
   if (courseInfo.thumbnailimage && courseInfo.thumbnailimage.image) {
-    contentClassName = "col-sm-8 col-sm-push-2";
-  }
-  let courseDate = dateformat(courseInfo.dateStart, "dddd mmmm yyyy");
-  if (courseInfo.dateEnd) {
-    courseDate += `- ${dateformat(courseInfo.dateEnd, "dddd mmmm yyyy")}`;
+    contentClassName = "col-md-7";
+  } else {
+    // contentClassName = "col-md-10 col-md-push-1";
+    contentClassName = "";
   }
 
+  let courseDate;
+  if (courseInfo.dateStart) {
+    const courseDateStart = new Date(courseInfo.dateStart);
+    courseDate = dateformat(courseDateStart, "dd mmmm yyyy");
+  }
+  if (courseInfo.dateEnd) {
+    const courseDateEnd = new Date(courseInfo.dateEnd);
+    courseDate += ` - ${dateformat(courseDateEnd, "dd mmmm yyyy")}`;
+  }
   return (
     <article className="post side-item content-padding with_shadow">
       <div className="row">
@@ -31,24 +65,27 @@ export default function UpcomingCourse({ frontmatter: courseInfo, html }) {
           </div>
         )}
 
-        <div className={contentClassName}>
+        <StyledContet className={contentClassName}>
           <div className="item-content">
-            <h3> {courseInfo.heading}</h3>
+            <StyledHeading> {courseInfo.heading}</StyledHeading>
 
-            <p className="item-meta grey darklinks content-justify fontsize_16">
-              <span>
-                <i className="fa fa-calendar highlight" />
-                {courseDate}
-              </span>
-              {courseInfo.venu && (
+            <StyledDateVenu
+              className="item-meta grey darklinks content-justify fontsize_16"
+              venue={courseInfo.venue}
+            >
+              <StyledDate>
+                <i className="fa fa-calendar highlight" /> {courseDate}
+              </StyledDate>
+              {courseInfo.venue && (
                 <span>
-                  <i className="fa fa-map-marker highlight" /> {courseInfo.venu}
+                  <i className="fa fa-map-marker highlight" />{" "}
+                  {courseInfo.venue}
                 </span>
               )}
-            </p>
-            <StyledContent dangerouslySetInnerHTML={{ __html: html }} />
+            </StyledDateVenu>
+            <StyledBody dangerouslySetInnerHTML={{ __html: html }} />
           </div>
-        </div>
+        </StyledContet>
       </div>
     </article>
   );
