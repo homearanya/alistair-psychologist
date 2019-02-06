@@ -122,9 +122,12 @@ export default class SubMenu extends Component {
   handleClick = e => {
     e.preventDefault();
     e.stopPropagation();
-    this.setState(prevState => {
-      return { showSubMenu: !prevState.showSubMenu };
-    });
+    this.setState(
+      prevState => {
+        return { showSubMenu: !prevState.showSubMenu };
+      },
+      () => this.props.menuHandleClick()
+    );
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -232,6 +235,7 @@ export default class SubMenu extends Component {
                         top
                         viewPortWidth={this.props.viewPortWidth}
                         parentWidth={this.state.currentWidth}
+                        menuHandleClick={this.props.menuHandleClick}
                       />
                     )}
                 </li>

@@ -163,6 +163,7 @@ export class Menu extends Component {
                             in={this.state.showSubMenu}
                             isSticky={this.props.isSticky}
                             viewPortWidth={this.state.viewPortWidth}
+                            menuHandleClick={this.handleClick}
                           />
                         )}
                     </li>
