@@ -54,5 +54,10 @@ testimonialsArea:
         I have benefited so much more than I could ever have imagined or dreamt
         of. I have better interactions… and also my relationships have improved
         with all my family members.
+appointmentArea:
+  blurb: >-
+    I look forward to answering any questions you may have about the services I
+    offer.
+  heading: Make an Appointment
 ---
 
