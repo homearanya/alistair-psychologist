@@ -212,6 +212,7 @@ export default class SubMenu extends Component {
                       }
                       className={subMenuItem.subMenu && "sf-with-ul"}
                       activeClassName="active"
+                      onClick={this.props.menuHandleClick}
                     >
                       {subMenuItem.name}
                     </StyledLinkSub>
