@@ -35,6 +35,8 @@ const StyledDateVenu = styled.p`
 
 const StyledDate = styled.span`
   font-size: 20px;
+  font-weight: 600;
+  color: #ff7200;
 `;
 
 export default function UpcomingCourse({ frontmatter: courseInfo, html }) {
