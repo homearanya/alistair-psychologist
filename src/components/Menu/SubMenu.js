@@ -202,11 +202,7 @@ export default class SubMenu extends Component {
                 >
                   {subMenuItem.link ? (
                     <StyledLinkSub
-                      to={
-                        this.props.viewPortWidth < 992
-                          ? subMenuItem.link
-                          : undefined
-                      }
+                      to={subMenuItem.link}
                       className={subMenuItem.subMenu && "sf-with-ul"}
                       activeClassName="active"
                       onClick={this.props.menuHandleClick}
