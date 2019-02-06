@@ -305,10 +305,14 @@ collections:
         hint: "tip: use a combination of course name and initial date of course"
       }
       - {
-        label: "Heading",
-        name: "heading",
-        widget: "string",
-        hint: "Name of Course"
+        label: "Name of Course",
+        name: "courseName",
+        widget: "relation",
+        collection: "mindfulnessTraining",
+        searchFields: ["title"],
+        valueField: "title",
+        displayFields: ["title"],
+        hint: Very important!!!! It has to be exactly the same name as of the course on the Mindfulness Training colection
       }
       - {
           label: "Start Date of Event",
@@ -454,17 +458,20 @@ collections:
                     }
               - { label: Physical Address, name: address, widget: string }
               - { label: Email Address, name: email, widget: string }
+
       - file: "src/general/appointment-area.md"
         label: "Appointment Area"
         name: "appointmentArea"
         fields:
           - { label: Heading, name: heading, widget: string }
           - { label: Blurb, name: blurb, widget: text }
+
       - file: "src/general/social.md"
         label: "Social Media"
         name: "social"
         fields:
           - { label: Facebook Page Url, name: facebook, widget: string }
+
       - file: "src/general/main-menu.md"
         label: "Main Menu"
         name: "mainMenu"

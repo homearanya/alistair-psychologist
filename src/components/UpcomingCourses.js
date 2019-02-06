@@ -14,9 +14,16 @@ export default function UpcomingCourses() {
           ) {
             edges {
               node {
+                fields {
+                  uCourseMTCourses {
+                    fields {
+                      slug
+                    }
+                  }
+                }
                 html
                 frontmatter {
-                  heading
+                  courseName
                   dateStart
                   dateEnd
                   venue
@@ -48,7 +55,7 @@ export default function UpcomingCourses() {
                 <div>
                   {upcomingCourses.reduce(
                     (upcomingCourses, upcomingCourse, index) => {
-                      const { html, frontmatter } = upcomingCourse.node;
+                      const { fields, html, frontmatter } = upcomingCourse.node;
                       const courseDate = new Date(
                         upcomingCourse.node.frontmatter.dateStart
                       );
@@ -59,6 +66,7 @@ export default function UpcomingCourses() {
                             key={index}
                             frontmatter={frontmatter}
                             html={html}
+                            courseSlug={fields.uCourseMTCourses.fields.slug}
                           />
                         );
                       }

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-const StyledButton = styled.button`
+const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   display: inline-block;
   border: none;
   padding: 17px 30px;

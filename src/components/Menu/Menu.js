@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
+import NonClickableMenuItem from "./NonClickableMenuItem";
+
 import "./menu.css";
 import SubMenu from "./SubMenu";
-import NonClickableMenuItem from "./NonClickableMenuItem";
 
 const StyledLink = styled(Link)`
   margin: 0;
@@ -26,21 +27,48 @@ export class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSubMenu: false
+      showSubMenu: false,
+      viewPortWidth: window.innerWidth || document.documentElement.clientWidth
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
-  handleHover = () => {
+  handleHover = e => {
+    e.preventDefault();
     this.setState({ showSubMenu: true });
     this.props.toggleTransform();
   };
 
-  handleLeave = () => {
+  handleLeave = e => {
+    e.preventDefault();
     this.setState({ showSubMenu: false });
     this.props.toggleTransform();
   };
+
+  handleClick = e => {
+    e.preventDefault();
+    this.setState(prevState => {
+      return { showSubMenu: !prevState.showSubMenu };
+    });
+  };
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({
+      viewPortWidth: window.innerWidth || document.documentElement.clientWidth
+    });
+  }
 
   render() {
     return (
@@ -78,8 +106,27 @@ export class Menu extends Component {
                   {menuItems.map((menuItem, index) => (
                     <li
                       key={index}
-                      onMouseLeave={menuItem.subMenu && this.handleLeave}
-                      onMouseEnter={menuItem.subMenu && this.handleHover}
+                      onMouseLeave={
+                        this.state.viewPortWidth > 991 &&
+                        menuItem.subMenu &&
+                        menuItem.subMenu.subMenuItems.length > 0
+                          ? this.handleLeave
+                          : undefined
+                      }
+                      onMouseEnter={
+                        this.state.viewPortWidth > 991 &&
+                        menuItem.subMenu &&
+                        menuItem.subMenu.subMenuItems.length > 0
+                          ? this.handleHover
+                          : undefined
+                      }
+                      onClick={
+                        this.state.viewPortWidth < 992 &&
+                        menuItem.subMenu &&
+                        menuItem.subMenu.subMenuItems.length > 0
+                          ? this.handleClick
+                          : undefined
+                      }
                     >
                       {menuItem.link ? (
                         <StyledLink
@@ -100,11 +147,16 @@ export class Menu extends Component {
                       )}
                       {/* Sub Menu */}
 
-                      <SubMenu
-                        subMenu={menuItem.subMenu}
-                        in={this.state.showSubMenu}
-                        isSticky={this.props.isSticky}
-                      />
+                      {this.state.showSubMenu &&
+                        menuItem.subMenu &&
+                        menuItem.subMenu.subMenuItems.length > 0 && (
+                          <SubMenu
+                            subMenu={menuItem.subMenu}
+                            in={this.state.showSubMenu}
+                            isSticky={this.props.isSticky}
+                            viewPortWidth={this.state.viewPortWidth}
+                          />
+                        )}
                     </li>
                   ))}
                 </ul>

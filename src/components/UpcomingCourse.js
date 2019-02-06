@@ -1,7 +1,10 @@
 import React from "react";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 import dateformat from "dateformat";
 import styled from "styled-components";
+
+import Button from "./Button";
 
 const StyledArticle = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
@@ -12,7 +15,11 @@ const StyledContet = styled.div`
     text-align: center;
   }
 `;
-
+const StyledLink = styled(Link)`
+  h2:hover {
+    color: #91d0cc;
+  }
+`;
 const StyledHeading = styled.h2`
   font-size: 24px;
 `;
@@ -39,7 +46,11 @@ const StyledDate = styled.span`
   color: #ff7200;
 `;
 
-export default function UpcomingCourse({ frontmatter: courseInfo, html }) {
+export default function UpcomingCourse({
+  courseSlug,
+  frontmatter: courseInfo,
+  html
+}) {
   let contentClassName;
   if (courseInfo.thumbnailimage && courseInfo.thumbnailimage.image) {
     contentClassName = "col-md-7";
@@ -73,7 +84,9 @@ export default function UpcomingCourse({ frontmatter: courseInfo, html }) {
 
         <StyledContet className={contentClassName}>
           <div className="item-content">
-            <StyledHeading> {courseInfo.heading}</StyledHeading>
+            <StyledLink to={courseSlug}>
+              <StyledHeading> {courseInfo.courseName}</StyledHeading>
+            </StyledLink>
 
             <StyledDateVenu
               className="item-meta grey darklinks content-justify fontsize_16"
@@ -90,6 +103,8 @@ export default function UpcomingCourse({ frontmatter: courseInfo, html }) {
               )}
             </StyledDateVenu>
             <StyledBody dangerouslySetInnerHTML={{ __html: html }} />
+            <br />
+            <Button whereTo={courseSlug} text="Course Info" />
           </div>
         </StyledContet>
       </div>

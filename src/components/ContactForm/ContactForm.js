@@ -55,7 +55,7 @@ const LoaderContainer = styled.div`
   }
 `;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   &&& {
     color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
     background-color: #91d0cc;

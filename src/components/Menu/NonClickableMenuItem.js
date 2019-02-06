@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const NonClickableMenuItem = styled.button`
+const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   display: block;
   background: none;
   border: none;

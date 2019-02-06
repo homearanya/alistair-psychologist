@@ -6,6 +6,9 @@ const { createFilePath } = require("gatsby-source-filesystem");
 let homeServicesTitles = [];
 let homeServicesIds = [];
 let servicesObject = new Object();
+let mindfulnessTrainingObject = new Object();
+let coursesObject = new Object();
+
 let homeNodeId;
 
 exports.createPages = ({ actions, graphql, getNode }) => {
@@ -122,6 +125,25 @@ exports.createPages = ({ actions, graphql, getNode }) => {
         value: homeServicesIds
       });
     }
+    // create node fields for upcoming services/mindulness training courses relation
+    for (let key in mindfulnessTrainingObject) {
+      if (mindfulnessTrainingObject.hasOwnProperty(key) && coursesObject[key]) {
+        if (coursesObject[key].length > 0) {
+          createNodeField({
+            node: getNode(mindfulnessTrainingObject[key]),
+            name: `mtCoursesUCourses`,
+            value: coursesObject[key]
+          });
+          coursesObject[key].forEach(courseNodeId => {
+            createNodeField({
+              node: getNode(courseNodeId),
+              name: `uCourseMTCourses`,
+              value: mindfulnessTrainingObject[key]
+            });
+          });
+        }
+      }
+    }
   });
 };
 
@@ -146,10 +168,31 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       );
     } else if (
       node.frontmatter.templateKey &&
-      (node.frontmatter.templateKey.includes("service-page") ||
-        node.frontmatter.templateKey.includes("mindfulness-training-page"))
+      node.frontmatter.templateKey.includes("service-page")
     ) {
       servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
+      // collect nodes for upcoming courses/mindfulness training courses relation
+    } else if (
+      node.frontmatter.templateKey &&
+      node.frontmatter.templateKey.includes("mindfulness-training-page")
+    ) {
+      servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
+      mindfulnessTrainingObject[node.frontmatter.title.trim().toLowerCase()] =
+        node.id;
+    } else if (
+      node.frontmatter.templateKey &&
+      node.frontmatter.templateKey.includes("upcoming-courses")
+    ) {
+      if (coursesObject[node.frontmatter.courseName.trim().toLowerCase()]) {
+        coursesObject[node.frontmatter.courseName.trim().toLowerCase()].push(
+          node.id
+        );
+      } else {
+        coursesObject[node.frontmatter.courseName.trim().toLowerCase()] = [];
+        coursesObject[node.frontmatter.courseName.trim().toLowerCase()].push(
+          node.id
+        );
+      }
     }
   }
 };
