@@ -42,7 +42,7 @@ export default ({ data }) => {
         )}
       {/* <FaqArea />
     <PricesArea /> */}
-      <AppointmentArea />
+      <AppointmentArea appointmentArea={frontmatter.appointmentArea} />
     </Layout>
   );
 };
@@ -123,6 +123,10 @@ export const homePageQuery = graphql`
             quote
             author
           }
+        }
+        appointmentArea {
+          heading
+          blurb
         }
       }
     }

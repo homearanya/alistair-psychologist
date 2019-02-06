@@ -124,12 +124,6 @@ collections:
                 fields:
                   - { label: Quote, name: quote, widget: text }
                   - { label: Author, name: author, widget: string }
-          - label: "Appointment Area"
-            name: appointmentArea
-            widget: object
-            fields:
-              - { label: Heading, name: heading, widget: string }
-              - { label: Blurb, name: blurb, widget: text }
 
       - file: "src/pages/about.md"
         label: "About Page"
@@ -460,6 +454,12 @@ collections:
                     }
               - { label: Physical Address, name: address, widget: string }
               - { label: Email Address, name: email, widget: string }
+      - file: "src/general/appointment-area.md"
+        label: "Appointment Area"
+        name: "appointmentArea"
+        fields:
+          - { label: Heading, name: heading, widget: string }
+          - { label: Blurb, name: blurb, widget: text }
       - file: "src/general/social.md"
         label: "Social Media"
         name: "social"
