@@ -440,8 +440,24 @@ collections:
             name: contact_details
             widget: object
             fields:
-              - label: Phone Number
+              - label: Cell Phone Number
                 name: phone
+                widget: object
+                fields:
+                  - {
+                      label: Display,
+                      name: phonedisplay,
+                      widget: string,
+                      hint: "Example: 033 330 6121",
+                    }
+                  - {
+                      label: Number,
+                      name: phonenumber,
+                      widget: string,
+                      hint: "Example: +27333306121",
+                    }
+              - label: Landline Number
+                name: landline
                 widget: object
                 fields:
                   - {
