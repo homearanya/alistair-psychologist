@@ -24,7 +24,7 @@ const StyledLink = styled(Link)`
 `;
 
 const windowGlobal = typeof window !== "undefined" && window;
-const documentGlobal = typeof document !== "undefined" && window;
+const documentGlobal = typeof document !== "undefined" && document;
 
 export class Menu extends Component {
   constructor(props) {
