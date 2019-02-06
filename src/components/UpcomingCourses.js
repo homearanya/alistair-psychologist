@@ -37,6 +37,7 @@ export default function UpcomingCourses() {
         }
       `}
       render={data => {
+        const today = new Date();
         const { edges: upcomingCourses } = data.allMarkdownRemark;
         return (
           // <section className="ls section_padding_top_100 section_padding_bottom_100 columns_padding_25">
@@ -45,12 +46,26 @@ export default function UpcomingCourses() {
               <div className="row">
                 {/* <div className="col-sm-10 col-sm-push-1"> */}
                 <div>
-                  {upcomingCourses.map((upcomingCourse, index) => {
-                    const { html, frontmatter } = upcomingCourse.node;
-                    return (
-                      <UpcomingCourse frontmatter={frontmatter} html={html} />
-                    );
-                  })}
+                  {upcomingCourses.reduce(
+                    (upcomingCourses, upcomingCourse, index) => {
+                      const { html, frontmatter } = upcomingCourse.node;
+                      const courseDate = new Date(
+                        upcomingCourse.node.frontmatter.dateStart
+                      );
+                      // filter out expired courses
+                      if (courseDate > today) {
+                        upcomingCourses.push(
+                          <UpcomingCourse
+                            key={index}
+                            frontmatter={frontmatter}
+                            html={html}
+                          />
+                        );
+                      }
+                      return upcomingCourses;
+                    },
+                    []
+                  )}
                 </div>
               </div>
             </div>
