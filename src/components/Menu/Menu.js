@@ -45,19 +45,16 @@ export class Menu extends Component {
   }
 
   handleHover = e => {
-    e.preventDefault();
     this.setState({ showSubMenu: true });
     this.props.toggleTransform();
   };
 
   handleLeave = e => {
-    e.preventDefault();
     this.setState({ showSubMenu: false });
     this.props.toggleTransform();
   };
 
   handleClick = e => {
-    e.preventDefault();
     this.setState(prevState => {
       return { showSubMenu: !prevState.showSubMenu };
     });

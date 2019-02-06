@@ -122,12 +122,9 @@ export default class SubMenu extends Component {
   handleClick = e => {
     e.preventDefault();
     e.stopPropagation();
-    this.setState(
-      prevState => {
-        return { showSubMenu: !prevState.showSubMenu };
-      },
-      () => this.props.menuHandleClick()
-    );
+    this.setState(prevState => {
+      return { showSubMenu: !prevState.showSubMenu };
+    });
   };
 
   componentDidUpdate(prevProps, prevState) {
