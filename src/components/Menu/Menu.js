@@ -24,7 +24,7 @@ const StyledLink = styled(Link)`
 `;
 
 const windowGlobal = typeof window !== "undefined" && window;
-const documentGlobal =
+const documentElementGlobal =
   typeof document !== "undefined" &&
   document &&
   typeof document.documentElement !== "undefined" &&
@@ -36,7 +36,7 @@ export class Menu extends Component {
     this.state = {
       showSubMenu: false,
       viewPortWidth:
-        windowGlobal.innerWidth || documentGlobal.documentElement.clientWidth
+        windowGlobal.innerWidth || documentElementGlobal.clientWidth
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
