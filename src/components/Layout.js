@@ -48,22 +48,22 @@ export default function Layout(props) {
                 content="5Fs1mwvNeUdz1y6CfK5miXOOFUra094G_nhpRiVyXXQ"
               /> */}
               {/* Font Awesome */}
-              <link
-                rel="stylesheet"
-                href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css"
-                integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B"
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/solid.js"
+                integrity="sha384-6FXzJ8R8IC4v/SKPI8oOcRrUkJU8uvFK6YJ4eDY11bJQz4lRw5/wGthflEOX8hjL"
                 crossorigin="anonymous"
               />
-              <link
-                rel="stylesheet"
-                href="https://use.fontawesome.com/releases/v5.7.1/css/brands.css"
-                integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK"
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/brands.js"
+                integrity="sha384-zJ8/qgGmKwL+kr/xmGA6s1oXK63ah5/1rHuILmZ44sO2Bbq1V3p3eRTkuGcivyhD"
                 crossorigin="anonymous"
               />
-              <link
-                rel="stylesheet"
-                href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css"
-                integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+"
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/fontawesome.js"
+                integrity="sha384-Qmms7kHsbqYnKkSwiePYzreT+ufFVSNBhfLOEp0sEEfEVdORDs/aEnGaJy/l4eoy"
                 crossorigin="anonymous"
               />
             </Helmet>
