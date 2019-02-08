@@ -1,11 +1,14 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Zoom from "react-reveal/Zoom";
 import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { ContactForm } from "../components/ContactForm";
 import ContactDetails2 from "../components/ContactDetails2";
 
-export default () => {
+export default ({ data }) => {
+  const { frontmatter } = data.markdownRemark;
+
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
@@ -13,7 +16,11 @@ export default () => {
   ];
   return (
     <Layout>
-      <Breadcrumbs pageTitle="Contact" pages={pages} />
+      <Breadcrumbs
+        bannerImage={frontmatter.bannerimage}
+        pageTitle="Contact"
+        pages={pages}
+      />
 
       <span id="contact-page" className="anchor-offset-0" />
       <Zoom>
@@ -35,3 +42,22 @@ export default () => {
     </Layout>
   );
 };
+
+export const contactPageQuery = graphql`
+  query ContactPage($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      frontmatter {
+        bannerimage {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          alt
+        }
+      }
+    }
+  }
+`;

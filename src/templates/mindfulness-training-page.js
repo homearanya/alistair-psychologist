@@ -4,7 +4,7 @@ import rehypeReact from "rehype-react";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
-import MindfulnessTrainingBreadcrumbs from "../components/MindfulnessTrainingBreadcrumbs";
+import Breadcrumbs from "../components/Breadcrumbs";
 import MTMenu from "../components/MTMenu";
 import MTTestimonials from "../components/MTTestimonials";
 import AppointmentArea from "../components/AppointmentArea";
@@ -44,13 +44,33 @@ const renderAst = new rehypeReact({
 }).Compiler;
 
 export default function({ data }) {
-  const { fields, htmlAst, frontmatter } = data.markdownRemark;
+  const { fields, htmlAst, frontmatter } = data.mindfulnessTrainingQuery;
+  const {
+    frontmatter: frontmatter2,
+    fields: fields2
+  } = data.mindfulnessTrainingRoot;
+  let pages;
+  if (fields.slug === "/services/mindfulness-training/") {
+    pages = [
+      { title: "Home", href: "/" },
+      { title: "Services", href: "/#services" },
+      { title: frontmatter.title, href: null }
+    ];
+  } else {
+    pages = [
+      { title: "Home", href: "/" },
+      { title: "Services", href: "/#services" },
+      { title: frontmatter2.title, href: fields2.slug },
+      { title: frontmatter.title, href: null }
+    ];
+  }
 
   return (
     <Layout>
-      <MindfulnessTrainingBreadcrumbs
-        root={fields.slug === "/services/mindfulness-training/"}
-        pageTitle={frontmatter.title}
+      <Breadcrumbs
+        bannerImage={frontmatter.bannerimage}
+        pageTitle="Contact"
+        pages={pages}
       />
       <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
@@ -77,11 +97,31 @@ export default function({ data }) {
 
 export const servicePageQuery = graphql`
   query MindfulnessTrainingPage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+    mindfulnessTrainingQuery: markdownRemark(id: { eq: $id }) {
       fields {
         slug
       }
       htmlAst
+      frontmatter {
+        title
+        bannerimage {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          alt
+        }
+      }
+    }
+    mindfulnessTrainingRoot: markdownRemark(
+      fields: { slug: { eq: "/services/mindfulness-training/" } }
+    ) {
+      fields {
+        slug
+      }
       frontmatter {
         title
       }

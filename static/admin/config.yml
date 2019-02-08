@@ -142,6 +142,68 @@ collections:
               default: "home-page",
             }
           - { label: "About Me Text", name: body, widget: markdown }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+      - file: "src/pages/articles.md"
+        label: "Articles Page"
+        name: "articlesPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "articles-page",
+            }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Blurb", name: blurb, widget: text }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
+      - file: "src/pages/contact.md"
+        label: "Contact Page"
+        name: "contactPage"
+        fields:
+          - {
+              label: "Template Key",
+              name: templateKey,
+              widget: hidden,
+              default: "contact-page",
+            }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Blurb", name: blurb, widget: text }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
     editor:
       preview: false
 
@@ -225,6 +287,31 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
       - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
         label: "Mindfulness-Based Pain Management Course"
         name: "mbpmc"
@@ -237,6 +324,31 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+
       - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
         label: "Frequently Asked Questions"
         name: "faq"
@@ -256,6 +368,30 @@ collections:
             fields:
               - { label: Question, name: question, widget: text }
               - { label: Answer, name: answer, widget: text }
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
 
       - file: "src/pages/services/mindfulness-training/upcoming-courses.md"
         label: "Upcoming Courses Page"
@@ -269,7 +405,31 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-
+          - label: "Banner Image"
+            name: bannerimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "1920 x 195" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+          - label: "Body Image"
+            name: bodyimage
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: image, widget: image, hint: "370 x 490" }
+              - {
+                  label: Title,
+                  name: alt,
+                  widget: text,
+                  hint: "Please inform. Important for SEO",
+                }
+                
       - file: "src/general/mindfulness-training-menu.md"
         label: "Mindfulness Traing Menu"
         name: "mtMenu"
@@ -364,7 +524,7 @@ collections:
 
   - name: articles
     label: Articles
-    label_singular: ArticleThumbnail
+    label_singular: Article
     folder: "src/pages/articles"
     create: true
     fields:
