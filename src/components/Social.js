@@ -6,6 +6,7 @@ const AElement = styled.a`
   &&& {
     display: inline-block;
     height: 28px;
+    font-size: 28px;
     width: 28px;
     color: ${props => props.inputColor};
     :hover {
