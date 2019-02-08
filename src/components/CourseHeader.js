@@ -59,7 +59,7 @@ export default function CourseHeader(props) {
         </StyledDate>
         {props.venue && (
           <span>
-            <i className="fas fa-map-marker highlight" /> {props.venue}
+            <i className="fas fa-map-marker-alt highlight" /> {props.venue}
           </span>
         )}
       </StyledDateVenue>

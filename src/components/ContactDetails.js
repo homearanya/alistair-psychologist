@@ -76,7 +76,7 @@ export default function ContactDetails(props) {
             <AElement href={`tel:${contact_details.phone.phonenumber}`}>
               <div className="media small-teaser">
                 <div className="media-left">
-                  <IElement className="fas fa-mobile highlight fontsize_16" />
+                  <IElement className="fas fa-mobile-alt highlight fontsize_16" />
                 </div>
                 <div className="media-body">
                   {contact_details.phone.phonedisplay}
@@ -89,7 +89,7 @@ export default function ContactDetails(props) {
             >
               <div className="media small-teaser">
                 <div className="media-left">
-                  <IElement className="fas fa-map-marker highlight fontsize_16" />
+                  <IElement className="fas fa-map-marker-alt highlight fontsize_16" />
                 </div>
                 <div className="media-body">{contact_details.address}</div>
               </div>
