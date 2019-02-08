@@ -4,6 +4,8 @@ import Img from "gatsby-image";
 import dateformat from "dateformat";
 import styled from "styled-components";
 
+import SocialFooter from "./SocialFooter";
+
 import Button from "./Button";
 
 const StyledArticle = styled.article`
@@ -39,9 +41,13 @@ const StyledDateVenue = styled.p`
 `;
 
 const StyledDate = styled.span`
-  font-size: ${props => (props.courseDateEnd ? "14px" : "20px")};
+  font-size: ${props => (props.courseDateEnd ? "18px" : "20px")};
   font-weight: 600;
   color: #ff7200;
+  text-transform: capitalize;
+  .changeColor {
+    color: #444444;
+  }
 `;
 
 export default function UpcomingCourse({
@@ -83,8 +89,10 @@ export default function UpcomingCourse({
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
+                      {<span className="changeColor">From:&nbsp;</span>}
                       {dateformat(courseDateStart, "dd mmmm yyyy")}
-                      {" - "}
+                      <br />
+                      {<span className="changeColor">To:&nbsp;</span>}
                       {dateformat(courseDateEnd, "dd mmmm yyyy")}
                     </React.Fragment>
                   )}
@@ -103,6 +111,7 @@ export default function UpcomingCourse({
           <br />
           <Button whereTo={courseSlug} text="Course Info" />
         </div>
+        <SocialFooter url={courseSlug} title={courseInfo.courseName} />
       </StyledArticle>
     </div>
   );

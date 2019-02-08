@@ -58,7 +58,7 @@ export default function CoursessArea(props) {
                   <p>{props.coursesArea.blurb}</p>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mosaic-post">
                 {courses.map(({ node: course }, index) => (
                   <UpcomingCourse
                     key={index}

@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
+import SocialFooter from "./SocialFooter";
+
 const StyledArticle = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
 `;
@@ -41,35 +43,10 @@ export default function ArticleThumbnail(props) {
 
           <p>{props.article.excerpt}</p>
         </div>
-
-        <div className="post-social-links text-center with_border">
-          <a
-            href={`https://twitter.com/intent/tweet?url=${encodeURI(
-              articleUrl
-            )}&text=${encodeURI(props.article.frontmatter.title)}`}
-            className="social-icon color-icon soc-twitter"
-            target="_blank"
-          />
-          <a
-            href={`https://www.facebook.com/sharer.php?u=${encodeURI(
-              articleUrl
-            )}`}
-            className="social-icon color-icon soc-facebook"
-            target="_blank"
-          />
-          <a
-            href={`https://getpocket.com/edit?url=${encodeURI(articleUrl)}`}
-            className="social-icon color-icon soc-pocket"
-            target="_blank"
-          />
-          <a
-            href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(
-              articleUrl
-            )}&title=${encodeURI(props.article.frontmatter.title)}`}
-            className="social-icon color-icon soc-linkedin"
-            target="_blank"
-          />
-        </div>
+        <SocialFooter
+          url={articleUrl}
+          title={props.article.frontmatter.title}
+        />
       </StyledArticle>
     </div>
   );
