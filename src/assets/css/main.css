@@ -1246,7 +1246,7 @@ input[type="radio"]:disabled+label:before {
     font-family: 'Font Awesome 5 Free';
     content: "\f105";
     position: absolute;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 60px;
     text-align: center;
     right: 0;
