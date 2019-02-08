@@ -4,7 +4,8 @@ import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 
 import NonClickableMenuItem from "./NonClickableMenuItem";
-// import SubMenu from "./SubMenu";
+
+import { transformSubMenu } from "../helpers";
 
 const StyledLinkSub = styled(Link)`
   a + li a {
@@ -56,114 +57,34 @@ const StyledSubMenu = styled.ul`
   }
 `;
 
-export default class SubMenu extends Component {
+export class SubMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showSubMenu: false,
-      currentWidth: null,
-      currentRight: null,
-      moveLeft: null,
-      subMenu: this.transformSubMenu(this.props.subMenu)
-    };
-    this.myRef = React.createRef();
-    this.handleHover = this.handleHover.bind(this);
-    this.handleLeave = this.handleLeave.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { moveLeft: false };
+    this.subMenuRef = React.createRef();
   }
-
-  transformSubMenu = subMenu => {
-    // on mobile menu check if there are linkable menu items which sub menu items.
-    // We unlink the menu item and add it to the beginning (unshift) of the sub menu items
-    let transformedSubMenu = subMenu;
-    if (
-      this.props.viewPortWidth < 992 &&
-      subMenu &&
-      subMenu.subMenuItems.length > 0
-    ) {
-      transformedSubMenu.subMenuItems.map(subMenuItem => {
-        if (
-          subMenuItem.link &&
-          subMenuItem.subMenu &&
-          subMenuItem.subMenu.subMenuItems.length > 0
-        ) {
-          const newSubMenuItem = {
-            name: subMenuItem.name,
-            link: subMenuItem.link
-          };
-          subMenuItem.subMenu.subMenuItems.unshift(newSubMenuItem);
-          subMenuItem.link = null;
-        }
-        return subMenuItem;
-      });
-    }
-    return transformedSubMenu;
-  };
-
-  handleHover = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.setState({ showSubMenu: true });
-    // this.props.toggleTransform();
-  };
-
-  handleLeave = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.setState({
-      showSubMenu: false,
-      currentWidth: null,
-      currentRight: null,
-      moveLeft: null
-    });
-    // this.props.toggleTransform();
-  };
-
-  handleClick = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.setState(prevState => {
-      return { showSubMenu: !prevState.showSubMenu };
-    });
-  };
-
   componentDidUpdate(prevProps, prevState) {
     if (this.props.viewPortWidth < 992) return;
     if (this.state.moveLeft) return;
-    if (this.props.in) {
-      if (!this.state.currentWidth) {
-        let subMenuDimensions;
-        if (this.myRef && this.myRef.current) {
-          const subMenu = this.myRef.current;
-          subMenuDimensions = subMenu.getBoundingClientRect();
-          this.setState({
-            currentWidth: subMenuDimensions.width,
-            currentRight: subMenuDimensions.right
-          });
-        }
-      }
-    }
-    if (
-      this.state.currentWidth &&
-      this.state.currentWidth > 0 &&
-      this.props.parentWidth &&
-      this.props.parentWidth > 0
-    ) {
-      if (this.state.currentRight > this.props.viewPortWidth) {
+    if (this.subMenuRef && this.subMenuRef.current) {
+      const subMenu = this.subMenuRef.current;
+      const subMenuDimensions = subMenu.getBoundingClientRect();
+      if (subMenuDimensions.right > this.props.viewPortWidth) {
         this.setState({ moveLeft: true });
       }
     }
   }
-
   render() {
+    const subMenuItems = this.props.subMenu
+      ? transformSubMenu(
+          this.props.subMenu.subMenuItems,
+          this.props.viewPortWidth
+        )
+      : null;
     return (
       <React.Fragment>
         <CSSTransition
-          in={
-            this.state.subMenu &&
-            this.state.subMenu.subMenuItems.length > 0 &&
-            this.props.in
-          }
+          in={true}
           classNames="fade-dropdown-menu"
           timeout={300}
           unmountOnExit
@@ -171,72 +92,92 @@ export default class SubMenu extends Component {
           <StyledSubMenu
             $isSticky={this.props.isSticky}
             top={this.props.top}
-            moveLeft={this.state.moveLeft}
-            ref={this.myRef}
+            moveLeft={this.props.moveLeft}
+            ref={this.props.passedRef}
           >
-            {this.state.subMenu &&
-              this.state.subMenu.subMenuItems.map((subMenuItem, index) => (
-                <li
-                  key={index}
-                  onMouseLeave={
-                    this.props.viewPortWidth > 991 &&
-                    subMenuItem.subMenu &&
-                    subMenuItem.subMenu.subMenuItems.length > 0
-                      ? this.handleLeave
-                      : undefined
-                  }
-                  onMouseEnter={
-                    this.props.viewPortWidth > 991 &&
-                    subMenuItem.subMenu &&
-                    subMenuItem.subMenu.subMenuItems.length > 0
-                      ? this.handleHover
-                      : undefined
-                  }
-                  onClick={
-                    this.props.viewPortWidth < 992 &&
-                    subMenuItem.subMenu &&
-                    subMenuItem.subMenu.subMenuItems.length > 0
-                      ? this.handleClick
-                      : undefined
-                  }
-                >
-                  {subMenuItem.link ? (
-                    <StyledLinkSub
-                      to={subMenuItem.link}
-                      className={subMenuItem.subMenu && "sf-with-ul"}
-                      activeClassName="active"
-                      onClick={this.props.menuHandleClick}
-                    >
-                      {subMenuItem.name}
-                    </StyledLinkSub>
-                  ) : (
-                    <StyledNonClickableMenuItem
-                      servicePage={this.props.servicePage}
-                      className={subMenuItem.subMenu && "sf-with-ul"}
-                      $isSticky={this.props.isSticky}
-                    >
-                      {subMenuItem.name}
-                    </StyledNonClickableMenuItem>
-                  )}
-                  {/* Sub Menu */}
-                  {this.state.showSubMenu &&
-                    subMenuItem.subMenu &&
-                    subMenuItem.subMenu.subMenuItems.length > 0 && (
-                      <SubMenu
-                        subMenu={subMenuItem.subMenu}
-                        in={this.state.showSubMenu}
-                        isSticky={this.props.isSticky}
-                        top
-                        viewPortWidth={this.props.viewPortWidth}
-                        parentWidth={this.state.currentWidth}
-                        menuHandleClick={this.props.menuHandleClick}
-                      />
+            {subMenuItems &&
+              subMenuItems.map((subMenuItem, index) => {
+                return (
+                  <li
+                    key={index}
+                    onMouseLeave={
+                      this.props.viewPortWidth > 991 &&
+                      subMenuItem.subMenu &&
+                      subMenuItem.subMenu.subMenuItems.length > 0
+                        ? () =>
+                            this.props.handleLeave(this.props.depthLevel + 1)
+                        : undefined
+                    }
+                    onMouseEnter={
+                      this.props.viewPortWidth > 991 &&
+                      subMenuItem.subMenu &&
+                      subMenuItem.subMenu.subMenuItems.length > 0
+                        ? () =>
+                            this.props.handleHover(
+                              this.props.depthLevel + 1,
+                              index
+                            )
+                        : undefined
+                    }
+                    onClick={
+                      this.props.viewPortWidth < 992 &&
+                      subMenuItem.subMenu &&
+                      subMenuItem.subMenu.subMenuItems.length > 0
+                        ? e =>
+                            this.props.handleClick(
+                              e,
+                              this.props.depthLevel + 1,
+                              index
+                            )
+                        : undefined
+                    }
+                  >
+                    {subMenuItem.link ? (
+                      <StyledLinkSub
+                        to={subMenuItem.link}
+                        className={subMenuItem.subMenu && "sf-with-ul"}
+                        activeClassName="active"
+                        onClick={this.props.hideSubMenu}
+                      >
+                        {subMenuItem.name}
+                      </StyledLinkSub>
+                    ) : (
+                      <StyledNonClickableMenuItem
+                        servicePage={this.props.servicePage}
+                        className={subMenuItem.subMenu && "sf-with-ul"}
+                        $isSticky={this.props.isSticky}
+                      >
+                        {subMenuItem.name}
+                      </StyledNonClickableMenuItem>
                     )}
-                </li>
-              ))}
+                    {/* Sub Menu */}
+                    {this.props.showSubMenu[this.props.depthLevel + 1] ===
+                      index &&
+                      subMenuItem.subMenu &&
+                      subMenuItem.subMenu.subMenuItems.length > 0 && (
+                        <SubMenu
+                          passedRef={this.subMenuRef}
+                          depthLevel={this.props.depthLevel + 1}
+                          subMenu={subMenuItem.subMenu}
+                          isSticky={this.props.isSticky}
+                          showSubMenu={this.props.showSubMenu}
+                          viewPortWidth={this.props.viewPortWidth}
+                          handleHover={this.props.handleHover}
+                          handleLeave={this.props.handleLeave}
+                          handleClick={this.props.handleClick}
+                          hideSubMenu={this.props.hideSubMenu}
+                          top
+                          moveLeft={this.state.moveLeft}
+                        />
+                      )}
+                  </li>
+                );
+              })}
           </StyledSubMenu>
         </CSSTransition>
       </React.Fragment>
     );
   }
 }
+
+export default SubMenu;

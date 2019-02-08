@@ -5,6 +5,8 @@ import styled from "styled-components";
 import NonClickableMenuItem from "./NonClickableMenuItem";
 
 import "./menu.css";
+
+import { transformSubMenu } from "../helpers";
 import SubMenu from "./SubMenu";
 
 const StyledLink = styled(Link)`
@@ -34,30 +36,49 @@ export class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSubMenu: false,
+      showSubMenu: [],
       viewPortWidth:
         windowGlobal.innerWidth || documentElementGlobal.clientWidth
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.hideSubMenu = this.hideSubMenu.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
-  handleHover = e => {
-    this.setState({ showSubMenu: true });
-    this.props.toggleTransform();
+  handleHover = (depthLevel, index) => {
+    let updatedArray = this.state.showSubMenu.slice(0);
+    updatedArray.push(index);
+    this.setState({ showSubMenu: updatedArray });
+    if (depthLevel === 0) {
+      this.props.toggleTransform();
+    }
   };
 
-  handleLeave = e => {
-    this.setState({ showSubMenu: false });
-    this.props.toggleTransform();
+  handleLeave = depthLevel => {
+    let updatedArray = this.state.showSubMenu.slice(0);
+    updatedArray = updatedArray.slice(0, depthLevel);
+    this.setState({ showSubMenu: updatedArray });
+    if (depthLevel === 0) {
+      this.props.toggleTransform();
+    }
   };
 
-  handleClick = e => {
-    this.setState(prevState => {
-      return { showSubMenu: !prevState.showSubMenu };
-    });
+  handleClick = (e, depthLevel, index) => {
+    e.stopPropagation();
+    let updatedArray = this.state.showSubMenu.slice(0);
+    if (updatedArray[depthLevel]) {
+      updatedArray = updatedArray.slice(0, depthLevel);
+    } else {
+      updatedArray.push(index);
+    }
+    this.setState({ showSubMenu: updatedArray });
+  };
+
+  hideSubMenu = e => {
+    e.stopPropagation();
+    this.setState({ showSubMenu: [] });
   };
 
   componentDidMount() {
@@ -79,7 +100,7 @@ export class Menu extends Component {
     return (
       <StaticQuery
         query={graphql`
-          query MenuQuery {
+          query NewMenuQuery {
             markdownRemark(fields: { slug: { eq: "/main-menu/" } }) {
               frontmatter {
                 menuItems {
@@ -103,7 +124,11 @@ export class Menu extends Component {
           }
         `}
         render={data => {
-          const { menuItems } = data.markdownRemark.frontmatter;
+          const { menuItems: tempMenuItems } = data.markdownRemark.frontmatter;
+          const menuItems = transformSubMenu(
+            tempMenuItems,
+            this.state.viewPortWidth
+          );
           return (
             <div className="col-md-6 text-center">
               <nav className="mainmenu_wrapper">
@@ -115,21 +140,21 @@ export class Menu extends Component {
                         this.state.viewPortWidth > 991 &&
                         menuItem.subMenu &&
                         menuItem.subMenu.subMenuItems.length > 0
-                          ? this.handleLeave
+                          ? () => this.handleLeave(0)
                           : undefined
                       }
                       onMouseEnter={
                         this.state.viewPortWidth > 991 &&
                         menuItem.subMenu &&
                         menuItem.subMenu.subMenuItems.length > 0
-                          ? this.handleHover
+                          ? () => this.handleHover(0, index)
                           : undefined
                       }
                       onClick={
                         this.state.viewPortWidth < 992 &&
                         menuItem.subMenu &&
                         menuItem.subMenu.subMenuItems.length > 0
-                          ? this.handleClick
+                          ? e => this.handleClick(e, 0, index)
                           : undefined
                       }
                     >
@@ -152,15 +177,19 @@ export class Menu extends Component {
                       )}
                       {/* Sub Menu */}
 
-                      {this.state.showSubMenu &&
+                      {this.state.showSubMenu[0] === index &&
                         menuItem.subMenu &&
                         menuItem.subMenu.subMenuItems.length > 0 && (
                           <SubMenu
+                            depthLevel={0}
                             subMenu={menuItem.subMenu}
-                            in={this.state.showSubMenu}
                             isSticky={this.props.isSticky}
+                            showSubMenu={this.state.showSubMenu}
                             viewPortWidth={this.state.viewPortWidth}
-                            menuHandleClick={this.handleClick}
+                            handleHover={this.handleHover}
+                            handleLeave={this.handleLeave}
+                            handleClick={this.handleClick}
+                            hideSubMenu={this.hideSubMenu}
                           />
                         )}
                     </li>

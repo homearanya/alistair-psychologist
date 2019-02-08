@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
+import styled from "styled-components";
+
+const StyledArticle = styled.article`
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+`;
 
 export default function ArticleThumbnail(props) {
   const articleUrl = `${props.siteUrl}${props.article.fields.slug}`;
   return (
     <div className="isotope-item col-lg-4 col-md-6 col-sm-12">
-      <article className="vertical-item content-padding mosaic-post post format-standard text-center with_border">
+      <StyledArticle className="vertical-item content-padding mosaic-post post format-standard text-center">
         {props.article.thumbnailimage && props.article.thumbnailimage.image && (
           <div className="item-media entry-thumbnail">
             <Img
@@ -65,7 +70,7 @@ export default function ArticleThumbnail(props) {
             target="_blank"
           />
         </div>
-      </article>
+      </StyledArticle>
     </div>
   );
 }

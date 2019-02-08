@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import SliderArea from "../components/SliderArea";
 import ServicesArea from "../components/ServicesArea";
 import AboutArea from "../components/AboutArea";
+import CoursesArea from "../components/CoursesArea";
 import ArticlesArea from "../components/ArticlesArea";
 import TestimonialsArea from "../components/TestimonialsArea";
 // import FaqArea from "../components/FaqArea";
@@ -35,6 +36,7 @@ export default ({ data }) => {
         servicesArea={frontmatter.servicesArea}
       />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
+      <CoursesArea coursesArea={frontmatter.coursesArea} />
       <ArticlesArea articlesArea={frontmatter.articlesArea} />
       {frontmatter.testimonialsArea &&
         frontmatter.testimonialsArea.testimonials.length > 0 && (
@@ -113,6 +115,10 @@ export const homePageQuery = graphql`
               }
             }
           }
+        }
+        coursesArea {
+          heading
+          blurb
         }
         articlesArea {
           heading

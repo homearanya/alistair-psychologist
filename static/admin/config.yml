@@ -107,6 +107,12 @@ collections:
                       widget: text,
                       hint: "Please inform. Important for SEO",
                     }
+          - label: "Courses Area"
+            name: coursesArea
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Blurb, name: blurb, widget: text }
           - label: "Articles Area"
             name: articlesArea
             widget: object

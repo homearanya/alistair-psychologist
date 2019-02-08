@@ -138,3 +138,7 @@
     opacity: 0.01 !important;
     transition: all 300ms ease-in !important;
 }
+
+.section_header+p {
+    color: #787878;
+}

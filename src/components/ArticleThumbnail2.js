@@ -1,13 +1,17 @@
 import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
+import styled from "styled-components";
 
 import Button from "./Button";
 
+const StyledArticle = styled.article`
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+`;
 export default function ArticleThumbnail2(props) {
   return (
     <div className="col-md-4 text-center">
-      <article className="vertical-item content-padding post format-standard with_shadow">
+      <StyledArticle className="vertical-item content-padding post format-standard with_shadow">
         {props.article.thumbnailimage && props.article.thumbnailimage.image && (
           <div className="item-media entry-thumbnail">
             <Img
@@ -42,7 +46,7 @@ export default function ArticleThumbnail2(props) {
 
           <Button whereTo={props.article.fields.slug} text="Read article" />
         </div>
-      </article>
+      </StyledArticle>
     </div>
   );
 }

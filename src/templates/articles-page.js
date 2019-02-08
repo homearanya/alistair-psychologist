@@ -56,8 +56,9 @@ export default function(props) {
                 <div className="row">
                   <div className="col-sm-12">
                     <div className="isotope_container isotope row masonry-layout columns_bottom_margin_30">
-                      {articles.map(({ node: article }) => (
+                      {articles.map(({ node: article }, index) => (
                         <ArticleThumbnail
+                          key={index}
                           siteUrl={props.location.origin}
                           article={article}
                           key={article.id}

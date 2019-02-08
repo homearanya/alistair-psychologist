@@ -9,7 +9,7 @@ export default function UpcomingCourses() {
       query={graphql`
         query UpcomingCoursesQuery {
           allMarkdownRemark(
-            sort: { order: ASC, fields: [frontmatter___date] }
+            sort: { order: ASC, fields: [frontmatter___dateStart] }
             filter: { frontmatter: { templateKey: { eq: "upcoming-courses" } } }
           ) {
             edges {

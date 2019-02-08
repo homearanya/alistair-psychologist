@@ -28,10 +28,14 @@ aboutMeArea:
           foundation for vibrant emotional health, a sharp mind, and a healthy
           life free of physical complaints.
   heading1: WHO AM I?
-  heading2: ' '
+  heading2: " "
   personPicture:
     alt: Alistair Mork-Chadwick
     image: /img/alistair-mork-chadwick.png
+coursesArea:
+  blurb: >-
+    Exercitation cupim ex, short ribs cow in ullamco corned beef veniam kevin. Eu frankfurter ham hock ball tip reprehenderit adipisicing ipsum jerky tenderloin aliquip.
+  heading: Mindfulness Training - Upcoming Courses
 articlesArea:
   blurb: >-
     I read widely to keep abreast of the latest clinical research and the top
@@ -40,7 +44,7 @@ articlesArea:
   heading: Recent Articles
 testimonialsArea:
   testimonials:
-    - author: 'Psychotherapy client, 2015'
+    - author: "Psychotherapy client, 2015"
       quote: >-
         I consider myself privileged to have been able to work with Alistair. He
         has helped me through some incredibly difficult and stressful situations
@@ -49,7 +53,7 @@ testimonialsArea:
       quote: >-
         I have been on medication for many years for anxiety attacks… This is
         the first life skill I have found to help me cope without medication.
-    - author: 'Course participant, 2015'
+    - author: "Course participant, 2015"
       quote: >-
         I have benefited so much more than I could ever have imagined or dreamt
         of. I have better interactions… and also my relationships have improved
@@ -60,4 +64,3 @@ appointmentArea:
     offer.
   heading: Make an Appointment
 ---
-
