@@ -1,15 +1,27 @@
-import React from 'react'
-import { Link } from "gatsby"
-
-export default function () {
-    return (
-        <div>
-            <h1>Oops...</h1>
-            <h2>Page Not Found!</h2>
-            <p>Sorry the Page Could not be Found here.<br />
-                Try using the button below to go to main page/<br />
-                of the site</p>
-            <Link to="/">Go to Home</Link>
+import React from "react";
+import Layout from "../components/Layout";
+import Button from "../components/Button";
+export default function() {
+  return (
+    <Layout>
+      <section class="ls section_404 background_cover no_overlay section_padding_top_150 section_padding_bottom_150">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 text-center text-sm-left">
+              <div class="inline-block text-center">
+                <p class="not_found">
+                  <span class="highlight">404</span>
+                  <span class="ops playfair grey">Ooops!</span>
+                </p>
+                <h2>Sorry, page not found!</h2>
+                <p>
+                  <Button whereTo="/" text="Back to Home" />
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    )
+      </section>
+    </Layout>
+  );
 }
