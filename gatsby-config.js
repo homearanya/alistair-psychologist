@@ -9,26 +9,80 @@ module.exports = {
   siteMetadata: {
     title: "Alistair Mork-Chadwick · Counselling Psychologist",
     defaultTitle: "Alistair Mork-Chadwick · Counselling Psychologist",
-    description:
-      "Hello, I am a Counselling psychologist based in Howick. I offer personal counselling, career guidance, psychological assessments and mindfulness training.",
-    canonicalUrl: "https://alistairmork-chadwick.co.za/",
-    image: "https://www.trails.co.za/img/meander-hike-gallery_2.jpg",
+    description: `Alistair Mork-Chadwick is a Counselling psychologist based in Howick. 
+      He offers personal counselling, career guidance, 
+      psychological assessments and mindfulness training.`,
+    canonicalUrl: "https://www.alistairmork-chadwick.co.za/",
+    image:
+      "https://www.alistairmork-chadwick.co.za/img/alistair-mork-chadwick.png",
     author: {
       name: "Alistair Mork-Chadwick",
       minibio: `
-            <strong>Alistair Mork-Chadwick</strong> is a front-end web developer specialised in ReactJS/Gatsby.
-            He lives in Howick, KZN, South Africa.
+            <strong>Alistair Mork-Chadwick</strong> is a Counselling psychologist based in Howick. 
+            He offers personal counselling, career guidance, 
+            psychological assessments and mindfulness training.
           `
     },
     organization: {
       name: "Alistair Mork-Chadwick · Counselling Psychologist",
-      url: "https://alistairmork-chadwick.co.za",
-      logo: "https://www.trails.co.za/img/new-trails-logo-new-colors.png"
+      url: "https://www.alistairmork-chadwick.co.za",
+      logo: "https://www.alistairmork-chadwick.co.za/img/logo.png"
     },
-    siteUrl: "https://alistairmork-chadwick.co.za" // for gatsby plugin sitemap
+    siteUrl: "https://www.alistairmork-chadwick.co.za" // for gatsby plugin sitemap
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./src/favicon.png",
+
+        // WebApp Manifest Configuration
+        appName: null, // Inferred with your package.json
+        appDescription: null,
+        developerName: null,
+        developerURL: null,
+        dir: "auto",
+        lang: "en-US",
+        background: "#fff",
+        theme_color: "#fff",
+        display: "standalone",
+        orientation: "any",
+        start_url: "/?homescreen=1",
+        version: "1.0",
+
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Alistair Mork-Chadwick · Counselling Psychologist",
+        short_name: "alistair",
+        start_url: "/",
+        background_color: "#6b37bf",
+        theme_color: "#6b37bf",
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        icon: "src/assets/img/icon.png" // This path is relative to the root of the site.
+      }
+    },
+    `gatsby-plugin-offline`,
+    // "gatsby-plugin-remove-serviceworker",
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
