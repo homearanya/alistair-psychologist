@@ -409,7 +409,7 @@ textarea.form-control {
 
 .select-group .input-group:after {
     content: "\f107";
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
     position: absolute;
     top: 7px;
     right: 15px;
@@ -671,7 +671,7 @@ input[type="checkbox"]+label:before {
     line-height: 14px;
     font-size: 15px;
     border: 2px solid #ebebeb;
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
 }
 
 input[type="checkbox"]:checked+label:before {
@@ -806,7 +806,7 @@ input[type="radio"]:disabled+label:before {
 
 .carousel-control.left span,
 .carousel-control.right span {
-    font-family: 'rt-icons-2';
+    font-family: 'Font Awesome 5 Free';
     width: 50px;
     height: 50px;
     margin: 0;
@@ -817,11 +817,11 @@ input[type="radio"]:disabled+label:before {
 }
 
 .carousel-control .icon-prev:before {
-    content: "\e7c4";
+    content: "\f104";
 }
 
 .carousel-control .icon-next:before {
-    content: "\e7c5";
+    content: "\f105";
 }
 
 
@@ -950,7 +950,7 @@ input[type="radio"]:disabled+label:before {
     color: #91d0cc;
     padding: 0 5px;
     display: inline-block;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f107";
 }
 
@@ -1243,8 +1243,8 @@ input[type="radio"]:disabled+label:before {
 
 .vertical-tabs .nav>li>a:after {
     color: #91d0cc;
-    font-family: 'rt-icons-2';
-    content: "\e7c5";
+    font-family: 'Font Awesome 5 Free';
+    content: "\f105";
     position: absolute;
     font-size: 12px;
     line-height: 60px;
@@ -1443,7 +1443,7 @@ td .media-body {
     -webkit-transition: all 0.2s ease-in-out 0s;
     transition: all 0.2s ease-in-out 0s;
     content: "\f04b";
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     position: absolute;
     color: #ffffff;
     font-size: 24px;
@@ -2311,10 +2311,10 @@ p>[class*="rt-icon"]+[class*="rt-icon"] {
 .owl-carousel .owl-nav>div:after {
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    font-family: 'rt-icons-2';
+    font-family: 'Font Awesome 5 Free';
     font-size: 20px;
     line-height: 60px;
-    content: "\e7c5";
+    content: "\f105";
     color: #444444;
 }
 
@@ -2731,7 +2731,7 @@ html[xmlns] .slides {
 }
 
 .flex-direction-nav a:before {
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     font-size: 20px;
     content: '\f104';
     position: absolute;
@@ -3034,7 +3034,7 @@ a.pp_arrow_next:before {
     line-height: 20px;
     display: inline-block;
     width: 20px;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     font-size: 12px;
     color: #444444;
     opacity: 0.7;
@@ -3151,7 +3151,7 @@ a.pp_previous:before {
     font-size: 18px;
     padding: 10px 15px 10px 18px;
     color: #ffffff;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f105";
     position: absolute;
     top: 50%;
@@ -3193,7 +3193,7 @@ a.pp_contract:before {
     font-size: 14px;
     line-height: 20px;
     color: #ffffff;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f0b2";
     background-color: rgba(68, 68, 68, 0.3);
     padding: 12px 13px;
@@ -3217,7 +3217,7 @@ a.pp_close:before {
     padding: 6px 8px;
     font-size: 14px;
     color: #ffffff;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f00d";
 }
 
@@ -3235,7 +3235,7 @@ a.pp_close:before {
 
 .pp_loaderIcon:before {
     display: block;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f1ce";
     color: #ffffff;
     font-size: 50px;
@@ -3424,7 +3424,7 @@ div.ppt {
     content: '\f106';
     font-size: 16px;
     line-height: 60px;
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     text-align: center;
     display: block;
     position: absolute;
@@ -5709,7 +5709,7 @@ h4.small-text {
 }
 
 [class*="-item"] .links-wrap a:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f002";
 }
 
@@ -6568,7 +6568,7 @@ body.active-side-header.slide-right .page_header_side {
 }
 
 .menu-click .activate_submenu:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f0dd";
 }
 
@@ -9094,7 +9094,7 @@ body.active-side-header.slide-right .page_header_side {
     }
     /* styling for both css and generated arrows */
     .sf-arrows .sf-with-ul:after {
-        font-family: 'FontAwesome';
+        font-family: 'Font Awesome 5 Free';
         content: '\f107';
         position: absolute;
         right: 2em;
@@ -10267,7 +10267,7 @@ widget_mailchimp
 .widget_mailchimp .form-inline .theme_button:before {
     font-size: 16px;
     content: "\f002";
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
 }
 
 .widget_search .form-inline .theme_button:hover,
@@ -10300,7 +10300,7 @@ widget_pages
 }
 
 .widget_recent_comments li:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f0e5";
     font-size: 16px;
     line-height: 1;
@@ -10321,7 +10321,7 @@ widget_pages
 }
 
 .widget_recent_entries li:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     content: "\f040";
     font-size: 18px;
     line-height: 1;

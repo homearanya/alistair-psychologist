@@ -25,7 +25,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   }
 
   &.withArrow::after {
-    font-family: "FontAwesome";
+    font-family: "Font Awesome 5 Free";
     content: "\f107";
     position: absolute;
     right: 2em;

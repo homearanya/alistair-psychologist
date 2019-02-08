@@ -21,20 +21,6 @@ const AElement = styled.a`
   }
 `;
 
-const Icon = styled.svg`
-  display: inline-block;
-  transition: fill 0.25s;
-  width: 30px;
-  enable-background: new 0 0 67 67;
-  fill-rule: evenodd;
-  clip-rule: evenodd;
-  fill: ${props => props.inputColor};
-
-  ${AElement}:hover & {
-    fill: #507cbe;
-  }
-`;
-
 export default function Social(props) {
   return (
     <StaticQuery
