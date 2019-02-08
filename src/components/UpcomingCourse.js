@@ -4,6 +4,7 @@ import Img from "gatsby-image";
 import dateformat from "dateformat";
 import styled from "styled-components";
 
+import CourseHeader from "./CourseHeader";
 import Button from "./Button";
 
 const StyledArticle = styled.article`
@@ -84,24 +85,13 @@ export default function UpcomingCourse({
 
         <StyledContet className={contentClassName}>
           <div className="item-content">
-            <StyledLink to={courseSlug}>
-              <StyledHeading> {courseInfo.courseName}</StyledHeading>
-            </StyledLink>
-
-            <StyledDateVenu
-              className="item-meta grey darklinks content-justify fontsize_16"
+            <CourseHeader
+              url={courseSlug}
+              heading={courseInfo.courseName}
               venue={courseInfo.venue}
-            >
-              <StyledDate>
-                <i className="fa fa-calendar highlight" /> {courseDate}
-              </StyledDate>
-              {courseInfo.venue && (
-                <span>
-                  <i className="fa fa-map-marker highlight" />{" "}
-                  {courseInfo.venue}
-                </span>
-              )}
-            </StyledDateVenu>
+              dateStart={courseInfo.dateStart}
+              dateEnd={courseInfo.dateEnd}
+            />
             <StyledBody dangerouslySetInnerHTML={{ __html: html }} />
             <br />
             <Button whereTo={courseSlug} text="Course Info" />
