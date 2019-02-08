@@ -35,7 +35,7 @@ export default function ArticleThumbnail(props) {
             </h3>
 
             <span className="date small-text highlight">
-              <time datetime="2017-01-10T15:05:23+00:00" className="entry-date">
+              <time dateTime="2017-01-10T15:05:23+00:00" className="entry-date">
                 {props.article.frontmatter.date}
               </time>
             </span>
