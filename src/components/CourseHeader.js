@@ -44,7 +44,7 @@ export default function CourseHeader(props) {
         <StyledDate courseDateEnd>
           {!courseDateEnd ? (
             <React.Fragment>
-              <i className="fa fa-calendar highlight" />{" "}
+              <i className="fas fa-calendar highlight" />{" "}
               {dateformat(courseDateStart, "dd mmmm yyyy")}
             </React.Fragment>
           ) : (
@@ -59,7 +59,7 @@ export default function CourseHeader(props) {
         </StyledDate>
         {props.venue && (
           <span>
-            <i className="fa fa-map-marker highlight" /> {props.venue}
+            <i className="fas fa-map-marker highlight" /> {props.venue}
           </span>
         )}
       </StyledDateVenue>

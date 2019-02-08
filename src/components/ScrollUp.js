@@ -38,7 +38,7 @@ export default function ScrollUp() {
   return (
     <ScrollToTopWrapper>
       <ScrollToTop showUnder={160}>
-        <IStyled className="fa fa-angle-up" />
+        <IStyled className="fas fa-angle-up" />
       </ScrollToTop>
     </ScrollToTopWrapper>
   );
