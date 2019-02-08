@@ -79,6 +79,9 @@ export class Menu extends Component {
   hideSubMenu = e => {
     e.stopPropagation();
     this.setState({ showSubMenu: [] });
+    if (this.props.toggleMenu) {
+      this.props.handleToggleMenu();
+    }
   };
 
   componentDidMount() {

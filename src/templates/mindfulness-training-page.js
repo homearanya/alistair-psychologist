@@ -69,7 +69,7 @@ export default function({ data }) {
     <Layout>
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
-        pageTitle="Contact"
+        pageTitle={frontmatter.title}
         pages={pages}
       />
       <section className="ls section_padding_100 columns_padding_25">
