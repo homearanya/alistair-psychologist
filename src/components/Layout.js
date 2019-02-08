@@ -48,12 +48,24 @@ export default function Layout(props) {
                 content="5Fs1mwvNeUdz1y6CfK5miXOOFUra094G_nhpRiVyXXQ"
               /> */}
               {/* Font Awesome */}
-              {/* <script
+              <script
                 defer
-                src="https://use.fontawesome.com/releases/v5.7.1/js/all.js"
-                integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7"
+                src="https://use.fontawesome.com/releases/v5.7.1/js/solid.js"
+                integrity="sha384-6FXzJ8R8IC4v/SKPI8oOcRrUkJU8uvFK6YJ4eDY11bJQz4lRw5/wGthflEOX8hjL"
                 crossorigin="anonymous"
-              /> */}
+              />
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/brands.js"
+                integrity="sha384-zJ8/qgGmKwL+kr/xmGA6s1oXK63ah5/1rHuILmZ44sO2Bbq1V3p3eRTkuGcivyhD"
+                crossorigin="anonymous"
+              />
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/fontawesome.js"
+                integrity="sha384-Qmms7kHsbqYnKkSwiePYzreT+ufFVSNBhfLOEp0sEEfEVdORDs/aEnGaJy/l4eoy"
+                crossorigin="anonymous"
+              />
             </Helmet>
 
             <div id="canvas">
