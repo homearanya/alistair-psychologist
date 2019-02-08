@@ -38,7 +38,7 @@ export default function CourseHeader(props) {
         <StyledHeading> {props.heading}</StyledHeading>
       </StyledLink>
       <StyledDateVenue
-        className="item-meta grey darklinks content-justify fontsize_16"
+        className="item-meta grey darklinks fontsize_16"
         venue={props.venue}
       >
         <StyledDate courseDateEnd>
