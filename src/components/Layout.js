@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 
 import "../assets/css/bootstrap.min.css";
 import "../assets/css/animations.css";
-import "../assets/css/fonts.css";
+// import "../assets/css/fonts.css";
 import "../assets/css/main.css";
 
 import HeaderTop from "./HeaderTop";

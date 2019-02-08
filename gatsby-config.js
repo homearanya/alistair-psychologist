@@ -31,6 +31,14 @@ module.exports = {
     siteUrl: "https://www.alistairmork-chadwick.co.za" // for gatsby plugin sitemap
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Open Sans"]
+        }
+      }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-favicon`,

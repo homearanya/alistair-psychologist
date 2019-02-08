@@ -245,7 +245,7 @@ Border colors for elements in color section: rgba(255, 255, 255, 0.3)
 	padding: 0;
 	background-color: transparent;
 	border-radius: 0;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	color: inherit;
 	font-weight: 700;
 	font-size: 18px;
@@ -1512,7 +1512,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	line-height: 1.1;
 	word-break: break-word;
@@ -1554,7 +1554,7 @@ blockquote {
 	margin: 30px 0;
 	padding: 0;
 	border: none;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 1.15;
@@ -4989,7 +4989,7 @@ body.boxed {
 }
 
 .playfair {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 /*alignment*/
@@ -5746,7 +5746,7 @@ a.logo {
 	word-break: break-word;
 	font-weight: 700;
 	font-size: 30px;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	line-height: 1;
 	position: relative;
 	z-index: 2;
@@ -8397,7 +8397,7 @@ body.active-side-header.slide-right .page_header_side {
 */
 /* Desktop menu - (min 992px) styles */
 .sf-menu a {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	font-size: 18px;
 	text-align: left;
@@ -9502,7 +9502,7 @@ h2.search-title {
 }
 
 .comment-meta .author_url {
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	font-size: 20px;
 }
@@ -9616,7 +9616,7 @@ h2.search-title {
 .filters a {
 	padding: 6px 15px;
 	margin: 0 3px 0;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	display: inline-block;
 }
@@ -10129,7 +10129,7 @@ widget_pages
 	display: inline-block;
 	padding: 8px 0 8px 16px;
 	position: relative;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
 	font-weight: 700;
 }
@@ -11192,7 +11192,7 @@ aside .widget_tag_cloud a:hover {
 .plan-name {
 	font-size: 35px;
 	font-weight: 700;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	line-height: 1.2;
 	background-color: #444444;
 	padding: 25px 0;
@@ -11234,7 +11234,7 @@ aside .widget_tag_cloud a:hover {
 
 .features-list {
 	margin-top: 20px;
-	font-family: 'Playfair Display', serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 }
 

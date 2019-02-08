@@ -10,7 +10,6 @@ const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   text-decoration: none;
   background: #4bb0a9;
   color: #ffffff;
-  font-family: sans-serif;
   font-size: 18px;
   cursor: pointer;
   text-align: center;

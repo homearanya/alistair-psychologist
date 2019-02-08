@@ -8,7 +8,6 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   margin: 0;
   text-decoration: none;
   color: ${props => (props.servicePage ? "#91d0cc" : "white")};
-  font-family: "Playfair Display", serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 28px;
