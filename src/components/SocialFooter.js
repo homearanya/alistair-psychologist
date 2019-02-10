@@ -22,7 +22,7 @@ export default function SocialFooter(props) {
         target="_blank"
         inputColor="#00abef"
       >
-        <i class="fab fa-twitter" />
+        <i className="fab fa-twitter" />
       </StyledA>
       <StyledA
         href={`https://www.facebook.com/sharer.php?u=${encodeURI(props.url)}`}
@@ -30,7 +30,7 @@ export default function SocialFooter(props) {
         target="_blank"
         inputColor="#507cbe"
       >
-        <i class="fab fa-facebook-f" />
+        <i className="fab fa-facebook-f" />
       </StyledA>
       <StyledA
         href={`https://getpocket.com/edit?url=${encodeURI(props.url)}`}
@@ -38,7 +38,7 @@ export default function SocialFooter(props) {
         target="_blank"
         inputColor="#ed4055"
       >
-        <i class="fab fa-get-pocket" />
+        <i className="fab fa-get-pocket" />
       </StyledA>
       <StyledA
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURI(
@@ -48,7 +48,7 @@ export default function SocialFooter(props) {
         target="_blank"
         inputColor="#3371b7"
       >
-        <i class="fab fa-linkedin-in" />
+        <i className="fab fa-linkedin-in" />
       </StyledA>
     </div>
   );

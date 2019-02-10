@@ -1,5 +1,24 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+
+const SVGWrapper = styled.div`
+  color: #91d0cc;
+  position: absolute;
+  font-size: 18px;
+  line-height: 60px;
+  text-align: center;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  letter-spacing: 0;
+
+  a:hover &,
+  a.active & {
+    color: #ffffff;
+  }
+`;
 
 export default function MTMenu() {
   return (
@@ -36,6 +55,9 @@ export default function MTMenu() {
                       }}
                     >
                       {menuItem.name}
+                      <SVGWrapper>
+                        <i className="fas fa-angle-right" />
+                      </SVGWrapper>
                     </Link>
                   </li>
                 ))}

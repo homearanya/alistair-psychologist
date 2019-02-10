@@ -135,19 +135,23 @@ export class SubMenu extends Component {
                     {subMenuItem.link ? (
                       <StyledLinkSub
                         to={subMenuItem.link}
-                        className={subMenuItem.subMenu && "sf-with-ul"}
                         activeClassName="active"
                         onClick={this.props.hideSubMenu}
                       >
                         {subMenuItem.name}
+                        {subMenuItem.subMenu ? (
+                          <i className="fas fa-angle-down" />
+                        ) : null}
                       </StyledLinkSub>
                     ) : (
                       <StyledNonClickableMenuItem
                         servicePage={this.props.servicePage}
-                        className={subMenuItem.subMenu && "sf-with-ul"}
                         $isSticky={this.props.isSticky}
                       >
                         {subMenuItem.name}
+                        {subMenuItem.subMenu ? (
+                          <i className="fas fa-angle-down" />
+                        ) : null}
                       </StyledNonClickableMenuItem>
                     )}
                     {/* Sub Menu */}
@@ -166,6 +170,7 @@ export class SubMenu extends Component {
                           handleLeave={this.props.handleLeave}
                           handleClick={this.props.handleClick}
                           hideSubMenu={this.props.hideSubMenu}
+                          r
                           top
                           moveLeft={this.state.moveLeft}
                         />

@@ -25,6 +25,16 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const SVGWrapper = styled.div`
+  bottom: 0;
+  line-height: 48px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 3.5em;
+`;
+
 const windowGlobal = typeof window !== "undefined" && window;
 const documentElementGlobal =
   typeof document !== "undefined" &&
@@ -168,18 +178,27 @@ export class Menu extends Component {
                           $isSticky={this.props.isSticky}
                         >
                           {menuItem.name}
+                          {menuItem.subMenu &&
+                          menuItem.subMenu.subMenuItems.length > 0 ? (
+                            <SVGWrapper>
+                              <i className="fas fa-angle-down" />
+                            </SVGWrapper>
+                          ) : null}
                         </StyledLink>
                       ) : (
                         <NonClickableMenuItem
                           servicePage={this.props.servicePage}
-                          className="withArrow"
                           $isSticky={this.props.isSticky}
                         >
                           {menuItem.name}
+                          {menuItem.subMenu &&
+                          menuItem.subMenu.subMenuItems.length > 0 ? (
+                            <SVGWrapper>
+                              <i className="fas fa-angle-down" />
+                            </SVGWrapper>
+                          ) : null}
                         </NonClickableMenuItem>
                       )}
-                      {/* Sub Menu */}
-
                       {this.state.showSubMenu[0] === index &&
                         menuItem.subMenu &&
                         menuItem.subMenu.subMenuItems.length > 0 && (

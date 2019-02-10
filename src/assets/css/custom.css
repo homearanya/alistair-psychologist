@@ -139,6 +139,9 @@
     transition: all 300ms ease-in !important;
 }
 
+
+/* make all blurbs the same colour */
+
 .section_header+p {
     color: #787878;
 }

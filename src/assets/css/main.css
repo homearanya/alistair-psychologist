@@ -1241,7 +1241,8 @@ input[type="radio"]:disabled+label:before {
     line-height: 0;
 }
 
-.vertical-tabs .nav>li>a:after {
+
+/* .vertical-tabs .nav>li>a:after {
     color: #91d0cc;
     font-family: "Font Awesome 5 Free";
     content: "\f105";
@@ -1254,7 +1255,7 @@ input[type="radio"]:disabled+label:before {
     bottom: 0;
     width: 60px;
     letter-spacing: 0;
-}
+} */
 
 .vertical-tabs .nav>li a.active,
 .vertical-tabs .nav>li>a:hover {
