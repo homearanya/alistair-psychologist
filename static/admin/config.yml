@@ -311,6 +311,18 @@ collections:
                   widget: text,
                   hint: "Please inform. Important for SEO",
                 }
+              - label: "Testimonials Area"
+                name: testimonialsArea
+                widget: object
+                fields:
+                  - label: "Testimonials"
+                    label_singular: "Testimonial"
+                    name: testimonials
+                    widget: list
+                    fields:
+                      - { label: Quote, name: quote, widget: text }
+                      - { label: Author, name: author, widget: string }
+
 
       - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
         label: "Mindfulness-Based Pain Management Course"
@@ -348,7 +360,18 @@ collections:
                   widget: text,
                   hint: "Please inform. Important for SEO",
                 }
-
+              - label: "Testimonials Area"
+                name: testimonialsArea
+                widget: object
+                fields:
+                  - label: "Testimonials"
+                    label_singular: "Testimonial"
+                    name: testimonials
+                    widget: list
+                    fields:
+                      - { label: Quote, name: quote, widget: text }
+                      - { label: Author, name: author, widget: string }
+                      
       - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
         label: "Frequently Asked Questions"
         name: "faq"
