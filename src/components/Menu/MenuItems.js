@@ -118,6 +118,7 @@ export default function MenuItems(props) {
               activeClassName="active"
               isSticky={props.isSticky}
               depthLevel={props.depthLevel}
+              onClick={props.hideSubMenu}
             >
               {menuItem.name}
               {menuItem.subMenu && menuItem.subMenu.subMenuItems.length > 0 ? (
