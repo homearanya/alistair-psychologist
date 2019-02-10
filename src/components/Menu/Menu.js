@@ -1,39 +1,11 @@
 import React, { Component } from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import { StaticQuery, graphql } from "gatsby";
 
-import NonClickableMenuItem from "./NonClickableMenuItem";
+import MenuItems from "./MenuItems";
 
 import "./menu.css";
 
 import { transformSubMenu } from "../helpers";
-import SubMenu from "./SubMenu";
-
-const StyledLink = styled(Link)`
-  margin: 0;
-
-  :hover,
-  &&&.active {
-    color: #91d0cc;
-  }
-
-  @media (min-width: 992px) {
-    &&& {
-      padding: ${props => (props.$isSticky ? "25px 0" : "25px 0")};
-      margin: 0 15px;
-    }
-  }
-`;
-
-const SVGWrapper = styled.div`
-  bottom: 0;
-  line-height: 48px;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 3.5em;
-`;
 
 const windowGlobal = typeof window !== "undefined" && window;
 const documentElementGlobal =
@@ -113,7 +85,7 @@ export class Menu extends Component {
     return (
       <StaticQuery
         query={graphql`
-          query NewMenuQuery {
+          query MenuQuery {
             markdownRemark(fields: { slug: { eq: "/main-menu/" } }) {
               frontmatter {
                 menuItems {
@@ -146,76 +118,18 @@ export class Menu extends Component {
             <div className="col-md-6 text-center">
               <nav className="mainmenu_wrapper">
                 <ul className="mainmenu nav sf-menu sf-arrows">
-                  {menuItems.map((menuItem, index) => (
-                    <li
-                      key={index}
-                      onMouseLeave={
-                        this.state.viewPortWidth > 991 &&
-                        menuItem.subMenu &&
-                        menuItem.subMenu.subMenuItems.length > 0
-                          ? () => this.handleLeave(0)
-                          : undefined
-                      }
-                      onMouseEnter={
-                        this.state.viewPortWidth > 991 &&
-                        menuItem.subMenu &&
-                        menuItem.subMenu.subMenuItems.length > 0
-                          ? () => this.handleHover(0, index)
-                          : undefined
-                      }
-                      onClick={
-                        this.state.viewPortWidth < 992 &&
-                        menuItem.subMenu &&
-                        menuItem.subMenu.subMenuItems.length > 0
-                          ? e => this.handleClick(e, 0, index)
-                          : undefined
-                      }
-                    >
-                      {menuItem.link ? (
-                        <StyledLink
-                          to={menuItem.link}
-                          activeClassName="active"
-                          $isSticky={this.props.isSticky}
-                        >
-                          {menuItem.name}
-                          {menuItem.subMenu &&
-                          menuItem.subMenu.subMenuItems.length > 0 ? (
-                            <SVGWrapper>
-                              <i className="fas fa-angle-down" />
-                            </SVGWrapper>
-                          ) : null}
-                        </StyledLink>
-                      ) : (
-                        <NonClickableMenuItem
-                          servicePage={this.props.servicePage}
-                          $isSticky={this.props.isSticky}
-                        >
-                          {menuItem.name}
-                          {menuItem.subMenu &&
-                          menuItem.subMenu.subMenuItems.length > 0 ? (
-                            <SVGWrapper>
-                              <i className="fas fa-angle-down" />
-                            </SVGWrapper>
-                          ) : null}
-                        </NonClickableMenuItem>
-                      )}
-                      {this.state.showSubMenu[0] === index &&
-                        menuItem.subMenu &&
-                        menuItem.subMenu.subMenuItems.length > 0 && (
-                          <SubMenu
-                            depthLevel={0}
-                            subMenu={menuItem.subMenu}
-                            isSticky={this.props.isSticky}
-                            showSubMenu={this.state.showSubMenu}
-                            viewPortWidth={this.state.viewPortWidth}
-                            handleHover={this.handleHover}
-                            handleLeave={this.handleLeave}
-                            handleClick={this.handleClick}
-                            hideSubMenu={this.hideSubMenu}
-                          />
-                        )}
-                    </li>
-                  ))}
+                  <MenuItems
+                    menuItems={menuItems}
+                    showSubMenu={this.state.showSubMenu}
+                    viewPortWidth={this.state.viewPortWidth}
+                    handleLeave={this.handleLeave}
+                    handleHover={this.handleHover}
+                    handleClick={this.handleClick}
+                    hideSubMenu={this.hideSubMenu}
+                    isSticky={this.props.isSticky}
+                    servicePage={this.props.servicePage}
+                    depthLevel={-1}
+                  />
                 </ul>
               </nav>
             </div>

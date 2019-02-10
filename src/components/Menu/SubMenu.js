@@ -1,35 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import { CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 
-import NonClickableMenuItem from "./NonClickableMenuItem";
+import MenuItems from "./MenuItems";
 
 import { transformSubMenu } from "../helpers";
-
-const StyledLinkSub = styled(Link)`
-  a + li a {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  :hover,
-  &&&.active {
-    color: #91d0cc;
-  }
-`;
-
-const StyledNonClickableMenuItem = styled(NonClickableMenuItem)`
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 300;
-  padding: 10px;
-
-  ::before {
-    content: "-";
-    padding-right: 5px;
-  }
-`;
 
 const StyledSubMenu = styled.ul`
   &&& {
@@ -50,7 +25,7 @@ const StyledSubMenu = styled.ul`
       padding: 10px 0 10px;
       margin-top: ${props => (props.$isSticky ? undefined : undefined)};
       position: absolute;
-      top: ${props => (props.top ? "0" : undefined)};
+      top: ${props => (props.depthLevel > 0 ? "0" : undefined)};
       left: ${props => (props.moveLeft ? "auto" : undefined)};
       right: ${props => (props.moveLeft ? "100%" : undefined)};
     }
@@ -81,6 +56,7 @@ export class SubMenu extends Component {
           this.props.viewPortWidth
         )
       : null;
+
     return (
       <React.Fragment>
         <CSSTransition
@@ -91,93 +67,24 @@ export class SubMenu extends Component {
         >
           <StyledSubMenu
             $isSticky={this.props.isSticky}
-            top={this.props.top}
+            depthLevel={this.props.depthLevel}
             moveLeft={this.props.moveLeft}
             ref={this.props.passedRef}
           >
-            {subMenuItems &&
-              subMenuItems.map((subMenuItem, index) => {
-                return (
-                  <li
-                    key={index}
-                    onMouseLeave={
-                      this.props.viewPortWidth > 991 &&
-                      subMenuItem.subMenu &&
-                      subMenuItem.subMenu.subMenuItems.length > 0
-                        ? () =>
-                            this.props.handleLeave(this.props.depthLevel + 1)
-                        : undefined
-                    }
-                    onMouseEnter={
-                      this.props.viewPortWidth > 991 &&
-                      subMenuItem.subMenu &&
-                      subMenuItem.subMenu.subMenuItems.length > 0
-                        ? () =>
-                            this.props.handleHover(
-                              this.props.depthLevel + 1,
-                              index
-                            )
-                        : undefined
-                    }
-                    onClick={
-                      this.props.viewPortWidth < 992 &&
-                      subMenuItem.subMenu &&
-                      subMenuItem.subMenu.subMenuItems.length > 0
-                        ? e =>
-                            this.props.handleClick(
-                              e,
-                              this.props.depthLevel + 1,
-                              index
-                            )
-                        : undefined
-                    }
-                  >
-                    {subMenuItem.link ? (
-                      <StyledLinkSub
-                        to={subMenuItem.link}
-                        activeClassName="active"
-                        onClick={this.props.hideSubMenu}
-                      >
-                        {subMenuItem.name}
-                        {subMenuItem.subMenu ? (
-                          <i className="fas fa-angle-down" />
-                        ) : null}
-                      </StyledLinkSub>
-                    ) : (
-                      <StyledNonClickableMenuItem
-                        servicePage={this.props.servicePage}
-                        $isSticky={this.props.isSticky}
-                      >
-                        {subMenuItem.name}
-                        {subMenuItem.subMenu ? (
-                          <i className="fas fa-angle-down" />
-                        ) : null}
-                      </StyledNonClickableMenuItem>
-                    )}
-                    {/* Sub Menu */}
-                    {this.props.showSubMenu[this.props.depthLevel + 1] ===
-                      index &&
-                      subMenuItem.subMenu &&
-                      subMenuItem.subMenu.subMenuItems.length > 0 && (
-                        <SubMenu
-                          passedRef={this.subMenuRef}
-                          depthLevel={this.props.depthLevel + 1}
-                          subMenu={subMenuItem.subMenu}
-                          isSticky={this.props.isSticky}
-                          showSubMenu={this.props.showSubMenu}
-                          viewPortWidth={this.props.viewPortWidth}
-                          handleHover={this.props.handleHover}
-                          handleLeave={this.props.handleLeave}
-                          handleClick={this.props.handleClick}
-                          hideSubMenu={this.props.hideSubMenu}
-                          r
-                          top
-                          moveLeft={this.state.moveLeft}
-                        />
-                      )}
-                  </li>
-                );
-              })}
+            <MenuItems
+              menuItems={subMenuItems}
+              showSubMenu={this.props.showSubMenu}
+              viewPortWidth={this.props.viewPortWidth}
+              handleLeave={this.props.handleLeave}
+              handleHover={this.props.handleHover}
+              handleClick={this.props.handleClick}
+              hideSubMenu={this.props.hideSubMenu}
+              isSticky={this.props.isSticky}
+              servicePage={this.props.servicePage}
+              depthLevel={this.props.depthLevel}
+              moveLeft={this.state.moveLeft}
+              subMenuRef={this.subMenuRef}
+            />
           </StyledSubMenu>
         </CSSTransition>
       </React.Fragment>

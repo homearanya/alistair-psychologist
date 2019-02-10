@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import SubMenu from "./NewSubMenu";
+import SubMenu from "./SubMenu";
 
 const StyledLink = styled(Link)`
   margin: ${props => (props.depthLevel >= 0 ? undefined : 0)};
@@ -52,7 +52,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   width: 100%;
 
   ::before {
-    content: ${props => (props.depthLevel >= 0 ? "-" : undefined)};
+    content: ${props => (props.depthLevel >= 0 ? `"-"` : undefined)};
     padding-right: ${props => (props.depthLevel >= 0 ? "5px" : undefined)};
   }
 
@@ -84,6 +84,7 @@ const SVGWrapper = styled.div`
 `;
 
 export default function MenuItems(props) {
+  console.log("menu items - service - page", props.servicePage);
   return (
     <React.Fragment>
       {props.menuItems.map((menuItem, index) => (
