@@ -14,7 +14,7 @@ const renderAst = new rehypeReact({
 }).Compiler;
 
 export default function({ data, pageContext }) {
-  const { fields, markdownRemark: article } = data;
+  const { markdownRemark: article } = data;
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
@@ -22,7 +22,7 @@ export default function({ data, pageContext }) {
     { title: article.frontmatter.title, href: null }
   ];
   return (
-    <Layout currentPageSlug={fields.slug}>
+    <Layout currentPageSlug={article.fields.slug}>
       <Breadcrumbs
         bannerImage={article.frontmatter.bannerimage}
         pageTitle={article.frontmatter.title}
