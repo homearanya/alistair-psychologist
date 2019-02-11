@@ -29,7 +29,6 @@ const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
 `;
 
 export default function Button(props) {
-  console.log("Button", props.whereTo, props.whereTo.split("#")[1]);
   return (
     <React.Fragment>
       {props.whereTo[0] === "#" ? (

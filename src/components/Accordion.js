@@ -9,7 +9,6 @@ export default class Accordion extends Component {
   }
 
   toggleTab(index, idSelector) {
-    console.log("toggleTab", index);
     if (index !== this.state.activeIndex) {
       this.setState({ activeIndex: index }, () =>
         scroller.scrollTo(idSelector, {

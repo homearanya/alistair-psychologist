@@ -14,7 +14,7 @@ const renderAst = new rehypeReact({
 }).Compiler;
 
 export default function({ data, pageContext }) {
-  const { markdownRemark: article } = data;
+  const { fields, markdownRemark: article } = data;
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
@@ -22,7 +22,7 @@ export default function({ data, pageContext }) {
     { title: article.frontmatter.title, href: null }
   ];
   return (
-    <Layout>
+    <Layout currentPageSlug={fields.slug}>
       <Breadcrumbs
         bannerImage={article.frontmatter.bannerimage}
         pageTitle={article.frontmatter.title}
@@ -89,6 +89,9 @@ export default function({ data, pageContext }) {
 export const articlePageQuery = graphql`
   query ArticlePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      fields {
+        slug
+      }
       htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

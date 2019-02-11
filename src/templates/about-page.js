@@ -21,7 +21,7 @@ const YouTubeContainer = styled.div`
 `;
 
 export default function({ data }) {
-  const { frontmatter } = data.markdownRemark;
+  const { fields, frontmatter } = data.markdownRemark;
   const AboutContent = HTMLContent || Content;
   //   Prepare breadcrumbs
   const pages = [
@@ -29,7 +29,7 @@ export default function({ data }) {
     { title: "About Me", href: null }
   ];
   return (
-    <Layout>
+    <Layout currentPageSlug={fields.slug}>
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle="About Me"
@@ -60,6 +60,9 @@ export default function({ data }) {
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      fields {
+        slug
+      }
       html
       frontmatter {
         bannerimage {

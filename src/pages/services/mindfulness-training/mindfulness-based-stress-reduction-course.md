@@ -18,12 +18,10 @@ This training is based on 40 years of international research into the benefits o
 
 **Before this training**, challenging events will often provoke quick reactions. After this training, you will be able to pause and create space between an event and your reaction. This transforms automatic or knee-jerk reactions into thoughtful responses.
 
-**
-Before this training**, a thought may lead to anxious feelings and behaviours. After this training, you will be far more skilled at halting an anxious response in its tracks.
+**Before this training**, a thought may lead to anxious feelings and behaviours. After this training, you will be far more skilled at halting an anxious response in its tracks.
 
 Being able to pay focused attention to one’s inner experience (i.e. practicing mindfulness) is a skill which anyone can sharpen with practice. It’s a skill which scientific research shows improves calmness, impulse control, patience, compassion, empathy, executive function and attention span. It’s a skill we can give ourselves to not only connect more deeply with others around us, but to really nurture a sense of self-respect and self-compassion.
 
 **For individuals** – If you are interested in participating on this training, please fill in the form and/or contact me via email or on one of the phone numbers indicated.
 
-**
-For organisations/groups** – If you would like to discuss options to suit the needs and resources of your organisation/group, please fill in the form and/or contact me via email or on one of the phone numbers indicated.
+**For organisations/groups** – If you would like to discuss options to suit the needs and resources of your organisation/group, please fill in the form and/or contact me via email or on one of the phone numbers indicated.

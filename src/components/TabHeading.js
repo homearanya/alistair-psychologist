@@ -11,7 +11,7 @@ const StyledAnchor = styled.a`
 
     :hover {
       cursor: pointer;
-      color: #d9be93;
+      color: #91d0cc;
     }
   }
 `;

@@ -5,7 +5,7 @@ import MenuItems from "./MenuItems";
 
 import "./menu.css";
 
-import { transformSubMenu } from "../helpers";
+import { processMenu, transformSubMenu } from "../../assets/utils/helpers";
 
 const windowGlobal = typeof window !== "undefined" && window;
 const documentElementGlobal =
@@ -109,11 +109,16 @@ export class Menu extends Component {
           }
         `}
         render={data => {
-          const { menuItems: tempMenuItems } = data.markdownRemark.frontmatter;
-          const menuItems = transformSubMenu(
-            tempMenuItems,
+          const { menuItems } = data.markdownRemark.frontmatter;
+          processMenu(
+            menuItems,
+            this.props.currentPageSlug,
             this.state.viewPortWidth
           );
+          // const menuItems = transformSubMenu(
+          //   tempMenuItems,
+          //   this.state.viewPortWidth
+          // );
           return (
             <div className="col-md-6 text-center">
               <nav className="mainmenu_wrapper">
@@ -127,7 +132,6 @@ export class Menu extends Component {
                     handleClick={this.handleClick}
                     hideSubMenu={this.hideSubMenu}
                     isSticky={this.props.isSticky}
-                    servicePage={this.props.servicePage}
                     depthLevel={-1}
                   />
                 </ul>

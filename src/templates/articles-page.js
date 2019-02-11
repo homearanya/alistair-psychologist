@@ -5,7 +5,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import ArticleThumbnail from "../components/ArticleThumbnail";
 
 export default function({ location, data }) {
-  const { frontmatter } = data.articlesPageQuery;
+  const { fields, frontmatter } = data.articlesPageQuery;
   const { edges: articles } = data.articlesQuery;
   //   Prepare breadcrumbs
   const pages = [
@@ -14,7 +14,7 @@ export default function({ location, data }) {
   ];
 
   return (
-    <Layout>
+    <Layout currentPageSlug={fields.slug}>
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle="Articles"
@@ -45,6 +45,9 @@ export default function({ location, data }) {
 export const articlesPageQuery = graphql`
   query ArticlesQuery($id: String!) {
     articlesPageQuery: markdownRemark(id: { eq: $id }) {
+      fields {
+        slug
+      }
       frontmatter {
         bannerimage {
           image {

@@ -73,9 +73,9 @@ export class Header extends Component {
               <Menu
                 isSticky={this.state.sticky}
                 toggleTransform={this.toggleTransform}
-                servicePage={this.props.servicePage}
                 toggleMenu={this.state.toggleMenu}
                 handleToggleMenu={this.toggleMenu}
+                currentPageSlug={this.props.currentPageSlug}
               />
               <Social
                 classes="text-right hidden-xs hidden-sm"

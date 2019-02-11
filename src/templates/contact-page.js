@@ -7,7 +7,7 @@ import { ContactForm } from "../components/ContactForm";
 import ContactDetails2 from "../components/ContactDetails2";
 
 export default ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { fields, frontmatter } = data.markdownRemark;
 
   //   Prepare breadcrumbs
   const pages = [
@@ -15,7 +15,7 @@ export default ({ data }) => {
     { title: "Contact", href: null }
   ];
   return (
-    <Layout>
+    <Layout currentPageSlug={fields.slug}>
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle="Contact"
@@ -46,6 +46,9 @@ export default ({ data }) => {
 export const contactPageQuery = graphql`
   query ContactPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      fields {
+        slug
+      }
       frontmatter {
         bannerimage {
           image {

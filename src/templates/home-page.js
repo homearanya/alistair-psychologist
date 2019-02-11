@@ -28,7 +28,7 @@ export default ({ data }) => {
     slug: fields.slug
   };
   return (
-    <Layout appointmentButton>
+    <Layout currentPageSlug={fields.slug} appointmentButton>
       <SliderArea slider={frontmatter.slider} />
       <ServicesArea
         id="services"

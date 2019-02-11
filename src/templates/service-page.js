@@ -51,7 +51,7 @@ const renderAst = new rehypeReact({
 
 export default function({ data }) {
   // const ServiceContent = HTMLContent || Content;
-  const { frontmatter } = data.markdownRemark;
+  const { fields, frontmatter } = data.markdownRemark;
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
@@ -59,7 +59,7 @@ export default function({ data }) {
     { title: frontmatter.title, href: null }
   ];
   return (
-    <Layout servicePage appointmentButton>
+    <Layout currentPageSlug={fields.slug} appointmentButton>
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle={frontmatter.title}
@@ -100,6 +100,9 @@ export default function({ data }) {
 export const servicePageQuery = graphql`
   query ServicePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      fields {
+        slug
+      }
       htmlAst
       frontmatter {
         title

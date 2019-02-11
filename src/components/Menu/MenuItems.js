@@ -7,17 +7,19 @@ import SubMenu from "./SubMenu";
 const StyledLink = styled(Link)`
   margin: ${props => (props.depthLevel >= 0 ? undefined : 0)};
 
-  :hover,
-  &&&.active {
-    color: #91d0cc;
+  &&& {
+    color: ${props => (props.isActive ? "#91d0cc" : "white")};
+    :hover {
+      color: #91d0cc;
+    }
   }
-
   a + li a {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   @media (min-width: 992px) {
     &&& {
+      color: ${props => (props.isActive ? "#91d0cc" : "#444444")};
       padding: ${props =>
         props.depthLevel >= 0
           ? undefined
@@ -36,7 +38,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
     props.depthLevel >= 0 ? "1px solid rgba(0, 0, 0, 0.1)" : undefined};
   cursor: ${props => (props.depthLevel >= 0 ? "pointer" : "auto")};
 
-  color: ${props => (props.servicePage ? "#91d0cc" : "white")};
+  color: ${props => (props.isActive ? "#91d0cc" : "white")};
   display: block;
   font-size: ${props => (props.depthLevel >= 0 ? "16px" : "18px")};
   font-weight: ${props => (props.depthLevel >= 0 ? "300" : "700")};
@@ -63,7 +65,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   }
 
   @media (min-width: 992px) {
-    color: ${props => (props.servicePage ? "#91d0cc" : "#444444")};
+    color: ${props => (props.isActive ? "#91d0cc" : "#444444")};
     margin: 0 15px;
     padding: ${props => (props.$isSticky ? "25px 0" : "25px 0")};
   }
@@ -84,7 +86,6 @@ const SVGWrapper = styled.div`
 `;
 
 export default function MenuItems(props) {
-  console.log("menu items - service - page", props.servicePage);
   return (
     <React.Fragment>
       {props.menuItems.map((menuItem, index) => (
@@ -115,10 +116,11 @@ export default function MenuItems(props) {
           {menuItem.link ? (
             <StyledLink
               to={menuItem.link}
-              activeClassName="active"
+              // activeClassName="active"
               isSticky={props.isSticky}
               depthLevel={props.depthLevel}
               onClick={props.hideSubMenu}
+              isActive={menuItem.active}
             >
               {menuItem.name}
               {menuItem.subMenu && menuItem.subMenu.subMenuItems.length > 0 ? (
@@ -129,9 +131,9 @@ export default function MenuItems(props) {
             </StyledLink>
           ) : (
             <NonClickableMenuItem
-              servicePage={props.servicePage}
               isSticky={props.isSticky}
               depthLevel={props.depthLevel}
+              isActive={menuItem.active}
             >
               {menuItem.name}
               {menuItem.subMenu && menuItem.subMenu.subMenuItems.length > 0 ? (

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import MenuItems from "./MenuItems";
 
-import { transformSubMenu } from "../helpers";
+import { transformSubMenu } from "../../assets/utils/helpers";
 
 const StyledSubMenu = styled.ul`
   &&& {
@@ -80,7 +80,6 @@ export class SubMenu extends Component {
               handleClick={this.props.handleClick}
               hideSubMenu={this.props.hideSubMenu}
               isSticky={this.props.isSticky}
-              servicePage={this.props.servicePage}
               depthLevel={this.props.depthLevel}
               moveLeft={this.state.moveLeft}
               subMenuRef={this.subMenuRef}
