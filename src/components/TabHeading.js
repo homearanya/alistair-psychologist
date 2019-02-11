@@ -1,5 +1,5 @@
 import React from "react";
-import DynamicAnchor from "../components/DynamicAnchor";
+import DynamicAnchor from "./DynamicAnchor";
 import styled from "styled-components";
 
 const StyledAnchor = styled.a`
