@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { Link as ScrollTo } from "react-scroll";
 
 const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   display: inline-block;
@@ -28,12 +29,13 @@ const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
 `;
 
 export default function Button(props) {
+  console.log("Button", props.whereTo, props.whereTo.split("#")[1]);
   return (
     <React.Fragment>
       {props.whereTo[0] === "#" ? (
-        <a href={props.whereTo}>
+        <ScrollTo to={props.whereTo.split("#")[1]} smooth={true} duration={300}>
           <StyledButton>{props.text}</StyledButton>
-        </a>
+        </ScrollTo>
       ) : (
         <Link to={props.whereTo}>
           <StyledButton>{props.text}</StyledButton>
