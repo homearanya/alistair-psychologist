@@ -23,22 +23,22 @@ export default ({ data }) => {
       />
 
       <span id="contact-page" className="anchor-offset-0" />
-      <Zoom>
-        <section className="ls columns_padding_25 section_padding_top_100 section_padding_bottom_100">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-7">
-                <h3 className="module-header">Contact Form</h3>
-                <ContactForm className="contact-form row columns_margin_bottom_40" />
-              </div>
+      {/* <Zoom> */}
+      <section className="ls columns_padding_25 section_padding_top_100 section_padding_bottom_100">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-7">
+              <h3 className="module-header">Contact Form</h3>
+              <ContactForm className="contact-form row columns_margin_bottom_40" />
+            </div>
 
-              <div className="col-md-5">
-                <ContactDetails2 />
-              </div>
+            <div className="col-md-5">
+              <ContactDetails2 />
             </div>
           </div>
-        </section>
-      </Zoom>
+        </div>
+      </section>
+      {/* </Zoom>  */}
     </Layout>
   );
 };
