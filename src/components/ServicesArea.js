@@ -2,8 +2,6 @@ import React from "react";
 
 import Service from "./Service";
 
-import "../assets/css/servicesArea.css";
-
 export default function ServicesArea(props) {
   return (
     <section

@@ -3,8 +3,6 @@ import Slider from "react-slick";
 
 import Testimonial from "./Testimonial";
 
-import "../assets/css/testimonialsArea.css";
-
 export default function TestimonialsArea(props) {
   const settings = {
     arrows: false,

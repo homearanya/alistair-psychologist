@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 
-import "../assets/css/footerBottom.css";
-
 export default function FooterBottom() {
   let currentDate = new Date();
   let currentYear = currentDate.getFullYear();

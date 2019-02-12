@@ -1,4 +1,4 @@
-import path from "path";
+// import path from "path";
 import React from "react";
 import Helmet from "react-helmet";
 
@@ -120,7 +120,7 @@ export default React.memo(
       default:
         schema = baseSchema;
     }
-    console.log("schema", JSON.stringify(schema));
+    // console.log("schema", JSON.stringify(schema));
     return (
       <Helmet>
         {/* Schema.org tags */}

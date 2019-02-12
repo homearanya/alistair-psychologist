@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 import Button from "./Button";
 
-import "../assets/css/aboutArea.css";
-
 const StyledSection = styled.section`
   background-image: ${props =>
     props.backgroundImage

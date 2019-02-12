@@ -13,8 +13,6 @@ import TestimonialsArea from "../components/TestimonialsArea";
 import AppointmentArea from "../components/AppointmentArea";
 import SEO from "../components/SEO/SEO";
 
-import "../assets/css/custom.css";
-
 export default ({ data }) => {
   //   Prepare breadcrumbs
   const pages = [{ title: "Home", href: null }];

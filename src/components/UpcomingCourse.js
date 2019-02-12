@@ -1,7 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
 import Img from "gatsby-image";
-import dateformat from "dateformat";
 import styled from "styled-components";
 
 import CourseHeader from "./CourseHeader";
@@ -16,14 +14,6 @@ const StyledContet = styled.div`
     text-align: center;
   }
 `;
-const StyledLink = styled(Link)`
-  h2:hover {
-    color: #91d0cc;
-  }
-`;
-const StyledHeading = styled.h2`
-  font-size: 24px;
-`;
 
 const StyledBody = styled.div`
   margin-top: 20px;
@@ -35,16 +25,6 @@ const StyledBody = styled.div`
   h4 {
     font-size: 18px;
   }
-`;
-
-const StyledDateVenu = styled.p`
-  display: ${props => (props.venue ? "flexbox" : "block")};
-`;
-
-const StyledDate = styled.span`
-  font-size: 20px;
-  font-weight: 600;
-  color: #ff7200;
 `;
 
 export default function UpcomingCourse({
@@ -60,15 +40,6 @@ export default function UpcomingCourse({
     contentClassName = "";
   }
 
-  let courseDate;
-  if (courseInfo.dateStart) {
-    const courseDateStart = new Date(courseInfo.dateStart);
-    courseDate = dateformat(courseDateStart, "dd mmmm yyyy");
-  }
-  if (courseInfo.dateEnd) {
-    const courseDateEnd = new Date(courseInfo.dateEnd);
-    courseDate += ` - ${dateformat(courseDateEnd, "dd mmmm yyyy")}`;
-  }
   return (
     <StyledArticle className="post side-item content-padding with_shadow">
       <div className="row">

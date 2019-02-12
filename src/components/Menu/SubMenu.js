@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import MenuItems from "./MenuItems";
 
-import { transformSubMenu } from "../../assets/utils/helpers";
+// import { transformSubMenu } from "../../assets/utils/helpers";
 
 const StyledSubMenu = styled.ul`
   &&& {
@@ -51,10 +51,7 @@ export class SubMenu extends Component {
   }
   render() {
     const subMenuItems = this.props.subMenu
-      ? transformSubMenu(
-          this.props.subMenu.subMenuItems,
-          this.props.viewPortWidth
-        )
+      ? this.props.subMenu.subMenuItems
       : null;
 
     return (

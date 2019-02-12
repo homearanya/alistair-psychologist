@@ -40,6 +40,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
 
   color: ${props => (props.isActive ? "#91d0cc" : "white")};
   display: block;
+  font-family: "Open Sans", sans-serif;
   font-size: ${props => (props.depthLevel >= 0 ? "16px" : "18px")};
   font-weight: ${props => (props.depthLevel >= 0 ? "300" : "700")};
   line-height: 28px;

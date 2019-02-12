@@ -38,9 +38,8 @@ export default function({ location, data }) {
           <div className="row">
             <div className="col-sm-12">
               <div className="isotope_container isotope row masonry-layout columns_bottom_margin_30">
-                {articles.map(({ node: article }, index) => (
+                {articles.map(({ node: article }) => (
                   <ArticleThumbnail
-                    key={index}
                     siteUrl={location.origin}
                     article={article}
                     key={article.id}

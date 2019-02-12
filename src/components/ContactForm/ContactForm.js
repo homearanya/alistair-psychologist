@@ -3,7 +3,15 @@ import { CSSTransition } from "react-transition-group";
 import Loader from "react-loader-spinner";
 import styled from "styled-components";
 
-import "./contactForm.css";
+const HoneypotWrapper = styled.div`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+`;
 
 const StyledForm = styled.form`
   && {
@@ -323,85 +331,87 @@ export class ContactForm extends Component {
             </div>
           </div>
           {/* Honey Pots Fields */}
-          <div className="col-sm-6 ohnohoney">
-            <div className="contact-form-name">
-              <label htmlFor="name">Your Name</label>
-              <input
-                type="text"
-                size="30"
-                name="name"
-                id="name"
-                className="form-control"
-                placeholder="Your Name"
-                autoComplete="off"
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
+          <HoneypotWrapper>
+            <div className="col-sm-6">
+              <div className="contact-form-name">
+                <label htmlFor="name">Your Name</label>
+                <input
+                  type="text"
+                  size="30"
+                  name="name"
+                  id="name"
+                  className="form-control"
+                  placeholder="Your Name"
+                  autoComplete="off"
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-sm-6 ohnohoney">
-            <div className="contact-form-email">
-              <label htmlFor="reply_to">Email address</label>
-              <input
-                type="email"
-                size="30"
-                name="reply_to"
-                id="reply_to"
-                className="form-control"
-                placeholder="Email Address"
-                autoComplete="off"
-                value={this.state.reply_to}
-                onChange={this.handleChange}
-              />
+            <div className="col-sm-6 ">
+              <div className="contact-form-email">
+                <label htmlFor="reply_to">Email address</label>
+                <input
+                  type="email"
+                  size="30"
+                  name="reply_to"
+                  id="reply_to"
+                  className="form-control"
+                  placeholder="Email Address"
+                  autoComplete="off"
+                  value={this.state.reply_to}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-sm-6 ohnohoney">
-            <div className="contact-form-subject">
-              <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
-                size="30"
-                name="subject"
-                id="subject"
-                className="form-control"
-                placeholder="Subject"
-                autoComplete="off"
-                value={this.state.subject}
-                onChange={this.handleChange}
-              />
+            <div className="col-sm-6 ">
+              <div className="contact-form-subject">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  type="text"
+                  size="30"
+                  name="subject"
+                  id="subject"
+                  className="form-control"
+                  placeholder="Subject"
+                  autoComplete="off"
+                  value={this.state.subject}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-sm-6 ohnohoney">
-            <div className="contact-form-phone">
-              <label htmlFor="phone_number">Phone</label>
-              <input
-                size="30"
-                name="phone_number"
-                id="phone_number"
-                className="form-control"
-                placeholder="Phone"
-                autoComplete="off"
-                value={this.state.phone_number}
-                onChange={this.handleChange}
-              />
+            <div className="col-sm-6 ">
+              <div className="contact-form-phone">
+                <label htmlFor="phone_number">Phone</label>
+                <input
+                  size="30"
+                  name="phone_number"
+                  id="phone_number"
+                  className="form-control"
+                  placeholder="Phone"
+                  autoComplete="off"
+                  value={this.state.phone_number}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-sm-12 ohnohoney">
-            <div className="contact-form-message">
-              <label htmlFor="message">Message</label>
-              <textarea
-                rows="1"
-                cols="45"
-                name="message"
-                id="message"
-                className="form-control"
-                placeholder="Message"
-                autoComplete="off"
-                value={this.state.message}
-                onChange={this.handleChange}
-              />
+            <div className="col-sm-12 ">
+              <div className="contact-form-message">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  rows="1"
+                  cols="45"
+                  name="message"
+                  id="message"
+                  className="form-control"
+                  placeholder="Message"
+                  autoComplete="off"
+                  value={this.state.message}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
+          </HoneypotWrapper>
           {/* Button Area */}
           <div className="col-sm-12" stle={{ marginBottom: "-40px" }}>
             <ButtonContainer className="contact-form-submit topmargin_20">

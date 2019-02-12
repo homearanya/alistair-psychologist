@@ -23,7 +23,6 @@ export default function({ data, pageContext }) {
     { title: article.frontmatter.title, href: null }
   ];
   // article images
-  let articleImages = [];
   const articleImage =
     article.frontmatter.bodyimage &&
     article.frontmatter.bodyimage.image &&

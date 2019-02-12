@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../assets/css/footer.css";
-
 export default function Footer() {
   return (
     <footer className="page_footer cs main_color2 table_section section_padding_50 columns_padding_0">

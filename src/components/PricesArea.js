@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../assets/css/pricesArea.css";
-
 export default function PricesArea() {
   return (
     <section

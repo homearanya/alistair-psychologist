@@ -3,9 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 
 import MenuItems from "./MenuItems";
 
-import "./menu.css";
-
-import { processMenu, transformSubMenu } from "../../assets/utils/helpers";
+import { processMenu } from "../../assets/utils/helpers";
 
 const windowGlobal = typeof window !== "undefined" && window;
 const documentElementGlobal =
@@ -115,10 +113,6 @@ export class Menu extends Component {
             this.props.currentPageSlug,
             this.state.viewPortWidth
           );
-          // const menuItems = transformSubMenu(
-          //   tempMenuItems,
-          //   this.state.viewPortWidth
-          // );
           return (
             <div className="col-md-6 text-center">
               <nav className="mainmenu_wrapper">

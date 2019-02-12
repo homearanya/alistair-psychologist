@@ -3,9 +3,10 @@ import { StaticQuery, graphql } from "gatsby";
 import Helmet from "react-helmet";
 
 import "../assets/css/bootstrap.min.css";
-import "../assets/css/animations.css";
+// import "../assets/css/animations.css";
 // import "../assets/css/fonts.css";
 import "../assets/css/main.css";
+import "../assets/css/custom.css";
 
 import HeaderTop from "./HeaderTop";
 import { Header } from "./Header";

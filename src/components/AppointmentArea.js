@@ -4,8 +4,6 @@ import { StaticQuery, graphql } from "gatsby";
 import { ContactForm } from "./ContactForm";
 import DynamicAnchor from ".//DynamicAnchor";
 
-import "../assets/css/appointmentArea.css";
-
 export default function AppointmentArea(props) {
   return (
     <StaticQuery
