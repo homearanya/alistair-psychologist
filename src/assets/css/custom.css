@@ -22,7 +22,7 @@
 
 /* generic */
 
-.slick-dots li {
+.page_testimonials .slick-dots li {
     height: auto;
     margin: 0;
     padding: 0 10px;
@@ -31,7 +31,7 @@
     width: auto;
 }
 
-.slick-dots li button {
+.page_testimonials .slick-dots li button {
     background-clip: content-box;
     height: 16px;
     line-height: 28px;
@@ -44,7 +44,7 @@
     z-index: 10;
 }
 
-.slick-dots li button::before {
+.page_testimonials .slick-dots li button::before {
     background-color: rgba(255, 255, 255, 0.5);
     content: "";
     height: 10px;
@@ -59,12 +59,12 @@
     z-index: 9;
 }
 
-.slick-dots li.slick-active button {
+.page_testimonials .slick-dots li.slick-active button {
     border-color: #ffffff;
     background-color: #ffffff;
 }
 
-.slick-dots li.slick-active button::before {
+.page_testimonials .slick-dots li.slick-active button::before {
     height: 16px;
     width: 16px;
 }
