@@ -1,13 +1,20 @@
 import React from "react";
 import Img from "gatsby-image";
+import styled from "styled-components";
 
 import Button from "./Button";
 
 import "../assets/css/aboutArea.css";
 
+const StyledSection = styled.section`
+  background-image: ${props =>
+    props.backgroundImage
+      ? `"url:${props.backgroundImage.image.childImageSharp.fluid.src}"`
+      : "url(../assets/img/parallax/texture.jpg"};
+`;
 export default function AboutArea(props) {
   return (
-    <section
+    <StyledSection
       id="about"
       className="cs parallax darken_gradient page_about section_padding_top_75 columns_margin_bottom_30"
     >
@@ -45,6 +52,6 @@ export default function AboutArea(props) {
           </div>
         </div>
       </div>
-    </section>
+    </StyledSection>
   );
 }

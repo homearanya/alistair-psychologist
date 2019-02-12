@@ -12,7 +12,7 @@ export default function FaqArea() {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 text-center">
-                        <h2 className="section_header with_icon">Frequently Asked Questions</h2>
+                        <h2 className="section_header ">Frequently Asked Questions</h2>
                         <p>
                             Exercitation cupim ex, short ribs cow in ullamco corned beef veniam kevin. Eu frankfurter ham hock ball tip reprehenderit adipisicing ipsum jerky tenderloin aliquip.
 							</p>

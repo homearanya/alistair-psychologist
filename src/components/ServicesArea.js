@@ -13,9 +13,7 @@ export default function ServicesArea(props) {
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
-            <h2 className="section_header with_icon">
-              {props.servicesArea.heading}
-            </h2>
+            <h2 className="section_header ">{props.servicesArea.heading}</h2>
             <p>{props.servicesArea.blurb}</p>
           </div>
         </div>

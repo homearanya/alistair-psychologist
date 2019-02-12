@@ -34,7 +34,7 @@ export default function AppointmentArea(props) {
               <div className="row">
                 <div className="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center">
                   <DynamicAnchor id="appointment" />
-                  <h2 className="section_header with_icon highlight">
+                  <h2 className="section_header  highlight">
                     {frontmatter.heading}
                   </h2>
                   <div className="fontsize_16">{frontmatter.blurb}</div>

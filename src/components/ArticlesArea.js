@@ -47,7 +47,7 @@ export default function ArticlesArea(props) {
             <div className="container">
               <div className="row">
                 <div className="col-sm-12 text-center">
-                  <h2 className="section_header with_icon">
+                  <h2 className="section_header ">
                     {props.articlesArea.heading}
                   </h2>
                   <p>{props.articlesArea.blurb}</p>
