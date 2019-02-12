@@ -73,7 +73,9 @@ export default function UpcomingCourses() {
                                 key={index}
                                 frontmatter={frontmatter}
                                 html={html}
-                                courseSlug={fields.uCourseMTCourses.fields.slug}
+                                courseSlug={`${
+                                  fields.uCourseMTCourses.fields.slug
+                                }#start-content`}
                                 siteUrl={location.origin}
                               />
                             );

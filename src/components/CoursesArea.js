@@ -64,7 +64,9 @@ export default function CoursessArea(props) {
                     key={index}
                     frontmatter={course.frontmatter}
                     html={course.html}
-                    courseSlug={course.fields.uCourseMTCourses.fields.slug}
+                    courseSlug={`${
+                      course.fields.uCourseMTCourses.fields.slug
+                    }#start-content`}
                     siteUrl={props.siteUrl}
                   />
                 ))}
