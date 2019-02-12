@@ -13,7 +13,7 @@ import TestimonialsArea from "../components/TestimonialsArea";
 import AppointmentArea from "../components/AppointmentArea";
 import SEO from "../components/SEO/SEO";
 
-export default ({ data }) => {
+export default ({ data, location }) => {
   //   Prepare breadcrumbs
   const pages = [{ title: "Home", href: null }];
   const { fields, frontmatter } = data.homePageQuery;
@@ -43,8 +43,14 @@ export default ({ data }) => {
         servicesArea={frontmatter.servicesArea}
       />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
-      <CoursesArea coursesArea={frontmatter.coursesArea} />
-      <ArticlesArea articlesArea={frontmatter.articlesArea} />
+      <CoursesArea
+        coursesArea={frontmatter.coursesArea}
+        siteUrl={location.origin}
+      />
+      <ArticlesArea
+        articlesArea={frontmatter.articlesArea}
+        siteUrl={location.origin}
+      />
       {frontmatter.testimonialsArea &&
         frontmatter.testimonialsArea.testimonials.length > 0 && (
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />

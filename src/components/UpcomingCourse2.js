@@ -28,8 +28,10 @@ const StyledBody = styled.div`
 export default function UpcomingCourse({
   courseSlug,
   frontmatter: courseInfo,
-  html
+  html,
+  siteUrl
 }) {
+  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
   return (
     <div className="col-md-4 text-center">
       <StyledArticle className="vertical-item content-padding post format-standard">
@@ -58,7 +60,7 @@ export default function UpcomingCourse({
           <br />
           <Button whereTo={courseSlug} text="Course Info" />
         </div>
-        <SocialFooter url={courseSlug} title={courseInfo.courseName} />
+        <SocialFooter url={courseUrl} title={courseInfo.courseName} />
       </StyledArticle>
     </div>
   );

@@ -54,11 +54,11 @@ export default function ArticlesArea(props) {
                 </div>
               </div>
               <div className="row">
-                {articles.map(({ node: article }, index) => (
+                {articles.map(({ node: article }) => (
                   <ArticleThumbnail2
-                    keyd={index}
                     article={article}
                     key={article.id}
+                    siteUrl={props.siteUrl}
                   />
                 ))}
               </div>

@@ -44,7 +44,7 @@ const renderAst = new rehypeReact({
   }
 }).Compiler;
 
-export default function({ data }) {
+export default function({ data, location }) {
   const { fields, htmlAst, frontmatter } = data.mindfulnessTrainingQuery;
   const {
     frontmatter: frontmatter2,

@@ -4,11 +4,13 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 
 import Button from "./Button";
+import SocialFooter from "./SocialFooter";
 
 const StyledArticle = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
 `;
 export default function ArticleThumbnail2(props) {
+  const articleUrl = `${props.siteUrl}${props.article.fields.slug}`;
   return (
     <div className="col-md-4 text-center">
       <StyledArticle className="vertical-item content-padding post format-standard with_shadow">
@@ -46,6 +48,10 @@ export default function ArticleThumbnail2(props) {
 
           <Button whereTo={props.article.fields.slug} text="Read article" />
         </div>
+        <SocialFooter
+          url={articleUrl}
+          title={props.article.frontmatter.title}
+        />
       </StyledArticle>
     </div>
   );

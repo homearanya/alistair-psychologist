@@ -65,6 +65,7 @@ export default function CoursessArea(props) {
                     frontmatter={course.frontmatter}
                     html={course.html}
                     courseSlug={course.fields.uCourseMTCourses.fields.slug}
+                    siteUrl={props.siteUrl}
                   />
                 ))}
               </div>

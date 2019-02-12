@@ -1,5 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { Location } from "@reach/router";
 
 import UpcomingCourse from "./UpcomingCourse";
 
@@ -48,36 +49,45 @@ export default function UpcomingCourses() {
         const { edges: upcomingCourses } = data.allMarkdownRemark;
         return (
           // <section className="ls section_padding_top_100 section_padding_bottom_100 columns_padding_25">
-          <section>
-            <div className="container">
-              <div className="row">
-                {/* <div className="col-sm-10 col-sm-push-1"> */}
-                <div>
-                  {upcomingCourses.reduce(
-                    (upcomingCourses, upcomingCourse, index) => {
-                      const { fields, html, frontmatter } = upcomingCourse.node;
-                      const courseDate = new Date(
-                        upcomingCourse.node.frontmatter.dateStart
-                      );
-                      // filter out expired courses
-                      if (courseDate > today) {
-                        upcomingCourses.push(
-                          <UpcomingCourse
-                            key={index}
-                            frontmatter={frontmatter}
-                            html={html}
-                            courseSlug={fields.uCourseMTCourses.fields.slug}
-                          />
-                        );
-                      }
-                      return upcomingCourses;
-                    },
-                    []
-                  )}
+          <Location>
+            {({ location }) => (
+              <section>
+                <div className="container">
+                  <div className="row mosaic-post">
+                    {/* <div className="col-sm-10 col-sm-push-1"> */}
+                    <div>
+                      {upcomingCourses.reduce(
+                        (upcomingCourses, upcomingCourse, index) => {
+                          const {
+                            fields,
+                            html,
+                            frontmatter
+                          } = upcomingCourse.node;
+                          const courseDate = new Date(
+                            upcomingCourse.node.frontmatter.dateStart
+                          );
+                          // filter out expired courses
+                          if (courseDate > today) {
+                            upcomingCourses.push(
+                              <UpcomingCourse
+                                key={index}
+                                frontmatter={frontmatter}
+                                html={html}
+                                courseSlug={fields.uCourseMTCourses.fields.slug}
+                                siteUrl={location.origin}
+                              />
+                            );
+                          }
+                          return upcomingCourses;
+                        },
+                        []
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </section>
+              </section>
+            )}
+          </Location>
         );
       }}
     />
