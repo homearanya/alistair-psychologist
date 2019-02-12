@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
+import Button from "./Button";
 import SocialFooter from "./SocialFooter";
 
 const StyledArticle = styled.article`
@@ -47,7 +48,12 @@ export default function ArticleThumbnail(props) {
             </span>
           </header>
 
-          <p>{props.article.excerpt}</p>
+          <p className="bottommargin_40 fontsize_18">{props.article.excerpt}</p>
+
+          <Button
+            whereTo={`${props.article.fields.slug}#start-content`}
+            text="Read article"
+          />
         </div>
         <SocialFooter
           url={articleUrl}

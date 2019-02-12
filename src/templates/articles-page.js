@@ -35,7 +35,7 @@ export default function({ location, data }) {
       />
       <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
         <div className="container">
-          <div className="row">
+          <div className="row mosaic-post">
             <div className="col-sm-12">
               <div className="isotope_container isotope row masonry-layout columns_bottom_margin_30">
                 {articles.map(({ node: article }) => (

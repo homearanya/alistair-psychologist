@@ -12,7 +12,6 @@ const StyledA = styled.a`
 `;
 
 export default function SocialFooter(props) {
-  console.log("social footer", props.url);
   return (
     <div className="post-social-links text-center with_border">
       <StyledA

@@ -8268,6 +8268,7 @@ body.active-side-header.slide-right .page_header_side {
     display: inline-block;
 }
 
+
 /* .page_breadcrumbs.parallax,
 .page_breadcrumbs.background_cover {
     background-image: url(../img/parallax/breadcrumbs.jpg);
@@ -8280,6 +8281,7 @@ body.active-side-header.slide-right .page_header_side {
 .abstract_background.parallax {
     background-image: url(../img/parallax/progress.jpg);
 }
+
 
 /* .page_testimonials.parallax {
     background-image: url(../img/parallax/testimonials.jpg);
@@ -8298,9 +8300,11 @@ body.active-side-header.slide-right .page_header_side {
     background-image: url(../img/parallax/bottom.jpg);
 }
 
+
 /* .section_404.background_cover {
     background-image: url(../img/parallax/404.jpg);
 } */
+
 
 /* .page_about.parallax {
     background-image: url("../img/parallax/texture.png");
@@ -9317,9 +9321,10 @@ article.post+article.post,
 
 /* mosaic blog */
 
-.mosaic-post p {
+
+/* .mosaic-post p {
     margin-bottom: 0;
-}
+} */
 
 .mosaic-post .post-social-links {
     margin: -1px;

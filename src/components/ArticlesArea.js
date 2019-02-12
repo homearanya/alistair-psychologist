@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import ArticleThumbnail2 from "../components/ArticleThumbnail2";
+import ArticleThumbnail from "../components/ArticleThumbnail";
 
 export default function ArticlesArea(props) {
   return (
@@ -53,9 +53,9 @@ export default function ArticlesArea(props) {
                   <p>{props.articlesArea.blurb}</p>
                 </div>
               </div>
-              <div className="row">
+              <div className="row mosaic-post">
                 {articles.map(({ node: article }) => (
-                  <ArticleThumbnail2
+                  <ArticleThumbnail
                     article={article}
                     key={article.id}
                     siteUrl={props.siteUrl}
