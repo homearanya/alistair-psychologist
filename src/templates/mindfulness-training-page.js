@@ -140,7 +140,7 @@ export const mtPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
+              fluid(maxWidth: 1600) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -150,7 +150,7 @@ export const mtPageQuery = graphql`
         bodyimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
+              fluid(maxWidth: 1600) {
                 ...GatsbyImageSharpFluid
               }
             }

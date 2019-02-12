@@ -140,7 +140,7 @@ export const servicePageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
+              fluid(maxWidth: 1600) {
                 ...GatsbyImageSharpFluid
               }
             }
