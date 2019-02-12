@@ -11,6 +11,7 @@ import AppointmentArea from "../components/AppointmentArea";
 import DynamicAnchor from "../components/DynamicAnchor";
 import FAQ from "../components/FAQ";
 import UpcomingCourses from "../components/UpcomingCourses";
+import SEO from "../components/SEO/SEO";
 
 const StyledLink = styled(Link)`
   && {
@@ -64,13 +65,43 @@ export default function({ data }) {
       { title: frontmatter.title, href: null }
     ];
   }
-
+  // course images
+  let courseImages = [];
+  if (
+    frontmatter.bodyimage &&
+    frontmatter.bodyimage.image &&
+    frontmatter.bodyimage.image.relativePath
+  ) {
+    courseImages.push(frontmatter.bodyimage.image.relativePath);
+  }
+  const pageMeta = {
+    title: `${frontmatter.title} · ${frontmatter2.title}`,
+    name: `${frontmatter.title}`,
+    description:
+      frontmatter.excerpt ||
+      frontmatter.intro ||
+      `Alistair Mork-Chadwick is a Counselling psychologist based in Howick. 
+    He offers personal counselling, career guidance, 
+    psychological assessments and mindfulness training.`,
+    courseImages: courseImages,
+    slug: fields.slug,
+    datePublished: false
+  };
+  const type =
+    (fields.slug.includes("/minfulness-training/") && "service") ||
+    (fields.slug.includes("course") && "course") ||
+    null;
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+        pageType={type}
+      />
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle={frontmatter.title}
-        pages={pages}
+        pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
@@ -95,7 +126,7 @@ export default function({ data }) {
   );
 }
 
-export const servicePageQuery = graphql`
+export const mtPageQuery = graphql`
   query MindfulnessTrainingPage($id: String!) {
     mindfulnessTrainingQuery: markdownRemark(id: { eq: $id }) {
       fields {
@@ -104,7 +135,19 @@ export const servicePageQuery = graphql`
       htmlAst
       frontmatter {
         title
+        intro
+        excerpt
         bannerimage {
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1920) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          alt
+        }
+        bodyimage {
           image {
             childImageSharp {
               fluid(maxWidth: 1920) {

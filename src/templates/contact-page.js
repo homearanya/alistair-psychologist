@@ -6,6 +6,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import { ContactForm } from "../components/ContactForm";
 import ContactDetails2 from "../components/ContactDetails2";
 import DynamicAnchor from "../components/DynamicAnchor";
+import SEO from "../components/SEO/SEO";
 
 export default ({ data }) => {
   const { fields, frontmatter } = data.markdownRemark;
@@ -15,12 +16,25 @@ export default ({ data }) => {
     { title: "Home", href: "/" },
     { title: "Contact", href: null }
   ];
+  const pageMeta = {
+    title: `Contact · Counselling Psychologist in Howick`,
+    description:
+      frontmatter.excerpt ||
+      `You can contact me by email, phone or through a contact form. 
+    I look forward to answering any questions you may have about the services I offer.`,
+    slug: fields.slug,
+    datePublished: false
+  };
   return (
     <Layout currentPageSlug={fields.slug}>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+      />
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle="Contact"
-        pages={pages}
+        pages={JSON.parse(JSON.stringify(pages))}
       />
 
       {/* <Zoom> */}
@@ -51,6 +65,7 @@ export const contactPageQuery = graphql`
         slug
       }
       frontmatter {
+        excerpt
         bannerimage {
           image {
             childImageSharp {

@@ -11,10 +11,13 @@ import TestimonialsArea from "../components/TestimonialsArea";
 // import FaqArea from "../components/FaqArea";
 // import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
+import SEO from "../components/SEO/SEO";
 
 import "../assets/css/custom.css";
 
 export default ({ data }) => {
+  //   Prepare breadcrumbs
+  const pages = [{ title: "Home", href: null }];
   const { fields, frontmatter } = data.homePageQuery;
   const { homeservices } = data.homePageQuery.fields;
   const servicesObject = homeservices.reduce((obj, service) => {
@@ -22,13 +25,19 @@ export default ({ data }) => {
     return obj;
   }, {});
   const pageMeta = {
-    title: `Alistair Mork-Chadwick · Counselling Psychologist `,
+    title: `Counselling Psychologist in Howick`,
     description:
-      "Hello, I am a Counselling psychologist based in Howick. I offer personal counselling, career guidance, psychological assessments and mindfulness training",
+      frontmatter.excerpt ||
+      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
     slug: fields.slug
   };
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+      />
+
       <SliderArea slider={frontmatter.slider} />
       <ServicesArea
         id="services"
@@ -75,6 +84,7 @@ export const homePageQuery = graphql`
         }
       }
       frontmatter {
+        excerpt
         slider {
           heading1
           heading2

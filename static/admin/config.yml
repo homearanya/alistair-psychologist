@@ -22,6 +22,11 @@ collections:
               widget: hidden,
               default: "home-page",
             }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO" 
+            }
           - label: Slider
             label_singular: Slide
             name: slider
@@ -141,6 +146,11 @@ collections:
               widget: hidden,
               default: "home-page",
             }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
+            }
           - { label: "About Me Text", name: body, widget: markdown }
           - label: "Banner Image"
             name: bannerimage
@@ -154,6 +164,7 @@ collections:
                   widget: text,
                   hint: "Please inform. Important for SEO",
                 }
+
       - file: "src/pages/articles.md"
         label: "Articles Page"
         name: "articlesPage"
@@ -166,6 +177,11 @@ collections:
             }
           - { label: "Heading", name: heading, widget: string }
           - { label: "Blurb", name: blurb, widget: text }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
+            }
           - label: "Banner Image"
             name: bannerimage
             widget: object
@@ -191,6 +207,11 @@ collections:
             }
           - { label: "Heading", name: heading, widget: string }
           - { label: "Blurb", name: blurb, widget: text }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
+            }
           - label: "Banner Image"
             name: bannerimage
             widget: object
@@ -221,6 +242,11 @@ collections:
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+            }
       - { label: "Body", name: "body", widget: "markdown" }
       - label: "Thumbnail Image"
         name: thumbnailimage
@@ -286,6 +312,11 @@ collections:
               default: "mindfulness-training-page",
             }
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO." 
+            }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Banner Image"
             name: bannerimage
@@ -335,6 +366,11 @@ collections:
               default: "mindfulness-training-page",
             }
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
+            }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Banner Image"
             name: bannerimage
@@ -383,6 +419,11 @@ collections:
               default: "mindfulness-training-page",
             }
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
+            }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "List of Questions-Answers"
             label_singular: "Question-Answer"
@@ -427,6 +468,11 @@ collections:
               default: "mindfulness-training-page",
             }
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
+            }
           - { label: "Body", name: "body", widget: "markdown" }
           - label: "Banner Image"
             name: bannerimage
@@ -559,13 +605,18 @@ collections:
         }
       - { label: "Title", name: "title", widget: "string" }
       - {
-          label: "Publish Date",
+          label: "Published Date",
           name: "date",
           widget: "date",
           dateFormat: "YYYY-MM-DD",
         }
       # format: "DD MM YYYY",
       - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Excerpt", 
+              name: excerpt, 
+              widget: text, 
+              hint: "Please inform. Max 160 characters. Important for SEO. If not I will use intro text" 
+            }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - label: "Thumbnail Image"

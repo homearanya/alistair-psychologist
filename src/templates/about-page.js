@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Content, { HTMLContent } from "../components/Content";
+import SEO from "../components/SEO/SEO";
 
 const YouTubeWrapper = styled.div`
   text-align: center;
@@ -28,12 +29,24 @@ export default function({ data }) {
     { title: "Home", href: "/" },
     { title: "About Me", href: null }
   ];
+  const pageMeta = {
+    title: `About Me · Counselling Psychologist in Howick`,
+    description:
+      frontmatter.excerpt ||
+      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
+    slug: fields.slug,
+    datePublished: false
+  };
   return (
     <Layout currentPageSlug={fields.slug}>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+      />
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle="About Me"
-        pages={pages}
+        pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
@@ -65,6 +78,7 @@ export const aboutPageQuery = graphql`
       }
       html
       frontmatter {
+        excerpt
         bannerimage {
           image {
             childImageSharp {

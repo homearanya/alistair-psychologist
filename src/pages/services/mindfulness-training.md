@@ -4,7 +4,11 @@ title: Mindfulness Training
 intro: >-
   Mindfulness training will not only help you to deal with stress or chronic
   pain more effectively it will also help you to gain more enjoyment from all of
-  the potentially pleasurable aspects of life
+  the potentially pleasurable aspects of life.
+excerpt: >-
+  Mindfulness training will not only help you to deal with stress or chronic
+  pain more effectively it will also help you to gain more enjoyment from all of
+  the potentially pleasurable aspects of life.
 thumbnailimage:
   alt: Mindfulness Training
   image: /img/meditation.png

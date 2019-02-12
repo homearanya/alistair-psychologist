@@ -4,6 +4,9 @@ title: Career Guidance
 intro: >-
   Professional Career Guidance will help you find the confidence to make a wise
   career change.
+excerpt: >-
+  Professional Career Guidance will help you find the confidence to make a wise 
+  career change. I will help you understand your personality functioning as well as assess your strengths, values, interests and abilities
 thumbnailimage:
   alt: Career Guidance
   image: /img/relaxation.png

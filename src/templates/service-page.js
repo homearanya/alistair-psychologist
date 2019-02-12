@@ -14,6 +14,7 @@ import Accordion from "../components/Accordion";
 import Tab from "../components/Tab";
 import TabHeading from "../components/TabHeading";
 import TabContent from "../components/TabContent";
+import SEO from "../components/SEO/SEO";
 
 const StyledLink = styled(Link)`
   && {
@@ -58,12 +59,40 @@ export default function({ data }) {
     { title: "Services", href: "/#services" },
     { title: frontmatter.title, href: null }
   ];
+  // service images
+  let serviceImages = [];
+  if (
+    frontmatter.bodyimage &&
+    frontmatter.bodyimage.image &&
+    frontmatter.bodyimage.image.relativePath
+  ) {
+    serviceImages.push(frontmatter.bodyimage.image.relativePath);
+  }
+  const pageMeta = {
+    title: `${frontmatter.title} · services`,
+    name: `${frontmatter.title}`,
+    description:
+      frontmatter.excerpt ||
+      frontmatter.intro ||
+      `Alistair Mork-Chadwick is a Counselling psychologist based in Howick. 
+    He offers personal counselling, career guidance, 
+    psychological assessments and mindfulness training.`,
+    serviceImages: serviceImages,
+    slug: fields.slug,
+    datePublished: false
+  };
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+        pageType="service"
+      />
+
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle={frontmatter.title}
-        pages={pages}
+        pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls section_padding_top_130 section_padding_bottom_130">
         <div className="container">
@@ -106,6 +135,8 @@ export const servicePageQuery = graphql`
       htmlAst
       frontmatter {
         title
+        intro
+        excerpt
         bannerimage {
           image {
             childImageSharp {

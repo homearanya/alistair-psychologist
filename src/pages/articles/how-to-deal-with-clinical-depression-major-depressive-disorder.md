@@ -9,6 +9,10 @@ intro: >-
   good news, however, is that a depressive episode is treatable and, more
   importantly, it is preventable. A functional medicine approach to dealing with
   this mental health problem is often very effective
+excerpt: >-
+  Clinical depression can make work and daily life almost impossible; an
+  individual may lose their ability to see the positives in life and begin to
+  feel utterly alone.
 thumbnailimage: {}
 bannerimage: {}
 bodyimage: {}

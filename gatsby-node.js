@@ -17,7 +17,6 @@ exports.createPages = ({ actions, graphql, getNode }) => {
     {
       nonArticlesPages: allMarkdownRemark(
         limit: 1000
-        sort: { order: DESC, fields: [frontmatter___date] }
         filter: {
           fileAbsolutePath: { regex: "/src/pages/" }
           frontmatter: { templateKey: { ne: "article-page" } }

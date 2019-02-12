@@ -1,6 +1,8 @@
 ---
 templateKey: mindfulness-training-page
 title: Frequently Asked Questions
+excerpt: >-
+  Not sure what mindfulness training is about? Have a look at the most frequently asked questions or contact me at 066 289 8229 / howickpsychologist@telkomsa.net
 qa:
   - answer: >-
       Mindfulness has been described as a ‘state of mind’ that involves

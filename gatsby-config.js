@@ -7,12 +7,12 @@ var netlifyCmsPaths = {
 
 module.exports = {
   siteMetadata: {
-    title: "Alistair Mork-Chadwick · Counselling Psychologist",
+    title: "Alistair Mork-Chadwick",
     defaultTitle: "Alistair Mork-Chadwick · Counselling Psychologist",
     description: `Alistair Mork-Chadwick is a Counselling psychologist based in Howick. 
       He offers personal counselling, career guidance, 
       psychological assessments and mindfulness training.`,
-    canonicalUrl: "https://www.alistairmork-chadwick.co.za/",
+    canonicalUrl: "https://www.alistairmork-chadwick.co.za",
     image:
       "https://www.alistairmork-chadwick.co.za/img/alistair-mork-chadwick.png",
     author: {

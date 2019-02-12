@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import SchemaOrg from "./SchemaOrg";
 
-const SEO = ({ pageData, articleImage, pageType }) => (
+const SEO = ({ pageData, breadcrumbs, articleImage, pageType }) => (
   <StaticQuery
     query={graphql`
       {
@@ -30,7 +30,7 @@ const SEO = ({ pageData, articleImage, pageType }) => (
             frontmatter {
               contact_details {
                 phone {
-                  phonedisplay
+                  phonenumber
                 }
               }
             }
@@ -42,7 +42,7 @@ const SEO = ({ pageData, articleImage, pageType }) => (
       // data for SEO & schemaOrg
       const { siteMetadata: seo } = data.SEOQuery;
       const {
-        phonedisplay: phone
+        phonenumber: phone
       } = data.PhoneDetailsQuery.childMarkdownRemark.frontmatter.contact_details.phone;
       // data for organization schemaOrg
       let organization = seo.organization;
@@ -54,12 +54,26 @@ const SEO = ({ pageData, articleImage, pageType }) => (
       const metaDescription =
         pageMeta.description || pageData.excerpt || seo.description;
       const url = pageMeta.slug
-        ? `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`
+        ? `${seo.canonicalUrl}${pageMeta.slug}`
         : seo.canonicalUrl;
+      // prepare breadcrumbs for schemar.org
+      breadcrumbs.forEach((item, index) => {
+        if (item.href) {
+          item.href = `${seo.canonicalUrl}${item.href}`;
+        } else {
+          item.href = `${seo.canonicalUrl}${pageMeta.slug}`;
+        }
+      });
+      // Course data for schemaOrg
+      let course = {};
+      if (pageType === "course") {
+        course.name = pageMeta.name;
+        course.description = pageMeta.description;
+      }
       // service data for schemaOrg
       let service = {};
       if (pageType === "service") {
-        service.name = pageMeta.serviceName;
+        service.name = pageMeta.name;
         service.description = pageMeta.description;
         service.images = pageMeta.serviceImages;
         service.price = pageMeta.servicePrice;
@@ -68,14 +82,18 @@ const SEO = ({ pageData, articleImage, pageType }) => (
       // article data for schemaOrg
       let article = {};
       if (pageType === "article") {
-        article.name = pageMeta.name;
+        article.name = pageMeta.title;
         article.alternateName = seo.defaultTitle;
         article.description = pageMeta.description;
-        article.image = articleImage
+        article.images = articleImage
           ? `${seo.canonicalUrl}${articleImage}`
           : seo.image;
-        article.dataPublished = pageMeta.datePublished;
-        article.url = `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`;
+        if (pageMeta.datePublished) {
+          article.datePublished = new Date(pageMeta.datePublished);
+        } else {
+          article.datePublished = new Date();
+        }
+        article.url = `${seo.canonicalUrl}${pageMeta.slug}`;
         article.author = seo.author;
       }
 
@@ -89,6 +107,11 @@ const SEO = ({ pageData, articleImage, pageType }) => (
         metaImage =
           pageMeta.serviceImages.length > 0
             ? `${seo.canonicalUrl}/img${pageMeta.serviceImages[0]}`
+            : seo.image;
+      } else if (pageType === "course") {
+        metaImage =
+          pageMeta.courseImages.length > 0
+            ? `${seo.canonicalUrl}/img${pageMeta.courseImages[0]}`
             : seo.image;
       }
       return (
@@ -126,8 +149,10 @@ const SEO = ({ pageData, articleImage, pageType }) => (
             pageType={pageType}
             canonicalUrl={seo.canonicalUrl}
             organization={organization}
+            breadcrumbs={breadcrumbs}
             service={service}
             article={article}
+            course={course}
           />
         </React.Fragment>
       );

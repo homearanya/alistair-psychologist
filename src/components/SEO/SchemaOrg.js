@@ -3,7 +3,15 @@ import React from "react";
 import Helmet from "react-helmet";
 
 export default React.memo(
-  ({ pageType, canonicalUrl, organization, tour, post }) => {
+  ({
+    pageType,
+    canonicalUrl,
+    organization,
+    breadcrumbs,
+    service,
+    article,
+    course
+  }) => {
     const baseSchema = [
       {
         "@context": "http://schema.org",
@@ -18,84 +26,101 @@ export default React.memo(
             contactType: "reservations"
           }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((item, index) => {
+          return {
+            "@type": "ListItem",
+            position: index + 1,
+            name: item.title,
+            item: item.href
+          };
+        })
       }
     ];
 
     let schema;
 
     switch (pageType) {
-      case "tour":
+      case "course":
         schema = [
           ...baseSchema,
           {
             "@context": "http://schema.org",
-            "@type": "Product",
-            name: tour.name,
-            image: tour.images.map(
-              image => `${canonicalUrl}${path.sep}img${path.sep}${image}`
-            ),
-            description: tour.description,
-            offers: {
-              "@type": "Offer",
-              priceCurrency: "ZAR",
-              price: tour.price.replace(/[^0-9$.,]/g, ""),
-              url: tour.url
+            "@type": "Course",
+            name: course.name,
+            description: course.description,
+            provider: {
+              "@type": "Organization",
+              name: organization.name,
+              sameAs: organization.url
             }
           }
         ];
         break;
-      case "post":
+      // case "service":
+      //   schema = [
+      //     ...baseSchema,
+      //     {
+      //       "@context": "http://schema.org",
+      //       "@type": "Product",
+      //       name: service.name,
+      //       image: service.images.map(
+      //         image => `${canonicalUrl}${path.sep}img${path.sep}${image}`
+      //       ),
+      //       description: service.description,
+      //       offers: service.price && {
+      //         "@type": "Offer",
+      //         priceCurrency: "ZAR",
+      //         price: service.price && service.price.replace(/[^0-9$.,]/g, ""),
+      //         url: service.url
+      //       }
+      //     }
+      //   ];
+      //   break;
+      case "article":
         schema = [
           ...baseSchema,
           {
             "@context": "http://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                  "@id": post.url,
-                  name: post.name,
-                  image: post.image
-                }
-              }
-            ]
-          },
-          {
-            "@context": "http://schema.org",
             "@type": "BlogPosting",
-            url: post.url,
-            name: post.name,
-            alternateName: post.alternateName,
-            headline: post.name,
+            url: article.url,
+            name: article.name,
+            alternateName: article.alternateName,
+            headline: article.name,
             image: {
               "@type": "ImageObject",
-              url: post.image
+              url: article.image
             },
-            description: post.description,
+            description: article.description,
             author: {
               "@type": "Person",
-              name: post.author.name
+              name: article.author.name
             },
             publisher: {
               "@type": "Organization",
               url: organization.url,
-              logo: organization.logo,
+              logo: {
+                "@type": "ImageObject",
+                url: organization.logo
+              },
               name: organization.name
             },
             mainEntityOfPage: {
               "@type": "WebSite",
               "@id": canonicalUrl
             },
-            datePublished: post.datePublished
+            datePublished: article.datePublished,
+            dateModified: article.datePublished
           }
         ];
         break;
       default:
         schema = baseSchema;
     }
-
+    console.log("schema", JSON.stringify(schema));
     return (
       <Helmet>
         {/* Schema.org tags */}

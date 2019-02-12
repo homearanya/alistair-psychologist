@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ArticleThumbnail from "../components/ArticleThumbnail";
+import SEO from "../components/SEO/SEO";
 
 export default function({ location, data }) {
   const { fields, frontmatter } = data.articlesPageQuery;
@@ -12,13 +13,25 @@ export default function({ location, data }) {
     { title: "Home", href: "/" },
     { title: "Articles", href: null }
   ];
-
+  const pageMeta = {
+    title: `About Me · Counselling Psychologist in Howick`,
+    description:
+      frontmatter.excerpt ||
+      frontmatter.blurb ||
+      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
+    slug: fields.slug,
+    datePublished: false
+  };
   return (
     <Layout currentPageSlug={fields.slug}>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+      />
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
         pageTitle="Articles"
-        pages={pages}
+        pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
         <div className="container">
@@ -49,6 +62,8 @@ export const articlesPageQuery = graphql`
         slug
       }
       frontmatter {
+        blurb
+        excerpt
         bannerimage {
           image {
             childImageSharp {

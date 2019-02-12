@@ -4,6 +4,9 @@ title: Personal Counselling
 intro: >-
   Psychotherapy will provide a safe and accepting space to move towards a
   thriving life.
+excerpt: >-
+  Psychotherapy will provide a safe and accepting space to move towards a
+  thriving life.
 thumbnailimage:
   alt: Personal Counselling
   image: /img/relationship.png

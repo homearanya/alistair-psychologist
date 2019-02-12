@@ -6,6 +6,7 @@ import rehypeReact from "rehype-react";
 import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import PrevNextArticle from "../components/PrevNextArticle";
+import SEO from "../components/SEO/SEO";
 
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
@@ -21,12 +22,33 @@ export default function({ data, pageContext }) {
     { title: "Articles", href: "/articles/" },
     { title: article.frontmatter.title, href: null }
   ];
+  // article images
+  let articleImages = [];
+  const articleImage =
+    article.frontmatter.bodyimage &&
+    article.frontmatter.bodyimage.image &&
+    article.frontmatter.bodyimage.image.relativePath;
+  const pageMeta = {
+    title: article.frontmatter.title,
+    description:
+      article.frontmatter.excerpt ||
+      article.frontmatter.intro ||
+      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
+    articleImage: articleImage,
+    slug: article.fields.slug,
+    datePublished: article.frontmatter.date
+  };
   return (
     <Layout currentPageSlug={article.fields.slug}>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+        pageType="article"
+      />
       <Breadcrumbs
         bannerImage={article.frontmatter.bannerimage}
         pageTitle={article.frontmatter.title}
-        pages={pages}
+        pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls section_padding_top_130 section_padding_bottom_130 columns_padding_25">
         <div className="container">
@@ -96,8 +118,11 @@ export const articlePageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        intro
+        excerpt
         bodyimage {
           image {
+            relativePath
             childImageSharp {
               fluid(maxWidth: 700) {
                 ...GatsbyImageSharpFluid
