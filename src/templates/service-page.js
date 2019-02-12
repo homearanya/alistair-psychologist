@@ -106,6 +106,7 @@ export default function({ data }) {
               )}
             </div>
             <div className="col-lg-8 col-lg-pull-4 col-sm-7 col-sm-pull-5">
+              <DynamicAnchor id="start-content" />
               <h2 className="section_header small">{frontmatter.title}</h2>
               <hr className="divider_30_1" />
               {renderAst(data.markdownRemark.htmlAst)}

@@ -21,7 +21,10 @@ export default function ArticleThumbnail(props) {
               alt={props.article.thumbnailimage.alt}
             />
             <div className="media-links">
-              <Link className="abs-link" to={props.article.fields.slug} />
+              <Link
+                className="abs-link"
+                to={`${props.article.fields.slug}#start-content`}
+              />
             </div>
           </div>
         )}
@@ -29,7 +32,10 @@ export default function ArticleThumbnail(props) {
         <div className="item-content entry-content">
           <header className="entry-header">
             <h3 className="entry-title">
-              <Link to={props.article.fields.slug} rel="bookmark">
+              <Link
+                to={`${props.article.fields.slug}#start-content`}
+                rel="bookmark"
+              >
                 {props.article.frontmatter.title}
               </Link>
             </h3>

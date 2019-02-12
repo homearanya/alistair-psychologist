@@ -25,7 +25,10 @@ export default function ArticleThumbnail2(props) {
         <div className="item-content entry-content">
           <header className="entry-header">
             <div className="entry-date small-text highlight">
-              <Link to={props.article.fields.slug} rel="bookmark">
+              <Link
+                to={`${props.article.fields.slug}#start-content`}
+                rel="bookmark"
+              >
                 <time
                   className="entry-date"
                   dateTime="2017-03-13T08:50:40+00:00"
@@ -36,7 +39,10 @@ export default function ArticleThumbnail2(props) {
             </div>
 
             <h4 className="entry-title">
-              <Link to={props.article.fields.slug} rel="bookmark">
+              <Link
+                to={`${props.article.fields.slug}#start-content`}
+                rel="bookmark"
+              >
                 {props.article.frontmatter.title}
               </Link>
             </h4>

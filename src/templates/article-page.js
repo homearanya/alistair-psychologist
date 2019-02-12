@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import Breadcrumbs from "../components/Breadcrumbs";
 import PrevNextArticle from "../components/PrevNextArticle";
 import SEO from "../components/SEO/SEO";
+import DynamicAnchor from "../components/DynamicAnchor";
 
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
@@ -53,6 +54,7 @@ export default function({ data, pageContext }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-10 col-sm-push-1">
+              <DynamicAnchor id="start-content" />
               <div className="vertical-item content-padding with_shadow">
                 <div className="entry-thumbnail item-media">
                   {article.frontmatter.bodyimage &&
