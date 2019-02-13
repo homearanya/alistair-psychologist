@@ -11,7 +11,7 @@ excerpt: >-
   the potentially pleasurable aspects of life.
 thumbnailimage:
   alt: Mindfulness Training
-  image: /img/meditation.png
+  image: /img/mindfulness-training-icon.png
 bannerimage:
   alt: Mindfulness Training
   image: /img/breadcrumbs.jpg

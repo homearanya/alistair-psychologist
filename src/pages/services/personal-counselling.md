@@ -9,7 +9,7 @@ excerpt: >-
   thriving life.
 thumbnailimage:
   alt: Personal Counselling
-  image: /img/relationship.png
+  image: /img/personal-counselling-icon.png
 bannerimage:
   alt: Personal Counselling for Personal Counselling page
   image: /img/breadcrumbs.jpg

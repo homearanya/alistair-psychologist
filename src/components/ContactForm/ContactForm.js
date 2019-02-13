@@ -286,7 +286,7 @@ export class ContactForm extends Component {
                 name="subjectaksljf"
                 id="subjectaksljf"
                 className="form-control"
-                placeholder="Subject"
+                placeholder="How can I help you?"
                 value={this.state.subjectaksljf}
                 onChange={this.handleChange}
               />

@@ -9,13 +9,13 @@ excerpt: >-
   make a considered choice in different situations.
 thumbnailimage:
   alt: Psychological Assessments
-  image: /img/mind.png
+  image: /img/psychological-assessments-icon.png
 bannerimage:
   alt: Psychological Assessments
   image: /img/breadcrumbs.jpg
 bodyimage:
   alt: Psychological Assessments
-  image: /img/phychological-assessments.jpg
+  image: /img/psychological-assessments.jpg
 ---
 
 **Professional Career Guidance will help you find the confidence to make a wise career change.**
