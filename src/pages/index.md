@@ -1,6 +1,9 @@
 ---
 templateKey: home-page
-excerpt: "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training."
+excerpt: >-
+  Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He
+  offers personal counselling, career guidance, psychological assessments and
+  mindfulness training.
 slider:
   - heading1: Alistair
     heading2: Mork-Chadwick
@@ -29,13 +32,12 @@ aboutMeArea:
           foundation for vibrant emotional health, a sharp mind, and a healthy
           life free of physical complaints.
   heading1: WHO AM I?
-  heading2: " "
+  heading2: ' '
   personPicture:
     alt: Alistair Mork-Chadwick
     image: /img/alistair-mork-chadwick.png
 coursesArea:
-  blurb: >-
-    Exercitation cupim ex, short ribs cow in ullamco corned beef veniam kevin. Eu frankfurter ham hock ball tip reprehenderit adipisicing ipsum jerky tenderloin aliquip.
+  blurb: ''
   heading: Mindfulness Training - Upcoming Courses
 articlesArea:
   blurb: >-
@@ -45,7 +47,7 @@ articlesArea:
   heading: Recent Articles
 testimonialsArea:
   testimonials:
-    - author: "Psychotherapy client, 2015"
+    - author: 'Psychotherapy client, 2015'
       quote: >-
         I consider myself privileged to have been able to work with Alistair. He
         has helped me through some incredibly difficult and stressful situations
@@ -54,14 +56,10 @@ testimonialsArea:
       quote: >-
         I have been on medication for many years for anxiety attacks… This is
         the first life skill I have found to help me cope without medication.
-    - author: "Course participant, 2015"
+    - author: 'Course participant, 2015'
       quote: >-
         I have benefited so much more than I could ever have imagined or dreamt
         of. I have better interactions… and also my relationships have improved
         with all my family members.
-appointmentArea:
-  blurb: >-
-    I look forward to answering any questions you may have about the services I
-    offer.
-  heading: Make an Appointment
 ---
+
