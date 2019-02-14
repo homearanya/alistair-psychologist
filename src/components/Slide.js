@@ -1,11 +1,11 @@
 import React from "react";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
 
 export default function Slide(props) {
   return (
     <div>
-      <Img
-        fluid={props.imageFluid}
+      <img
+        src={props.imageFluid.src}
         alt={props.imageAlt}
         title={props.imageTitle}
       />

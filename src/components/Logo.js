@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
 
 import styled from "styled-components";
 
@@ -27,7 +27,7 @@ const LogoWrapper = styled.div`
   }
 `;
 
-const StyledImg = styled(Img)`
+const StyledImg = styled.img`
   ${({ togleMenu }) =>
     !togleMenu
       ? `
@@ -75,7 +75,7 @@ export default function Logo(props) {
           >
             <Link to="/">
               <StyledImg
-                fluid={frontmatter.image.childImageSharp.fluid}
+                src={frontmatter.image.childImageSharp.fluid.src}
                 alt={frontmatter.alt}
                 imgStyle={{ objectFit: "contain" }}
                 isSticky={props.isSticky}
