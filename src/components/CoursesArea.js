@@ -1,12 +1,19 @@
 import React from "react";
+import styled from "styled-components";
 
 import UpcomingCourse from "./UpcomingCourse2";
 import FilteredCourses from "./FilteredCourses";
 
+const StyledSection = styled.section`
+  &&& {
+    margin-bottom: -30px;
+  }
+`;
+
 export default function CoursessArea(props) {
   return (
     // <section className="ls section_padding_tchangeop_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
-    <section className="ls section_padding_top_130 columns_margin_top_0 columns_margin_bottom_30">
+    <StyledSection className="ls section_padding_top_130 columns_margin_top_0 columns_margin_bottom_30">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -18,6 +25,6 @@ export default function CoursessArea(props) {
           <FilteredCourses upcomingCourse={UpcomingCourse} columns="col-md-4" />
         </div>
       </div>
-    </section>
+    </StyledSection>
   );
 }
