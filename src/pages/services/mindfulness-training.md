@@ -14,7 +14,7 @@ thumbnailimage:
   image: /img/mindfulness-training-icon.png
 bannerimage:
   alt: Mindfulness Training
-  image: /img/breadcrumbs.jpg
+  image: /img/mindfulness-training-banner.jpg
 bodyimage:
   alt: Mindfulness Training
   image: /img/mindfulness-training.jpg

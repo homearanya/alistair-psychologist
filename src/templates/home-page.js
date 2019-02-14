@@ -97,7 +97,7 @@ export const homePageQuery = graphql`
             alt
             image {
               childImageSharp {
-                fluid(maxWidth: 1600, maxHeight: 700) {
+                fluid(maxWidth: 1920, maxHeight: 850) {
                   ...GatsbyImageSharpFluid
                 }
               }
@@ -120,6 +120,16 @@ export const homePageQuery = graphql`
             }
           }
           personPicture {
+            alt
+            image {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          backgroundImage {
             alt
             image {
               childImageSharp {

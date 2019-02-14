@@ -11,10 +11,10 @@ thumbnailimage:
   alt: Psychological Assessments
   image: /img/psychological-assessments-icon.png
 bannerimage:
-  alt: Psychological Assessments
-  image: /img/breadcrumbs.jpg
+  alt: Inside your head
+  image: /img/psychological-assessments-banner.jpg
 bodyimage:
-  alt: Psychological Assessments
+  alt: Neural network
   image: /img/psychological-assessments.jpg
 ---
 

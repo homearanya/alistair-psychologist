@@ -2,7 +2,7 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Location } from "@reach/router";
 
-export default function FilteredCourses({ upcomingCourse }) {
+export default function FilteredCourses({ upcomingCourse, columns }) {
   return (
     <StaticQuery
       query={graphql`
@@ -30,7 +30,7 @@ export default function FilteredCourses({ upcomingCourse }) {
                   thumbnailimage {
                     image {
                       childImageSharp {
-                        fluid(maxWidth: 500) {
+                        fluid(maxWidth: 750) {
                           ...GatsbyImageSharpFluid
                         }
                       }
@@ -68,6 +68,7 @@ export default function FilteredCourses({ upcomingCourse }) {
                           fields.uCourseMTCourses.fields.slug
                         }#start-content`}
                         siteUrl={location.origin}
+                        columns={columns}
                       />
                     );
                   }

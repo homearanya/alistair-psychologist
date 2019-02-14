@@ -2,8 +2,8 @@
 templateKey: about-page
 excerpt: "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training."
 bannerimage:
-  alt: Mindfulness Training
-  image: /img/breadcrumbs.jpg
+  alt: Man meditating by a lake
+  image: /img/articles-banner.jpg
 ---
 
 As is the case with many health professionals whose work is influenced by life events, I too have embraced my personal experiences alongside new research and trends during my career as a psychologist.

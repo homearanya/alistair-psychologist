@@ -29,11 +29,13 @@ export default function UpcomingCourse({
   courseSlug,
   frontmatter: courseInfo,
   html,
-  siteUrl
+  siteUrl,
+  columns
 }) {
   const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
+
   return (
-    <div className="col-md-4 text-center">
+    <div className={`${columns} text-center`}>
       <StyledArticle className="vertical-item content-padding post format-standard">
         {courseInfo.thumbnailimage && courseInfo.thumbnailimage.image && (
           <div className="item-media entry-thumbnail">

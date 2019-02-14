@@ -7,14 +7,19 @@ import Button from "./Button";
 const StyledSection = styled.section`
   background-image: ${props =>
     props.backgroundImage
-      ? `"url:${props.backgroundImage.image.childImageSharp.fluid.src}"`
-      : "url(../assets/img/parallax/texture.jpg"};
+      ? `url("${props.backgroundImage}")`
+      : `url("/img/parallax/texture.jpg")`};
 `;
 export default function AboutArea(props) {
   return (
     <StyledSection
       id="about"
       className="cs parallax darken_gradient page_about section_padding_top_75 columns_margin_bottom_30"
+      backgroundImage={
+        props.aboutMeArea.backgroundImage &&
+        props.aboutMeArea.backgroundImage.image &&
+        props.aboutMeArea.backgroundImage.image.childImageSharp.fluid.src
+      }
     >
       <div className="container">
         <div className="row">

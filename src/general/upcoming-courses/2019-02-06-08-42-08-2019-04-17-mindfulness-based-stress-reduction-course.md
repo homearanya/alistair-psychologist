@@ -1,11 +1,13 @@
 ---
 templateKey: upcoming-courses
-title: "2019-04-17 Mindfulness-Based Stress Reduction Course "
-courseName: "Mindfulness-Based Stress Reduction Course "
+title: "2019-04-17 Mindfulness-Based Stress Reduction Course"
+courseName: "Mindfulness-Based Stress Reduction Course"
 dateStart: 2019-04-16T22:00:00.000Z
 dateEnd: 2019-06-04T22:00:00.000Z
 venue: ""
-thumbnailimage: {}
+thumbnailimage:
+  alt: Mindfulness-Based Stress Reduction Course
+  image: /img/mindfulness-training-stress-course-thumbnail.jpg
 ---
 
 #### (8 weeks)

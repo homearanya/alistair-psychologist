@@ -66,7 +66,7 @@ export const articlesPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1600) {
+              fluid(maxWidth: 1920) {
                 ...GatsbyImageSharpFluid
               }
             }

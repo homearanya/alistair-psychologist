@@ -94,11 +94,11 @@ thumbnailimage:
   alt: Mindfulness Training
   image: /img/meditation.png
 bannerimage:
-  alt: Mindfulness Training
-  image: /img/breadcrumbs.jpg
+  alt: Sunset
+  image: /img/frequently-asked-questions-banner.jpg
 bodyimage:
-  alt: Mindfulness Training
-  image: /img/mindfulness-training.jpg
+  alt: Frequently Asked Questions
+  image: /img/frequently-asked-questions.jpg
 ---
 
 <faq-container></faq-container>

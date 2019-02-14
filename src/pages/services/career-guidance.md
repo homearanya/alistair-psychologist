@@ -11,11 +11,11 @@ thumbnailimage:
   alt: Career Guidance
   image: /img/career-guidance-icon.png
 bannerimage:
-  alt: Career Guidance
-  image: /img/breadcrumbs.jpg
+  alt: Starting line
+  image: /img/career-guidance-banner.jpg
 bodyimage:
-  alt: Career Guidance
-  image: /img/career-guidance.jpg
+  alt: Climbing the ladder
+  image: /img/climbing-the-ladder.jpg
 testimonialsArea:
   testimonials: []
 ---

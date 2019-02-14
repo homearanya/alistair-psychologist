@@ -13,9 +13,13 @@ excerpt: >-
   Clinical depression can make work and daily life almost impossible; an
   individual may lose their ability to see the positives in life and begin to
   feel utterly alone.
-thumbnailimage: {}
+thumbnailimage:
+  alt: Man going through a depression
+  image: /img/going-through-depression.jpg
 bannerimage: {}
-bodyimage: {}
+bodyimage:
+  alt: Man going through a depression
+  image: /img/going-through-depression.jpg
 tags: []
 ---
 

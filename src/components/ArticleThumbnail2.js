@@ -14,14 +14,18 @@ export default function ArticleThumbnail2(props) {
   return (
     <div className="col-md-4 text-center">
       <StyledArticle className="vertical-item content-padding post format-standard with_shadow">
-        {props.article.thumbnailimage && props.article.thumbnailimage.image && (
-          <div className="item-media entry-thumbnail">
-            <Img
-              fluid={props.article.thumbnailimage.image.childImageSharp.fluid}
-              alt={props.article.thumbnailimage.alt}
-            />
-          </div>
-        )}
+        {props.article.frontmatter.thumbnailimage &&
+          props.article.frontmatter.thumbnailimage.image && (
+            <div className="item-media entry-thumbnail">
+              <Img
+                fluid={
+                  props.article.frontmatter.thumbnailimage.image.childImageSharp
+                    .fluid
+                }
+                alt={props.article.frontmatter.thumbnailimage.alt}
+              />
+            </div>
+          )}
         <div className="item-content entry-content">
           <header className="entry-header">
             <div className="entry-date small-text highlight">

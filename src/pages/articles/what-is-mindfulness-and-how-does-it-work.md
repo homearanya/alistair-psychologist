@@ -14,9 +14,13 @@ excerpt: >-
   become part of company culture in corporate entities such as Google, Nike,
   Sony, Ford and Apple.
 tags: []
-thumbnailimage: {}
+thumbnailimage:
+  alt: What Is Mindfulness, And How Does It Work?
+  image: /img/mindfulness-time.jpg
 bannerimage: {}
-bodyimage: {}
+bodyimage:
+  alt: What Is Mindfulness, And How Does It Work?
+  image: /img/mindfulness-time.jpg
 ---
 
 **Mindfulness: what is it and how does one do it?**

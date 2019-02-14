@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
 import rehypeReact from "rehype-react";
 import styled from "styled-components";
 
@@ -12,6 +13,10 @@ import DynamicAnchor from "../components/DynamicAnchor";
 import FAQ from "../components/FAQ";
 import UpcomingCourses from "../components/UpcomingCourses";
 import SEO from "../components/SEO/SEO";
+
+const ImageBlock = styled.div`
+  margin-bottom: 50px;
+`;
 
 const StyledLink = styled(Link)`
   && {
@@ -109,9 +114,17 @@ export default function({ data, location }) {
             <MTMenu />
 
             <div className="col-sm-8">
+              <DynamicAnchor id="start-content" />
+              {frontmatter.bodyimage && frontmatter.bodyimage.image && (
+                <ImageBlock className="entry-thumbnail item-media">
+                  <Img
+                    fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
+                    alt={frontmatter.bodyimage.alt}
+                  />
+                </ImageBlock>
+              )}
               <div className="tab-content no-border">
                 <div className="tab-pane fade in active" id="vertical-tab1">
-                  <DynamicAnchor id="start-content" />
                   <StyledH1>{frontmatter.title}</StyledH1>
                   {renderAst(htmlAst)}
                 </div>
@@ -140,7 +153,7 @@ export const mtPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1600) {
+              fluid(maxWidth: 1920) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -150,7 +163,7 @@ export const mtPageQuery = graphql`
         bodyimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1600) {
+              fluid(maxWidth: 800) {
                 ...GatsbyImageSharpFluid
               }
             }

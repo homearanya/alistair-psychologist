@@ -11,8 +11,8 @@ thumbnailimage:
   alt: Personal Counselling
   image: /img/personal-counselling-icon.png
 bannerimage:
-  alt: Personal Counselling for Personal Counselling page
-  image: /img/breadcrumbs.jpg
+  alt: Feeling, emotions, sesations...
+  image: /img/personal-counselling-banner.jpg
 bodyimage:
   alt: Personal Counselling
   image: /img/personal-counselling.jpg

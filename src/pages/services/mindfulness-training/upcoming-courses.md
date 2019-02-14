@@ -8,10 +8,8 @@ thumbnailimage:
   image: /img/meditation.png
 bannerimage:
   alt: Mindfulness Training
-  image: /img/breadcrumbs.jpg
-bodyimage:
-  alt: Mindfulness Training
-  image: /img/mindfulness-training.jpg
+  image: /img/mindfulness-training-upcoming-banner.jpg
+bodyimage: {}
 ---
 
 <upcoming-courses></upcoming-courses>

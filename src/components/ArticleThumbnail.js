@@ -15,20 +15,24 @@ export default function ArticleThumbnail(props) {
   return (
     <div className="isotope-item col-lg-4 col-md-6 col-sm-12">
       <StyledArticle className="vertical-item content-padding mosaic-post post format-standard text-center">
-        {props.article.thumbnailimage && props.article.thumbnailimage.image && (
-          <div className="item-media entry-thumbnail">
-            <Img
-              fluid={props.article.thumbnailimage.image.childImageSharp.fluid}
-              alt={props.article.thumbnailimage.alt}
-            />
-            <div className="media-links">
-              <Link
-                className="abs-link"
-                to={`${props.article.fields.slug}#start-content`}
+        {props.article.frontmatter.thumbnailimage &&
+          props.article.frontmatter.thumbnailimage.image && (
+            <div className="item-media entry-thumbnail">
+              <Img
+                fluid={
+                  props.article.frontmatter.thumbnailimage.image.childImageSharp
+                    .fluid
+                }
+                alt={props.article.frontmatter.thumbnailimage.alt}
               />
+              <div className="media-links">
+                <Link
+                  className="abs-link"
+                  to={`${props.article.fields.slug}#start-content`}
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         <div className="item-content entry-content">
           <header className="entry-header">
