@@ -75,25 +75,25 @@
 
 /* SlideDown animation styles */
 
-.slideUp-enter {
-    /* bottom: 100% !important; */
-    display: none;
+.slideDown-enter {
+    bottom: 100% !important;
+    /* display: none; */
 }
 
-.slideUp-enter-active {
-    /* bottom: 0 !important; */
-    display: block;
+.slideDown-enter-active {
+    bottom: 0 !important;
+    /* display: block; */
     transition: all 300ms ease-in !important;
 }
 
-.slideUp-exit {
-    display: block;
-    /* bottom: 0 !important; */
+.slideDown-exit {
+    /* display: block; */
+    bottom: 0 !important;
 }
 
-.slideUp-exit-active {
-    display: none;
-    /* bottom: 100% !important; */
+.slideDown-exit-active {
+    /* display: none; */
+    bottom: 100% !important;
     transition: all 300ms ease-in !important;
 }
 

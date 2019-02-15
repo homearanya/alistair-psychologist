@@ -6,10 +6,8 @@ import Layout from "../components/Layout";
 import Button from "../components/Button";
 
 const StyledSection = styled.section`
-  background-image: ${props =>
-    props.backgroundImage
-      ? `"url:${props.backgroundImage.image.childImageSharp.fluid.src}"`
-      : "url(../assets/img/parallax/404.jpg"};
+  background-image: url("/img/404-background.jpg");
+  background-position: center;
 `;
 
 export default function() {
