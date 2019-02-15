@@ -16,7 +16,7 @@ export default function() {
       <Helmet>
         <meta name="robots" content="noindex" />
       </Helmet>{" "}
-      <StyledSection className="ls section_404 background_cover no_overlay section_padding_top_150 section_padding_bottom_150">
+      <StyledSection className="ls section_404 background_cover no_overlay section_padding_top_150 section_padding_bottom_150 parallax">
         <div className="container">
           <div className="row">
             <div className="col-sm-12 text-center text-sm-left">
