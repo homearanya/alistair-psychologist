@@ -16,7 +16,9 @@ excerpt: >-
 thumbnailimage:
   alt: Man going through a depression
   image: /img/going-through-depression.jpg
-bannerimage: {}
+bannerimage:
+  alt: mental health
+  image: /img/clinical-depression-article-banner.jpg
 bodyimage:
   alt: Man going through a depression
   image: /img/going-through-depression.jpg

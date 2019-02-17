@@ -17,7 +17,9 @@ tags: []
 thumbnailimage:
   alt: What Is Mindfulness, And How Does It Work?
   image: /img/mindfulness-time.jpg
-bannerimage: {}
+bannerimage:
+  alt: What Is Mindfulness, And How Does It Work?
+  image: /img/what-is-mindfulness-article-banner.jpg
 bodyimage:
   alt: What Is Mindfulness, And How Does It Work?
   image: /img/mindfulness-time.jpg

@@ -18,7 +18,9 @@ tags: []
 thumbnailimage:
   alt: What Can I Expect When I See A Psychologist?
   image: /img/seeing-a-psychologist.jpg
-bannerimage: {}
+bannerimage:
+  alt: What Can I Expect When I See A Psychologist?
+  image: /img/visiting-a-psychologist-article-banner.jpg
 bodyimage:
   alt: What Can I Expect When I See A Psychologist?
   image: /img/seeing-a-psychologist.jpg
