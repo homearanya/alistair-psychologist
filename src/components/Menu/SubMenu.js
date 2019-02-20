@@ -43,7 +43,17 @@ export class SubMenu extends Component {
     if (this.subMenuRef && this.subMenuRef.current) {
       const subMenu = this.subMenuRef.current;
       const subMenuDimensions = subMenu.getBoundingClientRect();
-      if (subMenuDimensions.width === this.state.subMenuWidth) return;
+      if (
+        Math.round(subMenuDimensions.width * 100) / 100 ===
+        Math.round(this.state.subMenuWidth * 100) / 100
+      )
+        return;
+      if (this.state.moveLeft) {
+        this.setState({
+          moveLeft: false
+        });
+        return;
+      }
       if (subMenuDimensions.right > this.props.viewPortWidth) {
         this.setState({
           moveLeft: true,
