@@ -6,11 +6,12 @@ import Testimonial from "./Testimonial";
 export default function TestimonialsArea(props) {
   const settings = {
     arrows: false,
+    autoplay: true,
     dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 1000
+    speed: 4000
   };
 
   return (
