@@ -5,10 +5,7 @@ date: 2019-01-24T08:28:50.483Z
 intro: >-
   Clinical depression can make work and daily life almost impossible; an
   individual may lose their ability to see the positives in life and begin to
-  feel utterly alone. It may affect between 20% and 25% of the population. The
-  good news, however, is that a depressive episode is treatable and, more
-  importantly, it is preventable. A functional medicine approach to dealing with
-  this mental health problem is often very effective
+  feel utterly alone.
 excerpt: >-
   Clinical depression can make work and daily life almost impossible; an
   individual may lose their ability to see the positives in life and begin to

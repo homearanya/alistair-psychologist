@@ -5,10 +5,7 @@ date: 2019-01-30T08:57:52.182Z
 intro: >-
   Many of us have heard about it. Richard Branson swears by it. And it has
   become part of company culture in corporate entities such as Google, Nike,
-  Sony, Ford and Apple. “It” is mindfulness. Often described as the mental
-  equivalent of going to the gym, mindfulness provides relief for busy people,
-  requiring them to slow down, stop, breathe, and find a moment to be in the
-  present.
+  Sony, Ford and Apple.
 excerpt: >-
   Many of us have heard about it. Richard Branson swears by it. And it has
   become part of company culture in corporate entities such as Google, Nike,

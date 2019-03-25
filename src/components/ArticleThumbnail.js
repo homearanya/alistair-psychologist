@@ -52,7 +52,11 @@ export default function ArticleThumbnail(props) {
             </span>
           </header>
 
-          <p className="bottommargin_40 fontsize_18">{props.article.excerpt}</p>
+          <p className="bottommargin_40 fontsize_18">
+            {props.article.frontmatter.intro
+              ? props.article.frontmatter.intro.substring(0, 250) + "..."
+              : props.article.excerpt}
+          </p>
 
           <Button
             whereTo={`${props.article.fields.slug}#start-content`}
