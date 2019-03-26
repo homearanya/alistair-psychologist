@@ -48,23 +48,21 @@ export default function ArticlesArea(props) {
               <div className="row">
                 <div className="col-sm-12 text-center">
                   <h2 className="section_header ">
-                    {" "}
-                    {props.articlesArea.heading}{" "}
-                  </h2>{" "}
-                  <p> {props.articlesArea.blurb} </p>{" "}
-                </div>{" "}
-              </div>{" "}
+                    {props.articlesArea.heading}
+                  </h2>
+                  <p> {props.articlesArea.blurb} </p>
+                </div>
+              </div>
               <div className="row mosaic-post">
-                {" "}
                 {articles.map(({ node: article }) => (
                   <ArticleThumbnail
                     article={article}
                     key={article.id}
                     siteUrl={props.siteUrl}
                   />
-                ))}{" "}
-              </div>{" "}
-            </div>{" "}
+                ))}
+              </div>
+            </div>
           </section>
         );
       }}
