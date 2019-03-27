@@ -36,9 +36,7 @@ During your first consultation, the psychologist will listen to your description
 
 You may up until now have tried to avoid or ignore the unpleasant feelings caused by your difficulties or problem/s. But neither the feelings nor the problem/s will go away until the issue is at least explored and verbalised. Psychotherapy provides a safe and accepting space to make this possible and is as effective for individuals as it is for couples (and family groups).
 
-####
-
-Individual Psychotherapy
+####Individual Psychotherapy
 
 Psychotherapy is often very beneficial for individuals who are experiencing ongoing and/or significant difficulties, needing support or striving for personal growth. The difficulties and adolescent experiences may arise within the school, home and/or social environments. Likewise, an adult may experience difficulties within the work, home and/or social environments.
 
