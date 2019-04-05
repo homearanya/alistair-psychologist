@@ -21,9 +21,33 @@ const YouTubeContainer = styled.div`
   }
 `;
 
+export const AboutPageTemplate = ({ content }) => {
+  const AboutContent = HTMLContent || Content;
+  return (
+    <section className="ls section_padding_100 columns_padding_25">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 col-md-push-6">
+            <YouTubeWrapper>
+              <YouTubeContainer>
+                <YouTube videoId="hQ0NfHQ3moY" />
+              </YouTubeContainer>
+            </YouTubeWrapper>
+          </div>
+          <div className="col-md-6 col-md-pull-6">
+            <h2 className="section_header">About me</h2>
+            <hr className="divider_30_1" />
+            <AboutContent content={content} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default function({ data }) {
   const { fields, frontmatter } = data.markdownRemark;
-  const AboutContent = HTMLContent || Content;
+
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
@@ -37,6 +61,7 @@ export default function({ data }) {
     slug: fields.slug,
     datePublished: false
   };
+
   return (
     <Layout currentPageSlug={fields.slug}>
       <SEO
@@ -48,7 +73,8 @@ export default function({ data }) {
         pageTitle="About Me"
         pages={JSON.parse(JSON.stringify(pages))}
       />
-      <section className="ls section_padding_100 columns_padding_25">
+      <AboutPageTemplate content={data.markdownRemark.html} />
+      {/* <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-md-push-6">
@@ -65,7 +91,7 @@ export default function({ data }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 }

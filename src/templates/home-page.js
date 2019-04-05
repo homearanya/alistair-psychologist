@@ -8,34 +8,17 @@ import AboutArea from "../components/AboutArea";
 import CoursesArea from "../components/CoursesArea";
 import ArticlesArea from "../components/ArticlesArea";
 import TestimonialsArea from "../components/TestimonialsArea";
-// import FaqArea from "../components/FaqArea";
-// import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
 import SEO from "../components/SEO/SEO";
 
-export default ({ data, location }) => {
-  //   Prepare breadcrumbs
-  const pages = [{ title: "Home", href: null }];
-  const { fields, frontmatter } = data.homePageQuery;
-  const { homeservices } = data.homePageQuery.fields;
+export const HomePageTemplate = ({ frontmatter, homeservices, location }) => {
   const servicesObject = homeservices.reduce((obj, service) => {
     obj[service.frontmatter.title.trim().toLowerCase()] = service;
     return obj;
   }, {});
-  const pageMeta = {
-    title: `Counselling Psychologist in Howick`,
-    description:
-      frontmatter.excerpt ||
-      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
-    slug: fields.slug
-  };
-  return (
-    <Layout currentPageSlug={fields.slug} appointmentButton>
-      <SEO
-        pageData={pageMeta}
-        breadcrumbs={JSON.parse(JSON.stringify(pages))}
-      />
 
+  return (
+    <React.Fragment>
       <SliderArea slider={frontmatter.slider} />
       <ServicesArea
         id="services"
@@ -55,9 +38,34 @@ export default ({ data, location }) => {
         frontmatter.testimonialsArea.testimonials.length > 0 && (
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
         )}
-      {/* <FaqArea />
-    <PricesArea /> */}
       <AppointmentArea />
+    </React.Fragment>
+  );
+};
+
+export default ({ data, location }) => {
+  //   Prepare breadcrumbs
+  const pages = [{ title: "Home", href: null }];
+  const { fields, frontmatter } = data.homePageQuery;
+  const { homeservices } = data.homePageQuery.fields;
+  const pageMeta = {
+    title: `Counselling Psychologist in Howick`,
+    description:
+      frontmatter.excerpt ||
+      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
+    slug: fields.slug
+  };
+  return (
+    <Layout currentPageSlug={fields.slug} appointmentButton>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+      />
+      <HomePageTemplate
+        frontmatter={frontmatter}
+        homeservices={homeservices}
+        location={location}
+      />
     </Layout>
   );
 };
