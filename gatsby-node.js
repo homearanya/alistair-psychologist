@@ -3,15 +3,6 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
-// variables to collect information for homepage/services relation
-let homeServicesTitles = [];
-let homeServicesIds = [];
-let servicesObject = new Object();
-let mindfulnessTrainingObject = new Object();
-let coursesObject = new Object();
-
-let homeNodeId;
-
 exports.createPages = ({ actions, graphql, getNode }) => {
   const { createPage, createNodeField } = actions;
   return graphql(`
@@ -110,40 +101,6 @@ exports.createPages = ({ actions, graphql, getNode }) => {
         }
       });
     });
-
-    // create node fields for homepage/services relations
-    homeServicesTitles.forEach(service => {
-      if (servicesObject[service]) {
-        homeServicesIds.push(servicesObject[service]);
-      }
-    });
-
-    if (homeServicesIds.length > 0) {
-      createNodeField({
-        node: getNode(homeNodeId),
-        name: `homeservices`,
-        value: homeServicesIds
-      });
-    }
-    // create node fields for upcoming services/mindulness training courses relation
-    for (let key in mindfulnessTrainingObject) {
-      if (mindfulnessTrainingObject.hasOwnProperty(key) && coursesObject[key]) {
-        if (coursesObject[key].length > 0) {
-          createNodeField({
-            node: getNode(mindfulnessTrainingObject[key]),
-            name: `mtCoursesUCourses`,
-            value: coursesObject[key]
-          });
-          coursesObject[key].forEach(courseNodeId => {
-            createNodeField({
-              node: getNode(courseNodeId),
-              name: `uCourseMTCourses`,
-              value: mindfulnessTrainingObject[key]
-            });
-          });
-        }
-      }
-    }
   });
 };
 
@@ -158,42 +115,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     });
-    // collect nodes for homepage/services relation
-    if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("home-page")
-    ) {
-      homeNodeId = node.id;
-      node.frontmatter.servicesArea.services.forEach(service =>
-        homeServicesTitles.push(service.service.trim().toLowerCase())
-      );
-    } else if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("service-page")
-    ) {
-      servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
-      // collect nodes for upcoming courses/mindfulness training courses relation
-    } else if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("mindfulness-training-page")
-    ) {
-      servicesObject[node.frontmatter.title.trim().toLowerCase()] = node.id;
-      mindfulnessTrainingObject[node.frontmatter.title.trim().toLowerCase()] =
-        node.id;
-    } else if (
-      node.frontmatter.templateKey &&
-      node.frontmatter.templateKey.includes("upcoming-courses")
-    ) {
-      if (coursesObject[node.frontmatter.courseName.trim().toLowerCase()]) {
-        coursesObject[node.frontmatter.courseName.trim().toLowerCase()].push(
-          node.id
-        );
-      } else {
-        coursesObject[node.frontmatter.courseName.trim().toLowerCase()] = [];
-        coursesObject[node.frontmatter.courseName.trim().toLowerCase()].push(
-          node.id
-        );
-      }
-    }
   }
 };

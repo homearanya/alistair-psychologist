@@ -1,6 +1,6 @@
 ---
 templateKey: service-page
-title: Personal Counselling
+service_id: Personal Counselling
 intro: >-
   Psychotherapy will provide a safe and accepting space to move towards a
   thriving life.

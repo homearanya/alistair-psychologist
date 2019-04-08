@@ -1,6 +1,6 @@
 ---
 templateKey: service-page
-title: Psychological Assessments
+service_id: Psychological Assessments
 intro: >-
   Professional Psychological Assessments are useful tools to enable parents to
   make a considered choice in different situations.

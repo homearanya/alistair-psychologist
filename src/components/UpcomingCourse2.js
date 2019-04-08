@@ -26,14 +26,13 @@ const StyledBody = styled.div`
 `;
 
 export default function UpcomingCourse({
-  courseSlug,
   frontmatter: courseInfo,
   html,
   siteUrl,
   columns
 }) {
   const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
-
+  const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`;
   return (
     <div className={`${columns} text-center`}>
       <StyledArticle className="vertical-item content-padding post format-standard">
@@ -49,8 +48,8 @@ export default function UpcomingCourse({
           <header className="entry-header">
             <div className="entry-date small-text highlight">
               <CourseHeader
-                url={courseSlug}
-                heading={courseInfo.courseName}
+                slug={courseSlug}
+                heading={courseInfo.courseName.frontmatter.title}
                 venue={courseInfo.venue}
                 dateStart={courseInfo.dateStart}
                 dateEnd={courseInfo.dateEnd}

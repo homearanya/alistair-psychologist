@@ -1,7 +1,7 @@
 ---
 templateKey: upcoming-courses
-title: "2019-07-31 Mindfulness-Based Stress Reduction Course "
-courseName: "Mindfulness-Based Stress Reduction Course "
+title: "2019-07-31 Mindfulness-Based Stress Reduction Course"
+courseName: "Mindfulness-Based Stress Reduction Course"
 dateStart: 2019-07-31T22:00:00.000Z
 dateEnd: 2019-09-18T22:00:00.000Z
 venue: ""

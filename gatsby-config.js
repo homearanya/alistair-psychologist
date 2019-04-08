@@ -116,15 +116,15 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages"
+        path: `${__dirname}/src/general`,
+        name: "general"
       }
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/general`,
-        name: "general"
+        path: `${__dirname}/src/pages`,
+        name: "pages"
       }
     },
     {
@@ -182,8 +182,7 @@ module.exports = {
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ],
   mapping: {
-    "MarkdownRemark.fields.homeservices": `MarkdownRemark`,
-    "MarkdownRemark.fields.mtCoursesUCourses": `MarkdownRemark`,
-    "MarkdownRemark.fields.uCourseMTCourses": `MarkdownRemark`
+    "MarkdownRemark.frontmatter.servicesArea.services.service": `MarkdownRemark.frontmatter.service_id`,
+    "MarkdownRemark.frontmatter.courseName": `MarkdownRemark.frontmatter.title`
   }
 };

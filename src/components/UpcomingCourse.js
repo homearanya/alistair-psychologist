@@ -29,11 +29,11 @@ const StyledBody = styled.div`
 `;
 
 export default function UpcomingCourse({
-  courseSlug,
   frontmatter: courseInfo,
   html,
   siteUrl
 }) {
+  const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`;
   let contentClassName;
   if (courseInfo.thumbnailimage && courseInfo.thumbnailimage.image) {
     contentClassName = "col-md-7";
@@ -59,8 +59,8 @@ export default function UpcomingCourse({
         <StyledContet className={contentClassName}>
           <div className="item-content">
             <CourseHeader
-              url={courseSlug}
-              heading={courseInfo.courseName}
+              slug={courseSlug}
+              heading={courseInfo.courseName.frontmatter.title}
               venue={courseInfo.venue}
               dateStart={courseInfo.dateStart}
               dateEnd={courseInfo.dateEnd}

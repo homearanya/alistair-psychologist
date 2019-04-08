@@ -16,13 +16,8 @@ export default function ServicesArea(props) {
           </div>
         </div>
         <div className="row columns_padding_0 columns_margin_0 fontsize_16">
-          {props.servicesArea.services.map((service, index) => (
-            <Service
-              key={index}
-              service={
-                props.servicesObject[service.service.trim().toLowerCase()]
-              }
-            />
+          {props.servicesArea.services.map(service => (
+            <Service key={service.service.id} service={service.service} />
           ))}
         </div>
       </div>

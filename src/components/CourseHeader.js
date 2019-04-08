@@ -34,7 +34,7 @@ export default function CourseHeader(props) {
   }
   return (
     <React.Fragment>
-      <StyledLink to={props.url}>
+      <StyledLink to={props.slug}>
         <StyledHeading> {props.heading}</StyledHeading>
       </StyledLink>
       <StyledDateVenue
