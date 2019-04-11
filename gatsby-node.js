@@ -3,8 +3,8 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
-exports.createPages = ({ actions, graphql, getNode }) => {
-  const { createPage, createNodeField } = actions;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
   return graphql(`
     {
       nonArticlesPages: allMarkdownRemark(
@@ -71,7 +71,7 @@ exports.createPages = ({ actions, graphql, getNode }) => {
     const nonArticles = result.data.nonArticlesPages.edges;
     const articles = result.data.articlesPages.edges;
 
-    nonArticles.forEach(({ node }, index) => {
+    nonArticles.forEach(({ node }) => {
       const id = node.id;
       createPage({
         path: node.fields.slug,
