@@ -13,6 +13,10 @@ export const contactDetailsFragment = graphql`
             phonedisplay
             phonenumber
           }
+          landline {
+            phonedisplay
+            phonenumber
+          }
         }
       }
     }
@@ -59,10 +63,20 @@ export default function ContactDetails(props) {
             className="col-md-9 text-center divided_content"
             appointmentButton={props.appointmentButton}
           >
+            <AElement href={`tel:${contact_details.landline.phonenumber}`}>
+              <div className="media small-teaser">
+                <div className="media-left">
+                  <IElement className="fas fa-phone highlight fontsize_16" />
+                </div>
+                <div className="media-body">
+                  {contact_details.landline.phonedisplay}
+                </div>
+              </div>
+            </AElement>
             <AElement href={`tel:${contact_details.phone.phonenumber}`}>
               <div className="media small-teaser">
                 <div className="media-left">
-                  <IElement className="fa fa-user highlight fontsize_16" />
+                  <IElement className="fas fa-mobile-alt highlight fontsize_16" />
                 </div>
                 <div className="media-body">
                   {contact_details.phone.phonedisplay}
@@ -75,7 +89,7 @@ export default function ContactDetails(props) {
             >
               <div className="media small-teaser">
                 <div className="media-left">
-                  <IElement className="fa fa-map-marker highlight fontsize_16" />
+                  <IElement className="fas fa-map-marker-alt highlight fontsize_16" />
                 </div>
                 <div className="media-body">{contact_details.address}</div>
               </div>
@@ -83,7 +97,7 @@ export default function ContactDetails(props) {
             <AElement href={`mailto:${contact_details.email}`}>
               <div className="media small-teaser">
                 <div className="media-left">
-                  <IElement className="fa fa-envelope highlight fontsize_16" />
+                  <IElement className="fas fa-envelope highlight fontsize_16" />
                 </div>
                 <div className="media-body">{contact_details.email}</div>
               </div>

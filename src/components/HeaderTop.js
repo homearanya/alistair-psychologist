@@ -4,8 +4,6 @@ import Social from "./Social";
 import ContactDetails from "./ContactDetails";
 import Button from "./Button";
 
-import "../assets/css/headerTop.css";
-
 export default function HeaderTop(props) {
   return (
     <section className="page_topline cs table_section table_section_md columns_padding_0">
@@ -19,7 +17,7 @@ export default function HeaderTop(props) {
 
           {props.appointmentButton ? (
             <div className="col-md-3 text-center text-md-right bottommargin_0">
-              <Button whereTo="/#appointment" text="Make an appointment" />
+              <Button whereTo="#appointment" text="Make an appointment" />
             </div>
           ) : null}
         </div>

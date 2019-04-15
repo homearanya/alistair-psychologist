@@ -1,9 +1,21 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from "styled-components";
+
+const StyledSection = styled.section`
+  background-image: ${props =>
+    props.backgroundImage && props.backgroundImage.image
+      ? `url("${props.backgroundImage.image.childImageSharp.fluid.src}")`
+      : `url("/img/parallax/breadcrumbs.jpg")`};
+  background-position: center;
+`;
 
 export default function Breadcrumbs(props) {
   return (
-    <section className="page_breadcrumbs ds background_cover section_padding_50">
+    <StyledSection
+      className="page_breadcrumbs ds background_cover section_padding_50"
+      backgroundImage={props.bannerImage}
+    >
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -24,6 +36,6 @@ export default function Breadcrumbs(props) {
           </div>
         </div>
       </div>
-    </section>
+    </StyledSection>
   );
 }

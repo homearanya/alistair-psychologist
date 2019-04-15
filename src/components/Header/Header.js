@@ -10,31 +10,45 @@ import "./header.css";
 export class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { togleMenu: false, sticky: false };
-    this.togleMenu = this.togleMenu.bind(this);
+    this.state = { toggleMenu: false, sticky: false, toggleTransform: false };
     this.onFixedToggle = this.onFixedToggle.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.toggleTransform = this.toggleTransform.bind(this);
   }
 
-  togleMenu() {
+  toggleMenu() {
     this.setState(prevState => {
-      return { togleMenu: !prevState.togleMenu };
+      return {
+        toggleMenu: !prevState.toggleMenu
+      };
+    });
+  }
+
+  toggleTransform() {
+    this.setState(prevState => {
+      return { toggleTransform: !prevState.toggleTransform };
     });
   }
 
   onFixedToggle() {
-    let isSticky = !this.state.sticky;
-    this.setState({ sticky: isSticky });
+    this.setState(prevState => {
+      return { sticky: !prevState.sticky };
+    });
   }
 
   render() {
     let headerClassName =
       "page_header header_white table_section columns_padding_0 toggler-sm-right";
-    let menuTogleClassName = "toggle_menu visible-xs visible-sm";
+    let menuToggleClassName = "toggle_menu visible-xs visible-sm";
     let stickyStyle = {};
-    stickyStyle.zIndex = 999;
-    if (this.state.togleMenu) {
+
+    if (this.state.toggleMenu) {
       headerClassName += " mobile-active";
-      menuTogleClassName += " mobile-active";
+      menuToggleClassName += " mobile-active";
+      stickyStyle.transform = "none";
+    }
+
+    if (this.state.toggleTransform) {
       stickyStyle.transform = "none";
     }
 
@@ -50,13 +64,19 @@ export class Header extends Component {
               <div className="col-md-3">
                 <Logo
                   isSticky={this.state.sticky}
-                  togleMenu={this.state.togleMenu}
+                  toggleMenu={this.state.toggleMenu}
                 />
-                <span className={menuTogleClassName} onClick={this.togleMenu}>
+                <span className={menuToggleClassName} onClick={this.toggleMenu}>
                   <span />
                 </span>
               </div>
-              <Menu sticky={this.state.sticky} />
+              <Menu
+                isSticky={this.state.sticky}
+                toggleTransform={this.toggleTransform}
+                toggleMenu={this.state.toggleMenu}
+                handleToggleMenu={this.toggleMenu}
+                currentPageSlug={this.props.currentPageSlug}
+              />
               <Social
                 classes="text-right hidden-xs hidden-sm"
                 inputColor="#91d0cc"

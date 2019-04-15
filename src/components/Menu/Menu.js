@@ -1,180 +1,160 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
-import { CSSTransition } from "react-transition-group";
-import styled from "styled-components";
+import { StaticQuery, graphql } from "gatsby";
 
-import "./menu.css";
+import MenuItems from "./MenuItems";
 
-const StyledLink = styled(Link)`
-  margin: 0;
+import { processMenu } from "../../assets/utils/helpers";
 
-  :hover,
-  &&&.active {
-    color: #91d0cc;
-  }
-
-  @media (min-width: 992px) {
-    margin: 0 15px;
-  }
-`;
-
-const StyledLinkSub = styled(Link)`
-  a + li a {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  :hover,
-  &&&.active {
-    color: #91d0cc;
-  }
-`;
-
-const StyledSubMenu = styled.ul`
-  &&& {
-    text-align: center;
-    list-style: none;
-    margin: 5px 0 0 0;
-    padding: 0 0 0 10px;
-    min-width: 220px;
-    opacity: 1;
-    display: block;
-    top: 100%;
-    z-index: 1000;
-  }
-
-  @media (min-width: 992px) {
-    &&& {
-      background-color: #ffffff;
-      box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-      padding: 10px 0 10px;
-      margin-top: ${props => props.sticky && "-2px"};
-      position: absolute;
-    }
-  }
-`;
-const NonClickableItem = styled.button`
-  display: block;
-  background: none;
-  border: none;
-  padding: 10px 3.5em 10px 15px;
-  margin: 0;
-  text-decoration: none;
-  color: ${props => (props.servicePage ? "#91d0cc" : "white")};
-  font-family: "Playfair Display", serif;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 28px;
-  cursor: auto;
-  text-align: left;
-  transition: background 250ms ease-in-out, transform 150ms ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-
-  :hover,
-  :focus {
-    background: none;
-    color: #91d0cc;
-  }
-
-  &.withArrow::after {
-    font-family: "FontAwesome";
-    content: "\f107";
-    position: absolute;
-    right: 2em;
-    height: 0;
-    width: 0;
-    font-size: 20px;
-  }
-  @media (min-width: 992px) {
-    color: ${props => (props.servicePage ? "#91d0cc" : "#444444")};
-    margin: 0 15px;
-    padding: 25px 0;
-
-    &.withArrow::after {
-      content: none;
-    }
-  }
-`;
+const windowGlobal = typeof window !== "undefined" && window;
+const documentElementGlobal =
+  typeof document !== "undefined" &&
+  document &&
+  typeof document.documentElement !== "undefined" &&
+  document.documentElement;
 
 export class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSubMenu: false
+      showSubMenu: [],
+      viewPortWidth:
+        windowGlobal.innerWidth || documentElementGlobal.clientWidth
     };
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.hideSubMenu = this.hideSubMenu.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
-  handleHover = () => {
-    this.setState({ showSubMenu: true });
+  handleHover = (depthLevel, index) => {
+    this.setState(prevState => {
+      let updatedArray = prevState.showSubMenu.slice(0);
+      let subMenuArray = [];
+      subMenuArray[index] = true;
+      updatedArray.push(subMenuArray);
+      return { showSubMenu: updatedArray };
+    });
+    if (depthLevel === 0) {
+      this.props.toggleTransform();
+    }
   };
 
-  handleLeave = () => {
-    this.setState({ showSubMenu: false });
+  handleLeave = depthLevel => {
+    this.setState(prevState => {
+      let updatedArray = prevState.showSubMenu.slice(0);
+      updatedArray = updatedArray.slice(0, depthLevel);
+      return { showSubMenu: updatedArray };
+    });
+    if (depthLevel === 0) {
+      this.props.toggleTransform();
+    }
   };
+
+  handleClick = (e, depthLevel, index) => {
+    e.stopPropagation();
+    this.setState(prevState => {
+      let updatedArray = prevState.showSubMenu.slice(0);
+      if (updatedArray[depthLevel]) {
+        if (updatedArray[depthLevel][index]) {
+          updatedArray = updatedArray.slice(0, depthLevel + 1);
+          updatedArray[depthLevel][index] = false;
+        } else {
+          updatedArray[depthLevel][index] = true;
+        }
+      } else {
+        let subMenuArray = [];
+        subMenuArray[index] = true;
+        updatedArray.push(subMenuArray);
+      }
+
+      //   && updatedArray[depthLevel][index]) {
+      //   updatedArray = updatedArray[depthLevel].splice(index, 1);
+      // } else {
+      //   if (updatedArray[depthLevel]) updatedArray[depthLevel].splice(index, 1);
+
+      return { showSubMenu: updatedArray };
+    });
+  };
+
+  hideSubMenu = e => {
+    e.stopPropagation();
+    this.setState({ showSubMenu: [] });
+    if (this.props.toggleMenu) {
+      this.props.handleToggleMenu();
+    }
+  };
+
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({
+      viewPortWidth: window.innerWidth || document.documentElement.clientWidth
+    });
+  }
 
   render() {
     return (
-      <div className="col-md-6 text-center">
-        <nav className="mainmenu_wrapper">
-          <ul className="mainmenu nav sf-menu">
-            <li>
-              <StyledLink to="/" activeClassName="active">
-                Home
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/about/" activeClassName="active">
-                About Me
-              </StyledLink>
-            </li>
-            <li onMouseLeave={this.handleLeave} onMouseEnter={this.handleHover}>
-              <NonClickableItem
-                servicePage={this.props.servicePage}
-                className="withArrow"
-              >
-                Services
-              </NonClickableItem>
-              <CSSTransition
-                in={this.state.showSubMenu}
-                classNames="fade-dropdown-menu"
-                timeout={300}
-                unmountOnExit
-              >
-                <StyledSubMenu sticky={this.props.sticky}>
-                  <li>
-                    <StyledLinkSub to="/services1/" activeClassName="active">
-                      Service 1
-                    </StyledLinkSub>
-                  </li>
-                  <li>
-                    <StyledLinkSub to="/services1/" activeClassName="active">
-                      Service 2
-                    </StyledLinkSub>
-                  </li>
-                </StyledSubMenu>
-              </CSSTransition>
-            </li>
-            {/* <li>
-            <StyledLink to="/rates/" activeClassName="active">
-              Rates
-            </StyledLink>
-          </li> */}
-            <li>
-              <StyledLink to="/articles/" activeClassName="active">
-                Articles
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/contact/" activeClassName="active">
-                Contact
-              </StyledLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <StaticQuery
+        query={graphql`
+          query MenuQuery {
+            markdownRemark(fields: { slug: { eq: "/main-menu/" } }) {
+              frontmatter {
+                menuItems {
+                  link
+                  name
+                  subMenu {
+                    subMenuItems {
+                      link
+                      name
+                      subMenu {
+                        subMenuItems {
+                          link
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `}
+        render={data => {
+          const { menuItems } = data.markdownRemark.frontmatter;
+          processMenu(
+            menuItems,
+            this.props.currentPageSlug,
+            this.state.viewPortWidth
+          );
+          return (
+            <div className="col-md-6 text-center">
+              <nav className="mainmenu_wrapper">
+                <ul className="mainmenu nav sf-menu sf-arrows">
+                  <MenuItems
+                    menuItems={menuItems}
+                    showSubMenu={this.state.showSubMenu}
+                    viewPortWidth={this.state.viewPortWidth}
+                    handleLeave={this.handleLeave}
+                    handleHover={this.handleHover}
+                    handleClick={this.handleClick}
+                    hideSubMenu={this.hideSubMenu}
+                    isSticky={this.props.isSticky}
+                    depthLevel={-1}
+                  />
+                </ul>
+              </nav>
+            </div>
+          );
+        }}
+      />
     );
   }
 }

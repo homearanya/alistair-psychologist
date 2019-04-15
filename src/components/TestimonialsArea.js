@@ -3,16 +3,15 @@ import Slider from "react-slick";
 
 import Testimonial from "./Testimonial";
 
-import "../assets/css/testimonialsArea.css";
-
 export default function TestimonialsArea(props) {
   const settings = {
     arrows: false,
+    autoplay: true,
     dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 1000
+    speed: 4000
   };
 
   return (
@@ -20,13 +19,6 @@ export default function TestimonialsArea(props) {
       <div className="container">
         <div className="row">
           <div className="col-md-10 col-md-offset-1">
-            {/* <div
-              className="owl-carousel testimonials-carousel top-dots"
-              data-responsive-sm="1"
-              data-responsive-md="1"
-              data-responsive-lg="1"
-              data-dots="true"
-            > */}
             <Slider {...settings}>
               {props.testimonialsArea.testimonials.map((testimonial, index) => {
                 return (
@@ -38,7 +30,6 @@ export default function TestimonialsArea(props) {
                 );
               })}
             </Slider>
-            {/* </div> */}
           </div>
         </div>
       </div>

@@ -5,27 +5,53 @@ import Layout from "../components/Layout";
 import SliderArea from "../components/SliderArea";
 import ServicesArea from "../components/ServicesArea";
 import AboutArea from "../components/AboutArea";
+import CoursesArea from "../components/CoursesArea";
 import ArticlesArea from "../components/ArticlesArea";
 import TestimonialsArea from "../components/TestimonialsArea";
-import FaqArea from "../components/FaqArea";
-import PricesArea from "../components/PricesArea";
 import AppointmentArea from "../components/AppointmentArea";
+import SEO from "../components/SEO/SEO";
 
-import "../assets/css/custom.css";
-
-export default ({ data }) => {
-  const { frontmatter } = data.homePageQuery;
-
+export const HomePageTemplate = ({ frontmatter, location }) => {
   return (
-    <Layout appointmentButton>
+    <React.Fragment>
       <SliderArea slider={frontmatter.slider} />
-      <ServicesArea servicesArea={frontmatter.servicesArea} />
+      <ServicesArea id="services" servicesArea={frontmatter.servicesArea} />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
-      <ArticlesArea articlesArea={frontmatter.articlesArea} />
-      <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
-      {/* <FaqArea />
-    <PricesArea /> */}
+      <CoursesArea
+        coursesArea={frontmatter.coursesArea}
+        siteUrl={location.origin}
+      />
+      <ArticlesArea
+        articlesArea={frontmatter.articlesArea}
+        siteUrl={location.origin}
+      />
+      {frontmatter.testimonialsArea &&
+        frontmatter.testimonialsArea.testimonials.length > 0 && (
+          <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
+        )}
       <AppointmentArea />
+    </React.Fragment>
+  );
+};
+
+export default ({ data, location }) => {
+  //   Prepare breadcrumbs
+  const pages = [{ title: "Home", href: null }];
+  const { fields, frontmatter } = data.homePageQuery;
+  const pageMeta = {
+    title: `Counselling Psychologist in Howick`,
+    description:
+      frontmatter.excerpt ||
+      "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
+    slug: fields.slug
+  };
+  return (
+    <Layout currentPageSlug={fields.slug} appointmentButton>
+      <SEO
+        pageData={pageMeta}
+        breadcrumbs={JSON.parse(JSON.stringify(pages))}
+      />
+      <HomePageTemplate frontmatter={frontmatter} location={location} />
     </Layout>
   );
 };
@@ -37,6 +63,7 @@ export const homePageQuery = graphql`
         slug
       }
       frontmatter {
+        excerpt
         slider {
           heading1
           heading2
@@ -46,7 +73,7 @@ export const homePageQuery = graphql`
             image {
               childImageSharp {
                 fluid(maxWidth: 1920, maxHeight: 850) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }
@@ -56,15 +83,23 @@ export const homePageQuery = graphql`
           heading
           blurb
           services {
-            heading
-            blurb
-            serviceIcon {
-              alt
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 80) {
-                    ...GatsbyImageSharpFluid
+            service {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                service_id
+                intro
+                thumbnailimage {
+                  image {
+                    childImageSharp {
+                      fixed(width: 80, height: 90) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
                   }
+                  alt
                 }
               }
             }
@@ -83,11 +118,25 @@ export const homePageQuery = graphql`
             image {
               childImageSharp {
                 fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
           }
+          backgroundImage {
+            alt
+            image {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+        coursesArea {
+          heading
+          blurb
         }
         articlesArea {
           heading
@@ -103,3 +152,112 @@ export const homePageQuery = graphql`
     }
   }
 `;
+// export const homePageQuery = graphql`
+//   query HomePage($id: String!) {
+//     homePageQuery: markdownRemark(id: { eq: $id }) {
+//       fields {
+//         slug
+//         homeservices {
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             intro
+//             thumbnailimage {
+//               image {
+//                 childImageSharp {
+//                   fixed(width: 80, height: 90) {
+//                     ...GatsbyImageSharpFixed
+//                   }
+//                 }
+//               }
+//               alt
+//             }
+//           }
+//         }
+//       }
+//       frontmatter {
+//         excerpt
+//         slider {
+//           heading1
+//           heading2
+//           subheading
+//           image {
+//             alt
+//             image {
+//               childImageSharp {
+//                 fluid(maxWidth: 1920, maxHeight: 850) {
+//                   ...GatsbyImageSharpFluid_withWebp_noBase64
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         servicesArea {
+//           heading
+//           blurb
+//           services {
+//             service {
+//               service_id
+//               intro
+//               thumbnailimage {
+//                 image {
+//                   childImageSharp {
+//                     fixed(width: 80, height: 90) {
+//                       ...GatsbyImageSharpFixed
+//                     }
+//                   }
+//                 }
+//                 alt
+//               }
+//             }
+//           }
+//         }
+//         aboutMeArea {
+//           heading1
+//           heading2
+//           blurb {
+//             paragraphs {
+//               paragraph
+//             }
+//           }
+//           personPicture {
+//             alt
+//             image {
+//               childImageSharp {
+//                 fluid(maxWidth: 600) {
+//                   ...GatsbyImageSharpFluid_withWebp
+//                 }
+//               }
+//             }
+//           }
+//           backgroundImage {
+//             alt
+//             image {
+//               childImageSharp {
+//                 fluid(maxWidth: 600) {
+//                   ...GatsbyImageSharpFluid_withWebp
+//                 }
+//               }
+//             }
+//           }
+//         }
+//         coursesArea {
+//           heading
+//           blurb
+//         }
+//         articlesArea {
+//           heading
+//           blurb
+//         }
+//         testimonialsArea {
+//           testimonials {
+//             quote
+//             author
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;

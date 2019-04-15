@@ -20,7 +20,7 @@ const LogoWrapper = styled.div`
     width: 200px;
     & {
       padding: 10px 0;
-      height: ${props => (props.isSticky ? "80px" : "100px")};
+      height: ${props => (props.isSticky ? "80px" : "80px")};
       -webkit-transition: height 0.2s linear 0s;
       transition: height 0.2s linear 0s;
     }
@@ -38,7 +38,7 @@ const StyledImg = styled(Img)`
   `}
 
   @media screen and (min-width: 992px) {
-    height: ${props => (props.isSticky ? "60px" : "80px")};
+    height: ${props => (props.isSticky ? "60px" : "60px")};
     -webkit-transition: height 0.2s linear 0s;
     transition: height 0.2s linear 0s;
   }
@@ -56,7 +56,7 @@ export default function Logo(props) {
                 image {
                   childImageSharp {
                     fluid(maxWidth: 200) {
-                      ...GatsbyImageSharpFluid
+                      ...GatsbyImageSharpFluid_withWebp_noBase64
                     }
                   }
                 }

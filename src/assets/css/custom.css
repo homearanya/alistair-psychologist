@@ -22,7 +22,7 @@
 
 /* generic */
 
-.slick-dots li {
+.page_testimonials .slick-dots li {
     height: auto;
     margin: 0;
     padding: 0 10px;
@@ -31,7 +31,7 @@
     width: auto;
 }
 
-.slick-dots li button {
+.page_testimonials .slick-dots li button {
     background-clip: content-box;
     height: 16px;
     line-height: 28px;
@@ -44,7 +44,7 @@
     z-index: 10;
 }
 
-.slick-dots li button::before {
+.page_testimonials .slick-dots li button::before {
     background-color: rgba(255, 255, 255, 0.5);
     content: "";
     height: 10px;
@@ -59,12 +59,89 @@
     z-index: 9;
 }
 
-.slick-dots li.slick-active button {
+.page_testimonials .slick-dots li.slick-active button {
     border-color: #ffffff;
     background-color: #ffffff;
 }
 
-.slick-dots li.slick-active button::before {
+.page_testimonials .slick-dots li.slick-active button::before {
     height: 16px;
     width: 16px;
+}
+
+
+/* For CSS Transition Group */
+
+
+/* SlideDown animation styles */
+
+.slideDown-enter {
+    bottom: 100% !important;
+    /* display: none; */
+}
+
+.slideDown-enter-active {
+    bottom: 0 !important;
+    /* display: block; */
+    transition: all 300ms ease-in !important;
+}
+
+.slideDown-exit {
+    /* display: block; */
+    bottom: 0 !important;
+}
+
+.slideDown-exit-active {
+    /* display: none; */
+    bottom: 100% !important;
+    transition: all 300ms ease-in !important;
+}
+
+
+/* SlideUp animation styles */
+
+.slideUp-enter {
+    height: 0 !important;
+}
+
+.slideUp-enter-active {
+    height: 100% !important;
+    transition: all 300ms ease-in !important;
+}
+
+.slideUp-exit {
+    height: 100% !important;
+}
+
+.slideUp-exit-active {
+    height: 0 !important;
+    transition: all 300ms ease-in !important;
+}
+
+
+/* Fade animation styles */
+
+.fade-dropdown-menu-enter {
+    opacity: 0.01 !important;
+}
+
+.fade-dropdown-menu-enter-active {
+    opacity: 1 !important;
+    transition: all 300ms ease-in !important;
+}
+
+.fade-dropdown-menu-exit {
+    opacity: 1 !important;
+}
+
+.fade-dropdown-menu-exit-active {
+    opacity: 0.01 !important;
+    transition: all 300ms ease-in !important;
+}
+
+
+/* make all blurbs the same colour */
+
+.section_header+p {
+    color: #787878;
 }

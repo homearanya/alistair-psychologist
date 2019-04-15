@@ -1,54 +1,85 @@
 import React from "react";
-import ScrollToTop from "react-scroll-up";
-import styled from "styled-components";
+import { StaticQuery, graphql } from "gatsby";
+import Helmet from "react-helmet";
 
 import "../assets/css/bootstrap.min.css";
-import "../assets/css/animations.css";
-import "../assets/css/fonts.css";
 import "../assets/css/main.css";
-import "../assets/css/main.css";
-import "../assets/css/scrollUp.css";
+import "../assets/css/custom.css";
 
 import HeaderTop from "./HeaderTop";
 import { Header } from "./Header";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
-
-const IStyled = styled.i`
-  background: rgba(145, 208, 204, 0.7) none repeat scroll 0 0;
-  bottom: 45px;
-  color: #ffffff;
-  cursor: pointer;
-  display: block;
-  font-size: 28px;
-  height: 45px;
-  line-height: 40px;
-  position: fixed;
-  right: 12px;
-  text-align: center;
-  width: 45px;
-  z-index: 9999;
-
-  :hover {
-    background-color: #91d0cc;
-  }
-`;
+import ScrollUp from "./ScrollUp";
 
 export default function Layout(props) {
   return (
-    <div>
-      <div id="canvas">
-        <div id="box_wrapper">
-          <HeaderTop appointmentButton={props.appointmentButton} />
-          <Header />
-          {props.children}
-          {/* <Footer /> */}
-          <FooterBottom />
-          <ScrollToTop style={{ position: "static" }} showUnder={160}>
-            <IStyled className="fa fa-angle-up" />
-          </ScrollToTop>
-        </div>
-      </div>
-    </div>
+    <StaticQuery
+      query={graphql`
+        query LayoutQuery {
+          SiteMetaDataQuery: site {
+            siteMetadata {
+              title
+            }
+          }
+        }
+      `}
+      render={data => {
+        const siteTitle = data.SiteMetaDataQuery.siteMetadata.title;
+        const titleTemplate = `%s · ${siteTitle}`;
+        return (
+          <React.Fragment>
+            <Helmet
+              key="app-head"
+              titleTemplate={titleTemplate}
+              defaultTitle={siteTitle}
+            >
+              <html lang="en" />
+
+              <meta charSet="utf-8" />
+              <meta
+                name="viewport"
+                content="initial-scale=1.0, width=device-width"
+              />
+              {/* google search console */}
+              {/* <meta
+                name="google-site-verification"
+                content="5Fs1mwvNeUdz1y6CfK5miXOOFUra094G_nhpRiVyXXQ"
+              /> */}
+              {/* Font Awesome */}
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/solid.js"
+                integrity="sha384-6FXzJ8R8IC4v/SKPI8oOcRrUkJU8uvFK6YJ4eDY11bJQz4lRw5/wGthflEOX8hjL"
+                crossorigin="anonymous"
+              />
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/brands.js"
+                integrity="sha384-zJ8/qgGmKwL+kr/xmGA6s1oXK63ah5/1rHuILmZ44sO2Bbq1V3p3eRTkuGcivyhD"
+                crossorigin="anonymous"
+              />
+              <script
+                defer
+                src="https://use.fontawesome.com/releases/v5.7.1/js/fontawesome.js"
+                integrity="sha384-Qmms7kHsbqYnKkSwiePYzreT+ufFVSNBhfLOEp0sEEfEVdORDs/aEnGaJy/l4eoy"
+                crossorigin="anonymous"
+              />
+            </Helmet>
+
+            <div id="canvas">
+              <div id="box_wrapper">
+                <HeaderTop appointmentButton={props.appointmentButton} />
+                <Header currentPageSlug={props.currentPageSlug} />
+                {props.children}
+                {/* <Footer /> */}
+                <FooterBottom />
+                <ScrollUp />
+              </div>
+            </div>
+          </React.Fragment>
+        );
+      }}
+    />
   );
 }

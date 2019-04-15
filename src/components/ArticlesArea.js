@@ -1,154 +1,71 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
-import "../assets/css/blogArea.css";
+import ArticleThumbnail from "../components/ArticleThumbnail";
 
-import blog_post1 from "../assets/images/blog_post1.jpg";
-import blog_post2 from "../assets/images/blog_post2.jpg";
-import blog_post3 from "../assets/images/blog_post3.jpg";
-
-export default function ArticlesArea() {
+export default function ArticlesArea(props) {
   return (
-    <section className="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 text-center">
-            <h2 className="section_header with_icon">Recent Articles</h2>
-            <p>
-              Exercitation cupim ex, short ribs cow in ullamco corned beef
-              veniam kevin. Eu frankfurter ham hock ball tip reprehenderit
-              adipisicing ipsum jerky tenderloin aliquip.
-            </p>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-4 text-center">
-            <article className="vertical-item content-padding post format-standard with_shadow">
-              <div className="item-media entry-thumbnail">
-                <img src={blog_post1} alt="" />
+    <StaticQuery
+      query={graphql`
+        query ArticleQuery {
+          allMarkdownRemark(
+            limit: 3
+            sort: { order: DESC, fields: [frontmatter___date] }
+            filter: { frontmatter: { templateKey: { eq: "article-page" } } }
+          ) {
+            edges {
+              node {
+                excerpt(pruneLength: 200)
+                id
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                  intro
+                  date(formatString: "MMMM DD, YYYY")
+                  thumbnailimage {
+                    alt
+                    image {
+                      childImageSharp {
+                        fluid(maxWidth: 400) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const { edges: articles } = data.allMarkdownRemark;
+        return (
+          <section className="ls section_padding_top_130 section_padding_bottom_100 columns_margin_top_0 columns_margin_bottom_30">
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-12 text-center">
+                  <h2 className="section_header ">
+                    {props.articlesArea.heading}
+                  </h2>
+                  <p> {props.articlesArea.blurb} </p>
+                </div>
               </div>
-
-              <div className="item-content entry-content">
-                <header className="entry-header">
-                  <div className="entry-date small-text highlight">
-                    <a href="blog-right.html" rel="bookmark">
-                      <time
-                        className="entry-date"
-                        dateTime="2017-03-13T08:50:40+00:00"
-                      >
-                        March 13, 2017
-                      </time>
-                    </a>
-                  </div>
-
-                  <h4 className="entry-title">
-                    <a href="blog-single-right.html" rel="bookmark">
-                      How to avoid hostile attitude
-                    </a>
-                  </h4>
-
-                  <hr className="divider_30_1" />
-                </header>
-
-                <p className="bottommargin_40 fontsize_18">
-                  Exercitation cupim ex, short ribs cow in ullamco corned beef
-                  veniam kevin eu frankfurter...
-                </p>
-
-                <a
-                  href="blog-single-right.html"
-                  className="theme_button color1"
-                >
-                  Read article
-                </a>
+              <div className="row mosaic-post">
+                {articles.map(({ node: article }) => (
+                  <ArticleThumbnail
+                    article={article}
+                    key={article.id}
+                    siteUrl={props.siteUrl}
+                  />
+                ))}
               </div>
-            </article>
-          </div>
-          <div className="col-md-4 text-center">
-            <article className="vertical-item content-padding post format-standard with_shadow">
-              <div className="item-media entry-thumbnail">
-                <img src={blog_post2} alt="" />
-              </div>
-
-              <div className="item-content entry-content">
-                <header className="entry-header">
-                  <div className="entry-date small-text highlight">
-                    <a href="blog-right.html" rel="bookmark">
-                      <time
-                        className="entry-date"
-                        dateTime="2017-03-13T08:50:40+00:00"
-                      >
-                        March 13, 2017
-                      </time>
-                    </a>
-                  </div>
-
-                  <h4 className="entry-title">
-                    <a href="blog-single-right.html" rel="bookmark">
-                      How to avoid hostile attitude
-                    </a>
-                  </h4>
-
-                  <hr className="divider_30_1" />
-                </header>
-
-                <p className="bottommargin_40 fontsize_18">
-                  Exercitation cupim ex, short ribs cow in ullamco corned beef
-                  veniam kevin eu frankfurter...
-                </p>
-
-                <a
-                  href="blog-single-right.html"
-                  className="theme_button color1"
-                >
-                  Read article
-                </a>
-              </div>
-            </article>
-          </div>
-          <div className="col-md-4 text-center">
-            <article className="vertical-item content-padding post format-standard with_shadow">
-              <div className="item-media entry-thumbnail">
-                <img src={blog_post3} alt="" />
-              </div>
-
-              <div className="item-content entry-content">
-                <header className="entry-header">
-                  <div className="entry-date small-text highlight">
-                    <a href="blog-right.html" rel="bookmark">
-                      <time
-                        className="entry-date"
-                        dateTime="2017-03-13T08:50:40+00:00"
-                      >
-                        March 13, 2017
-                      </time>
-                    </a>
-                  </div>
-
-                  <h4 className="entry-title">
-                    <a href="blog-single-right.html" rel="bookmark">
-                      How to avoid hostile attitude
-                    </a>
-                  </h4>
-
-                  <hr className="divider_30_1" />
-                </header>
-
-                <p className="bottommargin_40 fontsize_18">
-                  Exercitation cupim ex, short ribs cow in ullamco corned beef
-                  veniam kevin eu frankfurter...
-                </p>
-
-                <a
-                  href="blog-single-right.html"
-                  className="theme_button color1"
-                >
-                  Read article
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+            </div>
+          </section>
+        );
+      }}
+    />
   );
 }
