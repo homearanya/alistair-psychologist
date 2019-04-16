@@ -4,11 +4,19 @@ import Img from "gatsby-image";
 export default function Slide(props) {
   return (
     <div>
-      <Img
-        fluid={props.imageFluid}
-        alt={props.imageAlt}
-        title={props.imageTitle}
-      />
+      {typeof props.imageFluid === "string" ? (
+        <img
+          src={props.imageFluid}
+          alt={props.imageAlt}
+          title={props.imageTitle}
+        />
+      ) : (
+        <Img
+          fluid={props.imageFluid}
+          alt={props.imageAlt}
+          title={props.imageTitle}
+        />
+      )}
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">

@@ -7,6 +7,8 @@ backend:
 media_folder: static/img
 public_folder: /img
 publish_mode: editorial_workflow
+site_url: https://www.alistairmork-chadwick.co.za/
+display_url: https://www.alistairmork-chadwick.co.za/
 
 collections:
   - name: "pages"
@@ -22,6 +24,13 @@ collections:
               widget: hidden,
               default: "home-page",
             }
+          - label: "Service"
+            name: "testService"
+            widget: "relation"
+            collection: "services"
+            searchFields: ["service_id"]
+            valueField: "service_id"
+            displayFields: ["service_id"]
           - { label: "Excerpt", 
               name: excerpt, 
               widget: text, 
@@ -71,9 +80,9 @@ collections:
                     name: "service"
                     widget: "relation"
                     collection: "services"
-                    searchFields: ["title"]
-                    valueField: "title"
-                    displayFields: ["title"]
+                    searchFields: ["service_id"]
+                    valueField: "service_id"
+                    displayFields: ["service_id"]
                     hint: Very important!!!! It has to be exactly the same name as of the service on the services colection
           - label: "About Me Area"
             name: aboutMeArea
@@ -319,113 +328,6 @@ collections:
   - name: "mindfulnessTraining"
     label: "Mindfulness Training"
     files:
-      # - file: "src/pages/services/mindfulness-training/mindfulness-based-stress-reduction-course.md"
-      #   label: "Mindfulness-Based Stress Reduction Course"
-      #   name: "mbsrc"
-      #   fields:
-      #     - {
-      #         label: "Template Key",
-      #         name: templateKey,
-      #         widget: hidden,
-      #         default: "mindfulness-training-page",
-      #       }
-      #     - { label: "Title", name: "title", widget: "string" }
-      #     - { label: "Excerpt", 
-      #         name: excerpt, 
-      #         widget: text, 
-      #         hint: "Please inform. Max 160 characters. Important for SEO." 
-      #       }
-      #     - { label: "Body", name: "body", widget: "markdown" }
-      #     - label: "Banner Image"
-      #       name: bannerimage
-      #       widget: object
-      #       required: false
-      #       fields:
-      #         - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-      #         - {
-      #             label: Title,
-      #             name: alt,
-      #             widget: text,
-      #             hint: "Please inform. Important for SEO",
-      #           }
-      #     - label: "Body Image"
-      #       name: bodyimage
-      #       widget: object
-      #       required: false
-      #       fields:
-      #         - { label: Image, name: image, widget: image, hint: "370 x 490" }
-      #         - {
-      #             label: Title,
-      #             name: alt,
-      #             widget: text,
-      #             hint: "Please inform. Important for SEO",
-      #           }
-      #         - label: "Testimonials Area"
-      #           name: testimonialsArea
-      #           widget: object
-      #           fields:
-      #             - label: "Testimonials"
-      #               label_singular: "Testimonial"
-      #               name: testimonials
-      #               widget: list
-      #               fields:
-      #                 - { label: Quote, name: quote, widget: text }
-      #                 - { label: Author, name: author, widget: string }
-
-
-      # - file: "src/pages/services/mindfulness-training/mindfulness-based-pain-management-course.md"
-      #   label: "Mindfulness-Based Pain Management Course"
-      #   name: "mbpmc"
-      #   fields:
-      #     - {
-      #         label: "Template Key",
-      #         name: templateKey,
-      #         widget: hidden,
-      #         default: "mindfulness-training-page",
-      #       }
-      #     - { label: "Title", name: "title", widget: "string" }
-      #     - { label: "Excerpt", 
-      #         name: excerpt, 
-      #         widget: text, 
-      #         hint: "Please inform. Max 160 characters. Important for SEO. If not I will use blurb text" 
-      #       }
-      #     - { label: "Body", name: "body", widget: "markdown" }
-      #     - label: "Banner Image"
-      #       name: bannerimage
-      #       widget: object
-      #       required: false
-      #       fields:
-      #         - { label: Image, name: image, widget: image, hint: "1600 x 195" }
-      #         - {
-      #             label: Title,
-      #             name: alt,
-      #             widget: text,
-      #             hint: "Please inform. Important for SEO",
-      #           }
-      #     - label: "Body Image"
-      #       name: bodyimage
-      #       widget: object
-      #       required: false
-      #       fields:
-      #         - { label: Image, name: image, widget: image, hint: "370 x 490" }
-      #         - {
-      #             label: Title,
-      #             name: alt,
-      #             widget: text,
-      #             hint: "Please inform. Important for SEO",
-      #           }
-      #         - label: "Testimonials Area"
-      #           name: testimonialsArea
-      #           widget: object
-      #           fields:
-      #             - label: "Testimonials"
-      #               label_singular: "Testimonial"
-      #               name: testimonials
-      #               widget: list
-      #               fields:
-      #                 - { label: Quote, name: quote, widget: text }
-      #                 - { label: Author, name: author, widget: string }
-                      
       - file: "src/pages/services/mindfulness-training/frequently-asked-questions.md"
         label: "Frequently Asked Questions"
         name: "faq"

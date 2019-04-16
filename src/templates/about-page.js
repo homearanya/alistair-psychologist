@@ -21,8 +21,8 @@ const YouTubeContainer = styled.div`
   }
 `;
 
-export const AboutPageTemplate = ({ content }) => {
-  const AboutContent = HTMLContent || Content;
+export const AboutPageTemplate = ({ content, contentComponent }) => {
+  const AboutContent = contentComponent || Content;
   return (
     <section className="ls section_padding_100 columns_padding_25">
       <div className="container">
@@ -73,7 +73,10 @@ export default function({ data }) {
         pageTitle="About Me"
         pages={JSON.parse(JSON.stringify(pages))}
       />
-      <AboutPageTemplate content={data.markdownRemark.html} />
+      <AboutPageTemplate
+        contentComponent={HTMLContent}
+        content={data.markdownRemark.html}
+      />
       {/* <section className="ls section_padding_100 columns_padding_25">
         <div className="container">
           <div className="row">

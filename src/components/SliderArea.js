@@ -25,7 +25,11 @@ export default function SliderArea(props) {
           return (
             <Slide
               key={index}
-              imageFluid={slide.image.image.childImageSharp.fluid}
+              imageFluid={
+                slide.image.image.childImageSharp
+                  ? slide.image.image.childImageSharp.fluid
+                  : slide.image.image
+              }
               imageAlt={slide.image.alt}
               imageTitle={slide.heading1 + " " + slide.heading2}
               heading1={slide.heading1}

@@ -1,5 +1,6 @@
 ---
 templateKey: home-page
+testService: Personal Counselling
 excerpt: >-
   Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He
   offers personal counselling, career guidance, psychological assessments and
