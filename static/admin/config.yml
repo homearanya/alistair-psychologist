@@ -24,13 +24,6 @@ collections:
               widget: hidden,
               default: "home-page",
             }
-          - label: "Service"
-            name: "testService"
-            widget: "relation"
-            collection: "services"
-            searchFields: ["service_id"]
-            valueField: "service_id"
-            displayFields: ["service_id"]
           - { label: "Excerpt", 
               name: excerpt, 
               widget: text, 

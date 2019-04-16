@@ -9,14 +9,16 @@ const ServiceIcon = styled.div`
   width: 80px;
 `;
 const ServiceHeading = styled.h4`
-  && {
+  &&& {
     font-size: 14px;
     color: #444444;
   }
 `;
 
 const ServiceText = styled.p`
-  color: #787878;
+  &&& {
+    color: #787878;
+  }
 `;
 
 export default function Service(props) {
@@ -26,14 +28,22 @@ export default function Service(props) {
       <Link to={`${serviceSlug}#start-content`}>
         <div className="with_padding text-center teaser hover_shadow">
           <ServiceIcon>
-            <Img
-              fixed={
-                props.service.frontmatter.thumbnailimage.image.childImageSharp
-                  .fixed
-              }
-              alt={props.service.frontmatter.thumbnailimage.alt}
-              title={props.service.frontmatter.thumbnailimage.alt}
-            />
+            {props.service.frontmatter.thumbnailimage.image.childImageSharp ? (
+              <Img
+                fixed={
+                  props.service.frontmatter.thumbnailimage.image.childImageSharp
+                    .fixed
+                }
+                alt={props.service.frontmatter.thumbnailimage.alt}
+                title={props.service.frontmatter.thumbnailimage.alt}
+              />
+            ) : (
+              <img
+                src={props.service.frontmatter.thumbnailimage.image}
+                alt={props.service.frontmatter.thumbnailimage.alt}
+                title={props.service.frontmatter.thumbnailimage.alt}
+              />
+            )}
           </ServiceIcon>
           <ServiceHeading>{props.service.frontmatter.title}</ServiceHeading>
           <ServiceText>{props.service.frontmatter.intro}</ServiceText>
