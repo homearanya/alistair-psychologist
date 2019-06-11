@@ -179,6 +179,12 @@ module.exports = {
       }
     },
     "gatsby-plugin-netlify-identity-widget",
+    {
+      resolve: "gatsby-plugin-netlify-cache",
+      options: {
+        cachePublic: true
+      }
+    },
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ],
   mapping: {
