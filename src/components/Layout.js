@@ -8,7 +8,6 @@ import "../assets/css/custom.css";
 
 import HeaderTop from "./HeaderTop";
 import { Header } from "./Header";
-// import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
 import ScrollUp from "./ScrollUp";
 
@@ -41,12 +40,6 @@ export default function Layout(props) {
                 name="viewport"
                 content="initial-scale=1.0, width=device-width"
               />
-              {/* google search console */}
-              {/* <meta
-                name="google-site-verification"
-                content="5Fs1mwvNeUdz1y6CfK5miXOOFUra094G_nhpRiVyXXQ"
-              /> */}
-              {/* Font Awesome */}
               <script
                 defer
                 src="https://use.fontawesome.com/releases/v5.7.1/js/solid.js"
@@ -72,7 +65,6 @@ export default function Layout(props) {
                 <HeaderTop appointmentButton={props.appointmentButton} />
                 <Header currentPageSlug={props.currentPageSlug} />
                 {props.children}
-                {/* <Footer /> */}
                 <FooterBottom />
                 <ScrollUp />
               </div>
