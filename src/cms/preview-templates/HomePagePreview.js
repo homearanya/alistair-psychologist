@@ -6,10 +6,10 @@ import { slugify } from "../../assets/utils/helpers";
 import SliderArea from "../../components/SliderArea";
 import ServicesArea from "../../components/ServicesArea";
 
-let servicesObject = new Object();
+let servicesObject = {};
 
 const HomePagePreview = props => {
-  const { entry, widgetsFor, fieldsMetaData } = props;
+  const { entry, fieldsMetaData } = props;
   const data = entry.getIn(["data"]).toJS();
 
   data.servicesArea.services.forEach(service => {
