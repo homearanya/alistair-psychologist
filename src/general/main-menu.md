@@ -32,4 +32,3 @@ menuItems:
   - link: /contact/
     name: Contact
 ---
-
