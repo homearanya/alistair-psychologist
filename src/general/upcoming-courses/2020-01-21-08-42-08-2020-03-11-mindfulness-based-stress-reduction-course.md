@@ -1,16 +1,16 @@
 ---
 templateKey: upcoming-courses
-title: "2019-04-17 Mindfulness-Based Stress Reduction Course"
+title: "2020-02-21 Mindfulness-Based Stress Reduction Course"
 courseName: "Mindfulness-Based Stress Reduction Course"
-dateStart: 2019-04-16T22:00:00.000Z
-dateEnd: 2019-06-04T22:00:00.000Z
+dateStart: 2020-01-20T22:00:00.000Z
+dateEnd: 2020-03-10T22:00:00.000Z
 venue: ""
 thumbnailimage:
   alt: Mindfulness-Based Stress Reduction Course
   image: /img/mindfulness-training-stress-course-thumbnail.jpg
 ---
 
-#### (8 weeks)
+#### (6 weeks)
 
 ---
 
@@ -18,7 +18,7 @@ thumbnailimage:
 
 A 1- hour introductory talk for anyone who would like to know more about the course before signing up.
 
-Date: **10th April 2019**  
+Date: **21st January 2020**  
 Time: **18:00-19:00**  
 Venue: **To be decided**
 
