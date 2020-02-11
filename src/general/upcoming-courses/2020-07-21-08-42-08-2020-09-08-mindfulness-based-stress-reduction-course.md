@@ -10,7 +10,7 @@ thumbnailimage:
   image: /img/mindfulness-training-stress-course-thumbnail.jpg
 ---
 
-#### (6 weeks)
+#### (8 weeks)
 
 ---
 
