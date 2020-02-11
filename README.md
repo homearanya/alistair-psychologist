@@ -14,4 +14,4 @@ The contact form logic is hosted on AWS. I used the [Serverless Framework](https
 
 The site has a headless CMS, in particular [Netlify CMS](https://www.netlifycms.org/). For this, I followed the docs on Gatsby's site: [Sourcing from Netlify CMS](https://www.gatsbyjs.org/docs/sourcing-from-netlify-cms/#sourcing-from-netlify-cms).
 
-The site is hosted for free in [Netlify](https://www.netlify.com/). Kudos to these guys.
+The site is hosted for free in [Netlify](https://www.netlify.com/). Kudos to these guys
