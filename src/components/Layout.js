@@ -1,15 +1,15 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Helmet from "react-helmet";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import Helmet from "react-helmet"
 
-import "../assets/css/bootstrap.min.css";
-import "../assets/css/main.css";
-import "../assets/css/custom.css";
+import "../assets/css/bootstrap.min.css"
+import "../assets/css/main.css"
+import "../assets/css/custom.css"
 
-import HeaderTop from "./HeaderTop";
-import { Header } from "./Header";
-import FooterBottom from "./FooterBottom";
-import ScrollUp from "./ScrollUp";
+import HeaderTop from "./HeaderTop"
+import { Header } from "./Header"
+import FooterBottom from "./FooterBottom"
+import ScrollUp from "./ScrollUp"
 
 export default function Layout(props) {
   return (
@@ -23,9 +23,9 @@ export default function Layout(props) {
           }
         }
       `}
-      render={data => {
-        const siteTitle = data.SiteMetaDataQuery.siteMetadata.title;
-        const titleTemplate = `%s · ${siteTitle}`;
+      render={(data) => {
+        const siteTitle = data.SiteMetaDataQuery.siteMetadata.title
+        const titleTemplate = `%s · ${siteTitle}`
         return (
           <React.Fragment>
             <Helmet
@@ -58,6 +58,11 @@ export default function Layout(props) {
                 integrity="sha384-Qmms7kHsbqYnKkSwiePYzreT+ufFVSNBhfLOEp0sEEfEVdORDs/aEnGaJy/l4eoy"
                 crossorigin="anonymous"
               />
+
+              <meta
+                name="norton-safeweb-site-verification"
+                content="6vlf59y1-8x6et5qfhdovjmulyw5qbv0w88u98yq1wbbt2n9npbw2do006rbggzlrl6bc7r4gzxeienwowz3714rvo69q4ka8ww0pwe-mhqm734ksz5yp544uk2o1wnr"
+              />
             </Helmet>
 
             <div id="canvas">
@@ -70,8 +75,8 @@ export default function Layout(props) {
               </div>
             </div>
           </React.Fragment>
-        );
+        )
       }}
     />
-  );
+  )
 }
