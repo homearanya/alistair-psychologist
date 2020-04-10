@@ -6,6 +6,8 @@
   NODE_VERSION = "12.14.1"
   NODE_OPTIONS = "--max_old_space_size=4096"
   RUBY_VERSION = "2.6.2"
+  YARN_VERSION = "1.22.4"
+  YARN_FLAGS = "--no-ignore-optional"
 # Headers 
 [[headers]]
   for = "/static/*"
