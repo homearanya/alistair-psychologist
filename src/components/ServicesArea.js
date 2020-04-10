@@ -1,13 +1,10 @@
-import React from "react";
+import React from "react"
 
-import Service from "./Service";
+import Service from "./Service"
 
 export default function ServicesArea(props) {
   return (
-    <section
-      id="services"
-      className="ls section_padding_top_130 section_padding_bottom_100"
-    >
+    <section id="services" className="ls section_padding_top_130">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -16,11 +13,11 @@ export default function ServicesArea(props) {
           </div>
         </div>
         <div className="row columns_padding_0 columns_margin_0 fontsize_16">
-          {props.servicesArea.services.map(service => (
+          {props.servicesArea.services.map((service) => (
             <Service key={service.service.id} service={service.service} />
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

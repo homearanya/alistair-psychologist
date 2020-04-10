@@ -1,33 +1,34 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import rehypeReact from "rehype-react";
+import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+import rehypeReact from "rehype-react"
+import styled from "styled-components"
 
-import Layout from "../components/Layout";
-import Breadcrumbs from "../components/Breadcrumbs";
-import PrevNextArticle from "../components/PrevNextArticle";
-import SEO from "../components/SEO/SEO";
-import DynamicAnchor from "../components/DynamicAnchor";
+import Layout from "../components/Layout"
+import Breadcrumbs from "../components/Breadcrumbs"
+import PrevNextArticle from "../components/PrevNextArticle"
+import SEO from "../components/SEO/SEO"
+import DynamicAnchor from "../components/DynamicAnchor"
 
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: {}
-}).Compiler;
+  components: {},
+}).Compiler
 
 export default function({ data, pageContext }) {
-  const { markdownRemark: article } = data;
+  const { markdownRemark: article } = data
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
     { title: "Articles", href: "/articles/" },
-    { title: article.frontmatter.title, href: null }
-  ];
+    { title: article.frontmatter.title, href: null },
+  ]
   // article images
   const articleImage =
     article.frontmatter.bodyimage &&
     article.frontmatter.bodyimage.image &&
-    article.frontmatter.bodyimage.image.relativePath;
+    article.frontmatter.bodyimage.image.relativePath
   const pageMeta = {
     title: article.frontmatter.title,
     description:
@@ -36,8 +37,8 @@ export default function({ data, pageContext }) {
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
     articleImage: articleImage,
     slug: article.fields.slug,
-    datePublished: article.frontmatter.date
-  };
+    datePublished: article.frontmatter.date,
+  }
   return (
     <Layout currentPageSlug={article.fields.slug}>
       <SEO
@@ -85,9 +86,9 @@ export default function({ data, pageContext }) {
                     <hr className="divider_30_1" />
                   </header>
 
-                  <div className="entry-content">
+                  <StyledContent className="entry-content">
                     {renderAst(article.htmlAst)}
-                  </div>
+                  </StyledContent>
                 </div>
               </div>
 
@@ -104,7 +105,7 @@ export default function({ data, pageContext }) {
         </div>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const articlePageQuery = graphql`
@@ -143,4 +144,59 @@ export const articlePageQuery = graphql`
       }
     }
   }
-`;
+`
+
+const StyledContent = styled.div`
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 36px;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  a {
+    font-weight: 500;
+  }
+
+  blockquote {
+    font-size: 22px;
+    text-transform: none;
+
+    p:last-child {
+      font-size: 18px;
+    }
+  }
+
+  table {
+    margin: 30px 0;
+    border: 1px solid #6c6c6c;
+    border-collapse: collapse;
+    border-spacing: 0px;
+    th,
+    td {
+      border: 1px solid #6c6c6c;
+      color: #787878;
+    }
+  }
+
+  .framed {
+    border: 1px solid #6c6c6c;
+    padding: 20px;
+    margin: 30px 0;
+  }
+`

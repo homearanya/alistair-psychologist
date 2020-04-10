@@ -1,6 +1,6 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 export const contactDetailsFragment = graphql`
   fragment ContactDetailsFragment on File {
@@ -21,30 +21,7 @@ export const contactDetailsFragment = graphql`
       }
     }
   }
-`;
-
-const Wrapper = styled.div`
-  @media screen and (min-width: 992px) {
-    line-height: ${props => !props.appointmentButton && "52px"};
-  }
-`;
-
-const AElement = styled.a`
-  && {
-    :hover {
-      color: #4bb0a9;
-    }
-  }
-`;
-
-const IElement = styled.i`
-  && {
-    ${AElement}:hover & {
-      color: #4bb0a9;
-      transition: all 0.2s ease-in-out 0s;
-    }
-  }
-`;
+`
 
 export default function ContactDetails(props) {
   return (
@@ -57,7 +34,7 @@ export default function ContactDetails(props) {
         }
       `}
       render={data => {
-        const { contact_details } = data.file.childMarkdownRemark.frontmatter;
+        const { contact_details } = data.file.childMarkdownRemark.frontmatter
         return (
           <Wrapper
             className="col-md-9 text-center divided_content"
@@ -103,8 +80,42 @@ export default function ContactDetails(props) {
               </div>
             </AElement>
           </Wrapper>
-        );
+        )
       }}
     />
-  );
+  )
 }
+
+const Wrapper = styled.div`
+  @media screen and (min-width: 992px) {
+    line-height: ${props => !props.appointmentButton && "52px"};
+  }
+
+  @media screen and (max-width: 767px) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+`
+
+const AElement = styled.a`
+  && {
+    :hover {
+      color: #4bb0a9;
+    }
+
+    @media screen and (max-width: 767px) {
+      ::before {
+        display: none;
+      }
+    }
+  }
+`
+
+const IElement = styled.i`
+  && {
+    ${AElement}:hover & {
+      color: #4bb0a9;
+      transition: all 0.2s ease-in-out 0s;
+    }
+  }
+`

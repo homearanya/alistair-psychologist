@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Helmet from "react-helmet"
+import CookieConsentModal from "./cookie-consent"
 
 import "../assets/css/bootstrap.min.css"
 import "../assets/css/main.css"
@@ -23,7 +24,7 @@ export default function Layout(props) {
           }
         }
       `}
-      render={(data) => {
+      render={data => {
         const siteTitle = data.SiteMetaDataQuery.siteMetadata.title
         const titleTemplate = `%s · ${siteTitle}`
         return (
@@ -71,6 +72,7 @@ export default function Layout(props) {
                 <Header currentPageSlug={props.currentPageSlug} />
                 {props.children}
                 <FooterBottom />
+                <CookieConsentModal />
                 <ScrollUp />
               </div>
             </div>

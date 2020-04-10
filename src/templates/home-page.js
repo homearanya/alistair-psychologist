@@ -1,27 +1,29 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from "react"
+import { graphql } from "gatsby"
 
-import Layout from "../components/Layout";
-import SliderArea from "../components/SliderArea";
-import ServicesArea from "../components/ServicesArea";
-import AboutArea from "../components/AboutArea";
-import CoursesArea from "../components/CoursesArea";
-import ArticlesArea from "../components/ArticlesArea";
-import TestimonialsArea from "../components/TestimonialsArea";
-import AppointmentArea from "../components/AppointmentArea";
-import SEO from "../components/SEO/SEO";
+import Layout from "../components/Layout"
+import SliderArea from "../components/SliderArea"
+import ServicesArea from "../components/ServicesArea"
+import AboutArea from "../components/AboutArea"
+import CoursesArea from "../components/CoursesArea"
+import ArticlesArea from "../components/ArticlesArea"
+import TestimonialsArea from "../components/TestimonialsArea"
+import OnlineTherapyCTA from "../components/OnlineTherapyCTA"
+import NewsletterCTA from "../components/NewsletterCTA"
+import AppointmentArea from "../components/AppointmentArea"
+import SEO from "../components/SEO/SEO"
 
 export default ({ data, location }) => {
   //   Prepare breadcrumbs
-  const pages = [{ title: "Home", href: null }];
-  const { fields, frontmatter } = data.homePageQuery;
+  const pages = [{ title: "Home", href: null }]
+  const { fields, frontmatter } = data.homePageQuery
   const pageMeta = {
     title: `Counselling Psychologist in Howick`,
     description:
       frontmatter.excerpt ||
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
-    slug: fields.slug
-  };
+    slug: fields.slug,
+  }
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
       <SEO
@@ -30,7 +32,9 @@ export default ({ data, location }) => {
       />
       <SliderArea slider={frontmatter.slider} />
       <ServicesArea id="services" servicesArea={frontmatter.servicesArea} />
+      <OnlineTherapyCTA />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
+      <NewsletterCTA />
       <CoursesArea
         coursesArea={frontmatter.coursesArea}
         siteUrl={location.origin}
@@ -45,8 +49,8 @@ export default ({ data, location }) => {
         )}
       <AppointmentArea />
     </Layout>
-  );
-};
+  )
+}
 
 export const homePageQuery = graphql`
   query HomePage($id: String!) {
@@ -143,4 +147,4 @@ export const homePageQuery = graphql`
       }
     }
   }
-`;
+`

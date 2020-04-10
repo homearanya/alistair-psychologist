@@ -25,6 +25,13 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://alistairmork-chadwick.us18.list-manage.com/subscribe/post?u=cadc5e7608830da642a5e13a8&amp;id=87f001310d" // add your MC list endpoint here; see instructions below
+      }
+    },
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.alistairmork-chadwick.co.za",
@@ -191,4 +198,4 @@ module.exports = {
     "MarkdownRemark.frontmatter.servicesArea.services.service": `MarkdownRemark.frontmatter.service_id`,
     "MarkdownRemark.frontmatter.courseName": `MarkdownRemark.frontmatter.title`
   }
-};
+}

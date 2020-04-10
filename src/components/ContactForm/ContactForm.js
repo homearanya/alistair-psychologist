@@ -1,102 +1,17 @@
-import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
-import Loader from "react-loader-spinner";
-import styled from "styled-components";
-
-const HoneypotWrapper = styled.div`
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 0;
-  z-index: -1;
-`;
-
-const StyledForm = styled.form`
-  && {
-    margin-bottom: -30px;
-  }
-`;
-
-const ResultWrapper = styled.div`
-  height: 60px;
-  position: relative;
-  @media (min-width: 992px) {
-    margin-bottom: -70px;
-  }
-`;
-const ResultMessage = styled.div`
-  background: rgba(145, 208, 204, 0.9);
-  bottom: 0;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-`;
-
-const StyledText = styled.div`
-  color: white;
-  top: 50%;
-  left: 50%;
-  padding: 0 10px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  width: 100%;
-`;
-
-const LoaderContainer = styled.div`
-  color: white;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1;
-
-  svg {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-`;
-
-const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
-  &&& {
-    color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
-    background-color: #91d0cc;
-    :focus {
-      color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
-      background-color: #91d0cc;
-    }
-    :hover,
-    :active {
-      color: ${props => (props.loadSpinner ? "#d9be93" : "#ffffff")};
-      background-color: #d9be93;
-    }
-  }
-`;
-
-const ButtonContainer = styled.div`
-  position: relative;
-  text-align: center;
-`;
+import React, { Component } from "react"
+import { CSSTransition } from "react-transition-group"
+import Loader from "react-loader-spinner"
+import styled from "styled-components"
 
 export class ContactForm extends Component {
   constructor(props) {
-    super(props);
-    let subject = "";
-    if (this.props.subject) {
-      subject = this.props.subject;
-    }
+    super(props)
     this.state = {
       nameaksljf: "",
       reply_toaksljf: "",
       phone_numberaksljf: "",
-      subjectaksljf: subject,
-      messageaksljf: "",
+      subjectaksljf: this.props.subject ? this.props.subject : "",
+      messageaksljf: this.props.message ? this.props.message : "",
       name: "",
       reply_to: "",
       phone_number: "",
@@ -104,47 +19,48 @@ export class ContactForm extends Component {
       message: "",
       submissionResult: null,
       loadSpinner: false
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.sendEmail = this.sendEmail.bind(this)
   }
 
   handleChange(event) {
     switch (event.target.name) {
       // real fields
       case "nameaksljf":
-        this.setState({ nameaksljf: event.target.value });
-        break;
+        this.setState({ nameaksljf: event.target.value })
+        break
       case "reply_toaksljf":
-        this.setState({ reply_toaksljf: event.target.value });
-        break;
+        this.setState({ reply_toaksljf: event.target.value })
+        break
       case "subjectaksljf":
-        this.setState({ subjectaksljf: event.target.value });
-        break;
+        this.setState({ subjectaksljf: event.target.value })
+        break
       case "phone_numberaksljf":
-        this.setState({ phone_numberaksljf: event.target.value });
-        break;
+        this.setState({ phone_numberaksljf: event.target.value })
+        break
       case "messageaksljf":
-        this.setState({ messageaksljf: event.target.value });
-        break;
+        this.setState({ messageaksljf: event.target.value })
+        break
       // Honeypot fields
       case "name":
-        this.setState({ name: event.target.value });
-        break;
+        this.setState({ name: event.target.value })
+        break
       case "reply_to":
-        this.setState({ reply_to: event.target.value });
-        break;
+        this.setState({ reply_to: event.target.value })
+        break
       case "subject":
-        this.setState({ subject: event.target.value });
-        break;
+        this.setState({ subject: event.target.value })
+        break
       case "phone_number":
-        this.setState({ phone_number: event.target.value });
-        break;
+        this.setState({ phone_number: event.target.value })
+        break
       case "message":
-        this.setState({ message: event.target.value });
-        break;
+        this.setState({ message: event.target.value })
+        break
       default:
-        console.log("Wrong Case in Switch HandleChange");
+        console.log("Wrong Case in Switch HandleChange")
     }
   }
   sendEmail() {
@@ -162,31 +78,33 @@ export class ContactForm extends Component {
           nameaksljf: "",
           reply_toaksljf: "",
           phone_numberaksljf: "",
-          subjectaksljf: "",
-          messageaksljf: "",
+          subjectaksljf: this.props.subject ? this.props.subject : "",
+          messageaksljf: this.props.message ? this.props.message : "",
           name: "",
           reply_to: "",
           phone_number: "",
           subject: "",
           message: "",
-          submissionResult: "Thanks for the message. I’ll be in touch shortly.",
+          submissionResult: this.props.submissionResult
+            ? this.props.submissionResult
+            : "Thanks for the message. I’ll be in touch shortly.",
           loadSpinner: false
-        });
-      }, 2000);
-      return;
+        })
+      }, 2500)
+      return
     }
     // It's not spam. Let's construct an HTTP request
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest()
     xhr.open(
       "POST",
       "https://9rrxol8o33.execute-api.us-east-1.amazonaws.com/production/static-site-mailer-alistair",
       true
-    );
-    xhr.setRequestHeader("Accept", "application/json; charset=utf-8");
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    )
+    xhr.setRequestHeader("Accept", "application/json; charset=utf-8")
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8")
 
     // Send the collected data as JSON
-    xhr.send(JSON.stringify(this.state));
+    xhr.send(JSON.stringify(this.state))
 
     // Callback function
     xhr.onloadend = response => {
@@ -196,30 +114,35 @@ export class ContactForm extends Component {
           nameaksljf: "",
           reply_toaksljf: "",
           phone_numberaksljf: "",
-          subjectaksljf: "",
-          messageaksljf: "",
-          submissionResult: "Thanks for the message. I’ll be in touch shortly.",
+          subjectaksljf: this.props.subject ? this.props.subject : "",
+          messageaksljf: this.props.message ? this.props.message : "",
+          submissionResult: this.props.submissionResult
+            ? this.props.submissionResult
+            : "Thanks for the message. I’ll be in touch shortly.",
           loadSpinner: false
-        });
+        })
+        // if in modal window, close it
+        if (this.props.setShowPopup) {
+          setTimeout(() => this.props.setShowPopup(false), 2000)
+        }
       } else {
         // The form submission failed
         this.setState({
           submissionResult: "Something went wrong",
           loadSpinner: false
-        });
-        console.error(response);
+        })
+        console.error(response)
         // console.error(JSON.parse(response.target.response));
       }
-    };
+    }
   }
 
   handleSubmit = event => {
-    event.preventDefault();
-
+    event.preventDefault()
     this.setState({ loadSpinner: true, submissionResult: null }, () => {
-      this.sendEmail();
-    });
-  };
+      this.sendEmail()
+    })
+  }
 
   render() {
     return (
@@ -229,7 +152,7 @@ export class ContactForm extends Component {
           onSubmit={this.handleSubmit}
         >
           {/* Real Fields */}
-          <div className="col-sm-6">
+          <div className={this.props.oneColumn ? "col-sm-12" : "col-sm-6"}>
             <div className="contact-form-name">
               <label htmlFor="nameaksljf">
                 Your Name
@@ -250,7 +173,7 @@ export class ContactForm extends Component {
               />
             </div>
           </div>
-          <div className="col-sm-6">
+          <div className={this.props.oneColumn ? "col-sm-12" : "col-sm-6"}>
             <div className="contact-form-email">
               <label htmlFor="reply_toaksljf">
                 Email address
@@ -271,28 +194,31 @@ export class ContactForm extends Component {
               />
             </div>
           </div>
-          <div className="col-sm-6">
-            <div className="contact-form-subject">
-              <label htmlFor="subjectaksljf">
-                Subject
-                <span className="required">*</span>
-              </label>
-              <input
-                aria-label="Subject"
-                aria-required
-                required
-                type="text"
-                size="30"
-                name="subjectaksljf"
-                id="subjectaksljf"
-                className="form-control"
-                placeholder="How can I help you?"
-                value={this.state.subjectaksljf}
-                onChange={this.handleChange}
-              />
+          {this.props.hideSubject ? null : (
+            <div className={this.props.oneColumn ? "col-sm-12" : "col-sm-6"}>
+              <div className="contact-form-subject">
+                <label htmlFor="subjectaksljf">
+                  Subject
+                  <span className="required">*</span>
+                </label>
+                <input
+                  aria-label="Subject"
+                  aria-required
+                  required
+                  type="text"
+                  size="30"
+                  name="subjectaksljf"
+                  id="subjectaksljf"
+                  className="form-control"
+                  placeholder="How can I help you?"
+                  value={this.state.subjectaksljf}
+                  disabled={!!this.props.subject}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-sm-6">
+          )}
+          <div className={this.props.oneColumn ? "col-sm-12" : "col-sm-6"}>
             <div className="contact-form-phone">
               <label htmlFor="phone_numberaksljf">
                 Phone
@@ -312,24 +238,26 @@ export class ContactForm extends Component {
               />
             </div>
           </div>
-          <div className="col-sm-12">
-            <div className="contact-form-message">
-              <label htmlFor="messageaksljf">Message</label>
-              <textarea
-                aria-label="Message"
-                aria-required
-                required
-                rows="1"
-                cols="45"
-                name="messageaksljf"
-                id="messageaksljf"
-                className="form-control"
-                placeholder="Message"
-                value={this.state.messageaksljf}
-                onChange={this.handleChange}
-              />
+          {this.props.hideMessage ? null : (
+            <div className="col-sm-12">
+              <div className="contact-form-message">
+                <label htmlFor="messageaksljf">Message</label>
+                <textarea
+                  aria-label="Message"
+                  aria-required
+                  required
+                  rows="5"
+                  cols="45"
+                  name="messageaksljf"
+                  id="messageaksljf"
+                  className="form-control"
+                  placeholder="Message"
+                  value={this.state.messageaksljf}
+                  onChange={this.handleChange}
+                />
+              </div>
             </div>
-          </div>
+          )}
           {/* Honey Pots Fields */}
           <HoneypotWrapper>
             <div className="col-sm-6">
@@ -364,23 +292,25 @@ export class ContactForm extends Component {
                 />
               </div>
             </div>
-            <div className="col-sm-6 ">
-              <div className="contact-form-subject">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  size="30"
-                  name="subject"
-                  id="subject"
-                  className="form-control"
-                  placeholder="Subject"
-                  autoComplete="off"
-                  value={this.state.subject}
-                  onChange={this.handleChange}
-                />
+            {this.props.hideSubject ? null : (
+              <div className="col-sm-6 ">
+                <div className="contact-form-subject">
+                  <label htmlFor="subject">Subject</label>
+                  <input
+                    type="text"
+                    size="30"
+                    name="subject"
+                    id="subject"
+                    className="form-control"
+                    placeholder="Subject"
+                    autoComplete="off"
+                    value={this.state.subject}
+                    onChange={this.handleChange}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="col-sm-6 ">
+            )}
+            <div className={this.props.hideSubject ? "col-sm-12" : "col-sm-6"}>
               <div className="contact-form-phone">
                 <label htmlFor="phone_number">Phone</label>
                 <input
@@ -395,25 +325,27 @@ export class ContactForm extends Component {
                 />
               </div>
             </div>
-            <div className="col-sm-12 ">
-              <div className="contact-form-message">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  rows="1"
-                  cols="45"
-                  name="message"
-                  id="message"
-                  className="form-control"
-                  placeholder="Message"
-                  autoComplete="off"
-                  value={this.state.message}
-                  onChange={this.handleChange}
-                />
+            {this.props.hideMessage ? null : (
+              <div className="col-sm-12 ">
+                <div className="contact-form-message">
+                  <label htmlFor="message">Message</label>
+                  <textarea
+                    rows="1"
+                    cols="45"
+                    name="message"
+                    id="message"
+                    className="form-control"
+                    placeholder="Message"
+                    autoComplete="off"
+                    value={this.state.message}
+                    onChange={this.handleChange}
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </HoneypotWrapper>
           {/* Button Area */}
-          <div className="col-sm-12" stle={{ marginBottom: "-40px" }}>
+          <div className="col-sm-12" style={{ marginBottom: "-40px" }}>
             <ButtonContainer className="contact-form-submit topmargin_20">
               {this.state.loadSpinner && (
                 <LoaderContainer>
@@ -430,28 +362,116 @@ export class ContactForm extends Component {
                 type="submit"
                 id="contact_form_submit"
                 name="contact_submit"
-                className="theme_button color1 with_shadow"
+                className="theme_button color1 with_shadow submit_button"
                 loadSpinner={this.state.loadSpinner}
                 disabled={this.state.loadSpinner}
               >
-                Send Message
+                {this.props.buttonMessage
+                  ? this.props.buttonMessage
+                  : "Send Message"}
               </StyledButton>
             </ButtonContainer>
           </div>
         </StyledForm>
-        <ResultWrapper>
+        <ResultWrapper className="contact_form_result_wrapper">
           <CSSTransition
             in={this.state.submissionResult !== null}
             classNames="slideUp"
             timeout={300}
             unmountOnExit
           >
-            <ResultMessage>
+            <ResultMessage className="contact_form_result_message">
               <StyledText>{this.state.submissionResult}</StyledText>
             </ResultMessage>
           </CSSTransition>
         </ResultWrapper>
       </React.Fragment>
-    );
+    )
   }
 }
+
+const HoneypotWrapper = styled.div`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+`
+
+const StyledForm = styled.form`
+  && {
+    margin-bottom: -30px;
+
+    .form-control[disabled] {
+      background-color: unset;
+      font-weight: 500;
+    }
+  }
+`
+
+const ResultWrapper = styled.div`
+  height: 60px;
+  position: relative;
+  @media (min-width: 992px) {
+    margin-bottom: -70px;
+  }
+`
+const ResultMessage = styled.div`
+  background: rgba(145, 208, 204, 0.9);
+  bottom: 0;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+`
+
+const StyledText = styled.div`
+  color: white;
+  top: 50%;
+  left: 50%;
+  padding: 0 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+`
+
+const LoaderContainer = styled.div`
+  color: white;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+
+  svg {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+`
+
+const StyledButton = styled.button`
+  &&& {
+    color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
+    background-color: #91d0cc;
+    :focus {
+      color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
+      background-color: #91d0cc;
+    }
+    :hover,
+    :active {
+      color: ${props => (props.loadSpinner ? "#d9be93" : "#ffffff")};
+      background-color: #d9be93;
+    }
+  }
+`
+
+const ButtonContainer = styled.div`
+  position: relative;
+  text-align: center;
+`

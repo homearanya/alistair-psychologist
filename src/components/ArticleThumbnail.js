@@ -1,17 +1,18 @@
-import React from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
-import Button from "./Button";
-import SocialFooter from "./SocialFooter";
+import Button from "./Button"
+import SocialFooter from "./SocialFooter"
+import { textTruncate } from "../utils/helpers"
 
 const StyledArticle = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
-`;
+`
 
-export default function ArticleThumbnail(props) {
-  const articleUrl = `${props.siteUrl}${props.article.fields.slug}`;
+const ArticleThumbnail = (props) => {
+  const articleUrl = `${props.siteUrl}${props.article.fields.slug}`
   return (
     <div className="isotope-item col-lg-4 col-md-6 col-sm-12">
       <StyledArticle className="vertical-item content-padding mosaic-post post format-standard text-center">
@@ -54,12 +55,10 @@ export default function ArticleThumbnail(props) {
 
           <p className="bottommargin_40 fontsize_18">
             {props.article.frontmatter.intro
-              ? props.article.frontmatter.intro > 250
-                ? props.article.frontmatter.intro.substring(0, 250) + "..."
-                : props.article.frontmatter.intro
-              : props.article.excerpt > 250
-              ? props.article.frontmatter.excerpt.substring(0, 250) + "..."
-              : props.article.frontmatter.excerpt}
+              ? textTruncate(props.article.frontmatter.intro, 110)
+              : props.article.frontmatter.excerpt
+              ? textTruncate(props.article.frontmatter.excerpt, 110)
+              : ""}
           </p>
 
           <Button
@@ -73,5 +72,7 @@ export default function ArticleThumbnail(props) {
         />
       </StyledArticle>
     </div>
-  );
+  )
 }
+
+export default ArticleThumbnail

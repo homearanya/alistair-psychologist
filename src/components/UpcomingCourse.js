@@ -1,20 +1,25 @@
-import React from "react";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from "react"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
-import CourseHeader from "./CourseHeader";
-import Button from "./Button";
-import SocialFooter from "./SocialFooter";
+import CourseHeader from "./CourseHeader"
+import Button from "./Button"
+import SocialFooter from "./SocialFooter"
 
 const StyledArticle = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
-`;
+`
 
-const StyledContet = styled.div`
+const StyledContent = styled.div`
   &&& {
     text-align: center;
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
-`;
+`
 
 const StyledBody = styled.div`
   margin-top: 20px;
@@ -26,22 +31,22 @@ const StyledBody = styled.div`
   h4 {
     font-size: 18px;
   }
-`;
+`
 
 export default function UpcomingCourse({
   frontmatter: courseInfo,
   html,
   siteUrl
 }) {
-  const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`;
-  let contentClassName;
+  const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`
+  let contentClassName
   if (courseInfo.thumbnailimage && courseInfo.thumbnailimage.image) {
-    contentClassName = "col-md-7";
+    contentClassName = "col-md-7"
   } else {
     // contentClassName = "col-md-10 col-md-push-1";
-    contentClassName = "";
+    contentClassName = ""
   }
-  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
+  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`
   return (
     <StyledArticle className="post side-item content-padding with_shadow">
       <div className="row">
@@ -56,7 +61,7 @@ export default function UpcomingCourse({
           </div>
         )}
 
-        <StyledContet className={contentClassName}>
+        <StyledContent className={contentClassName}>
           <div className="item-content">
             <CourseHeader
               slug={courseSlug}
@@ -70,8 +75,8 @@ export default function UpcomingCourse({
             <Button whereTo={courseSlug} text="Course Info" />
           </div>
           <SocialFooter url={courseUrl} title={courseInfo.courseName} />
-        </StyledContet>
+        </StyledContent>
       </div>
     </StyledArticle>
-  );
+  )
 }

@@ -22,4 +22,4 @@ Date: **21st January 2020**
 Time: **18:00-19:00**  
 Venue: **To be decided**
 
-RSVP and Enquiries via sms to: **[066 269 8229](tel:+27662698229)** or an email to: **[matc@telkomsa.net](mailto:matc@telkomsa.net)**
+RSVP and Enquiries via sms to: **[066 269 8229](tel:+27662698229)** or an email to: **[howickpsychologist@gmail.com](mailto:howickpsychologist@gmail.com)**

@@ -1,28 +1,28 @@
-import React from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
 const ServiceIcon = styled.div`
   margin: 0 auto 20px;
   height: 90px;
   width: 80px;
-`;
+`
 const ServiceHeading = styled.h4`
   &&& {
     font-size: 14px;
     color: #444444;
   }
-`;
+`
 
 const ServiceText = styled.p`
   &&& {
     color: #787878;
   }
-`;
+`
 
 export default function Service(props) {
-  const serviceSlug = props.service.fields.slug;
+  const serviceSlug = props.service.fields.slug
   return (
     <div className="col-md-3 col-sm-6">
       <Link to={`${serviceSlug}#start-content`}>
@@ -45,10 +45,12 @@ export default function Service(props) {
               />
             )}
           </ServiceIcon>
-          <ServiceHeading>{props.service.frontmatter.title}</ServiceHeading>
+          <ServiceHeading>
+            {props.service.frontmatter.service_id}
+          </ServiceHeading>
           <ServiceText>{props.service.frontmatter.intro}</ServiceText>
         </div>
       </Link>
     </div>
-  );
+  )
 }

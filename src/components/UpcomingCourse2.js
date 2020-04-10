@@ -1,17 +1,17 @@
-import React from "react";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from "react"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
-import SocialFooter from "./SocialFooter";
-import Button from "./Button";
-import CourseHeader from "./CourseHeader";
+import SocialFooter from "./SocialFooter"
+import Button from "./Button"
+import CourseHeader from "./CourseHeader"
 
 const StyledArticle = styled.article`
   &&& {
     margin: 0;
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   }
-`;
+`
 
 const StyledBody = styled.div`
   margin-top: 20px;
@@ -23,7 +23,14 @@ const StyledBody = styled.div`
   h4 {
     font-size: 18px;
   }
-`;
+`
+
+const StyledContent = styled.div`
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+`
 
 export default function UpcomingCourse({
   frontmatter: courseInfo,
@@ -31,8 +38,8 @@ export default function UpcomingCourse({
   siteUrl,
   columns
 }) {
-  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`;
-  const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`;
+  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`
+  const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`
   return (
     <div className={`${columns} text-center`}>
       <StyledArticle className="vertical-item content-padding post format-standard">
@@ -44,9 +51,9 @@ export default function UpcomingCourse({
             />
           </div>
         )}
-        <div className="item-content entry-content">
+        <StyledContent className="item-content entry-content">
           <header className="entry-header">
-            <div className="entry-date small-text highlight">
+            <StyledContent className="entry-date small-text highlight">
               <CourseHeader
                 slug={courseSlug}
                 heading={courseInfo.courseName.frontmatter.title}
@@ -54,15 +61,15 @@ export default function UpcomingCourse({
                 dateStart={courseInfo.dateStart}
                 dateEnd={courseInfo.dateEnd}
               />
-            </div>
+            </StyledContent>
           </header>
 
           <StyledBody dangerouslySetInnerHTML={{ __html: html }} />
           <br />
           <Button whereTo={courseSlug} text="Course Info" />
-        </div>
+        </StyledContent>
         <SocialFooter url={courseUrl} title={courseInfo.courseName} />
       </StyledArticle>
     </div>
-  );
+  )
 }
