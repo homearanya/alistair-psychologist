@@ -56,9 +56,9 @@ export default function OnlineTherapyCTA(props) {
 }
 
 const Heading = styled.h2`
-  line-height: 75px;
+  line-height: 65px;
   letter-spacing: 2px;
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 50px;
   @media (max-width: 991px) {
     font-size: 45px;
@@ -77,7 +77,7 @@ const Heading = styled.h2`
 
 const Blurb = styled.p`
   && {
-    font-size: 32px;
+    font-size: 30px;
     @media (max-width: 767px) {
       font-size: 26px;
     }
@@ -85,6 +85,8 @@ const Blurb = styled.p`
 `
 
 const Wrapper = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
   padding: 50px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   padding-bottom: 100px;

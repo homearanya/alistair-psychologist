@@ -37,9 +37,9 @@ export default function(props) {
 }
 
 const Heading = styled.h2`
-  line-height: 75px;
+  line-height: 65px;
   letter-spacing: 2px;
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 50px;
   @media (max-width: 991px) {
     font-size: 45px;
@@ -59,8 +59,8 @@ const Heading = styled.h2`
 
 const Blurb = styled.p`
   && {
-    font-size: 32px;
-    line-height: 44px;
+    font-size: 28px;
+    line-height: 40px;
     span.underline {
       color: #91d0cc;
       text-decoration: underline;
@@ -81,6 +81,8 @@ const Box = styled.div`
   padding: 50px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
   padding-bottom: 50px;
+  max-width: 800px;
+  margin: 0 auto;
   @media (max-width: 767px) {
     flex-direction: column;
     box-shadow: none;
