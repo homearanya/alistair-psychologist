@@ -1,21 +1,21 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from "react"
+import { graphql } from "gatsby"
 // import Zoom from "react-reveal/Zoom";
-import Layout from "../components/Layout";
-import Breadcrumbs from "../components/Breadcrumbs";
-import { ContactForm } from "../components/ContactForm";
-import ContactDetails2 from "../components/ContactDetails2";
-import DynamicAnchor from "../components/DynamicAnchor";
-import SEO from "../components/SEO/SEO";
+import Layout from "../components/Layout"
+import Breadcrumbs from "../components/Breadcrumbs"
+import { ContactForm } from "../components/ContactForm"
+import ContactDetails2 from "../components/ContactDetails2"
+import DynamicAnchor from "../components/DynamicAnchor"
+import SEO from "../components/SEO/SEO"
 
 export default ({ data }) => {
-  const { fields, frontmatter } = data.markdownRemark;
+  const { fields, frontmatter } = data.markdownRemark
 
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Contact", href: null }
-  ];
+    { title: "Contact", href: null },
+  ]
   const pageMeta = {
     title: `Contact · Counselling Psychologist in Howick`,
     description:
@@ -23,8 +23,8 @@ export default ({ data }) => {
       `You can contact me by email, phone or through a contact form. 
     I look forward to answering any questions you may have about the services I offer.`,
     slug: fields.slug,
-    datePublished: false
-  };
+    datePublished: false,
+  }
   return (
     <Layout currentPageSlug={fields.slug}>
       <SEO
@@ -55,8 +55,8 @@ export default ({ data }) => {
       </section>
       {/* </Zoom> */}
     </Layout>
-  );
-};
+  )
+}
 
 export const contactPageQuery = graphql`
   query ContactPage($id: String!) {
@@ -79,4 +79,4 @@ export const contactPageQuery = graphql`
       }
     }
   }
-`;
+`
