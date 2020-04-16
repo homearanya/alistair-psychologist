@@ -82,7 +82,7 @@ export const homePageQuery = graphql`
                 slug
               }
               frontmatter {
-                service_id
+                title
                 intro
                 thumbnailimage {
                   image {

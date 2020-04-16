@@ -74,9 +74,9 @@ collections:
                     name: "service"
                     widget: "relation"
                     collection: "services"
-                    searchFields: ["service_id"]
-                    valueField: "service_id"
-                    displayFields: ["service_id"]
+                    searchFields: ["title"]
+                    valueField: "title"
+                    displayFields: ["title"]
                     hint: Very important!!!! It has to be exactly the same name as of the service on the services colection
           - label: "About Me Area"
             name: aboutMeArea
@@ -252,7 +252,7 @@ collections:
       preview: true
 
   - name: "services"
-    identifier_field: service_id
+    identifier_field: title
     label: "Services"
     label_singular: "Service"
     folder: "src/pages/services"
@@ -264,7 +264,7 @@ collections:
           widget: "hidden",
           default: "service-page",
         }
-      - { label: "Title", name: "service_id", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
       - { label: "Intro", name: "intro", widget: "text" }
       - {
           label: "Excerpt",

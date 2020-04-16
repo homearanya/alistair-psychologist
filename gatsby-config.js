@@ -14,30 +14,30 @@ module.exports = {
             <strong>Alistair Mork-Chadwick</strong> is a Counselling psychologist based in Howick. 
             He offers personal counselling, career guidance, 
             psychological assessments and mindfulness training.
-          `
+          `,
     },
     organization: {
       name: "Alistair Mork-Chadwick · Counselling Psychologist",
       url: "https://www.alistairmork-chadwick.co.za",
-      logo: "https://www.alistairmork-chadwick.co.za/img/logo.png"
+      logo: "https://www.alistairmork-chadwick.co.za/img/logo.png",
     },
-    siteUrl: "https://www.alistairmork-chadwick.co.za" // for gatsby plugin sitemap
+    siteUrl: "https://www.alistairmork-chadwick.co.za", // for gatsby plugin sitemap
   },
   plugins: [
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
         endpoint:
-          "https://alistairmork-chadwick.us18.list-manage.com/subscribe/post?u=cadc5e7608830da642a5e13a8&amp;id=87f001310d" // add your MC list endpoint here; see instructions below
-      }
+          "https://alistairmork-chadwick.us18.list-manage.com/subscribe/post?u=cadc5e7608830da642a5e13a8&amp;id=87f001310d", // add your MC list endpoint here; see instructions below
+      },
     },
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.alistairmork-chadwick.co.za",
         sitemap: "https://www.alistairmork-chadwick.co.za/sitemap.xml",
-        policy: [{ userAgent: "*", allow: "/" }]
-      }
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
     },
     {
       resolve: `gatsby-plugin-google-tagmanager`,
@@ -46,20 +46,20 @@ module.exports = {
 
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false
+        includeInDevelopment: false,
 
         // Specify optional GTM environment details.
         // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
         // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
-      }
+      },
     },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Open Sans"]
-        }
-      }
+          families: ["Open Sans"],
+        },
+      },
     },
     `gatsby-plugin-styled-components`,
     {
@@ -91,9 +91,9 @@ module.exports = {
           opengraph: false,
           twitter: false,
           yandex: false,
-          windows: false
-        }
-      }
+          windows: false,
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -106,8 +106,8 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",
-        icon: "src/assets/img/icon.png" // This path is relative to the root of the site.
-      }
+        icon: "src/assets/img/icon.png", // This path is relative to the root of the site.
+      },
     },
     `gatsby-plugin-offline`,
     // "gatsby-plugin-remove-serviceworker",
@@ -117,37 +117,37 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/static/img`,
-        name: "uploads"
-      }
+        name: "uploads",
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/general`,
-        name: "general"
-      }
+        name: "general",
+      },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages"
-      }
+        name: "pages",
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src_images`,
-        path: `${__dirname}/src/assets/img/`
-      }
+        path: `${__dirname}/src/assets/img/`,
+      },
     },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
         useMozJpeg: false,
-        stripMetadata: true
-      }
+        stripMetadata: true,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -156,8 +156,8 @@ module.exports = {
           {
             resolve: "gatsby-remark-relative-images",
             options: {
-              name: "uploads"
-            }
+              name: "uploads",
+            },
           },
           {
             resolve: `gatsby-remark-images`,
@@ -166,36 +166,36 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 930,
-              backgroundColor: "transparent" // required to display blurred image first
-            }
+              backgroundColor: "transparent", // required to display blurred image first
+            },
           },
           {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: "static"
-            }
+              destinationDir: "static",
+            },
           },
-          "gatsby-remark-component"
-        ]
-      }
+          "gatsby-remark-component",
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`
-      }
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
     },
     "gatsby-plugin-netlify-identity-widget",
     {
       resolve: "gatsby-plugin-netlify-cache",
       options: {
-        cachePublic: true
-      }
+        cachePublic: true,
+      },
     },
-    "gatsby-plugin-netlify" // make sure to keep it last in the array
+    "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
   mapping: {
-    "MarkdownRemark.frontmatter.servicesArea.services.service": `MarkdownRemark.frontmatter.service_id`,
-    "MarkdownRemark.frontmatter.courseName": `MarkdownRemark.frontmatter.title`
-  }
+    "MarkdownRemark.frontmatter.servicesArea.services.service": `MarkdownRemark.frontmatter.title`,
+    "MarkdownRemark.frontmatter.courseName": `MarkdownRemark.frontmatter.title`,
+  },
 }

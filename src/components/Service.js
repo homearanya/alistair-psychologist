@@ -45,9 +45,7 @@ export default function Service(props) {
               />
             )}
           </ServiceIcon>
-          <ServiceHeading>
-            {props.service.frontmatter.service_id}
-          </ServiceHeading>
+          <ServiceHeading>{props.service.frontmatter.title}</ServiceHeading>
           <ServiceText>{props.service.frontmatter.intro}</ServiceText>
         </div>
       </Link>

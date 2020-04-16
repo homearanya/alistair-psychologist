@@ -5,7 +5,11 @@ https://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:s
 https://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:splat 301!
 
 # Redirect with a 301 (default)
-/articles/  /blog/:splat 301!
+/articles/  /blog/
+/articles/boosting-ones-brain-functioning-through-diet/ /blog/boosting-ones-brain-functioning-through-diet/
+/articles/what-is-mindfulness-and-how-does-it-work/ /blog/what-is-mindfulness-and-how-does-it-work/
+/articles/what-can-i-expect-when-i-see-a-psychologist/  /blog/what-can-i-expect-when-i-see-a-psychologist/
+/articles/how-to-deal-with-clinical-depression-major-depressive-disorder/  /blog/how-to-deal-with-clinical-depression-major-depressive-disorder/
 /career-guidance/	/services/career-guidance/
 /psychological-assessments/	/services/psychological-assessments/
 /psychotherapy/	/services/personal-counselling/
