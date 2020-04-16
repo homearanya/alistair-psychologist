@@ -6,7 +6,7 @@ import CourseHeader from "./CourseHeader"
 import Button from "./Button"
 import SocialFooter from "./SocialFooter"
 
-const StyledArticle = styled.article`
+const StyledPost = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
 `
 
@@ -36,7 +36,7 @@ const StyledBody = styled.div`
 export default function UpcomingCourse({
   frontmatter: courseInfo,
   html,
-  siteUrl
+  siteUrl,
 }) {
   const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`
   let contentClassName
@@ -48,7 +48,7 @@ export default function UpcomingCourse({
   }
   const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`
   return (
-    <StyledArticle className="post side-item content-padding with_shadow">
+    <StyledPost className="post side-item content-padding with_shadow">
       <div className="row">
         {courseInfo.thumbnailimage && courseInfo.thumbnailimage.image && (
           <div className="col-md-5">
@@ -77,6 +77,6 @@ export default function UpcomingCourse({
           <SocialFooter url={courseUrl} title={courseInfo.courseName} />
         </StyledContent>
       </div>
-    </StyledArticle>
+    </StyledPost>
   )
 }

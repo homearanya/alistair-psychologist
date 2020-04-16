@@ -1,27 +1,27 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Breadcrumbs from "../components/Breadcrumbs";
-import ArticleThumbnail from "../components/ArticleThumbnail";
-import SEO from "../components/SEO/SEO";
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/Layout"
+import Breadcrumbs from "../components/Breadcrumbs"
+import PostThumbnail from "../components/PostThumbnail"
+import SEO from "../components/SEO/SEO"
 
 export default function({ location, data }) {
-  const { fields, frontmatter } = data.articlesPageQuery;
-  const { edges: articles } = data.articlesQuery;
+  const { fields, frontmatter } = data.blogPageQuery
+  const { edges: posts } = data.postsQuery
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Articles", href: null }
-  ];
+    { title: "Blog", href: null },
+  ]
   const pageMeta = {
-    title: `Articles · Counselling Psychologist in Howick`,
+    title: `Blog · Counselling Psychologist in Howick`,
     description:
       frontmatter.excerpt ||
       frontmatter.blurb ||
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
     slug: fields.slug,
-    datePublished: false
-  };
+    datePublished: false,
+  }
   return (
     <Layout currentPageSlug={fields.slug}>
       <SEO
@@ -30,7 +30,7 @@ export default function({ location, data }) {
       />
       <Breadcrumbs
         bannerImage={frontmatter.bannerimage}
-        pageTitle="Articles"
+        pageTitle="Blog"
         pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
@@ -38,11 +38,11 @@ export default function({ location, data }) {
           <div className="row mosaic-post">
             <div className="col-sm-12">
               <div className="isotope_container isotope row masonry-layout columns_bottom_margin_30">
-                {articles.map(({ node: article }) => (
-                  <ArticleThumbnail
+                {posts.map(({ node: post }) => (
+                  <PostThumbnail
                     siteUrl={location.origin}
-                    article={article}
-                    key={article.id}
+                    post={post}
+                    key={post.id}
                   />
                 ))}
               </div>
@@ -51,12 +51,12 @@ export default function({ location, data }) {
         </div>
       </section>
     </Layout>
-  );
+  )
 }
 
-export const articlesPageQuery = graphql`
-  query ArticlesQuery($id: String!) {
-    articlesPageQuery: markdownRemark(id: { eq: $id }) {
+export const blogPageQuery = graphql`
+  query BlogQuery($id: String!) {
+    blogPageQuery: markdownRemark(id: { eq: $id }) {
       fields {
         slug
       }
@@ -75,9 +75,9 @@ export const articlesPageQuery = graphql`
         }
       }
     }
-    articlesQuery: allMarkdownRemark(
+    postsQuery: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "article-page" } } }
+      filter: { frontmatter: { templateKey: { eq: "post-page" } } }
     ) {
       edges {
         node {
@@ -105,4 +105,4 @@ export const articlesPageQuery = graphql`
       }
     }
   }
-`;
+`

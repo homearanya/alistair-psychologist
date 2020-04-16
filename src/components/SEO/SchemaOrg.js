@@ -1,6 +1,6 @@
 // import path from "path";
-import React from "react";
-import Helmet from "react-helmet";
+import React from "react"
+import Helmet from "react-helmet"
 
 export default React.memo(
   ({
@@ -9,8 +9,8 @@ export default React.memo(
     organization,
     breadcrumbs,
     service,
-    article,
-    course
+    post,
+    course,
   }) => {
     const baseSchema = [
       {
@@ -23,9 +23,9 @@ export default React.memo(
           {
             "@type": "ContactPoint",
             telephone: organization.phone,
-            contactType: "reservations"
-          }
-        ]
+            contactType: "reservations",
+          },
+        ],
       },
       {
         "@context": "https://schema.org",
@@ -35,13 +35,13 @@ export default React.memo(
             "@type": "ListItem",
             position: index + 1,
             name: item.title,
-            item: item.href
-          };
-        })
-      }
-    ];
+            item: item.href,
+          }
+        }),
+      },
+    ]
 
-    let schema;
+    let schema
 
     switch (pageType) {
       case "course":
@@ -55,11 +55,11 @@ export default React.memo(
             provider: {
               "@type": "Organization",
               name: organization.name,
-              sameAs: organization.url
-            }
-          }
-        ];
-        break;
+              sameAs: organization.url,
+            },
+          },
+        ]
+        break
       // case "service":
       //   schema = [
       //     ...baseSchema,
@@ -80,45 +80,45 @@ export default React.memo(
       //     }
       //   ];
       //   break;
-      case "article":
+      case "post":
         schema = [
           ...baseSchema,
           {
             "@context": "http://schema.org",
             "@type": "BlogPosting",
-            url: article.url,
-            name: article.name,
-            alternateName: article.alternateName,
-            headline: article.name,
+            url: post.url,
+            name: post.name,
+            alternateName: post.alternateName,
+            headline: post.name,
             image: {
               "@type": "ImageObject",
-              url: article.image
+              url: post.image,
             },
-            description: article.description,
+            description: post.description,
             author: {
               "@type": "Person",
-              name: article.author.name
+              name: post.author.name,
             },
             publisher: {
               "@type": "Organization",
               url: organization.url,
               logo: {
                 "@type": "ImageObject",
-                url: organization.logo
+                url: organization.logo,
               },
-              name: organization.name
+              name: organization.name,
             },
             mainEntityOfPage: {
               "@type": "WebSite",
-              "@id": canonicalUrl
+              "@id": canonicalUrl,
             },
-            datePublished: article.datePublished,
-            dateModified: article.datePublished
-          }
-        ];
-        break;
+            datePublished: post.datePublished,
+            dateModified: post.datePublished,
+          },
+        ]
+        break
       default:
-        schema = baseSchema;
+        schema = baseSchema
     }
     // console.log("schema", JSON.stringify(schema));
     return (
@@ -126,6 +126,6 @@ export default React.memo(
         {/* Schema.org tags */}
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
-    );
+    )
   }
-);
+)

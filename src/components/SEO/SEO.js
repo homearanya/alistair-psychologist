@@ -1,10 +1,10 @@
-import path from "path";
-import React from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
-import SchemaOrg from "./SchemaOrg";
+import path from "path"
+import React from "react"
+import Helmet from "react-helmet"
+import { StaticQuery, graphql } from "gatsby"
+import SchemaOrg from "./SchemaOrg"
 
-const SEO = ({ pageData, breadcrumbs, articleImage, pageType }) => (
+const SEO = ({ pageData, breadcrumbs, postImage, pageType }) => (
   <StaticQuery
     query={graphql`
       {
@@ -38,81 +38,77 @@ const SEO = ({ pageData, breadcrumbs, articleImage, pageType }) => (
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       // data for SEO & schemaOrg
-      const { siteMetadata: seo } = data.SEOQuery;
+      const { siteMetadata: seo } = data.SEOQuery
       const {
-        phonenumber: phone
-      } = data.PhoneDetailsQuery.childMarkdownRemark.frontmatter.contact_details.phone;
+        phonenumber: phone,
+      } = data.PhoneDetailsQuery.childMarkdownRemark.frontmatter.contact_details.phone
       // data for organization schemaOrg
-      let organization = seo.organization;
-      organization.phone = phone;
+      let organization = seo.organization
+      organization.phone = phone
 
-      const pageMeta = pageData || {};
+      const pageMeta = pageData || {}
 
-      const metaTitle = pageMeta.title || seo.title;
+      const metaTitle = pageMeta.title || seo.title
       const metaDescription =
-        pageMeta.description || pageData.excerpt || seo.description;
+        pageMeta.description || pageData.excerpt || seo.description
       const url = pageMeta.slug
         ? `${seo.canonicalUrl}${pageMeta.slug}`
-        : seo.canonicalUrl;
+        : seo.canonicalUrl
       // prepare breadcrumbs for schemar.org
       breadcrumbs.forEach((item, index) => {
         if (item.href) {
-          item.href = `${seo.canonicalUrl}${item.href}`;
+          item.href = `${seo.canonicalUrl}${item.href}`
         } else {
-          item.href = `${seo.canonicalUrl}${pageMeta.slug}`;
+          item.href = `${seo.canonicalUrl}${pageMeta.slug}`
         }
-      });
+      })
       // Course data for schemaOrg
-      let course = {};
+      let course = {}
       if (pageType === "course") {
-        course.name = pageMeta.name;
-        course.description = pageMeta.description;
+        course.name = pageMeta.name
+        course.description = pageMeta.description
       }
       // service data for schemaOrg
-      let service = {};
+      let service = {}
       if (pageType === "service") {
-        service.name = pageMeta.name;
-        service.description = pageMeta.description;
-        service.images = pageMeta.serviceImages;
-        service.price = pageMeta.servicePrice;
-        service.url = `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`;
+        service.name = pageMeta.name
+        service.description = pageMeta.description
+        service.images = pageMeta.serviceImages
+        service.price = pageMeta.servicePrice
+        service.url = `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`
       }
-      // article data for schemaOrg
-      let article = {};
-      if (pageType === "article") {
-        article.name = pageMeta.title;
-        article.alternateName = seo.defaultTitle;
-        article.description = pageMeta.description;
-        article.images = articleImage
-          ? `${seo.canonicalUrl}${articleImage}`
-          : seo.image;
+      // post data for schemaOrg
+      let post = {}
+      if (pageType === "post") {
+        post.name = pageMeta.title
+        post.alternateName = seo.defaultTitle
+        post.description = pageMeta.description
+        post.images = postImage ? `${seo.canonicalUrl}${postImage}` : seo.image
         if (pageMeta.datePublished) {
-          article.datePublished = new Date(pageMeta.datePublished);
+          post.datePublished = new Date(pageMeta.datePublished)
         } else {
-          article.datePublished = new Date();
+          post.datePublished = new Date()
         }
-        article.url = `${seo.canonicalUrl}${pageMeta.slug}`;
-        article.author = seo.author;
+        post.url = `${seo.canonicalUrl}${pageMeta.slug}`
+        post.author = seo.author
       }
 
       // Meta image
-      let metaImage = seo.image;
-      if (pageType === "article") {
-        metaImage = articleImage
-          ? `${seo.canonicalUrl}${articleImage}`
-          : seo.image;
+      let metaImage = seo.image
+      if (pageType === "post") {
+        metaImage = postImage ? `${seo.canonicalUrl}${postImage}` : seo.image
       } else if (pageType === "service") {
         metaImage =
           pageMeta.serviceImages.length > 0
             ? `${seo.canonicalUrl}/img${pageMeta.serviceImages[0]}`
-            : seo.image;
+            : seo.image
       } else if (pageType === "course") {
         metaImage =
           pageMeta.courseImages.length > 0
             ? `${seo.canonicalUrl}/img${pageMeta.courseImages[0]}`
-            : seo.image;
+            : seo.image
       }
       return (
         <React.Fragment>
@@ -127,8 +123,8 @@ const SEO = ({ pageData, breadcrumbs, articleImage, pageType }) => (
 
             {/* OpenGraph tags */}
             <meta property="og:url" content={url} />
-            {pageType === "article" ? (
-              <meta property="og:type" content="article" />
+            {pageType === "post" ? (
+              <meta property="og:type" content="post" />
             ) : (
               <meta property="og:type" content="website" />
             )}
@@ -151,13 +147,13 @@ const SEO = ({ pageData, breadcrumbs, articleImage, pageType }) => (
             organization={organization}
             breadcrumbs={breadcrumbs}
             service={service}
-            article={article}
+            post={post}
             course={course}
           />
         </React.Fragment>
-      );
+      )
     }}
   />
-);
+)
 
-export default SEO;
+export default SEO

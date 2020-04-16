@@ -19,7 +19,7 @@ export default function OnlineTherapyCTA(props) {
           }
         }
       `}
-      render={data => {
+      render={(data) => {
         const { frontmatter } = data.file.childMarkdownRemark
         let sectionClassName
         props.noTopPadding
@@ -89,7 +89,8 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 50px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
-  padding-bottom: 100px;
+  padding-bottom: 20px;
+
   @media (max-width: 767px) {
     box-shadow: none;
     padding: 0;

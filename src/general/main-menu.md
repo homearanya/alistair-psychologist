@@ -27,8 +27,8 @@ menuItems:
                 name: Frequently Asked Questions
               - link: /services/mindfulness-training/upcoming-courses/
                 name: Upcoming Courses
-  - link: /articles/
-    name: Articles
+  - link: /blog/
+    name: Blog
   - link: /contact/
     name: Contact
 ---

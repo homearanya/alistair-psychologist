@@ -2,8 +2,10 @@
 https://alistairmork-chadwick.netlify.com/* https://www.alistairmork-chadwick.co.za/:splat 301!
 http://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:splat 301!
 https://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:splat 301!
+https://alistairmork-chadwick.co.za/* https://www.alistairmork-chadwick.co.za/:splat 301!
 
 # Redirect with a 301 (default)
+/articles/  /blog/:splat 301!
 /career-guidance/	/services/career-guidance/
 /psychological-assessments/	/services/psychological-assessments/
 /psychotherapy/	/services/personal-counselling/

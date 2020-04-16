@@ -1,5 +1,5 @@
 ---
-templateKey: article-page
+templateKey: post-page
 title: Boosting One’s Brain Functioning Through Diet
 date: 2020-04-07T08:28:50.483Z
 intro: >-
@@ -18,7 +18,7 @@ bodyimage:
   image: /img/brain-food-image.jpg
 ---
 
-Recent research shows that the food we eat, and don’t eat, has a huge impact on the health of our body and <u>brain</u>. This article focuses on answering the following two questions:
+Recent research shows that the food we eat, and don’t eat, has a huge impact on the health of our body and <u>brain</u>. This post focuses on answering the following two questions:
 
 - Which food is unhealthy for one’s brain and why is this so?
 - Which food provides the essential nutrients required for a healthy brain?

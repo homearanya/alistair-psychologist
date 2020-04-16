@@ -1,5 +1,5 @@
 ---
-templateKey: article-page
+templateKey: post-page
 title: "What Is Mindfulness, And How Does It Work?"
 date: 2019-01-30T08:57:52.182Z
 intro: >-
@@ -16,7 +16,7 @@ thumbnailimage:
   image: /img/mindfulness-time.jpg
 bannerimage:
   alt: What Is Mindfulness, And How Does It Work?
-  image: /img/what-is-mindfulness-article-banner.jpg
+  image: /img/what-is-mindfulness-post-banner.jpg
 bodyimage:
   alt: What Is Mindfulness, And How Does It Work?
   image: /img/mindfulness-time.jpg
@@ -24,7 +24,7 @@ bodyimage:
 
 **Mindfulness: what is it and how does one do it?**
 
-_The following article is adapted from “Doing nothing can produce real results” originally penned by Barry du Plessis in Issue 4 (2018) of Capital._
+_The following post is adapted from “Doing nothing can produce real results” originally penned by Barry du Plessis in Issue 4 (2018) of Capital._
 
 Many of us have heard about it. Richard Branson swears by it. And it has become part of company culture in corporate entities such as Google, Nike, Sony, Ford and Apple. “It” is mindfulness. Often described as the mental equivalent of going to the gym, mindfulness provides relief for busy people, requiring them to slow down, stop, breathe, and find a moment to be in the present.
 

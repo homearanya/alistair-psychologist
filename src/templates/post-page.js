@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 import Layout from "../components/Layout"
 import Breadcrumbs from "../components/Breadcrumbs"
-import PrevNextArticle from "../components/PrevNextArticle"
+import PrevNextPost from "../components/PrevNextPost"
 import SEO from "../components/SEO/SEO"
 import DynamicAnchor from "../components/DynamicAnchor"
 
@@ -17,38 +17,38 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 export default function({ data, pageContext }) {
-  const { markdownRemark: article } = data
+  const { markdownRemark: post } = data
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Articles", href: "/articles/" },
-    { title: article.frontmatter.title, href: null },
+    { title: "Blog", href: "/blog/" },
+    { title: post.frontmatter.title, href: null },
   ]
-  // article images
-  const articleImage =
-    article.frontmatter.bodyimage &&
-    article.frontmatter.bodyimage.image &&
-    article.frontmatter.bodyimage.image.relativePath
+  // post images
+  const postImage =
+    post.frontmatter.bodyimage &&
+    post.frontmatter.bodyimage.image &&
+    post.frontmatter.bodyimage.image.relativePath
   const pageMeta = {
-    title: article.frontmatter.title,
+    title: post.frontmatter.title,
     description:
-      article.frontmatter.excerpt ||
-      article.frontmatter.intro ||
+      post.frontmatter.excerpt ||
+      post.frontmatter.intro ||
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
-    articleImage: articleImage,
-    slug: article.fields.slug,
-    datePublished: article.frontmatter.date,
+    postImage: postImage,
+    slug: post.fields.slug,
+    datePublished: post.frontmatter.date,
   }
   return (
-    <Layout currentPageSlug={article.fields.slug}>
+    <Layout currentPageSlug={post.fields.slug}>
       <SEO
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
-        pageType="article"
+        pageType="post"
       />
       <Breadcrumbs
-        bannerImage={article.frontmatter.bannerimage}
-        pageTitle={article.frontmatter.title}
+        bannerImage={post.frontmatter.bannerimage}
+        pageTitle={post.frontmatter.title}
         pages={JSON.parse(JSON.stringify(pages))}
       />
       <section className="ls section_padding_top_130 section_padding_bottom_130 columns_padding_25">
@@ -58,14 +58,13 @@ export default function({ data, pageContext }) {
               <DynamicAnchor id="start-content" />
               <div className="vertical-item content-padding with_shadow">
                 <div className="entry-thumbnail item-media">
-                  {article.frontmatter.bodyimage &&
-                    article.frontmatter.bodyimage.image && (
+                  {post.frontmatter.bodyimage &&
+                    post.frontmatter.bodyimage.image && (
                       <Img
                         fluid={
-                          article.frontmatter.bodyimage.image.childImageSharp
-                            .fluid
+                          post.frontmatter.bodyimage.image.childImageSharp.fluid
                         }
-                        alt={article.frontmatter.bodyimage.alt}
+                        alt={post.frontmatter.bodyimage.alt}
                       />
                     )}
                 </div>
@@ -77,27 +76,27 @@ export default function({ data, pageContext }) {
                         className="entry-date"
                         // datetime="2017-03-13T08:50:40+00:00"
                       >
-                        {article.frontmatter.date}
+                        {post.frontmatter.date}
                       </time>
                     </div>
 
-                    <h1 className="entry-title">{article.frontmatter.title}</h1>
+                    <h1 className="entry-title">{post.frontmatter.title}</h1>
 
                     <hr className="divider_30_1" />
                   </header>
 
                   <StyledContent className="entry-content">
-                    {renderAst(article.htmlAst)}
+                    {renderAst(post.htmlAst)}
                   </StyledContent>
                 </div>
               </div>
 
               <div className="row columns_padding_5 page-nav">
                 {pageContext.prev && (
-                  <PrevNextArticle position="Prev" article={pageContext.prev} />
+                  <PrevNextPost position="Prev" post={pageContext.prev} />
                 )}
                 {pageContext.next && (
-                  <PrevNextArticle position="Next" article={pageContext.next} />
+                  <PrevNextPost position="Next" post={pageContext.next} />
                 )}
               </div>
             </div>
@@ -108,8 +107,8 @@ export default function({ data, pageContext }) {
   )
 }
 
-export const articlePageQuery = graphql`
-  query ArticlePage($id: String!) {
+export const postPageQuery = graphql`
+  query PostPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
         slug

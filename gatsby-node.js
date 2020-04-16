@@ -1,17 +1,17 @@
-const _ = require("lodash");
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
-const { fmImagesToRelative } = require("gatsby-remark-relative-images");
+const _ = require("lodash")
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
+const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   return graphql(`
     {
-      nonArticlesPages: allMarkdownRemark(
+      nonPostsPages: allMarkdownRemark(
         limit: 1000
         filter: {
           fileAbsolutePath: { regex: "/src/pages/" }
-          frontmatter: { templateKey: { ne: "article-page" } }
+          frontmatter: { templateKey: { ne: "post-page" } }
         }
       ) {
         edges {
@@ -26,12 +26,12 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-      articlesPages: allMarkdownRemark(
+      postsPages: allMarkdownRemark(
         limit: 1000
         sort: { order: DESC, fields: [frontmatter___date] }
         filter: {
           fileAbsolutePath: { regex: "/src/pages/" }
-          frontmatter: { templateKey: { eq: "article-page" } }
+          frontmatter: { templateKey: { eq: "post-page" } }
         }
       ) {
         edges {
@@ -62,17 +62,17 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      result.errors.forEach(e => console.error(e.toString()));
-      return Promise.reject(result.errors);
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
     }
 
-    const nonArticles = result.data.nonArticlesPages.edges;
-    const articles = result.data.articlesPages.edges;
+    const nonPosts = result.data.nonPostsPages.edges
+    const posts = result.data.postsPages.edges
 
-    nonArticles.forEach(({ node }) => {
-      const id = node.id;
+    nonPosts.forEach(({ node }) => {
+      const id = node.id
       createPage({
         path: node.fields.slug,
         component: path.resolve(
@@ -80,13 +80,13 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         // additional data can be passed via context
         context: {
-          id
-        }
-      });
-    });
+          id,
+        },
+      })
+    })
 
-    articles.forEach(({ node }, index) => {
-      const id = node.id;
+    posts.forEach(({ node }, index) => {
+      const id = node.id
       // Prepare related data
       createPage({
         path: node.fields.slug,
@@ -96,26 +96,25 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
-          prev: index === 0 ? null : articles[index - 1].node,
-          next: index === articles.length - 1 ? null : articles[index + 1].node
-        }
-      });
-    });
-  });
-};
+          prev: index === 0 ? null : posts[index - 1].node,
+          next: index === posts.length - 1 ? null : posts[index + 1].node,
+        },
+      })
+    })
+  })
+}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+  const { createNodeField } = actions
 
-  if (!node.frontmatter || !node.frontmatter.menuItems)
-    fmImagesToRelative(node); // convert image paths for gatsby images
+  if (!node.frontmatter || !node.frontmatter.menuItems) fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
       node,
-      value
-    });
+      value,
+    })
   }
-};
+}

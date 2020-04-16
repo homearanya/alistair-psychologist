@@ -6,7 +6,7 @@ import SliderArea from "../components/SliderArea"
 import ServicesArea from "../components/ServicesArea"
 import AboutArea from "../components/AboutArea"
 import CoursesArea from "../components/CoursesArea"
-import ArticlesArea from "../components/ArticlesArea"
+import PostsArea from "../components/PostsArea"
 import TestimonialsArea from "../components/TestimonialsArea"
 import OnlineTherapyCTA from "../components/OnlineTherapyCTA"
 import NewsletterCTA from "../components/NewsletterCTA"
@@ -39,10 +39,7 @@ export default ({ data, location }) => {
         coursesArea={frontmatter.coursesArea}
         siteUrl={location.origin}
       />
-      <ArticlesArea
-        articlesArea={frontmatter.articlesArea}
-        siteUrl={location.origin}
-      />
+      <PostsArea postsArea={frontmatter.postsArea} siteUrl={location.origin} />
       {frontmatter.testimonialsArea &&
         frontmatter.testimonialsArea.testimonials.length > 0 && (
           <TestimonialsArea testimonialsArea={frontmatter.testimonialsArea} />
@@ -134,7 +131,7 @@ export const homePageQuery = graphql`
           heading
           blurb
         }
-        articlesArea {
+        postsArea {
           heading
           blurb
         }

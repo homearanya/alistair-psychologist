@@ -1,5 +1,5 @@
 ---
-templateKey: article-page
+templateKey: post-page
 title: How To Deal With Clinical Depression (Major Depressive Disorder)
 date: 2019-01-24T08:28:50.483Z
 intro: >-
@@ -16,7 +16,7 @@ thumbnailimage:
   image: /img/going-through-depression.jpg
 bannerimage:
   alt: mental health
-  image: /img/clinical-depression-article-banner.jpg
+  image: /img/clinical-depression-post-banner.jpg
 bodyimage:
   alt: Man going through a depression
   image: /img/going-through-depression.jpg

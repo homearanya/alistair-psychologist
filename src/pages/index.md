@@ -42,12 +42,12 @@ aboutMeArea:
 coursesArea:
   blurb: ""
   heading: Mindfulness Training - Upcoming Courses
-articlesArea:
+postsArea:
   blurb: >-
     I read widely to keep abreast of the latest clinical research and the top
-    thinkers in my field.  Here I share articles which you might find useful or
+    thinkers in my field.  Here I share posts which you might find useful or
     inspiring.
-  heading: Recent Articles
+  heading: Latest Posts
 testimonialsArea:
   testimonials:
     - author: "Psychotherapy client, 2015"

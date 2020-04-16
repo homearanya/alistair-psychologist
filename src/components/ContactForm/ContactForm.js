@@ -18,7 +18,7 @@ export class ContactForm extends Component {
       subject: "",
       message: "",
       submissionResult: null,
-      loadSpinner: false
+      loadSpinner: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -88,7 +88,7 @@ export class ContactForm extends Component {
           submissionResult: this.props.submissionResult
             ? this.props.submissionResult
             : "Thanks for the message. I’ll be in touch shortly.",
-          loadSpinner: false
+          loadSpinner: false,
         })
       }, 2500)
       return
@@ -107,7 +107,7 @@ export class ContactForm extends Component {
     xhr.send(JSON.stringify(this.state))
 
     // Callback function
-    xhr.onloadend = response => {
+    xhr.onloadend = (response) => {
       if (response.target.status === 200) {
         // The form submission was successful
         this.setState({
@@ -119,7 +119,7 @@ export class ContactForm extends Component {
           submissionResult: this.props.submissionResult
             ? this.props.submissionResult
             : "Thanks for the message. I’ll be in touch shortly.",
-          loadSpinner: false
+          loadSpinner: false,
         })
         // if in modal window, close it
         if (this.props.setShowPopup) {
@@ -129,7 +129,7 @@ export class ContactForm extends Component {
         // The form submission failed
         this.setState({
           submissionResult: "Something went wrong",
-          loadSpinner: false
+          loadSpinner: false,
         })
         console.error(response)
         // console.error(JSON.parse(response.target.response));
@@ -137,7 +137,7 @@ export class ContactForm extends Component {
     }
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault()
     this.setState({ loadSpinner: true, submissionResult: null }, () => {
       this.sendEmail()
@@ -414,9 +414,7 @@ const StyledForm = styled.form`
 const ResultWrapper = styled.div`
   height: 60px;
   position: relative;
-  @media (min-width: 992px) {
-    margin-bottom: -70px;
-  }
+  margin-top: 70px;
 `
 const ResultMessage = styled.div`
   background: rgba(145, 208, 204, 0.9);
@@ -457,15 +455,15 @@ const LoaderContainer = styled.div`
 
 const StyledButton = styled.button`
   &&& {
-    color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
+    color: ${(props) => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
     background-color: #91d0cc;
     :focus {
-      color: ${props => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
+      color: ${(props) => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
       background-color: #91d0cc;
     }
     :hover,
     :active {
-      color: ${props => (props.loadSpinner ? "#d9be93" : "#ffffff")};
+      color: ${(props) => (props.loadSpinner ? "#d9be93" : "#ffffff")};
       background-color: #d9be93;
     }
   }

@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
 
-    background-color: ${rgba("#91d0cc", 0.9)};
+    background-color: ${rgba("#91d0cc", 1)};
     border-radius: 6px;
     position: fixed;
     bottom: 2rem !important;

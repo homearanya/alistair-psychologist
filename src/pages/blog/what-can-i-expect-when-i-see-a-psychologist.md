@@ -1,5 +1,5 @@
 ---
-templateKey: article-page
+templateKey: post-page
 title: What Can I Expect When I See A Psychologist?
 date: 2019-01-08T08:21:55.686Z
 intro: >-
@@ -20,7 +20,7 @@ thumbnailimage:
   image: /img/seeing-a-psychologist.jpg
 bannerimage:
   alt: What Can I Expect When I See A Psychologist?
-  image: /img/visiting-a-psychologist-article-banner.jpg
+  image: /img/visiting-a-psychologist-post-banner.jpg
 bodyimage:
   alt: What Can I Expect When I See A Psychologist?
   image: /img/seeing-a-psychologist.jpg
