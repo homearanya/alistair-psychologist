@@ -33,12 +33,12 @@ export default function AppointmentArea(props) {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 text-center">
+                  <DynamicAnchor id="appointment" />
                   <h2 className="section_header  highlight">
                     {frontmatter.heading}
                   </h2>
                 </div>
                 <div className="col-md-6 text-center">
-                  <DynamicAnchor id="appointment" />
                   <div className="fontsize_16">{frontmatter.blurb}</div>
                   <ContactForm className="contact-form row columns_margin_bottom_40 topmargin_60" />
                 </div>
