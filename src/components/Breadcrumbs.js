@@ -1,16 +1,17 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
+import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
 
 const StyledSection = styled.section`
-  background-image: ${props =>
+  background-image: ${(props) =>
     props.backgroundImage && props.backgroundImage.image
       ? `url("${props.backgroundImage.image.childImageSharp.fluid.src}")`
       : `url("/img/parallax/breadcrumbs.jpg")`};
   background-position: center;
-`;
+`
 
 export default function Breadcrumbs(props) {
+  console.log(props.bannerImage)
   return (
     <StyledSection
       className="page_breadcrumbs ds background_cover section_padding_50"
@@ -37,5 +38,5 @@ export default function Breadcrumbs(props) {
         </div>
       </div>
     </StyledSection>
-  );
+  )
 }

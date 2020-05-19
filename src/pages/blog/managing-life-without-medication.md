@@ -7,6 +7,7 @@ intro: >-
 excerpt: >-
   Dealing with anxiety or depression, or other mental health problem, without drugs is possible. This post is for all those who want to learn how to do this.
 tags: []
+category: "category-3"
 thumbnailimage:
   alt: Managing Life Without Medication
   image: /img/managing-life-without-medication.jpg

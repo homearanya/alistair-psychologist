@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "gatsby";
-import { Link as ScrollTo } from "react-scroll";
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
+import { Link as ScrollTo } from "react-scroll"
 
 const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   display: inline-block;
@@ -26,7 +26,7 @@ const StyledButton = styled.button.attrs(() => ({ type: "button" }))`
   :active {
     transform: scale(0.99);
   }
-`;
+`
 
 export default function Button(props) {
   return (
@@ -36,10 +36,10 @@ export default function Button(props) {
           <StyledButton>{props.text}</StyledButton>
         </ScrollTo>
       ) : (
-        <Link to={props.whereTo}>
+        <Link to={props.whereTo} activeClassName="active">
           <StyledButton>{props.text}</StyledButton>
         </Link>
       )}
     </React.Fragment>
-  );
+  )
 }

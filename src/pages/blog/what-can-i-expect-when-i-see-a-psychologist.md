@@ -15,6 +15,7 @@ excerpt: >-
   non-judgemental psychologist (psychotherapist) is of enormous benefit to
   themselves and to their relationships.
 tags: []
+category: "category-2"
 thumbnailimage:
   alt: What Can I Expect When I See A Psychologist?
   image: /img/seeing-a-psychologist.jpg

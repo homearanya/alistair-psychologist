@@ -11,10 +11,10 @@ const StyledPost = styled.article`
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
 `
 
-const PostThumbnail = (props) => {
+const PostThumbnail = ({ smCol = 12, mdCol = 6, ...props }) => {
   const postUrl = `${props.siteUrl}${props.post.fields.slug}`
   return (
-    <div className="isotope-item col-lg-4 col-md-6 col-sm-12">
+    <div className={`isotope-item col-md-${mdCol} col-sm-${smCol} col-xm-12`}>
       <StyledPost className="vertical-item content-padding mosaic-post post format-standard text-center">
         {props.post.frontmatter.thumbnailimage &&
           props.post.frontmatter.thumbnailimage.image && (
@@ -37,6 +37,9 @@ const PostThumbnail = (props) => {
 
         <div className="item-content entry-content">
           <header className="entry-header">
+            <h4 className="category-title">
+              {props.post.frontmatter.category.frontmatter.title}
+            </h4>
             <h3 className="entry-title">
               <Link
                 to={`${props.post.fields.slug}#start-content`}

@@ -7,36 +7,40 @@ import PostThumbnail from "../components/PostThumbnail"
 import SEO from "../components/SEO/SEO"
 import BlogSidebar from "../components/BlogSidebar"
 
-export default function({ location, data }) {
-  const { fields, frontmatter } = data.blogPageQuery
-  const { edges: posts } = data.postsQuery
+export default function({ location, data, pageContext, path, ...rest }) {
+  const { title: categoryTitle } = pageContext
+  const { bannerImage: image, postsQuery } = data
+  const { edges: posts } = postsQuery
+  console.log("image: ", image)
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
-    { title: "Blog", href: null },
+    { title: "Blog", href: "blog" },
+    { title: "Categories", href: null },
+    { title: categoryTitle, href: null },
   ]
   const pageMeta = {
-    title: `Blog · Counselling Psychologist in Howick`,
+    title: `Blog · ${categoryTitle} · Counselling Psychologist in Howick`,
     description:
-      frontmatter.excerpt ||
-      frontmatter.blurb ||
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
-    slug: fields.slug,
+    slug: path,
     datePublished: false,
   }
   return (
-    <Layout currentPageSlug={fields.slug}>
+    <Layout currentPageSlug={path}>
       <SEO
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
       <Breadcrumbs
-        bannerImage={frontmatter.bannerimage}
+        bannerImage={{ image }}
         pageTitle="Blog"
         pages={JSON.parse(JSON.stringify(pages))}
       />
+
       <section className="ls page_portfolio section_padding_top_100 section_padding_bottom_75">
         <div className="container">
+          <Heading>{`Category: ${categoryTitle}`}</Heading>
           <Row className="row mosaic-post">
             <div className="col-sm-9">
               <div className="isotope_container isotope row masonry-layout columns_bottom_margin_30">
@@ -59,30 +63,18 @@ export default function({ location, data }) {
   )
 }
 
-export const blogPageQuery = graphql`
-  query BlogQuery($id: String!) {
-    blogPageQuery: markdownRemark(id: { eq: $id }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        blurb
-        excerpt
-        bannerimage {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          alt
+export const query = graphql`
+  query BlogCategoryPageQuery($id: String!) {
+    bannerImage: file(relativePath: { eq: "about-me-banner.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     postsQuery: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "post-page" } } }
+      filter: { frontmatter: { category: { id: { eq: $id } } } }
     ) {
       edges {
         node {
@@ -93,12 +85,13 @@ export const blogPageQuery = graphql`
           }
           frontmatter {
             title
-            intro
             category {
+              id
               frontmatter {
                 title
               }
             }
+            intro
             date(formatString: "MMMM DD, YYYY")
             thumbnailimage {
               alt
@@ -114,6 +107,12 @@ export const blogPageQuery = graphql`
         }
       }
     }
+  }
+`
+const Heading = styled.h1`
+  margin-bottom: 60px;
+  @media (max-width: 992px) {
+    margin-bottom: 30px;
   }
 `
 const Row = styled.div`

@@ -197,5 +197,6 @@ module.exports = {
   mapping: {
     "MarkdownRemark.frontmatter.servicesArea.services.service": `MarkdownRemark.frontmatter.title`,
     "MarkdownRemark.frontmatter.courseName": `MarkdownRemark.frontmatter.title`,
+    "MarkdownRemark.frontmatter.category": `MarkdownRemark.frontmatter.slug`,
   },
 }

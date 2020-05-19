@@ -9,6 +9,7 @@ import Breadcrumbs from "../components/Breadcrumbs"
 import PrevNextPost from "../components/PrevNextPost"
 import SEO from "../components/SEO/SEO"
 import DynamicAnchor from "../components/DynamicAnchor"
+import BlogSidebar from "../components/BlogSidebar"
 
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
@@ -54,7 +55,7 @@ export default function({ data, pageContext }) {
       <section className="ls section_padding_top_130 section_padding_bottom_130 columns_padding_25">
         <div className="container">
           <div className="row">
-            <div className="col-sm-10 col-sm-push-1">
+            <div className="col-sm-9 ">
               <DynamicAnchor id="start-content" />
               <div className="vertical-item content-padding with_shadow">
                 <div className="entry-thumbnail item-media">
@@ -99,6 +100,10 @@ export default function({ data, pageContext }) {
                   <PrevNextPost position="Next" post={pageContext.next} />
                 )}
               </div>
+            </div>
+
+            <div className="col-sm-3">
+              <BlogSidebar />
             </div>
           </div>
         </div>

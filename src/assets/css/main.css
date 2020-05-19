@@ -573,7 +573,6 @@ input[type="radio"] {
 
 .form-inline-button .form-inline .form-group {
   display: block;
-  vertical-align: top;
   position: relative;
 }
 
@@ -2153,6 +2152,7 @@ p > [class*="rt-icon"] + [class*="rt-icon"] {
 .flexslider .slides > li {
   display: none;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
@@ -6213,9 +6213,9 @@ body.active-side-header.slide-right .page_header_side {
   background-color: #253138;
 }
 
-.ds {
-  /* shop */
-}
+/* .ds {
+  
+} */
 
 .ds h1,
 .ds h2,
@@ -7270,9 +7270,10 @@ body.active-side-header.slide-right .page_header_side {
 }
 
 .page_breadcrumbs h2 {
-  display: inline;
+  display: block;
   font-size: 32px;
   word-wrap: break-word;
+  margin-bottom: 30px;
 }
 
 .page_breadcrumbs h2 + .breadcrumb {
@@ -8383,6 +8384,11 @@ article.post + article.post,
   padding: 18px 40px 17px;
 }
 
+h4.category-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  opacity: 0.7;
+}
 h3.entry-title {
   font-size: 28px;
   margin: 0 0 14px;
@@ -9255,7 +9261,6 @@ widget_mailchimp
 .widget_search .form-inline .form-group,
 .widget_mailchimp .form-inline .form-group {
   display: block;
-  vertical-align: top;
   position: relative;
 }
 
@@ -9880,7 +9885,6 @@ aside .widget_tag_cloud a:hover {
 }
 
 .apsc-theme-4 .social-icon {
-  display: inline-block;
   position: relative;
   float: left;
   transition: all 0.5s ease-in-out;

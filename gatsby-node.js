@@ -43,6 +43,13 @@ exports.createPages = ({ actions, graphql }) => {
             frontmatter {
               templateKey
               title
+              category {
+                frontmatter {
+                  title
+                  slug
+                }
+                id
+              }
               thumbnailimage {
                 alt
                 image {
@@ -70,6 +77,18 @@ exports.createPages = ({ actions, graphql }) => {
 
     const nonPosts = result.data.nonPostsPages.edges
     const posts = result.data.postsPages.edges
+    const categories = posts.reduce((acc, { node: post }) => {
+      const { category } = post.frontmatter
+      if (category) {
+        const { id } = category
+        const { title, slug } = category.frontmatter
+        acc[slug] = {
+          title: title,
+          id,
+        }
+      }
+      return acc
+    }, {})
 
     nonPosts.forEach(({ node }) => {
       const id = node.id
@@ -84,7 +103,7 @@ exports.createPages = ({ actions, graphql }) => {
         },
       })
     })
-
+    // Create blog post pages
     posts.forEach(({ node }, index) => {
       const id = node.id
       // Prepare related data
@@ -98,6 +117,20 @@ exports.createPages = ({ actions, graphql }) => {
           id,
           prev: index === 0 ? null : posts[index - 1].node,
           next: index === posts.length - 1 ? null : posts[index + 1].node,
+        },
+      })
+    })
+    // Create blog categories pages
+    Object.keys(categories).forEach((category) => {
+      const { id, title } = categories[category]
+      createPage({
+        path: `/blog/categories/${category}`,
+        component: path.resolve(`src/templates/blog-category-page.js`),
+        // additional data can be passed via context
+        context: {
+          id,
+          slug: category,
+          title,
         },
       })
     })

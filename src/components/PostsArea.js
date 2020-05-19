@@ -23,6 +23,11 @@ export default function PostsArea(props) {
                 frontmatter {
                   title
                   intro
+                  category {
+                    frontmatter {
+                      title
+                    }
+                  }
                   date(formatString: "MMMM DD, YYYY")
                   thumbnailimage {
                     alt
@@ -57,6 +62,8 @@ export default function PostsArea(props) {
                     post={post}
                     key={post.id}
                     siteUrl={props.siteUrl}
+                    mdCol={4}
+                    smCol={6}
                   />
                 ))}
               </div>

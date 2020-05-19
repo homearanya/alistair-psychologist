@@ -11,6 +11,7 @@ excerpt: >-
   individual may lose their ability to see the positives in life and begin to
   feel utterly alone.
 tags: []
+category: "category-2"
 thumbnailimage:
   alt: Man going through a depression
   image: /img/going-through-depression.jpg
