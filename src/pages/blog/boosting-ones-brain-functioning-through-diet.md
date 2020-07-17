@@ -7,7 +7,7 @@ intro: >-
 excerpt: >-
   Recent research shows that the food we eat, and don’t eat, has a huge impact on the health of our body and brain.
 tags: []
-category: "category-1"
+category: "healing-without-medication"
 thumbnailimage:
   alt: Healthy food for the brain
   image: /img/brain-food-image.jpg
