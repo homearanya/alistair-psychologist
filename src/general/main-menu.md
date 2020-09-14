@@ -27,6 +27,8 @@ menuItems:
                 name: Frequently Asked Questions
               - link: /services/mindfulness-training/upcoming-courses/
                 name: Upcoming Courses
+              - link: https://midlands-assessment-and-therapy-centre.learnworlds.com/course?courseid=mindfulness-training
+                name: Online Course
   - link: /blog/
     name: Blog
   - link: /contact/
