@@ -14,6 +14,10 @@ export default function OnlineTherapyCTA(props) {
               frontmatter {
                 heading
                 blurb
+                buttonCourse {
+                  text
+                  link
+                }
               }
             }
           }
@@ -36,6 +40,12 @@ export default function OnlineTherapyCTA(props) {
                       className="section_header"
                       dangerouslySetInnerHTML={{ __html: frontmatter.heading }}
                     />
+                    <StyledButton
+                      href={frontmatter.buttonCourse.link}
+                      target="_blank"
+                    >
+                      {frontmatter.buttonCourse.text}
+                    </StyledButton>
                     <Blurb>{frontmatter.blurb}</Blurb>
                     <ContactForm
                       buttonMessage="Book Now!"
@@ -102,6 +112,28 @@ const Section = styled.section`
     .container {
       padding-top: 50px !important;
       padding-bottom: 50px !important;
+    }
+  }
+`
+const StyledButton = styled.a`
+  &&& {
+    display: inline-block;
+    color: ${(props) => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
+    padding: 10px 30px;
+    background-color: #91d0cc;
+    box-shadow: 0px 2px 30px rgba(145, 208, 204, 0.5);
+    margin-bottom: 50px;
+
+    :link,
+    :visited {
+      color: ${(props) => (props.loadSpinner ? "#91d0cc" : "#ffffff")};
+      background-color: #91d0cc;
+    }
+    :hover,
+    :active {
+      color: ${(props) => (props.loadSpinner ? "#d9be93" : "#ffffff")};
+      background-color: #d9be93;
+      box-shadow: 0px 2px 30px rgba(217, 190, 147, 0.5);
     }
   }
 `
