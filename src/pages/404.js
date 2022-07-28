@@ -1,14 +1,14 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import styled from "styled-components";
+import React from "react"
+import { Helmet } from "react-helmet"
+import styled from "styled-components"
 
-import Layout from "../components/Layout";
-import Button from "../components/Button";
+import Layout from "../components/Layout"
+import Button from "../components/Button"
 
 const StyledSection = styled.section`
-  background-image: url("/img/404-background.jpg");
+  background-image: url("../assets/img/404-background.jpg");
   background-position: center;
-`;
+`
 
 export default function() {
   return (
@@ -35,5 +35,5 @@ export default function() {
         </div>
       </StyledSection>
     </Layout>
-  );
+  )
 }

@@ -9,13 +9,13 @@ excerpt: >-
   career change. I will help you understand your personality functioning as well as assess your strengths, values, interests and abilities
 thumbnailimage:
   alt: Career Guidance
-  image: /img/career-guidance-icon.png
+  image: ../../assets../../assets/img/career-guidance-icon.png
 bannerimage:
   alt: Starting line
-  image: /img/career-guidance-banner.jpg
+  image: ../../assets/img/career-guidance-banner.jpg
 bodyimage:
   alt: Climbing the ladder
-  image: /img/climbing-the-ladder.jpg
+  image: ../../assets/img/climbing-the-ladder.jpg
 testimonialsArea:
   testimonials: []
 ---

@@ -14,13 +14,13 @@ tags: []
 category: "psychology-101"
 thumbnailimage:
   alt: Man going through a depression
-  image: /img/going-through-depression.jpg
+  image: ../../assets/img/going-through-depression.jpg
 bannerimage:
   alt: mental health
-  image: /img/clinical-depression-post-banner.jpg
+  image: ../../assets/img/clinical-depression-post-banner.jpg
 bodyimage:
   alt: Man going through a depression
-  image: /img/going-through-depression.jpg
+  image: ../../assets/img/going-through-depression.jpg
 ---
 
 Clinical depression can make work and daily life almost impossible; an individual may lose their ability to see the positives in life and begin to feel utterly alone. It may affect between 20% and 25% of the population. The good news, however, is that a depressive episode is treatable and, more importantly, it is preventable. A **functional medicine** approach to dealing with this mental health problem is often very effective.

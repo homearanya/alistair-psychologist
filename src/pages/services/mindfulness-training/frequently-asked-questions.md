@@ -92,13 +92,13 @@ qa:
     question: What will I learn on a mindfulness course?
 thumbnailimage:
   alt: Mindfulness Training
-  image: /img/meditation.png
+  image: ../../assets/img/meditation.png
 bannerimage:
   alt: Sunset
-  image: /img/frequently-asked-questions-banner.jpg
+  image: ../../assets/img/frequently-asked-questions-banner.jpg
 bodyimage:
   alt: Frequently Asked Questions
-  image: /img/frequently-asked-questions.jpg
+  image: ../../assets/img/frequently-asked-questions.jpg
 ---
 
 <faq-container></faq-container>

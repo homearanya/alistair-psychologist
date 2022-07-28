@@ -7,7 +7,7 @@ dateEnd: 2020-03-10T22:00:00.000Z
 venue: ""
 thumbnailimage:
   alt: Mindfulness-Based Stress Reduction Course
-  image: /img/mindfulness-training-stress-course-thumbnail.jpg
+  image: ../../assets/img/mindfulness-training-stress-course-thumbnail.jpg
 ---
 
 #### (8 weeks)

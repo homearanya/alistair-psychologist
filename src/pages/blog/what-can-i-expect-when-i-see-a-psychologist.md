@@ -18,13 +18,13 @@ tags: []
 category: "psychology-101"
 thumbnailimage:
   alt: What Can I Expect When I See A Psychologist?
-  image: /img/seeing-a-psychologist.jpg
+  image: ../../assets/img/seeing-a-psychologist.jpg
 bannerimage:
   alt: What Can I Expect When I See A Psychologist?
-  image: /img/visiting-a-psychologist-post-banner.jpg
+  image: ../../assets/img/visiting-a-psychologist-post-banner.jpg
 bodyimage:
   alt: What Can I Expect When I See A Psychologist?
-  image: /img/seeing-a-psychologist.jpg
+  image: ../../assets/img/seeing-a-psychologist.jpg
 ---
 
 You may have never stepped inside a psychologist’s office let alone engaged in psychotherapy. However, many men and women, as well as children and adolescents, find that talking to a trained neutral, objective, confidential, non-judgemental psychologist (psychotherapist) is of enormous benefit to themselves and to their relationships.

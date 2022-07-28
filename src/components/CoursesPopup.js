@@ -4,11 +4,11 @@ import styled from "styled-components"
 import { ContactForm } from "./ContactForm"
 
 const CoursesPopup = React.forwardRef((props, ref) => {
-  let sectionClassName
-  props.noTopPadding
-    ? (sectionClassName = "ls section_padding_bottom_150")
-    : (sectionClassName =
-        "ls section_padding_top_130 section_padding_bottom_150")
+  // let sectionClassName
+  // props.noTopPadding
+  //   ? (sectionClassName = "ls section_padding_bottom_150")
+  //   : (sectionClassName =
+  //       "ls section_padding_top_130 section_padding_bottom_150")
 
   return (
     <Wrapper>

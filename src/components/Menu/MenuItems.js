@@ -68,7 +68,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   @media (min-width: 992px) {
     &&& {
       color: ${(props) => (props.isActive ? "#91d0cc" : "#444444")};
-      margin: 0 15px;
+      margin: 0;
       padding-top: ${(props) => (props.$isSticky ? "25px" : "25px")};
       padding-bottom: ${(props) => (props.$isSticky ? "25px" : "25px")};
     }

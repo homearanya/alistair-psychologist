@@ -11,7 +11,6 @@ export default function({ location, data, pageContext, path, ...rest }) {
   const { title: categoryTitle } = pageContext
   const { bannerImage: image, postsQuery } = data
   const { edges: posts } = postsQuery
-  console.log("image: ", image)
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },

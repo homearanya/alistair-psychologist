@@ -1,7 +1,7 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 
-import ContactDetails2Item from "./ContactDetails2Item";
+import ContactDetails2Item from "./ContactDetails2Item"
 
 export default function ContactDetails2() {
   return (
@@ -13,8 +13,8 @@ export default function ContactDetails2() {
           }
         }
       `}
-      render={data => {
-        const { contact_details } = data.file.childMarkdownRemark.frontmatter;
+      render={(data) => {
+        const { contact_details } = data.file.childMarkdownRemark.frontmatter
 
         return (
           <div className="with_border with_padding_small">
@@ -24,12 +24,6 @@ export default function ContactDetails2() {
                 heading="Physical Address:"
                 content={contact_details.address}
                 href={`https://maps.google.com/?q=${contact_details.address}`}
-              />
-              <ContactDetails2Item
-                iconClass="fas fa-phone"
-                heading="Landline:"
-                content={contact_details.landline.phonedisplay}
-                href={`tel:${contact_details.landline.phonenumber}`}
               />
               <ContactDetails2Item
                 iconClass="fas fa-mobile-alt"
@@ -45,8 +39,8 @@ export default function ContactDetails2() {
               />
             </ul>
           </div>
-        );
+        )
       }}
     />
-  );
+  )
 }

@@ -9,7 +9,7 @@ slider:
     heading2: Mork-Chadwick
     image:
       alt: Alistair Mork-Chadwick during a counselling session
-      image: /img/alistair-mork-chadwick-at-work.jpg
+      image: ../assets/img/alistair-mork-chadwick-at-work.jpg
     subheading: Counselling Psychologist in Howick
 servicesArea:
   blurb: I offer all of the following services.
@@ -35,10 +35,10 @@ aboutMeArea:
   heading2: " "
   personPicture:
     alt: Alistair Mork-Chadwick
-    image: /img/alistair-mork-chadwick.png
+    image: ../assets/img/alistair-mork-chadwick.png
   backgroundImage:
     alt: Square Patterns
-    image: /img/texture.png
+    image: ../assets/img/texture.png
 coursesArea:
   blurb: ""
   heading: Mindfulness Training - Upcoming Courses

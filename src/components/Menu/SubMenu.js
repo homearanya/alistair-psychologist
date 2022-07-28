@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { CSSTransition } from "react-transition-group";
-import styled from "styled-components";
+import React, { Component } from "react"
+import { CSSTransition } from "react-transition-group"
+import styled from "styled-components"
 
-import MenuItems from "./MenuItems";
+import MenuItems from "./MenuItems"
 
 // import { transformSubMenu } from "../../assets/utils/helpers";
 
@@ -23,54 +23,54 @@ const StyledSubMenu = styled.ul`
       background-color: #ffffff;
       box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
       padding: 10px 0 10px;
-      margin-top: ${props => (props.$isSticky ? undefined : undefined)};
+      margin-top: ${(props) => (props.$isSticky ? undefined : undefined)};
       position: absolute;
-      top: ${props => (props.depthLevel > 0 ? "0" : undefined)};
-      left: ${props => (props.moveLeft ? "auto" : undefined)};
-      right: ${props => (props.moveLeft ? "100%" : undefined)};
+      top: ${(props) => (props.depthLevel > 0 ? "0" : undefined)};
+      left: ${(props) => (props.moveLeft ? "auto" : undefined)};
+      right: ${(props) => (props.moveLeft ? "100%" : undefined)};
     }
   }
-`;
+`
 
 export class SubMenu extends Component {
   constructor(props) {
-    super(props);
-    this.state = { moveLeft: false, subMenuWidth: 0 };
-    this.subMenuRef = React.createRef();
+    super(props)
+    this.state = { moveLeft: false, subMenuWidth: 0 }
+    this.subMenuRef = React.createRef()
   }
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.viewPortWidth < 992) return;
+    if (this.props.viewPortWidth < 992) return
     if (this.subMenuRef && this.subMenuRef.current) {
-      const subMenu = this.subMenuRef.current;
-      const subMenuDimensions = subMenu.getBoundingClientRect();
+      const subMenu = this.subMenuRef.current
+      const subMenuDimensions = subMenu.getBoundingClientRect()
       if (
         Math.round(subMenuDimensions.width * 100) / 100 ===
         Math.round(this.state.subMenuWidth * 100) / 100
       )
-        return;
+        return
       if (this.state.moveLeft) {
         this.setState({
-          moveLeft: false
-        });
-        return;
+          moveLeft: false,
+        })
+        return
       }
       if (subMenuDimensions.right > this.props.viewPortWidth) {
         this.setState({
           moveLeft: true,
-          subMenuWidth: subMenuDimensions.width
-        });
+          subMenuWidth: subMenuDimensions.width,
+        })
       } else {
         this.setState({
           moveLeft: false,
-          subMenuWidth: subMenuDimensions.width
-        });
+          subMenuWidth: subMenuDimensions.width,
+        })
       }
     }
   }
   render() {
     const subMenuItems = this.props.subMenu
       ? this.props.subMenu.subMenuItems
-      : null;
+      : null
 
     return (
       <React.Fragment>
@@ -102,8 +102,8 @@ export class SubMenu extends Component {
           </StyledSubMenu>
         </CSSTransition>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default SubMenu;
+export default SubMenu

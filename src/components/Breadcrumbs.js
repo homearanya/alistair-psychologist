@@ -6,12 +6,11 @@ const StyledSection = styled.section`
   background-image: ${(props) =>
     props.backgroundImage && props.backgroundImage.image
       ? `url("${props.backgroundImage.image.childImageSharp.fluid.src}")`
-      : `url("/img/parallax/breadcrumbs.jpg")`};
+      : `url("../assets/img/parallax/breadcrumbs.jpg")`};
   background-position: center;
 `
 
 export default function Breadcrumbs(props) {
-  console.log(props.bannerImage)
   return (
     <StyledSection
       className="page_breadcrumbs ds background_cover section_padding_50"

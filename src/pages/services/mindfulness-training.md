@@ -11,13 +11,13 @@ excerpt: >-
   the potentially pleasurable aspects of life.
 thumbnailimage:
   alt: Mindfulness Training
-  image: /img/mindfulness-training-icon.png
+  image: ../../assets/img/mindfulness-training-icon.png
 bannerimage:
   alt: Mindfulness Training
-  image: /img/mindfulness-training-banner.jpg
+  image: ../../assets/img/mindfulness-training-banner.jpg
 bodyimage:
   alt: Mindfulness Training
-  image: /img/mindfulness-training.jpg
+  image: ../../assets/img/mindfulness-training.jpg
 testimonialsArea:
   testimonials:
     - author: "Course participant with clinical depression"

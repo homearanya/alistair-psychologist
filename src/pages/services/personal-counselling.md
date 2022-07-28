@@ -1,5 +1,6 @@
 ---
 templateKey: service-page
+pageId: personal-counselling
 title: Personal Counselling
 intro: >-
   Psychotherapy will provide a safe and accepting space to move towards a
@@ -9,13 +10,13 @@ excerpt: >-
   thriving life.
 thumbnailimage:
   alt: Personal Counselling
-  image: /img/personal-counselling-icon.png
+  image: ../../assets/img/personal-counselling-icon.png
 bannerimage:
   alt: Feeling, emotions, sesations...
-  image: /img/personal-counselling-banner.jpg
+  image: ../../assets/img/personal-counselling-banner.jpg
 bodyimage:
   alt: Personal Counselling
-  image: /img/personal-counselling.jpg
+  image: ../../assets/img/personal-counselling.jpg
 testimonialsArea:
   testimonials:
     - author: "Psychotherapy client, 2015"
@@ -27,7 +28,7 @@ testimonialsArea:
 
 **Psychotherapy will provide a safe and accepting space to move towards a thriving life.**
 
-####Therapy for Adults, Teenagers, Couples and Families
+#### Therapy for Adults, Teenagers, Couples and Families
 
 Psychotherapy comes in many different forms. Together we will decide on the right approach to help you move towards a life of thriving. We identify ways to move forward and use regular counselling or home-based exercises to remove the internal barriers to progress.
 

@@ -14,13 +14,13 @@ tags: []
 category: "mindfulness"
 thumbnailimage:
   alt: What Is Mindfulness, And How Does It Work?
-  image: /img/mindfulness-time.jpg
+  image: ../../assets/img/mindfulness-time.jpg
 bannerimage:
   alt: What Is Mindfulness, And How Does It Work?
-  image: /img/what-is-mindfulness-post-banner.jpg
+  image: ../../assets/img/what-is-mindfulness-post-banner.jpg
 bodyimage:
   alt: What Is Mindfulness, And How Does It Work?
-  image: /img/mindfulness-time.jpg
+  image: ../../assets/img/mindfulness-time.jpg
 ---
 
 **Mindfulness: what is it and how does one do it?**

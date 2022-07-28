@@ -1,20 +1,20 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
-import rehypeReact from "rehype-react";
-import styled from "styled-components";
+import React from "react"
+import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
+import rehypeReact from "rehype-react"
+import styled from "styled-components"
 
-import Layout from "../components/Layout";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Layout from "../components/Layout"
+import Breadcrumbs from "../components/Breadcrumbs"
 // import Content, { HTMLContent } from "../components/Content";
-import TestimonialsArea from "../components/TestimonialsArea";
-import AppointmentArea from "../components/AppointmentArea";
-import DynamicAnchor from "../components/DynamicAnchor";
-import Accordion from "../components/Accordion";
-import Tab from "../components/Tab";
-import TabHeading from "../components/TabHeading";
-import TabContent from "../components/TabContent";
-import SEO from "../components/SEO/SEO";
+import TestimonialsArea from "../components/TestimonialsArea"
+import AppointmentArea from "../components/AppointmentArea"
+import DynamicAnchor from "../components/DynamicAnchor"
+import Accordion from "../components/Accordion"
+import Tab from "../components/Tab"
+import TabHeading from "../components/TabHeading"
+import TabContent from "../components/TabContent"
+import SEO from "../components/SEO/SEO"
 
 const StyledLink = styled(Link)`
   && {
@@ -27,14 +27,29 @@ const StyledLink = styled(Link)`
       color: #d9be93;
     }
   }
-`;
+`
 
 const StyledImg = styled(Img)`
   margin-bottom: 50px;
   @media (min-width: 992px) {
     margin-bottom: 0;
   }
-`;
+`
+
+const Notice = styled.div`
+  border: 1px solid #333;
+  padding: 30px 20px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+
+  p {
+    color: #333;
+    font-size: 15px !important;
+  }
+  span.underline {
+    text-decoration: underline;
+  }
+`
 
 //  Create a render function with references to your custom components in markdown
 const renderAst = new rehypeReact({
@@ -45,27 +60,27 @@ const renderAst = new rehypeReact({
     "accordion-container": Accordion,
     "tab-container": Tab,
     "tab-heading": TabHeading,
-    "tab-content": TabContent
-  }
-}).Compiler;
+    "tab-content": TabContent,
+  },
+}).Compiler
 
 export default function({ data }) {
   // const ServiceContent = HTMLContent || Content;
-  const { fields, frontmatter } = data.markdownRemark;
+  const { fields, frontmatter } = data.markdownRemark
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
     { title: "Services", href: "/#services" },
-    { title: frontmatter.title, href: null }
-  ];
+    { title: frontmatter.title, href: null },
+  ]
   // service images
-  let serviceImages = [];
+  let serviceImages = []
   if (
     frontmatter.bodyimage &&
     frontmatter.bodyimage.image &&
     frontmatter.bodyimage.image.relativePath
   ) {
-    serviceImages.push(frontmatter.bodyimage.image.relativePath);
+    serviceImages.push(frontmatter.bodyimage.image.relativePath)
   }
   const pageMeta = {
     title: `${frontmatter.title} · services`,
@@ -78,8 +93,8 @@ export default function({ data }) {
     psychological assessments and mindfulness training.`,
     serviceImages: serviceImages,
     slug: fields.slug,
-    datePublished: false
-  };
+    datePublished: false,
+  }
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
       <SEO
@@ -93,8 +108,29 @@ export default function({ data }) {
         pageTitle={frontmatter.title}
         pages={JSON.parse(JSON.stringify(pages))}
       />
-      <section className="ls section_padding_top_130 section_padding_bottom_130">
+      <section className="ls section_padding_top_65 section_padding_bottom_65">
         <div className="container">
+          {frontmatter.pageId === "personal-counselling" && (
+            <Notice>
+              <p>
+                Are you on a <strong>Medical Aid Hospital Plan</strong>?
+              </p>
+              <p>
+                If so, the SA government requires all medical aid schemes to{" "}
+                <span className="underline">
+                  cover the cost of consultations
+                </span>{" "}
+                with a psychologist for Prescribed Minimum Benefit (PMB)
+                conditions. These include Depression and Biploar Disorder
+                amongst others. You will be provided with up to{" "}
+                <strong>15 consultations</strong> by your medical aid.{" "}
+                <Link to="/contact/">
+                  <strong>Contact me</strong>
+                </Link>{" "}
+                for further info.
+              </p>
+            </Notice>
+          )}
           <div className="row">
             <div className="col-lg-4 col-lg-push-8 col-sm-5 col-sm-push-7">
               {frontmatter.bodyimage && frontmatter.bodyimage.image && (
@@ -123,7 +159,7 @@ export default function({ data }) {
         <AppointmentArea noTopPadding />
       )}
     </Layout>
-  );
+  )
 }
 
 export const servicePageQuery = graphql`
@@ -134,6 +170,7 @@ export const servicePageQuery = graphql`
       }
       htmlAst
       frontmatter {
+        pageId
         title
         intro
         excerpt
@@ -166,4 +203,4 @@ export const servicePageQuery = graphql`
       }
     }
   }
-`;
+`

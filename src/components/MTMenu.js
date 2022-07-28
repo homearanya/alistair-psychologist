@@ -1,6 +1,6 @@
-import React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import React from "react"
+import { Link, StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 const SVGWrapper = styled.div`
   color: #91d0cc;
@@ -18,7 +18,7 @@ const SVGWrapper = styled.div`
   a.active & {
     color: #ffffff;
   }
-`;
+`
 
 export default function MTMenu() {
   return (
@@ -37,12 +37,12 @@ export default function MTMenu() {
           }
         }
       `}
-      render={data => {
-        const { menuItems } = data.markdownRemark.frontmatter;
+      render={(data) => {
+        const { menuItems } = data.markdownRemark.frontmatter
 
         return (
           <div className="col-sm-4">
-            <ul className="nav" role="menu">
+            <ul className="nav no-bullets" role="menu">
               {menuItems &&
                 menuItems.map((menuItem, index) => (
                   <li key={index}>
@@ -51,7 +51,7 @@ export default function MTMenu() {
                       getProps={({ href, location }) => {
                         return location.pathname === href.split("#")[0]
                           ? { className: "active" }
-                          : null;
+                          : null
                       }}
                     >
                       {menuItem.name}
@@ -63,8 +63,8 @@ export default function MTMenu() {
                 ))}
             </ul>
           </div>
-        );
+        )
       }}
     />
-  );
+  )
 }

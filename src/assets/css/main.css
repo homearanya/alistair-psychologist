@@ -7843,10 +7843,10 @@ body.active-side-header.slide-right .page_header_side {
   }
   .sf-menu ul a,
   .sf-menu ul button {
-    padding-left: 15px;
+    /* padding-left: 15px; */
     position: relative;
   }
-  .sf-menu ul a:before,
+  /* .sf-menu ul a:before,
   .sf-menu ul button:before {
     content: "";
     position: absolute;
@@ -7860,7 +7860,7 @@ body.active-side-header.slide-right .page_header_side {
     background-color: #444444;
     -webkit-transition: all 0.2s linear 0s;
     transition: all 0.2s linear 0s;
-  }
+  } */
   .sf-menu ul a:hover:before,
   .sf-menu ul button:hover:before {
     background-color: #91d0cc;

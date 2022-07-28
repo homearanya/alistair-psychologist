@@ -10,13 +10,13 @@ tags: []
 category: "healing-without-medication"
 thumbnailimage:
   alt: Managing Life Without Medication
-  image: /img/managing-life-without-medication.jpg
+  image: ../../assets/img/managing-life-without-medication.jpg
 bannerimage:
   alt: Managing Life Without Medication
-  image: /img/managing-life-without-medication-banner.jpg
+  image: ../../assets/img/managing-life-without-medication-banner.jpg
 bodyimage:
   alt: Managing Life Without Medication
-  image: /img/managing-life-without-medication.jpg
+  image: ../../assets/img/managing-life-without-medication.jpg
 ---
 
 _Dealing with anxiety or depression, or other mental health problem, <u>without drugs</u> is possible. This post is for all those who want to learn how to do this._

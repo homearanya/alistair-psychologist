@@ -1,4 +1,3 @@
-import path from "path"
 import React from "react"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
@@ -77,7 +76,7 @@ const SEO = ({ pageData, breadcrumbs, postImage, pageType }) => (
         service.description = pageMeta.description
         service.images = pageMeta.serviceImages
         service.price = pageMeta.servicePrice
-        service.url = `${seo.canonicalUrl}${path.sep}${pageMeta.slug}`
+        service.url = `${seo.canonicalUrl}/${pageMeta.slug}`
       }
       // post data for schemaOrg
       let post = {}
