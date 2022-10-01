@@ -24,6 +24,7 @@ export default function ContactDetails2() {
                 heading="Physical Address:"
                 content={contact_details.address}
                 href={`https://maps.google.com/?q=${contact_details.address}`}
+                rel="noreferrer"
               />
               <ContactDetails2Item
                 iconClass="fas fa-mobile-alt"

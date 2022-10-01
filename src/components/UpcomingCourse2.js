@@ -38,7 +38,7 @@ export default function UpcomingCourse({
   siteUrl,
   columns,
 }) {
-  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`
+  const courseUrl = `${siteUrl}/mindfulness-training/in-person/upcoming-courses/`
   const courseSlug = `${courseInfo.courseName.fields.slug}#start-content`
   return (
     <div className={`${columns} text-center`}>

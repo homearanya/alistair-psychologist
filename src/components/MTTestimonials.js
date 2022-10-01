@@ -1,16 +1,14 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 
-import TestimonialsArea from "../components/TestimonialsArea";
+import TestimonialsArea from "../components/TestimonialsArea"
 
 export default function MTTestimonials() {
   return (
     <StaticQuery
       query={graphql`
         query MindfulnessTrainingTestimonialsQuery {
-          markdownRemark(
-            fields: { slug: { eq: "/services/mindfulness-training/" } }
-          ) {
+          markdownRemark(fields: { slug: { eq: "/mindfulness-training/" } }) {
             frontmatter {
               testimonialsArea {
                 testimonials {
@@ -22,8 +20,8 @@ export default function MTTestimonials() {
           }
         }
       `}
-      render={data => {
-        const { frontmatter } = data.markdownRemark;
+      render={(data) => {
+        const { frontmatter } = data.markdownRemark
         return (
           <React.Fragment>
             {frontmatter.testimonialsArea &&
@@ -33,8 +31,8 @@ export default function MTTestimonials() {
               />
             ) : null}
           </React.Fragment>
-        );
+        )
       }}
     />
-  );
+  )
 }

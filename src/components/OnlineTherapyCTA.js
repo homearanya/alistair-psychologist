@@ -43,6 +43,7 @@ export default function OnlineTherapyCTA(props) {
                     <StyledButton
                       href={frontmatter.buttonCourse.link}
                       target="_blank"
+                      rel="noreferrer"
                     >
                       {frontmatter.buttonCourse.text}
                     </StyledButton>

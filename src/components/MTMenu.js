@@ -46,19 +46,28 @@ export default function MTMenu() {
               {menuItems &&
                 menuItems.map((menuItem, index) => (
                   <li key={index}>
-                    <Link
-                      to={menuItem.link}
-                      getProps={({ href, location }) => {
-                        return location.pathname === href.split("#")[0]
-                          ? { className: "active" }
-                          : null
-                      }}
-                    >
-                      {menuItem.name}
-                      <SVGWrapper>
-                        <i className="fas fa-angle-right" />
-                      </SVGWrapper>
-                    </Link>
+                    {/^\/(?!\/)/.test(menuItem.link) ? (
+                      <Link
+                        to={menuItem.link}
+                        getProps={({ href, location }) => {
+                          return location.pathname === href.split("#")[0]
+                            ? { className: "active" }
+                            : null
+                        }}
+                      >
+                        {menuItem.name}
+                        <SVGWrapper>
+                          <i className="fas fa-angle-right" />
+                        </SVGWrapper>
+                      </Link>
+                    ) : (
+                      <a href={menuItem.link} target="_blank" rel="noreferrer">
+                        {menuItem.name}
+                        <SVGWrapper>
+                          <i className="fas fa-angle-right" />
+                        </SVGWrapper>
+                      </a>
+                    )}
                   </li>
                 ))}
             </ul>

@@ -20,6 +20,7 @@ const StyledSubMenu = styled.ul`
 
   @media (min-width: 992px) {
     &&& {
+      z-index: 50;
       background-color: #ffffff;
       box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
       padding: 10px 0 10px;

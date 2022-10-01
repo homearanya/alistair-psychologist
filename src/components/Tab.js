@@ -1,16 +1,24 @@
-import React from "react";
+import React from "react"
+import { useState } from "react"
 
 export default function Tab(props) {
-  const children = React.Children.map(props.children, child => {
+  console.log(props.isOpen)
+  const [open, setOpen] = useState(props.isOpen)
+  const onToggle = () => setOpen((open) => !open)
+  const children = React.Children.map(props.children, (child) => {
     return React.cloneElement(child, {
-      index: props.index,
-      activeIndex: props.activeIndex,
-      toggleTab: props.toggleTab
-    });
-  });
-  let className = "panel panel-default";
-  if (props.index !== props.activeIndex) {
-    className += " collapsed";
+      open,
+      toggleTab: onToggle,
+    })
+  })
+  let className = "panel panel-default"
+  if (!open) {
+    className += " collapsed"
   }
-  return <div className={className}>{children}</div>;
+  console.log(open, className)
+  return (
+    <div className={className} style={{ margin: "10px 0" }}>
+      {children}
+    </div>
+  )
 }

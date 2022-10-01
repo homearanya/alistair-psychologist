@@ -1,10 +1,10 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 
-import Accordion from "../components/Accordion";
-import Tab from "../components/Tab";
-import TabHeading from "../components/TabHeading";
-import TabContent from "../components/TabContent";
+import Accordion from "../components/Accordion"
+import Tab from "../components/Tab"
+import TabHeading from "../components/TabHeading"
+import TabContent from "../components/TabContent"
 
 export default function FAQ() {
   return (
@@ -13,9 +13,7 @@ export default function FAQ() {
         query FAQQuery {
           markdownRemark(
             fields: {
-              slug: {
-                eq: "/services/mindfulness-training/frequently-asked-questions/"
-              }
+              slug: { eq: "/mindfulness-training/frequently-asked-questions/" }
             }
           ) {
             frontmatter {
@@ -27,19 +25,19 @@ export default function FAQ() {
           }
         }
       `}
-      render={data => {
-        const { qa } = data.markdownRemark.frontmatter;
+      render={(data) => {
+        const { qa } = data.markdownRemark.frontmatter
         return (
           <Accordion>
             {qa.map((qa, index) => (
-              <Tab key={index}>
+              <Tab key={index} isOpen={index === 0}>
                 <TabHeading heading={qa.question} />
                 <TabContent>{qa.answer}</TabContent>
               </Tab>
             ))}
           </Accordion>
-        );
+        )
       }}
     />
-  );
+  )
 }

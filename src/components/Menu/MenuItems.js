@@ -24,9 +24,9 @@ const StyledLink = styled(Link)`
         props.depthLevel >= 0
           ? undefined
           : props.$isSticky
-          ? "25px 0"
-          : "25px 0"};
-      margin: ${(props) => (props.depthLevel >= 0 ? undefined : "0 15px")};
+          ? "0px 0"
+          : "0px 0"};
+      margin: ${(props) => (props.depthLevel >= 0 ? undefined : "10px 20px")};
     }
   }
 `
@@ -68,9 +68,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   @media (min-width: 992px) {
     &&& {
       color: ${(props) => (props.isActive ? "#91d0cc" : "#444444")};
-      margin: 0;
-      padding-top: ${(props) => (props.$isSticky ? "25px" : "25px")};
-      padding-bottom: ${(props) => (props.$isSticky ? "25px" : "25px")};
+      padding: 0 !important;
     }
   }
 `
@@ -136,7 +134,7 @@ export default function MenuItems(props) {
                 ) : null}
               </StyledLink>
             ) : (
-              <a href={menuItem.link} target="_blank">
+              <a href={menuItem.link} target="_blank" rel="noreferrer">
                 {menuItem.name}
               </a>
             )
