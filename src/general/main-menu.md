@@ -20,7 +20,7 @@ menuItems:
               - link: https://midlands-assessment-and-therapy-centre.learnworlds.com/course?courseid=mindfulness-training
                 name: Online Course
               - link: >-
-                  /services//mindfulness-training/mindfulness-based-stress-reduction-course/
+                  /services/mindfulness-training/mindfulness-based-stress-reduction-course/
                 name: Mindfulness-Based Stress Reduction Course
               - link: >-
                   /services/mindfulness-training/mindfulness-based-pain-management-course/
