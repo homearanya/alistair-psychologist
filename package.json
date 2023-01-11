@@ -28,7 +28,7 @@
     "gatsby-remark-copy-linked-files": "^4.11.0",
     "gatsby-remark-images": "^4.2.0",
     "gatsby-source-filesystem": "^3.14.0",
-    "gatsby-transformer-remark": "^4.11.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.14.0",
     "polished": "^3.5.1",
     "prop-types": "^15.7.2",
