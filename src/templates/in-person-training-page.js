@@ -51,7 +51,6 @@ const renderAst = new rehypeReact({
 
 export default function({ data, location }) {
   const { fields, htmlAst, frontmatter } = data.mindfulnessTrainingQuery
-  console.log(fields.slug)
   const {
     frontmatter: frontmatter2,
     fields: fields2,

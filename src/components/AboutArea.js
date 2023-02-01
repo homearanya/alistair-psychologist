@@ -9,6 +9,12 @@ const StyledSection = styled.section`
     props.backgroundImage
       ? `url("${props.backgroundImage}")`
       : `url("/img/parallax/texture.jpg")`};
+  span.underline {
+    text-decoration: underline;
+  }
+  span.bigger {
+    font-size:1.1em;
+  }
 `;
 export default function AboutArea(props) {
   return (
@@ -36,9 +42,8 @@ export default function AboutArea(props) {
             </h2>
             <br />
             {props.aboutMeArea.blurb.paragraphs.map((paragraph, index) => (
-              <p className="fontsize_18" key={index}>
-                {paragraph.paragraph}
-              </p>
+              <p className="fontsize_18" key={index} dangerouslySetInnerHTML={{__html:paragraph.paragraph}}/>
+                
             ))}
             <br />
             <Button whereTo="/about/" text="More About Me" />

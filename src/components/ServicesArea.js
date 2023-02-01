@@ -1,10 +1,18 @@
 import React from "react"
-
 import Service from "./Service"
+import styled from "styled-components"
+
+const StyledSection = styled.section`
+  .services-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+`
 
 export default function ServicesArea(props) {
   return (
-    <section id="services" className="ls section_padding_top_130">
+    <StyledSection id="services" className="ls section_padding_top_130">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 text-center">
@@ -13,11 +21,13 @@ export default function ServicesArea(props) {
           </div>
         </div>
         <div className="row columns_padding_0 columns_margin_0 fontsize_16">
-          {props.servicesArea.services.map((service) => (
-            <Service key={service.service.id} service={service.service} />
-          ))}
+          <div className="col-md-offset-2 col-md-8 services-wrapper">
+            {props.servicesArea.services.map((service) => (
+              <Service key={service.service.id} service={service.service} />
+            ))}
+          </div>
         </div>
       </div>
-    </section>
+    </StyledSection>
   )
 }
