@@ -5,6 +5,7 @@ const { createFilePath } = require("gatsby-source-filesystem")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
+  console.log("gatsby node, about to create pages")
   return graphql(`
     {
       nonPostsPages: allMarkdownRemark(
@@ -50,24 +51,25 @@ exports.createPages = ({ actions, graphql }) => {
                 }
                 id
               }
-              thumbnailimage {
-                alt
-                image {
-                  childImageSharp {
-                    gatsbyImageData(
-                      width: 400
-                      placeholder: BLURRED
-                      layout: CONSTRAINED
-                    )
-                  }
-                }
-              }
+              # thumbnailimage {
+              #   alt
+              #   image {
+              #     childImageSharp {
+              #       gatsbyImageData(
+              #         width: 400
+              #         placeholder: BLURRED
+              #         layout: CONSTRAINED
+              #       )
+              #     }
+              #   }
+              # }
             }
           }
         }
       }
     }
   `).then(result => {
+    console.log("gatsby node:", { result })
     if (result.errors) {
       result.errors.forEach(e => console.error(e.toString()))
       return Promise.reject(result.errors)
