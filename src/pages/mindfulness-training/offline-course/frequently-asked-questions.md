@@ -39,7 +39,7 @@ qa:
     question: Why is this course less expensive than similar courses offered online?
 thumbnailimage:
   alt: Mindfulness Training
-  image: ../../../assets/img/meditation.png
+  image: ../../../assets/img/mindfulness-training-stress-course-thumbnail.jpg
 bannerimage:
   alt: Sunset
   image: ../../../assets/img/frequently-asked-questions-banner.jpg
