@@ -3157,7 +3157,7 @@ header [class*="col-"] {
 @media screen and (min-width: 1200px) {
   /* overlap featured person */
   .top-overlap {
-    margin-top: -150px;
+    margin-top: -50px;
   }
   .top-overlap-small {
     margin-top: -100px;
