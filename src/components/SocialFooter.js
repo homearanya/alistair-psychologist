@@ -4,7 +4,7 @@ import styled from "styled-components"
 const StyledA = styled.a`
   &&& {
     padding: 0 10px;
-    color: ${(props) => props.inputColor};
+    color: ${props => props.inputColor};
     :hover {
       color: #444;
     }

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, StaticQuery, graphql, navigate } from "gatsby"
+import { Link, useStaticQuery, graphql, navigate } from "gatsby"
 import styled, { css } from "styled-components"
 
 const svgStyles = css`
@@ -30,57 +30,52 @@ const SVGWrapperLeft = styled.div`
 `
 
 export default function MTMenu() {
-  return (
-    <StaticQuery
-      query={graphql`
-        query InPersonCoursesMenuQuery {
-          markdownRemark(fields: { slug: { eq: "/in-person-courses-menu/" } }) {
-            frontmatter {
-              menuItems {
-                link
-                name
-              }
-            }
+  const data = useStaticQuery(graphql`
+    query {
+      markdownRemark(fields: { slug: { eq: "/in-person-courses-menu/" } }) {
+        frontmatter {
+          menuItems {
+            link
+            name
           }
         }
-      `}
-      render={(data) => {
-        const { menuItems } = data.markdownRemark.frontmatter
+      }
+    }
+  `)
 
-        return (
-          <div className="col-sm-4">
-            <ul className="nav no-bullets" role="menu">
-              <li>
-                <a onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
-                  <SVGWrapperLeft>
-                    <i className="fas fa-angle-left" />
-                  </SVGWrapperLeft>
-                  Back
-                </a>
-              </li>
-              {menuItems &&
-                menuItems.map((menuItem, index) => (
-                  <li key={index}>
-                    <Link
-                      to={menuItem.link}
-                      getProps={({ href, location }) => {
-                        return location.pathname === href.split("#")[0]
-                          ? { className: "active" }
-                          : null
-                      }}
-                      replace={true}
-                    >
-                      {menuItem.name}
-                      <SVGWrapper>
-                        <i className="fas fa-angle-right" />
-                      </SVGWrapper>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </div>
-        )
-      }}
-    />
+  const { menuItems } = data.markdownRemark.frontmatter
+
+  return (
+    <div className="col-sm-4">
+      <ul className="nav no-bullets" role="menu">
+        <li>
+          <a onClick={() => navigate(-1)} style={{ cursor: "pointer" }}>
+            <SVGWrapperLeft>
+              <i className="fas fa-angle-left" />
+            </SVGWrapperLeft>
+            Back
+          </a>
+        </li>
+        {menuItems &&
+          menuItems.map((menuItem, index) => (
+            <li key={index}>
+              <Link
+                to={menuItem.link}
+                getProps={({ href, location }) => {
+                  return location.pathname === href.split("#")[0]
+                    ? { className: "active" }
+                    : null
+                }}
+                replace={true}
+              >
+                {menuItem.name}
+                <SVGWrapper>
+                  <i className="fas fa-angle-right" />
+                </SVGWrapper>
+              </Link>
+            </li>
+          ))}
+      </ul>
+    </div>
   )
 }

@@ -5,10 +5,10 @@ import styled from "styled-components"
 import SubMenu from "./SubMenu"
 
 const StyledLink = styled(Link)`
-  margin: ${(props) => (props.depthLevel >= 0 ? undefined : 0)};
+  margin: ${props => (props.depthLevel >= 0 ? undefined : 0)};
 
   &&& {
-    color: ${(props) => (props.isActive ? "#91d0cc" : "white")};
+    color: ${props => (props.isActive ? "#91d0cc" : "white")};
     :hover {
       color: #91d0cc;
     }
@@ -19,33 +19,33 @@ const StyledLink = styled(Link)`
 
   @media (min-width: 992px) {
     &&& {
-      color: ${(props) => (props.isActive ? "#91d0cc" : "#444444")};
-      padding: ${(props) =>
+      color: ${props => (props.isActive ? "#91d0cc" : "#444444")};
+      padding: ${props =>
         props.depthLevel >= 0
           ? undefined
           : props.$isSticky
           ? "0px 0"
           : "0px 0"};
-      margin: ${(props) => (props.depthLevel >= 0 ? undefined : "10px 20px")};
+      margin: ${props => (props.depthLevel >= 0 ? undefined : "10px 20px")};
     }
   }
 `
 
 const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   background: none;
-  border: ${(props) => (props.depthLevel < 0 ? "none" : undefined)};
-  /* border-top: ${(props) =>
+  border: ${props => (props.depthLevel < 0 ? "none" : undefined)};
+  /* border-top: ${props =>
     props.depthLevel >= 0 ? "1px solid rgba(0, 0, 0, 0.1)" : undefined}; */
-  cursor: ${(props) => (props.depthLevel >= 0 ? "pointer" : "auto")};
+  cursor: ${props => (props.depthLevel >= 0 ? "pointer" : "auto")};
 
-  color: ${(props) => (props.isActive ? "#91d0cc" : "white")};
+  color: ${props => (props.isActive ? "#91d0cc" : "white")};
   display: block;
   font-family: "Open Sans", sans-serif;
-  font-size: ${(props) => (props.depthLevel >= 0 ? "16px" : "18px")};
-  font-weight: ${(props) => (props.depthLevel >= 0 ? "300" : "700")};
+  font-size: ${props => (props.depthLevel >= 0 ? "16px" : "18px")};
+  font-weight: ${props => (props.depthLevel >= 0 ? "300" : "700")};
   line-height: 28px;
   margin: 0;
-  padding: ${(props) =>
+  padding: ${props =>
     props.depthLevel >= 0 ? "10px" : "10px 3.5em 10px 15px"};
   text-decoration: none;
   text-align: left;
@@ -55,8 +55,8 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
   width: 100%;
 
   /* ::before {
-    content: ${(props) => (props.depthLevel >= 0 ? `"-"` : undefined)};
-    padding-right: ${(props) => (props.depthLevel >= 0 ? "5px" : undefined)};
+    content: ${props => (props.depthLevel >= 0 ? `"-"` : undefined)};
+    padding-right: ${props => (props.depthLevel >= 0 ? "5px" : undefined)};
   } */
 
   :hover,
@@ -67,7 +67,7 @@ const NonClickableMenuItem = styled.button.attrs(() => ({ type: "button" }))`
 
   @media (min-width: 992px) {
     &&& {
-      color: ${(props) => (props.isActive ? "#91d0cc" : "#444444")};
+      color: ${props => (props.isActive ? "#91d0cc" : "#444444")};
       padding: 0 !important;
     }
   }
@@ -111,7 +111,7 @@ export default function MenuItems(props) {
             props.viewPortWidth < 992 &&
             menuItem.subMenu &&
             menuItem.subMenu.subMenuItems.length > 0
-              ? (e) => props.handleClick(e, props.depthLevel + 1, index)
+              ? e => props.handleClick(e, props.depthLevel + 1, index)
               : undefined
           }
         >

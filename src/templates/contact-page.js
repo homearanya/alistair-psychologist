@@ -3,12 +3,12 @@ import { graphql } from "gatsby"
 // import Zoom from "react-reveal/Zoom";
 import Layout from "../components/Layout"
 import Breadcrumbs from "../components/Breadcrumbs"
-import { ContactForm } from "../components/ContactForm"
+import ContactForm from "../components/ContactForm"
 import ContactDetails2 from "../components/ContactDetails2"
 import DynamicAnchor from "../components/DynamicAnchor"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 
-export default ({ data }) => {
+const ContactPage = ({ data }) => {
   const { fields, frontmatter } = data.markdownRemark
 
   //   Prepare breadcrumbs
@@ -27,7 +27,7 @@ export default ({ data }) => {
   }
   return (
     <Layout currentPageSlug={fields.slug}>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
@@ -58,7 +58,9 @@ export default ({ data }) => {
   )
 }
 
-export const contactPageQuery = graphql`
+export default ContactPage
+
+export const query = graphql`
   query ContactPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
@@ -69,9 +71,7 @@ export const contactPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt

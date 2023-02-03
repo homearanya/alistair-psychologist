@@ -1,10 +1,10 @@
-import React from "react";
-import Slider from "react-slick";
+import React from "react"
+import Slider from "react-slick"
 
-import Slide from "./Slide";
+import Slide from "./Slide"
 
-import "../assets/css/slick-theme.css";
-import "../assets/css/slick.css";
+import "../assets/css/slick-theme.css"
+import "../assets/css/slick.css"
 
 const settings = {
   arrows: false,
@@ -14,8 +14,8 @@ const settings = {
   autoplay: false,
   speed: 1500,
   slidesToShow: 1,
-  slidesToScroll: 1
-};
+  slidesToScroll: 1,
+}
 
 export default function SliderArea(props) {
   return (
@@ -27,7 +27,7 @@ export default function SliderArea(props) {
               key={index}
               imageFluid={
                 slide.image.image.childImageSharp
-                  ? slide.image.image.childImageSharp.fluid
+                  ? slide.image.image.childImageSharp.gatsbyImageData
                   : slide.image.image
               }
               imageAlt={slide.image.alt}
@@ -36,9 +36,9 @@ export default function SliderArea(props) {
               heading2={slide.heading2}
               subheading={slide.subheading}
             />
-          );
+          )
         })}
       </Slider>
     </section>
-  );
+  )
 }

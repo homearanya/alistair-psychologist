@@ -1,21 +1,21 @@
-import React from "react";
-import Img from "gatsby-image";
-import styled from "styled-components";
+import React from "react"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import styled from "styled-components"
 
-import Button from "./Button";
+import Button from "./Button"
 
 const StyledSection = styled.section`
   background-image: ${props =>
     props.backgroundImage
       ? `url("${props.backgroundImage}")`
-      : `url("/img/parallax/texture.jpg")`};
+      : `url("/img/texture.png")`};
   span.underline {
     text-decoration: underline;
   }
   span.bigger {
-    font-size:1.1em;
+    font-size: 1.1em;
   }
-`;
+`
 export default function AboutArea(props) {
   return (
     <StyledSection
@@ -24,7 +24,10 @@ export default function AboutArea(props) {
       backgroundImage={
         props.aboutMeArea.backgroundImage &&
         props.aboutMeArea.backgroundImage.image &&
-        props.aboutMeArea.backgroundImage.image.childImageSharp.fluid.src
+        getSrc(
+          props.aboutMeArea.backgroundImage.image.childImageSharp
+            .gatsbyImageData
+        )
       }
     >
       <div className="container">
@@ -42,16 +45,20 @@ export default function AboutArea(props) {
             </h2>
             <br />
             {props.aboutMeArea.blurb.paragraphs.map((paragraph, index) => (
-              <p className="fontsize_18" key={index} dangerouslySetInnerHTML={{__html:paragraph.paragraph}}/>
-                
+              <p
+                className="fontsize_18"
+                key={index}
+                dangerouslySetInnerHTML={{ __html: paragraph.paragraph }}
+              />
             ))}
             <br />
             <Button whereTo="/about/" text="More About Me" />
           </div>
           <div className="col-md-6 col-md-pull-6 text-center bottommargin_0">
-            <Img
-              fluid={
-                props.aboutMeArea.personPicture.image.childImageSharp.fluid
+            <GatsbyImage
+              image={
+                props.aboutMeArea.personPicture.image.childImageSharp
+                  .gatsbyImageData
               }
               alt={props.aboutMeArea.personPicture.image.alt}
               className="top-overlap"
@@ -61,5 +68,5 @@ export default function AboutArea(props) {
         </div>
       </div>
     </StyledSection>
-  );
+  )
 }

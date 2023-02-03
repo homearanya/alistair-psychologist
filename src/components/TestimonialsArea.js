@@ -1,7 +1,8 @@
-import React from "react";
-import Slider from "react-slick";
-
-import Testimonial from "./Testimonial";
+import React from "react"
+import Slider from "react-slick"
+import Testimonial from "./Testimonial"
+import "../assets/css/slick-theme.css"
+import "../assets/css/slick.css"
 
 export default function TestimonialsArea(props) {
   const settings = {
@@ -11,8 +12,8 @@ export default function TestimonialsArea(props) {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    speed: 4000
-  };
+    speed: 4000,
+  }
 
   return (
     <section className="cs main_color2 parallax page_testimonials section_padding_75">
@@ -27,12 +28,12 @@ export default function TestimonialsArea(props) {
                     quote={testimonial.quote}
                     author={testimonial.author}
                   />
-                );
+                )
               })}
             </Slider>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

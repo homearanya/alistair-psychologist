@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const DynamicAnchor = styled.span`
   display: block;
@@ -8,5 +8,5 @@ const DynamicAnchor = styled.span`
   @media (min-width: 992px) {
     top: -90px;
   }
-`;
-export default DynamicAnchor;
+`
+export default DynamicAnchor

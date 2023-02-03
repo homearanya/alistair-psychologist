@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
 
 const AElement = styled.a`
   &&& {
@@ -11,7 +11,7 @@ const AElement = styled.a`
       transition: color 0.2s linear 0s;
     }
   }
-`;
+`
 
 const StyledMediaBody = styled.div`
   font-size: 12px;
@@ -21,7 +21,7 @@ const StyledMediaBody = styled.div`
   @media (min-width: 420px) {
     font-size: 17px;
   }
-`;
+`
 
 const H5Styled = styled.h5`
   color: #444444;
@@ -30,7 +30,7 @@ const H5Styled = styled.h5`
     color: #4bb0a9;
     transition: color 0.2s linear 0s;
   }
-`;
+`
 
 export default function ContactDetails2Item(props) {
   return (
@@ -50,5 +50,5 @@ export default function ContactDetails2Item(props) {
         </div>
       </AElement>
     </li>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 const StyledDiv = styled.div`
@@ -36,10 +36,10 @@ export default function Service(props) {
         <div className="with_padding text-center teaser hover_shadow">
           <ServiceIcon>
             {props.service.frontmatter.thumbnailimage.image.childImageSharp ? (
-              <Img
-                fixed={
+              <GatsbyImage
+                image={
                   props.service.frontmatter.thumbnailimage.image.childImageSharp
-                    .fixed
+                    .gatsbyImageData
                 }
                 alt={props.service.frontmatter.thumbnailimage.alt}
                 title={props.service.frontmatter.thumbnailimage.alt}
@@ -52,7 +52,11 @@ export default function Service(props) {
               />
             )}
           </ServiceIcon>
-          <ServiceHeading dangerouslySetInnerHTML={{__html:props.service.frontmatter.title}}/>
+          <ServiceHeading
+            dangerouslySetInnerHTML={{
+              __html: props.service.frontmatter.title,
+            }}
+          />
           <ServiceText>{props.service.frontmatter.intro}</ServiceText>
         </div>
       </Link>

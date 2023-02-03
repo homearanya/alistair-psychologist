@@ -1,4 +1,13 @@
+require(`dotenv`).config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
+  // flags: {
+  //   FAST_DEV: true,
+  //   PARALLEL_SOURCING: true,
+  //   PRESERVE_FILE_DOWNLOAD_CACHE: true,
+  // },
   siteMetadata: {
     title: "Alistair Mork-Chadwick",
     defaultTitle: "Alistair Mork-Chadwick · Counselling Psychologist",
@@ -101,6 +110,7 @@ module.exports = {
         path: `${__dirname}/src/assets/img/`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

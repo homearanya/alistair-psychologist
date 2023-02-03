@@ -1,4 +1,5 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import UpcomingCourse from "./UpcomingCourse2"
 import FilteredCourses from "./FilteredCourses"
@@ -9,6 +10,17 @@ const StyledSection = styled.section`
   }
 `
 export default function CoursessArea(props) {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        sort: { frontmatter: { dateStart: ASC } }
+        filter: { frontmatter: { templateKey: { eq: "upcoming-courses" } } }
+      ) {
+        totalCount
+      }
+    }
+  `)
+  if (!data.allMarkdownRemark?.totalCount) return null
   return (
     <StyledSection className="ls section_padding_top_130 columns_margin_top_0 columns_margin_bottom_30">
       <div className="container">

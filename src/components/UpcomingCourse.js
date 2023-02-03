@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import CourseHeader from "./CourseHeader"
@@ -53,8 +53,11 @@ export default function UpcomingCourse({
         {courseInfo.thumbnailimage && courseInfo.thumbnailimage.image && (
           <div className="col-md-5">
             <div className="item-media">
-              <Img
-                fluid={courseInfo.thumbnailimage.image.childImageSharp.fluid}
+              <GatsbyImage
+                image={
+                  courseInfo.thumbnailimage.image.childImageSharp
+                    .gatsbyImageData
+                }
                 alt={courseInfo.thumbnailimage.alt}
               />
             </div>

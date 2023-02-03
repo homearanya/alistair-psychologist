@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import SocialFooter from "./SocialFooter"
@@ -45,8 +45,10 @@ export default function UpcomingCourse({
       <StyledPost className="vertical-item content-padding post format-standard">
         {courseInfo.thumbnailimage && courseInfo.thumbnailimage.image && (
           <div className="item-media entry-thumbnail">
-            <Img
-              fluid={courseInfo.thumbnailimage.image.childImageSharp.fluid}
+            <GatsbyImage
+              image={
+                courseInfo.thumbnailimage.image.childImageSharp.gatsbyImageData
+              }
               alt={courseInfo.thumbnailimage.alt}
             />
           </div>

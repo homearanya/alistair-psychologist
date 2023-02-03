@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import SliderArea from "../components/SliderArea"
+// import SliderArea from "../components/SliderArea"
 import ServicesArea from "../components/ServicesArea"
 import AboutArea from "../components/AboutArea"
 import CoursesArea from "../components/CoursesArea"
@@ -11,9 +11,9 @@ import TestimonialsArea from "../components/TestimonialsArea"
 import OnlineTherapyCTA from "../components/OnlineTherapyCTA"
 import NewsletterCTA from "../components/NewsletterCTA"
 import AppointmentArea from "../components/AppointmentArea"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 
-export default ({ data, location }) => {
+const HomePage = ({ data, location }) => {
   //   Prepare breadcrumbs
   const pages = [{ title: "Home", href: null }]
   const { fields, frontmatter } = data.homePageQuery
@@ -26,11 +26,11 @@ export default ({ data, location }) => {
   }
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
-      <SliderArea slider={frontmatter.slider} />
+      {/* <SliderArea slider={frontmatter.slider} /> */}
       <ServicesArea id="services" servicesArea={frontmatter.servicesArea} />
       <OnlineTherapyCTA />
       <AboutArea aboutMeArea={frontmatter.aboutMeArea} />
@@ -49,7 +49,21 @@ export default ({ data, location }) => {
   )
 }
 
-export const homePageQuery = graphql`
+export const query = graphql`
+  fragment ContactDetailsFragment on File {
+    childMarkdownRemark {
+      frontmatter {
+        contact_details {
+          address
+          email
+          phone {
+            phonedisplay
+            phonenumber
+          }
+        }
+      }
+    }
+  }
   query HomePage($id: String!) {
     homePageQuery: markdownRemark(id: { eq: $id }) {
       fields {
@@ -65,9 +79,7 @@ export const homePageQuery = graphql`
             alt
             image {
               childImageSharp {
-                fluid(maxWidth: 1920, maxHeight: 850) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
-                }
+                gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
               }
             }
           }
@@ -87,9 +99,12 @@ export const homePageQuery = graphql`
                 thumbnailimage {
                   image {
                     childImageSharp {
-                      fixed(width: 80, height: 90) {
-                        ...GatsbyImageSharpFixed
-                      }
+                      gatsbyImageData(
+                        width: 80
+                        height: 90
+                        layout: FIXED
+                        placeholder: BLURRED
+                      )
                     }
                   }
                   alt
@@ -110,9 +125,11 @@ export const homePageQuery = graphql`
             alt
             image {
               childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  width: 600
+                  layout: CONSTRAINED
+                  placeholder: BLURRED
+                )
               }
             }
           }
@@ -120,9 +137,11 @@ export const homePageQuery = graphql`
             alt
             image {
               childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  width: 600
+                  layout: CONSTRAINED
+                  placeholder: BLURRED
+                )
               }
             }
           }
@@ -145,3 +164,4 @@ export const homePageQuery = graphql`
     }
   }
 `
+export default HomePage

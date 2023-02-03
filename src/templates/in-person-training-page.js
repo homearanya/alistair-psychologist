@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import rehypeReact from "rehype-react"
 import styled from "styled-components"
 
@@ -12,7 +12,7 @@ import AppointmentArea from "../components/AppointmentArea"
 import DynamicAnchor from "../components/DynamicAnchor"
 import FAQ from "../components/FAQ"
 import UpcomingCourses from "../components/UpcomingCourses"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 
 const ImageBlock = styled.div`
   margin-bottom: 50px;
@@ -49,12 +49,9 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-export default function({ data, location }) {
+export default function InPersonTrainingPage({ data }) {
   const { fields, htmlAst, frontmatter } = data.mindfulnessTrainingQuery
-  const {
-    frontmatter: frontmatter2,
-    fields: fields2,
-  } = data.mindfulnessTrainingRoot
+  const { frontmatter: frontmatter2 } = data.mindfulnessTrainingRoot
   let pages
   if (
     fields.slug ===
@@ -106,7 +103,7 @@ export default function({ data, location }) {
     null
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
         pageType={type}
@@ -125,8 +122,11 @@ export default function({ data, location }) {
               <DynamicAnchor id="start-content" />
               {frontmatter.bodyimage && frontmatter.bodyimage.image && (
                 <ImageBlock className="entry-thumbnail item-media">
-                  <Img
-                    fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
+                  <GatsbyImage
+                    image={
+                      frontmatter.bodyimage.image.childImageSharp
+                        .gatsbyImageData
+                    }
                     alt={frontmatter.bodyimage.alt}
                   />
                 </ImageBlock>
@@ -147,7 +147,7 @@ export default function({ data, location }) {
   )
 }
 
-export const mtPageQuery = graphql`
+export const query = graphql`
   query InPersonTrainingPage($id: String!) {
     mindfulnessTrainingQuery: markdownRemark(id: { eq: $id }) {
       fields {
@@ -161,9 +161,7 @@ export const mtPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt
@@ -171,9 +169,11 @@ export const mtPageQuery = graphql`
         bodyimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 800
+                layout: CONSTRAINED
+                placeholder: BLURRED
+              )
             }
           }
           alt

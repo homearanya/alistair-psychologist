@@ -1,16 +1,16 @@
-import React from "react";
-import { graphql } from "gatsby";
-import YouTube from "react-youtube";
-import styled from "styled-components";
+import React from "react"
+import { graphql } from "gatsby"
+import YouTube from "react-youtube"
+import styled from "styled-components"
 
-import Layout from "../components/Layout";
-import Breadcrumbs from "../components/Breadcrumbs";
-import Content, { HTMLContent } from "../components/Content";
-import SEO from "../components/SEO/SEO";
+import Layout from "../components/Layout"
+import Breadcrumbs from "../components/Breadcrumbs"
+import Content, { HTMLContent } from "../components/Content"
+import Seo from "../components/Seo/Seo"
 
 const YouTubeWrapper = styled.div`
   text-align: center;
-`;
+`
 
 const YouTubeContainer = styled.div`
   display: inline-block;
@@ -19,10 +19,10 @@ const YouTubeContainer = styled.div`
     margin-top: 100px;
     margin-bottom: 0;
   }
-`;
+`
 
-export const AboutPageTemplate = ({ content, contentComponent }) => {
-  const AboutContent = contentComponent || Content;
+const AboutPageTemplate = ({ content, contentComponent }) => {
+  const AboutContent = contentComponent || Content
   return (
     <section className="ls section_padding_100 columns_padding_25">
       <div className="container">
@@ -42,29 +42,29 @@ export const AboutPageTemplate = ({ content, contentComponent }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default function({ data }) {
-  const { fields, frontmatter } = data.markdownRemark;
+export default function AboutPage({ data }) {
+  const { fields, frontmatter } = data.markdownRemark
 
   //   Prepare breadcrumbs
   const pages = [
     { title: "Home", href: "/" },
-    { title: "About Me", href: null }
-  ];
+    { title: "About Me", href: null },
+  ]
   const pageMeta = {
     title: `About Me · Counselling Psychologist in Howick`,
     description:
       frontmatter.excerpt ||
       "Alistair Mork-Chadwick is a Counselling psychologist based in Howick. He offers personal counselling, career guidance, psychological assessments and mindfulness training.",
     slug: fields.slug,
-    datePublished: false
-  };
+    datePublished: false,
+  }
 
   return (
     <Layout currentPageSlug={fields.slug}>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
@@ -96,10 +96,10 @@ export default function({ data }) {
         </div>
       </section> */}
     </Layout>
-  );
+  )
 }
 
-export const aboutPageQuery = graphql`
+export const query = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
@@ -111,9 +111,7 @@ export const aboutPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt
@@ -121,4 +119,4 @@ export const aboutPageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
-import { MailChimpForm } from "./MailChimpForm"
+import MailChimpForm from "./MailChimpForm"
 
-export default function(props) {
+export default function NewsletterCta(props) {
   let sectionClassName
   props.noTopPadding
     ? (sectionClassName = "ls section_padding_bottom_50")
@@ -37,19 +37,16 @@ export default function(props) {
 }
 
 const Heading = styled.h2`
-  line-height: 65px;
+  line-height: 1.5;
   letter-spacing: 2px;
-  font-size: 50px;
-  margin-bottom: 50px;
+  font-size: 30px !important;
+  margin-bottom: 30px;
   @media (max-width: 991px) {
-    font-size: 45px;
-    line-height: 60px;
+    font-size: 25px !important;
   }
   @media (max-width: 767px) {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 22px !important;
     letter-spacing: 0px;
-    margin-bottom: 20px;
   }
   span.underline {
     color: #91d0cc;
@@ -59,8 +56,8 @@ const Heading = styled.h2`
 
 const Blurb = styled.p`
   && {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 1.5;
     span.underline {
       color: #91d0cc;
       text-decoration: underline;
@@ -68,9 +65,8 @@ const Blurb = styled.p`
       font-weight: 500;
     }
     @media (max-width: 767px) {
-      font-size: 24px;
-      line-height: 36px;
-      margin-bottom: 40px;
+      font-size: 22px;
+      margin-bottom: 30px;
     }
   }
 `
@@ -78,10 +74,9 @@ const Blurb = styled.p`
 const Box = styled.div`
   display: flex;
   align-items: center;
-  padding: 50px;
+  padding: 40px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
-  padding-bottom: 50px;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   @media (max-width: 767px) {
     flex-direction: column;

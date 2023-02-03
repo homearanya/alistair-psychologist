@@ -13,7 +13,7 @@ slider:
     subheading: Counselling Psychologist in Howick
 servicesArea:
   blurb: I offer all of the following services.
-  heading: How Can I help?
+  heading: How Can I help you?
   services:
     - service: Personal Counselling
     - service: Career Guidance

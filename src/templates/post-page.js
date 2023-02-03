@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import rehypeReact from "rehype-react"
 import styled from "styled-components"
 
 import Layout from "../components/Layout"
 import Breadcrumbs from "../components/Breadcrumbs"
 import PrevNextPost from "../components/PrevNextPost"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 import DynamicAnchor from "../components/DynamicAnchor"
 import BlogSidebar from "../components/BlogSidebar"
 
@@ -17,7 +17,7 @@ const renderAst = new rehypeReact({
   components: {},
 }).Compiler
 
-export default function({ data, pageContext }) {
+export default function PostPage({ data, pageContext }) {
   const { markdownRemark: post } = data
   //   Prepare breadcrumbs
   const pages = [
@@ -42,7 +42,7 @@ export default function({ data, pageContext }) {
   }
   return (
     <Layout currentPageSlug={post.fields.slug}>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
         pageType="post"
@@ -61,9 +61,10 @@ export default function({ data, pageContext }) {
                 <div className="entry-thumbnail item-media">
                   {post.frontmatter.bodyimage &&
                     post.frontmatter.bodyimage.image && (
-                      <Img
-                        fluid={
-                          post.frontmatter.bodyimage.image.childImageSharp.fluid
+                      <GatsbyImage
+                        image={
+                          post.frontmatter.bodyimage.image.childImageSharp
+                            .gatsbyImageData
                         }
                         alt={post.frontmatter.bodyimage.alt}
                       />
@@ -112,7 +113,7 @@ export default function({ data, pageContext }) {
   )
 }
 
-export const postPageQuery = graphql`
+export const query = graphql`
   query PostPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
@@ -128,9 +129,7 @@ export const postPageQuery = graphql`
           image {
             relativePath
             childImageSharp {
-              fluid(maxWidth: 1170) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt
@@ -138,9 +137,7 @@ export const postPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt

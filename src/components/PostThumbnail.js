@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import Button from "./Button"
@@ -19,10 +19,10 @@ const PostThumbnail = ({ smCol = 12, mdCol = 6, ...props }) => {
         {props.post.frontmatter.thumbnailimage &&
           props.post.frontmatter.thumbnailimage.image && (
             <div className="item-media entry-thumbnail">
-              <Img
-                fluid={
+              <GatsbyImage
+                image={
                   props.post.frontmatter.thumbnailimage.image.childImageSharp
-                    .fluid
+                    .gatsbyImageData
                 }
                 alt={props.post.frontmatter.thumbnailimage.alt}
               />

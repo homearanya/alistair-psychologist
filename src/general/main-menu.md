@@ -4,6 +4,17 @@ menuItems:
     name: Home
   - link: /about/
     name: About Me
+  - name: Services
+    subMenu:
+      subMenuItems:
+        - link: /services/personal-counselling/
+          name: Personal Counselling
+        - link: /services/career-guidance/
+          name: Career Guidance
+        - link: /services/psychological-assessments/
+          name: Psychological Assessments
+        - link: /services/health-restoration/
+          name: Health Restoration
   - link: /mindfulness-training/
     name: Mindfulness Training
     subMenu:
@@ -42,15 +53,6 @@ menuItems:
                 name: Upcoming Courses
         - link: /mindfulness-training/frequently-asked-questions/
           name: Frequently Asked Questions
-  - name: Other Services
-    subMenu:
-      subMenuItems:
-        - link: /services/personal-counselling/
-          name: Personal Counselling
-        - link: /services/career-guidance/
-          name: Career Guidance
-        - link: /services/psychological-assessments/
-          name: Psychological Assessments
   - link: /blog/
     name: Blog
   - link: /contact/
