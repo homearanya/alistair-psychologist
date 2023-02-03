@@ -5,7 +5,7 @@ excerpt: >-
   Mindfulness can help people living with chronic pain, injuries and illness to improve and even transform their quality of life. This programme enables us to change how we experience pain or illness, so that we can make choices about how we respond, rather than reacting in an automatic or habitual way.
 thumbnailimage:
   alt: Mindfulness Training
-  image: ../../../assets/img/meditation.png
+  image: ../../../assets/img/mindfulness-training-stress-course-thumbnail.jpg
 bannerimage:
   alt: Mindfulness Training
   image: ../../../assets/img/mindfulness-training-pain-course-banner.jpg
