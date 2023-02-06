@@ -27,17 +27,14 @@ export default function Breadcrumbs(props) {
               {props.pages.map((page, index) =>
                 page.href ? (
                   <li key={index}>
-                    <Link
-                      to={page.href}
-                      dangerouslySetInnerHTML={{ __html: page.title }}
-                    />
+                    <Link to={page.href}>
+                      {page.title.replace("<br/>", " - ")}
+                    </Link>
                   </li>
                 ) : (
-                  <li
-                    key={index}
-                    className="active"
-                    dangerouslySetInnerHTML={{ __html: page.title }}
-                  />
+                  <li key={index} className="active">
+                    {page.title.replace("<br/>", " - ")}
+                  </li>
                 )
               )}
             </ol>
