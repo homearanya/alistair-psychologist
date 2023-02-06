@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import Social from "./Social";
-import ContactDetails from "./ContactDetails";
-import Button from "./Button";
+import Social from "./Social"
+import ContactDetails from "./ContactDetails"
+import Button from "./Button"
 
 export default function HeaderTop(props) {
   return (
@@ -23,5 +23,5 @@ export default function HeaderTop(props) {
         </div>
       </div>
     </section>
-  );
+  )
 }

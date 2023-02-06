@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from "react"
+import styled from "styled-components"
 
 const StyledA = styled.a`
   &&& {
@@ -9,7 +9,7 @@ const StyledA = styled.a`
       color: #444;
     }
   }
-`;
+`
 
 export default function SocialFooter(props) {
   return (
@@ -20,6 +20,7 @@ export default function SocialFooter(props) {
         )}&text=${encodeURI(props.title)}`}
         // className="social-icon color-icon soc-twitter"
         target="_blank"
+        rel="noreferrer"
         inputColor="#00abef"
       >
         <i className="fab fa-twitter" />
@@ -28,6 +29,7 @@ export default function SocialFooter(props) {
         href={`https://www.facebook.com/sharer.php?u=${encodeURI(props.url)}`}
         // className="social-icon color-icon soc-facebook"
         target="_blank"
+        rel="noreferrer"
         inputColor="#507cbe"
       >
         <i className="fab fa-facebook-f" />
@@ -36,6 +38,7 @@ export default function SocialFooter(props) {
         href={`https://getpocket.com/edit?url=${encodeURI(props.url)}`}
         // className="social-icon color-icon soc-pocket"
         target="_blank"
+        rel="noreferrer"
         inputColor="#ed4055"
       >
         <i className="fab fa-get-pocket" />
@@ -46,10 +49,11 @@ export default function SocialFooter(props) {
         )}&title=${encodeURI(props.title)}`}
         // className="social-icon color-icon soc-linkedin"
         target="_blank"
+        rel="noreferrer"
         inputColor="#3371b7"
       >
         <i className="fab fa-linkedin-in" />
       </StyledA>
     </div>
-  );
+  )
 }

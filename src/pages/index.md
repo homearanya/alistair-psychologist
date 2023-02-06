@@ -13,24 +13,22 @@ slider:
     subheading: Counselling Psychologist in Howick
 servicesArea:
   blurb: I offer all of the following services.
-  heading: How Can I help?
+  heading: How Can I help you?
   services:
     - service: Personal Counselling
     - service: Career Guidance
     - service: Psychological Assessments
     - service: Mindfulness Training
+    - service: Health Restoration<br/>Tackling Chronic Health Problems
 aboutMeArea:
   blurb:
     paragraphs:
       - paragraph: >-
-          I am an educator at heart and feel as passionate about individual
-          therapy as I do about interacting with groups. I get great joy from
-          sharing my knowledge and experience with community organisations,
-          corporates and schools in a way that is both accessible and inspiring.
+          I am a therapist and educator at heart and feel as passionate about working with individuals & couples as I do about interacting with large groups. I get great joy from using my knowledge and experience to support people of all ages in a way that is both accessible and inspiring and allows positive change to unfold.
       - paragraph: >-
-          I have come to understand that optimal brain functioning is the
-          foundation for vibrant emotional health, a sharp mind, and a healthy
-          life free of physical complaints.
+          It is through working with thousands of clients, alongside regular engagement with the scientific literature, that I have come to understand that a healthy <span class="underline">brain and nervous system</span> is the foundation for optimal psychological functioning, vibrant emotional health, a sharp mind, and a life that is free of chronic health problems.
+      - paragraph: >-
+          <span class="bigger">Give me a call or send me an email and let me know how you would like me to assist you in your own journey towards a life of thriving.</span>
   heading1: WHO AM I?
   heading2: " "
   personPicture:

@@ -10,7 +10,7 @@ const BlogGrid = () => {
     {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/general/categories/" } }
-        sort: { order: ASC, fields: [frontmatter___order] }
+        sort: { frontmatter: { order: ASC } }
       ) {
         edges {
           node {

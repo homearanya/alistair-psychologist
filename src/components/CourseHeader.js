@@ -1,20 +1,20 @@
-import React from "react";
-import { Link } from "gatsby";
-import styled from "styled-components";
-import dateformat from "dateformat";
+import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
+import dateformat from "dateformat"
 
 const StyledLink = styled(Link)`
   h2:hover {
     color: #91d0cc;
   }
-`;
+`
 const StyledHeading = styled.h2`
   font-size: 24px;
-`;
+`
 
 const StyledDateVenue = styled.p`
   display: ${props => (props.venue ? "flexbox" : "block")};
-`;
+`
 
 const StyledDate = styled.span`
   font-size: ${props => (props.courseDateEnd ? "18px" : "20px")};
@@ -24,13 +24,13 @@ const StyledDate = styled.span`
   .changeColor {
     color: #444444;
   }
-`;
+`
 
 export default function CourseHeader(props) {
-  const courseDateStart = new Date(props.dateStart);
-  let courseDateEnd;
+  const courseDateStart = new Date(props.dateStart)
+  let courseDateEnd
   if (props.dateEnd) {
-    courseDateEnd = new Date(props.dateEnd);
+    courseDateEnd = new Date(props.dateEnd)
   }
   return (
     <React.Fragment>
@@ -64,5 +64,5 @@ export default function CourseHeader(props) {
         )}
       </StyledDateVenue>
     </React.Fragment>
-  );
+  )
 }

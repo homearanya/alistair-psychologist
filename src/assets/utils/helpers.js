@@ -1,22 +1,22 @@
 export const processMenu = (menuItems, currentPageSlug, viewPortWidth) => {
   // Activate active tree and transform menu for mobile
-  let activeSubMenu = false;
+  let activeSubMenu = false
   menuItems.forEach(menuItem => {
-    let activeLink = menuItem.link && currentPageSlug === menuItem.link;
+    let activeLink = menuItem.link && currentPageSlug === menuItem.link
     // check for branches
     if (menuItem.subMenu && menuItem.subMenu.subMenuItems.length > 0) {
       let activeSubMenuItems = processMenu(
         menuItem.subMenu.subMenuItems,
         currentPageSlug,
         viewPortWidth
-      );
+      )
       if (!activeLink && activeSubMenuItems) {
-        activeLink = true;
+        activeLink = true
       }
     }
-    menuItem.active = activeLink;
+    menuItem.active = activeLink
     if (!activeSubMenu && activeLink) {
-      activeSubMenu = activeLink;
+      activeSubMenu = activeLink
     }
     // transform menu for mobile
     if (
@@ -27,19 +27,19 @@ export const processMenu = (menuItems, currentPageSlug, viewPortWidth) => {
     ) {
       const newSubMenuItem = {
         name: menuItem.name,
-        link: menuItem.link
-      };
-      menuItem.subMenu.subMenuItems.unshift(newSubMenuItem);
-      menuItem.link = null;
+        link: menuItem.link,
+      }
+      menuItem.subMenu.subMenuItems.unshift(newSubMenuItem)
+      menuItem.link = null
     }
-  });
-  return activeSubMenu;
-};
+  })
+  return activeSubMenu
+}
 
 export const slugify = string => {
-  const a = "àáäâãåăæçèéëêǵḧìíïîḿńǹñòóöôœṕŕßśșțùúüûǘẃẍÿź·/_,:;";
-  const b = "aaaaaaaaceeeeghiiiimnnnoooooprssstuuuuuwxyz------";
-  const p = new RegExp(a.split("").join("|"), "g");
+  const a = "àáäâãåăæçèéëêǵḧìíïîḿńǹñòóöôœṕŕßśșțùúüûǘẃẍÿź·/_,:;"
+  const b = "aaaaaaaaceeeeghiiiimnnnoooooprssstuuuuuwxyz------"
+  const p = new RegExp(a.split("").join("|"), "g")
   return string
     .toString()
     .toLowerCase()
@@ -49,5 +49,5 @@ export const slugify = string => {
     .replace(/[^\w-]+/g, "") // Remove all non-word characters
     .replace(/--+/g, "-") // Replace multiple - with single -
     .replace(/^-+/, "") // Trim - from start of text
-    .replace(/-+$/, ""); // Trim - from end of text
-};
+    .replace(/-+$/, "") // Trim - from end of text
+}

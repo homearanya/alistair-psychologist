@@ -1,6 +1,6 @@
-import React from "react";
-import DynamicAnchor from "./DynamicAnchor";
-import styled from "styled-components";
+import React from "react"
+import DynamicAnchor from "./DynamicAnchor"
+import styled from "styled-components"
 
 const StyledAnchor = styled.a`
   &&& {
@@ -14,13 +14,13 @@ const StyledAnchor = styled.a`
       color: #91d0cc;
     }
   }
-`;
+`
 
-export default function TabHeading(props) {
-  let idSelector = `collapse${props.index}`;
-  let className = "";
-  if (props.index !== props.activeIndex) {
-    className += "collapsed";
+export default function TabHeading({ index, open, toggleTab, heading }) {
+  let idSelector = ``
+  let className = ""
+  if (!open) {
+    className += "collapsed"
   }
   return (
     <React.Fragment>
@@ -29,12 +29,12 @@ export default function TabHeading(props) {
         <h2 className="panel-title">
           <StyledAnchor
             className={className}
-            onClick={() => props.toggleTab(props.index, idSelector)}
+            onClick={() => toggleTab(index, idSelector)}
           >
-            {props.heading}
+            {heading}
           </StyledAnchor>
         </h2>
       </div>
     </React.Fragment>
-  );
+  )
 }

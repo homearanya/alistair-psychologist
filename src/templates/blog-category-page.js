@@ -4,10 +4,15 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Breadcrumbs from "../components/Breadcrumbs"
 import PostThumbnail from "../components/PostThumbnail"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 import BlogSidebar from "../components/BlogSidebar"
 
-export default function({ location, data, pageContext, path, ...rest }) {
+export default function BlogCategoryPage({
+  location,
+  data,
+  pageContext,
+  path,
+}) {
   const { title: categoryTitle } = pageContext
   const { bannerImage: image, postsQuery } = data
   const { edges: posts } = postsQuery
@@ -27,7 +32,7 @@ export default function({ location, data, pageContext, path, ...rest }) {
   }
   return (
     <Layout currentPageSlug={path}>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
@@ -66,13 +71,11 @@ export const query = graphql`
   query BlogCategoryPageQuery($id: String!) {
     bannerImage: file(relativePath: { eq: "about-me-banner.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
     }
     postsQuery: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { category: { id: { eq: $id } } } }
     ) {
       edges {
@@ -96,9 +99,11 @@ export const query = graphql`
               alt
               image {
                 childImageSharp {
-                  fluid(maxWidth: 400) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+                  gatsbyImageData(
+                    width: 400
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                  )
                 }
               }
             }

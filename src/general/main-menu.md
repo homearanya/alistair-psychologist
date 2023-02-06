@@ -13,22 +13,46 @@ menuItems:
           name: Career Guidance
         - link: /services/psychological-assessments/
           name: Psychological Assessments
-        - link: /services/mindfulness-training/
-          name: Mindfulness Training
+        - link: /services/health-restoration/
+          name: Health Restoration
+  - link: /mindfulness-training/
+    name: Mindfulness Training
+    subMenu:
+      subMenuItems:
+        - link: https://midlands-assessment-and-therapy-centre.learnworlds.com/course?courseid=mindfulness-training
+          name: Online Course
+        - name: Offline Course
+          link: >-
+            /mindfulness-training/offline-course/overview/
           subMenu:
             subMenuItems:
-              - link: https://midlands-assessment-and-therapy-centre.learnworlds.com/course?courseid=mindfulness-training
-                name: Online Course
               - link: >-
-                  /services/mindfulness-training/mindfulness-based-stress-reduction-course/
+                  /mindfulness-training/offline-course/overview/
+                name: Overview
+              - link: >-
+                  /mindfulness-training/offline-course/orientation/
+                name: Orientation
+              - link: >-
+                  /mindfulness-training/offline-course/course-content/
+                name: Course Content
+              - link: >-
+                  /mindfulness-training/offline-course/frequently-asked-questions/
+                name: Frequently Asked Questionss
+        - name: In-person Courses
+          link: >-
+            /mindfulness-training/in-person/mindfulness-based-stress-reduction-course/
+          subMenu:
+            subMenuItems:
+              - link: >-
+                  /mindfulness-training/in-person/mindfulness-based-stress-reduction-course/
                 name: Mindfulness-Based Stress Reduction Course
               - link: >-
-                  /services/mindfulness-training/mindfulness-based-pain-management-course/
+                  /mindfulness-training/in-person/mindfulness-based-pain-management-course/
                 name: Mindfulness-Based Pain Management Course
-              - link: /services/mindfulness-training/frequently-asked-questions/
-                name: Frequently Asked Questions
-              - link: /services/mindfulness-training/upcoming-courses/
+              - link: /mindfulness-training/in-person/upcoming-courses/
                 name: Upcoming Courses
+        - link: /mindfulness-training/frequently-asked-questions/
+          name: Frequently Asked Questions
   - link: /blog/
     name: Blog
   - link: /contact/

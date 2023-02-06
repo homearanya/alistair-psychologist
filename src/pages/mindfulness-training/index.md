@@ -31,7 +31,7 @@ testimonialsArea:
         I have benefited so much more than I could ever have imagined or dreamt of. I have better interactions… and also my relationships have improved with all my family members.
 ---
 
-**Mindfulness training will not only help you to deal with <gatsby-link to="/services/mindfulness-training/mindfulness-based-stress-reduction-course/#start-content">stress</gatsby-link> or <gatsby-link to="/services/mindfulness-training/mindfulness-based-pain-management-course/#start-content">chronic</gatsby-link> pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life.**
+**Mindfulness training will not only help you to deal with <gatsby-link to="/mindfulness-training/in-person/mindfulness-based-stress-reduction-course/#start-content">stress</gatsby-link> or <gatsby-link to="/mindfulness-training/in-person/mindfulness-based-pain-management-course/#start-content">chronic</gatsby-link> pain more effectively it will also help you to gain more enjoyment from all of the potentially pleasurable aspects of life.**
 
 Note:
 

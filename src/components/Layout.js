@@ -14,7 +14,7 @@ import "../assets/css/main.css"
 import "../assets/css/custom.css"
 
 import HeaderTop from "./HeaderTop"
-import { Header } from "./Header"
+import Header from "./Header"
 import FooterBottom from "./FooterBottom"
 import ScrollUp from "./ScrollUp"
 
@@ -44,7 +44,7 @@ export default function Layout(props) {
         setShowPopup(true)
         setCookie("alistairNewsletter", true, {
           path: "/",
-          expires: addDays(new Date(), 180)
+          expires: addDays(new Date(), 180),
         })
       }
     }
@@ -53,7 +53,7 @@ export default function Layout(props) {
     return () => {
       document.removeEventListener("mouseout", mouseOutHanler)
     }
-  }, [cookies])
+  }, [cookies, setCookie])
 
   const data = useStaticQuery(graphql`
     query LayoutQuery {
@@ -82,19 +82,19 @@ export default function Layout(props) {
           defer
           src="https://use.fontawesome.com/releases/v5.7.1/js/solid.js"
           integrity="sha384-6FXzJ8R8IC4v/SKPI8oOcRrUkJU8uvFK6YJ4eDY11bJQz4lRw5/wGthflEOX8hjL"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <script
           defer
           src="https://use.fontawesome.com/releases/v5.7.1/js/brands.js"
           integrity="sha384-zJ8/qgGmKwL+kr/xmGA6s1oXK63ah5/1rHuILmZ44sO2Bbq1V3p3eRTkuGcivyhD"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <script
           defer
           src="https://use.fontawesome.com/releases/v5.7.1/js/fontawesome.js"
           integrity="sha384-Qmms7kHsbqYnKkSwiePYzreT+ufFVSNBhfLOEp0sEEfEVdORDs/aEnGaJy/l4eoy"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
 
         <meta

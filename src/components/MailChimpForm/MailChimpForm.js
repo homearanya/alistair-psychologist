@@ -1,72 +1,80 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import { CSSTransition } from "react-transition-group"
 import Loader from "react-loader-spinner"
 import styled from "styled-components"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 
-export class MailChimpForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      fnameaksljf: "",
-      lnameaksljf: "",
-      emailaksljf: "",
-      phone_numberaksljf: "",
-      fname: "",
-      lname: "",
-      email: "",
-      phone_number: "",
-      submissionResult: null,
-      loadSpinner: false
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.sendMailchimp = this.sendMailchimp.bind(this)
-  }
+export const MailChimpForm = props => {
+  const [dataForm, setDataForm] = useState({
+    fnameaksljf: "",
+    lnameaksljf: "",
+    emailaksljf: "",
+    phone_numberaksljf: "",
+    fname: "",
+    lname: "",
+    email: "",
+    phone_number: "",
+  })
+  const [submissionResult, setSubmissionResult] = useState(null)
 
-  handleChange(event) {
+  const [loadSpinner, setLoadSpinner] = useState(false)
+
+  const {
+    fnameaksljf,
+    lnameaksljf,
+    emailaksljf,
+    phone_numberaksljf,
+    fname,
+    lname,
+    email,
+    phone_number,
+  } = dataForm
+
+  const handleChange = event => {
+    let newDataForm = {}
     switch (event.target.name) {
       // real fields
       case "fnameaksljf":
-        this.setState({ fnameaksljf: event.target.value })
+        newDataForm = { fnameaksljf: event.target.value }
         break
       case "lnameaksljf":
-        this.setState({ lnameaksljf: event.target.value })
+        newDataForm = { lnameaksljf: event.target.value }
         break
       case "emailaksljf":
-        this.setState({ emailaksljf: event.target.value })
+        newDataForm = { emailaksljf: event.target.value }
         break
       case "phone_numberaksljf":
-        this.setState({ phone_numberaksljf: event.target.value })
+        newDataForm = { phone_numberaksljf: event.target.value }
         break
       // Honeypot fields
       case "fname":
-        this.setState({ fname: event.target.value })
+        newDataForm = { fname: event.target.value }
         break
       case "lname":
-        this.setState({ lname: event.target.value })
+        newDataForm = { lname: event.target.value }
         break
       case "email":
-        this.setState({ email: event.target.value })
+        newDataForm = { email: event.target.value }
         break
       case "phone_number":
-        this.setState({ phone_number: event.target.value })
+        newDataForm = { phone_number: event.target.value }
         break
       default:
         console.log("Wrong Case in Switch HandleChange")
     }
+    setDataForm(dataForm => ({ ...dataForm, ...newDataForm }))
   }
-  sendMailchimp = async () => {
+  const sendMailchimp = async () => {
     // Check is not spam
     if (
-      (this.state.fname && this.state.fname.length > 0) ||
-      (this.state.lname && this.state.lname.length > 0) ||
-      (this.state.email && this.state.email.length > 0) ||
-      (this.state.phone_number && this.state.phone_number.length > 0)
+      (fname && fname.length > 0) ||
+      (lname && lname.length > 0) ||
+      (email && email.length > 0) ||
+      (phone_number && phone_number.length > 0)
     ) {
       // it's spam but let's pretend it's a successful submission!!!
       setTimeout(() => {
-        this.setState({
+        setDataForm({
           fnameaksljf: "",
           lnameaksljf: "",
           emailaksljf: "",
@@ -77,244 +85,241 @@ export class MailChimpForm extends Component {
           phone_number: "",
           subject: "",
           message: "",
-          submissionResult:
-            "Thanks for your subscription. I’ll be in touch shortly.",
-          loadSpinner: false
         })
+        setSubmissionResult(
+          "Thanks for your subscription. I’ll be in touch shortly."
+        )
+        setLoadSpinner(false)
       }, 2000)
       return
     }
     // It's not spam. Let's send subscription request to Mailchimp
 
-    const { msg } = await addToMailchimp(this.state.emailaksljf, {
-      FNAME: this.state.fnameaksljf,
-      LNAME: this.state.lnameaksljf,
-      PHONE: this.state.phone_numberaksljf
+    const { msg } = await addToMailchimp(emailaksljf, {
+      FNAME: fnameaksljf,
+      LNAME: lnameaksljf,
+      PHONE: phone_numberaksljf,
     })
-    this.setState({
+    setDataForm({
       fnameaksljf: "",
       lnameaksljf: "",
       emailaksljf: "",
       phone_numberaksljf: "",
-      submissionResult: msg,
-      loadSpinner: false
     })
+    setSubmissionResult(msg)
+    setLoadSpinner(false)
   }
 
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault()
-    this.setState({ loadSpinner: true, submissionResult: null }, () => {
-      this.sendMailchimp()
-    })
+    setSubmissionResult(null)
+    setLoadSpinner(true)
+    sendMailchimp()
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <StyledForm
-          className={this.props.className}
-          onSubmit={this.handleSubmit}
-        >
-          {/* Real Fields */}
+  return (
+    <React.Fragment>
+      <StyledForm className={props.className} onSubmit={handleSubmit}>
+        {/* Real Fields */}
+        <div className="col-sm-12 col-md-6">
+          <div className="contact-form-name">
+            <label htmlFor="fnameaksljf">
+              First Name
+              <span className="required">*</span>
+            </label>
+            <input
+              aria-label="First Name"
+              aria-required
+              required
+              type="text"
+              size="30"
+              name="fnameaksljf"
+              id="fnameaksljf"
+              className="form-control"
+              placeholder="First Name"
+              value={fnameaksljf}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="col-sm-12 col-md-6">
+          <div className="contact-form-name">
+            <label htmlFor="lnameaksljf">
+              Last Name
+              <span className="required">*</span>
+            </label>
+            <input
+              aria-label="Last Name"
+              aria-required
+              required
+              type="text"
+              size="30"
+              name="lnameaksljf"
+              id="lnameaksljf"
+              className="form-control"
+              placeholder="Last Name"
+              value={lnameaksljf}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="col-sm-12">
+          <div className="contact-form-email">
+            <label htmlFor="emailaksljf">
+              Email address
+              <span className="required">*</span>
+            </label>
+            <input
+              aria-label="Email Address"
+              aria-required
+              required
+              type="email"
+              size="30"
+              name="emailaksljf"
+              id="emailaksljf"
+              className="form-control"
+              placeholder="Email Address"
+              value={emailaksljf}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="col-sm-12">
+          <div className="contact-form-phone">
+            <label htmlFor="phone_numberaksljf">Phone</label>
+            <input
+              aria-label="Phone Number"
+              type="text"
+              size="30"
+              name="phone_numberaksljf"
+              id="phone_numberaksljf"
+              className="form-control"
+              placeholder="Cell Phone (optional)"
+              value={phone_numberaksljf}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        {/* Honey Pots Fields */}
+        <HoneypotWrapper>
           <div className="col-sm-12 col-md-6">
             <div className="contact-form-name">
-              <label htmlFor="fnameaksljf">
+              <label htmlFor="fname">
                 First Name
                 <span className="required">*</span>
               </label>
               <input
                 aria-label="First Name"
-                aria-required
-                required
                 type="text"
                 size="30"
-                name="fnameaksljf"
-                id="fnameaksljf"
+                name="fname"
+                id="fname"
                 className="form-control"
                 placeholder="First Name"
-                value={this.state.fnameaksljf}
-                onChange={this.handleChange}
+                value={fname}
+                onChange={handleChange}
               />
             </div>
           </div>
           <div className="col-sm-12 col-md-6">
             <div className="contact-form-name">
-              <label htmlFor="lnameaksljf">
+              <label htmlFor="lname">
                 Last Name
                 <span className="required">*</span>
               </label>
               <input
                 aria-label="Last Name"
-                aria-required
-                required
                 type="text"
                 size="30"
-                name="lnameaksljf"
-                id="lnameaksljf"
+                name="lname"
+                id="lname"
                 className="form-control"
                 placeholder="Last Name"
-                value={this.state.lnameaksljf}
-                onChange={this.handleChange}
+                value={lname}
+                onChange={handleChange}
               />
             </div>
           </div>
-          <div className="col-sm-12">
+
+          <div className="col-sm-12 ">
             <div className="contact-form-email">
-              <label htmlFor="emailaksljf">
-                Email address
-                <span className="required">*</span>
-              </label>
+              <label htmlFor="email">Email address</label>
               <input
-                aria-label="Email Address"
-                aria-required
-                required
                 type="email"
                 size="30"
-                name="emailaksljf"
-                id="emailaksljf"
+                name="email"
+                id="email"
                 className="form-control"
                 placeholder="Email Address"
-                value={this.state.emailaksljf}
-                onChange={this.handleChange}
+                autoComplete="off"
+                value={email}
+                onChange={handleChange}
               />
             </div>
           </div>
-          <div className="col-sm-12">
+          <div className="col-sm-12 ">
             <div className="contact-form-phone">
-              <label htmlFor="phone_numberaksljf">Phone</label>
+              <label htmlFor="phone_number">Phone</label>
               <input
-                aria-label="Phone Number"
-                type="text"
                 size="30"
-                name="phone_numberaksljf"
-                id="phone_numberaksljf"
+                name="phone_number"
+                id="phone_number"
                 className="form-control"
-                placeholder="Cell Phone (optional)"
-                value={this.state.phone_numberaksljf}
-                onChange={this.handleChange}
+                placeholder="Phone"
+                autoComplete="off"
+                value={phone_number}
+                onChange={handleChange}
               />
             </div>
           </div>
-          {/* Honey Pots Fields */}
-          <HoneypotWrapper>
-            <div className="col-sm-12 col-md-6">
-              <div className="contact-form-name">
-                <label htmlFor="fname">
-                  First Name
-                  <span className="required">*</span>
-                </label>
-                <input
-                  aria-label="First Name"
-                  type="text"
-                  size="30"
-                  name="fname"
-                  id="fname"
-                  className="form-control"
-                  placeholder="First Name"
-                  value={this.state.fname}
-                  onChange={this.handleChange}
+        </HoneypotWrapper>
+        {/* Button Area */}
+        <div className="col-sm-12">
+          <ButtonContainer className="contact-form-submit">
+            {loadSpinner && (
+              <LoaderContainer>
+                <Loader
+                  type="ThreeDots"
+                  color="#ffffff"
+                  height={18}
+                  width={80}
                 />
-              </div>
-            </div>
-            <div className="col-sm-12 col-md-6">
-              <div className="contact-form-name">
-                <label htmlFor="lname">
-                  Last Name
-                  <span className="required">*</span>
-                </label>
-                <input
-                  aria-label="Last Name"
-                  type="text"
-                  size="30"
-                  name="lname"
-                  id="lname"
-                  className="form-control"
-                  placeholder="Last Name"
-                  value={this.state.lname}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-
-            <div className="col-sm-12 ">
-              <div className="contact-form-email">
-                <label htmlFor="email">Email address</label>
-                <input
-                  type="email"
-                  size="30"
-                  name="email"
-                  id="email"
-                  className="form-control"
-                  placeholder="Email Address"
-                  autoComplete="off"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <div className="col-sm-12 ">
-              <div className="contact-form-phone">
-                <label htmlFor="phone_number">Phone</label>
-                <input
-                  size="30"
-                  name="phone_number"
-                  id="phone_number"
-                  className="form-control"
-                  placeholder="Phone"
-                  autoComplete="off"
-                  value={this.state.phone_number}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-          </HoneypotWrapper>
-          {/* Button Area */}
-          <div className="col-sm-12" stle={{ marginBottom: "-40px" }}>
-            <ButtonContainer className="contact-form-submit topmargin_20">
-              {this.state.loadSpinner && (
-                <LoaderContainer>
-                  <Loader
-                    type="ThreeDots"
-                    color="#ffffff"
-                    height={18}
-                    width={80}
-                  />
-                </LoaderContainer>
-              )}
-              <StyledButton
-                aria-label="Submit Button"
-                type="submit"
-                id="contact_form_submit"
-                name="contact_submit"
-                className="theme_button color1 with_shadow"
-                loadSpinner={this.state.loadSpinner}
-                disabled={this.state.loadSpinner}
-              >
-                Subscribe
-              </StyledButton>
-            </ButtonContainer>
-          </div>
-        </StyledForm>
-        <ResultWrapper>
-          <CSSTransition
-            in={this.state.submissionResult !== null}
-            classNames="slideUp"
-            timeout={300}
-            unmountOnExit
-          >
-            <ResultMessage>
-              <StyledText
-                dangerouslySetInnerHTML={{
-                  __html: this.state.submissionResult
-                }}
-              />
-            </ResultMessage>
-          </CSSTransition>
-        </ResultWrapper>
-      </React.Fragment>
-    )
-  }
+              </LoaderContainer>
+            )}
+            <StyledButton
+              aria-label="Submit Button"
+              type="submit"
+              id="contact_form_submit"
+              name="contact_submit"
+              className="theme_button color1 with_shadow"
+              loadSpinner={loadSpinner}
+              disabled={loadSpinner}
+            >
+              Subscribe
+            </StyledButton>
+          </ButtonContainer>
+        </div>
+      </StyledForm>
+      <ResultWrapper>
+        <CSSTransition
+          in={submissionResult !== null}
+          classNames="slideUp"
+          timeout={300}
+          unmountOnExit
+        >
+          <ResultMessage>
+            <StyledText
+              dangerouslySetInnerHTML={{
+                __html: submissionResult,
+              }}
+            />
+          </ResultMessage>
+        </CSSTransition>
+      </ResultWrapper>
+    </React.Fragment>
+  )
 }
+export default MailChimpForm
 
 const HoneypotWrapper = styled.div`
   opacity: 0;

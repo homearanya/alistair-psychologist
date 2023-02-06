@@ -1,9 +1,20 @@
-import React from "react";
-
-import UpcomingCourse from "./UpcomingCourse2";
-import FilteredCourses from "./FilteredCourses";
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import UpcomingCourse from "./UpcomingCourse2"
+import FilteredCourses from "./FilteredCourses"
 
 export default function UpcomingCourses() {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        sort: { frontmatter: { dateStart: ASC } }
+        filter: { frontmatter: { templateKey: { eq: "upcoming-courses" } } }
+      ) {
+        totalCount
+      }
+    }
+  `)
+  if (!data.allMarkdownRemark?.totalCount) return null
   return (
     <section className="columns_margin_bottom_30">
       <div className="container">
@@ -18,5 +29,5 @@ export default function UpcomingCourses() {
         </div>
       </div>
     </section>
-  );
+  )
 }

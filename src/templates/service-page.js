@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import rehypeReact from "rehype-react"
 import styled from "styled-components"
 
@@ -14,7 +14,7 @@ import Accordion from "../components/Accordion"
 import Tab from "../components/Tab"
 import TabHeading from "../components/TabHeading"
 import TabContent from "../components/TabContent"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 
 const StyledLink = styled(Link)`
   && {
@@ -29,7 +29,7 @@ const StyledLink = styled(Link)`
   }
 `
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   margin-bottom: 50px;
   @media (min-width: 992px) {
     margin-bottom: 0;
@@ -64,7 +64,7 @@ const renderAst = new rehypeReact({
   },
 }).Compiler
 
-export default function({ data }) {
+export default function ServicePage({ data }) {
   // const ServiceContent = HTMLContent || Content;
   const { fields, frontmatter } = data.markdownRemark
   //   Prepare breadcrumbs
@@ -97,7 +97,7 @@ export default function({ data }) {
   }
   return (
     <Layout currentPageSlug={fields.slug} appointmentButton>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
         pageType="service"
@@ -135,14 +135,19 @@ export default function({ data }) {
             <div className="col-lg-4 col-lg-push-8 col-sm-5 col-sm-push-7">
               {frontmatter.bodyimage && frontmatter.bodyimage.image && (
                 <StyledImg
-                  fluid={frontmatter.bodyimage.image.childImageSharp.fluid}
+                  image={
+                    frontmatter.bodyimage.image.childImageSharp.gatsbyImageData
+                  }
                   alt={frontmatter.bodyimage.alt}
                 />
               )}
             </div>
             <div className="col-lg-8 col-lg-pull-4 col-sm-7 col-sm-pull-5">
               <DynamicAnchor id="start-content" />
-              <h2 className="section_header small">{frontmatter.title}</h2>
+              <h2
+                className="section_header small"
+                dangerouslySetInnerHTML={{ __html: frontmatter.title }}
+              />
               <hr className="divider_30_1" />
               {renderAst(data.markdownRemark.htmlAst)}
             </div>
@@ -162,7 +167,7 @@ export default function({ data }) {
   )
 }
 
-export const servicePageQuery = graphql`
+export const query = graphql`
   query ServicePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       fields {
@@ -177,9 +182,7 @@ export const servicePageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt
@@ -187,9 +190,11 @@ export const servicePageQuery = graphql`
         bodyimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 400) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 400
+                layout: CONSTRAINED
+                placeholder: BLURRED
+              )
             }
           }
           alt

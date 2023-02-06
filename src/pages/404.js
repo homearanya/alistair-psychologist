@@ -10,7 +10,7 @@ const StyledSection = styled.section`
   background-position: center;
 `
 
-export default function() {
+export default function NotFound() {
   return (
     <Layout>
       <Helmet>

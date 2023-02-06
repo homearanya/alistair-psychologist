@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function PrevNextPost(props) {
   return (
@@ -8,10 +8,10 @@ export default function PrevNextPost(props) {
       <div className="with_padding_small text-center cs bg_teaser after_cover color_bg_1">
         {props.post.frontmatter.thumbnailimage &&
           props.post.frontmatter.thumbnailimage.image && (
-            <Img
-              fluid={
+            <GatsbyImage
+              image={
                 props.post.frontmatter.thumbnailimage.image.childImageSharp
-                  .fluid
+                  .gatsbyImageData
               }
               alt={props.post.frontmatter.thumbnailimage.alt}
             />

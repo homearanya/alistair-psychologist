@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 
 import CourseHeader from "./CourseHeader"
@@ -46,15 +46,18 @@ export default function UpcomingCourse({
     // contentClassName = "col-md-10 col-md-push-1";
     contentClassName = ""
   }
-  const courseUrl = `${siteUrl}/services/mindfulness-training/upcoming-courses/`
+  const courseUrl = `${siteUrl}/mindfulness-training/in-person/upcoming-courses/`
   return (
     <StyledPost className="post side-item content-padding with_shadow">
       <div className="row">
         {courseInfo.thumbnailimage && courseInfo.thumbnailimage.image && (
           <div className="col-md-5">
             <div className="item-media">
-              <Img
-                fluid={courseInfo.thumbnailimage.image.childImageSharp.fluid}
+              <GatsbyImage
+                image={
+                  courseInfo.thumbnailimage.image.childImageSharp
+                    .gatsbyImageData
+                }
                 alt={courseInfo.thumbnailimage.alt}
               />
             </div>

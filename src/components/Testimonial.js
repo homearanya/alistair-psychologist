@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export default function Testimonial(props) {
   return (
@@ -10,5 +10,5 @@ export default function Testimonial(props) {
         </div>
       </blockquote>
     </div>
-  );
+  )
 }

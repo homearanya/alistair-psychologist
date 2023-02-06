@@ -28,7 +28,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
       postsPages: allMarkdownRemark(
         limit: 1000
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { frontmatter: { date: DESC } }
         filter: {
           fileAbsolutePath: { regex: "/src/pages/" }
           frontmatter: { templateKey: { eq: "post-page" } }
@@ -50,28 +50,26 @@ exports.createPages = ({ actions, graphql }) => {
                 }
                 id
               }
-              thumbnailimage {
-                alt
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 400) {
-                      base64
-                      aspectRatio
-                      src
-                      srcSet
-                      sizes
-                    }
-                  }
-                }
-              }
+              # thumbnailimage {
+              #   alt
+              #   image {
+              #     childImageSharp {
+              #       gatsbyImageData(
+              #         width: 400
+              #         placeholder: BLURRED
+              #         layout: CONSTRAINED
+              #       )
+              #     }
+              #   }
+              # }
             }
           }
         }
       }
     }
-  `).then((result) => {
+  `).then(result => {
     if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()))
+      result.errors.forEach(e => console.error(e.toString()))
       return Promise.reject(result.errors)
     }
 
@@ -121,7 +119,7 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
     // Create blog categories pages
-    Object.keys(categories).forEach((category) => {
+    Object.keys(categories).forEach(category => {
       const { id, title } = categories[category]
       createPage({
         path: `/blog/categories/${category}`,

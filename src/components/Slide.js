@@ -1,5 +1,5 @@
-import React from "react";
-import Img from "gatsby-image";
+import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Slide(props) {
   return (
@@ -11,8 +11,8 @@ export default function Slide(props) {
           title={props.imageTitle}
         />
       ) : (
-        <Img
-          fluid={props.imageFluid}
+        <GatsbyImage
+          image={props.imageFluid}
           alt={props.imageAlt}
           title={props.imageTitle}
         />
@@ -42,5 +42,5 @@ export default function Slide(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }

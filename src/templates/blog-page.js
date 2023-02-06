@@ -4,10 +4,10 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Breadcrumbs from "../components/Breadcrumbs"
 import PostThumbnail from "../components/PostThumbnail"
-import SEO from "../components/SEO/SEO"
+import Seo from "../components/Seo/Seo"
 import BlogSidebar from "../components/BlogSidebar"
 
-export default function({ location, data }) {
+export default function BlogPage({ location, data }) {
   const { fields, frontmatter } = data.blogPageQuery
   const { edges: posts } = data.postsQuery
   //   Prepare breadcrumbs
@@ -26,7 +26,7 @@ export default function({ location, data }) {
   }
   return (
     <Layout currentPageSlug={fields.slug}>
-      <SEO
+      <Seo
         pageData={pageMeta}
         breadcrumbs={JSON.parse(JSON.stringify(pages))}
       />
@@ -59,7 +59,7 @@ export default function({ location, data }) {
   )
 }
 
-export const blogPageQuery = graphql`
+export const query = graphql`
   query BlogQuery($id: String!) {
     blogPageQuery: markdownRemark(id: { eq: $id }) {
       fields {
@@ -71,9 +71,7 @@ export const blogPageQuery = graphql`
         bannerimage {
           image {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
           alt
@@ -81,7 +79,7 @@ export const blogPageQuery = graphql`
       }
     }
     postsQuery: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { templateKey: { eq: "post-page" } } }
     ) {
       edges {
@@ -104,9 +102,11 @@ export const blogPageQuery = graphql`
               alt
               image {
                 childImageSharp {
-                  fluid(maxWidth: 400) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+                  gatsbyImageData(
+                    width: 400
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                  )
                 }
               }
             }

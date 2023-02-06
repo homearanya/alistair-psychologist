@@ -1,8 +1,8 @@
-import React from "react";
-import { StaticQuery, graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import styled from "styled-components";
+import styled from "styled-components"
 
 const LogoWrapper = styled.div`
   ${({ togleMenu }) =>
@@ -25,9 +25,9 @@ const LogoWrapper = styled.div`
       transition: height 0.2s linear 0s;
     }
   }
-`;
+`
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
   ${({ togleMenu }) =>
     !togleMenu
       ? `
@@ -42,49 +42,46 @@ const StyledImg = styled(Img)`
     -webkit-transition: height 0.2s linear 0s;
     transition: height 0.2s linear 0s;
   }
-`;
+`
 
 export default function Logo(props) {
-  return (
-    <StaticQuery
-      query={graphql`
-        query LogoQuery {
-          file(relativePath: { eq: "logo.md" }) {
-            childMarkdownRemark {
-              frontmatter {
-                alt
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 200) {
-                      ...GatsbyImageSharpFluid_withWebp_noBase64
-                    }
-                  }
-                }
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "logo.md" }) {
+        childMarkdownRemark {
+          frontmatter {
+            alt
+            image {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 200
+                  placeholder: BLURRED
+                  layout: CONSTRAINED
+                )
               }
             }
           }
         }
-      `}
-      render={data => {
-        const { frontmatter } = data.file.childMarkdownRemark;
-        return (
-          <LogoWrapper
-            className="logo"
-            isSticky={props.isSticky}
-            togleMenu={props.togleMenu}
-          >
-            <Link to="/">
-              <StyledImg
-                fluid={frontmatter.image.childImageSharp.fluid}
-                alt={frontmatter.alt}
-                imgStyle={{ objectFit: "contain" }}
-                isSticky={props.isSticky}
-                togleMenu={props.togleMenu}
-              />
-            </Link>
-          </LogoWrapper>
-        );
-      }}
-    />
-  );
+      }
+    }
+  `)
+
+  const { frontmatter } = data.file.childMarkdownRemark
+  return (
+    <LogoWrapper
+      className="logo"
+      isSticky={props.isSticky}
+      togleMenu={props.togleMenu}
+    >
+      <Link to="/">
+        <StyledImg
+          image={frontmatter.image.childImageSharp.gatsbyImageData}
+          alt={frontmatter.alt}
+          imgStyle={{ objectFit: "contain" }}
+          isSticky={props.isSticky}
+          togleMenu={props.togleMenu}
+        />
+      </Link>
+    </LogoWrapper>
+  )
 }

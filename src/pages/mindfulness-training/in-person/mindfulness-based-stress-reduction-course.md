@@ -1,17 +1,17 @@
 ---
-templateKey: mindfulness-training-page
+templateKey: in-person-training-page
 title: Mindfulness-Based Stress Reduction Course
 excerpt: >-
   This programme is for all individuals who want to learn how to deal more effectively with stress, the negative reactions it evokes within us, and the unproductive behaviour we often engage in. The training is run over a period of eight weeks and can be engaged with on a one-on-one basis with myself (in my office) or in a small group.
 thumbnailimage:
   alt: Mindfulness Training
-  image: ../../assets/img/meditation.png
+  image: ../../../assets/img/mindfulness-training-stress-course-thumbnail.jpg
 bannerimage:
   alt: Mindfulness Training
-  image: ../../assets/img/mindfulness-training-stress-course-banner.jpg
+  image: ../../../assets/img/mindfulness-training-stress-course-banner.jpg
 bodyimage:
   alt: Sunset on the beach
-  image: ../../assets/img/mindfulness-training-stress-course.jpg
+  image: ../../../assets/img/mindfulness-training-stress-course.jpg
 ---
 
 This programme is for all individuals who want to learn how to deal more effectively with stress, the negative reactions it evokes within us, and the unproductive behaviour we often engage in. The training is run over a period of eight weeks and can be engaged with on a one-on-one basis with myself (in my office) or in a small group.

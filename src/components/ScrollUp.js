@@ -1,6 +1,6 @@
-import React from "react";
-import ScrollToTop from "react-scroll-up";
-import styled from "styled-components";
+import React from "react"
+import ScrollToTop from "react-scroll-up"
+import styled from "styled-components"
 
 const ScrollToTopWrapper = styled.div`
   &&& {
@@ -11,7 +11,7 @@ const ScrollToTopWrapper = styled.div`
       background-color: #000;
     }
   }
-`;
+`
 
 const IStyled = styled.i`
   &&& {
@@ -32,7 +32,7 @@ const IStyled = styled.i`
       background-color: #91d0cc;
     }
   }
-`;
+`
 
 export default function ScrollUp() {
   return (
@@ -41,5 +41,5 @@ export default function ScrollUp() {
         <IStyled className="fas fa-angle-up" />
       </ScrollToTop>
     </ScrollToTopWrapper>
-  );
+  )
 }
